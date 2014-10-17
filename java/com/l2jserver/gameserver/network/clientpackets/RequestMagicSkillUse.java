@@ -1,0 +1,154 @@
+/*
+ * Copyright (C) 2004-2014 L2J Server
+ * 
+ * This file is part of L2J Server.
+ * 
+ * L2J Server is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * L2J Server is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+package com.l2jserver.gameserver.network.clientpackets;
+
+import com.l2jserver.Config;
+import com.l2jserver.gameserver.ai.CtrlIntention;
+import com.l2jserver.gameserver.datatables.SkillData; // 603-TEST
+import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.effects.L2EffectType;
+import com.l2jserver.gameserver.model.skills.BuffInfo; // 603-TEST
+import com.l2jserver.gameserver.model.skills.Skill;
+import com.l2jserver.gameserver.model.skills.targets.L2TargetType;
+import com.l2jserver.gameserver.network.SystemMessageId;
+import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
+import com.l2jserver.gameserver.instancemanager.AwakingManager; // 603
+import com.l2jserver.gameserver.ThreadPoolManager; // 603-TEST
+
+public final class RequestMagicSkillUse extends L2GameClientPacket
+{
+	private static final String _C__39_REQUESTMAGICSKILLUSE = "[C] 39 RequestMagicSkillUse";
+	
+	private int _magicId;
+	private boolean _ctrlPressed;
+	private boolean _shiftPressed;
+	
+	@Override
+	protected void readImpl()
+	{
+		_magicId = readD(); // Identifier of the used skill
+		_ctrlPressed = readD() != 0; // True if it's a ForceAttack : Ctrl pressed
+		_shiftPressed = readC() != 0; // True if Shift pressed
+	}
+	
+	@Override
+	protected void runImpl()
+	{
+		// Get the current L2PcInstance of the player
+		final L2PcInstance activeChar = getActiveChar();
+		if (activeChar == null)
+		{
+			return;
+		}
+		
+		// Get the level of the used skill
+		Skill skill = activeChar.getKnownSkill(_magicId);
+		if (skill == null)
+		{
+			// Player doesn't know this skill, maybe it's the display Id.
+			skill = activeChar.getCustomSkill(_magicId);
+			// 603-TEST Start
+			if ((_magicId == 1566) || (_magicId == 1567) || (_magicId == 1568) || (_magicId == 1569))
+			{
+				BuffInfo info = activeChar.getEffectList().getBuffInfoBySkillId(1570);
+				if (info != null)
+				{
+					activeChar.sendPacket(SystemMessageId.YOU_CANNOT_CHANGE_THE_CLASS_BECAUSE_OF_IDENTITY_CRISIS);
+					return;
+				}
+				else
+				{
+					skill = SkillData.getInstance().getSkill(_magicId, 1);
+				}
+			}
+			// 603-TEST End
+			if (skill == null)
+			{
+				activeChar.sendPacket(ActionFailed.STATIC_PACKET);
+				_log.warning("Skill Id " + _magicId + " not found in player!");
+				return;
+			}
+		}
+		
+		// Avoid Use of Skills in AirShip.
+		if (activeChar.isPlayable() && activeChar.isInAirShip())
+		{
+			activeChar.sendPacket(SystemMessageId.ACTION_PROHIBITED_WHILE_MOUNTED_OR_ON_AN_AIRSHIP);
+			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
+			return;
+		}
+		
+		if ((activeChar.isTransformed() || activeChar.isInStance()) && !activeChar.hasTransformSkill(skill.getId()))
+		{
+			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
+			return;
+		}
+		
+		// If Alternate rule Karma punishment is set to true, forbid skill Return to player with Karma
+		if (!Config.ALT_GAME_KARMA_PLAYER_CAN_TELEPORT && (activeChar.getKarma() > 0) && skill.hasEffectType(L2EffectType.TELEPORT))
+		{
+			return;
+		}
+		
+		// players mounted on pets cannot use any toggle skills
+		/* Update by rocknow
+		if (skill.isToggle() && activeChar.isMounted())
+		 */
+		if (skill.isToggle() && activeChar.isMounted() && skill.getId() != 7029)
+		{
+			return;
+		}
+		
+		// 603-TEST Start
+		if ((skill.getId() == 1566) || (skill.getId() == 1567) || (skill.getId() == 1568) || (skill.getId() == 1569))
+		{
+			ThreadPoolManager.getInstance().scheduleGeneral(new ClassChangeTask(activeChar, skill.getId() - 1566), 4300);
+		}
+		// 603-TEST End
+		// Stop if use self-buff (except if on AirShip or Boat).
+		if ((skill.isContinuous() && !skill.isDebuff() && (skill.getTargetType() == L2TargetType.SELF)) && (!activeChar.isInAirShip() || !activeChar.isInBoat()))
+		{
+			activeChar.getAI().setIntention(CtrlIntention.AI_INTENTION_MOVE_TO, activeChar.getLocation());
+		}
+		
+		activeChar.useMagic(skill, _ctrlPressed, _shiftPressed);
+	}
+	// 603-TEST Start
+	class ClassChangeTask implements Runnable
+	{
+		L2PcInstance player;
+		int classIndex;
+		public ClassChangeTask(L2PcInstance player, int classIndex)
+		{
+			this.player = player;
+			this.classIndex = classIndex;
+		}
+		@Override
+		public void run()
+		{
+			AwakingManager.getInstance().ClassChange(player, classIndex);
+		}
+	}
+	// 603-TEST End
+	@Override
+	public String getType()
+	{
+		return _C__39_REQUESTMAGICSKILLUSE;
+	}
+}
