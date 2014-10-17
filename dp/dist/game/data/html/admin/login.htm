@@ -1,0 +1,31 @@
+﻿<html><title>登入伺服器</title><body>
+<table width=270><tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>伺服器管理</center></td>
+<td width=45><button value="返回" action="bypass -h admin_admin4" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table>
+<br><br>
+<table width=240>
+<tr>
+<td width=100>最大連線:</td>
+<td><edit var="qbox" width=120 height=21></td>
+<td><button value="幫助" action="bypass -h admin_html help/login.htm" width=45 height=15 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br><br>
+<table width=260><tr>
+<td>註冊:</td><td>%server_name%</td>
+</tr><tr>
+<td>狀態: %status%</td><td>計時器: %clock%</td>
+</tr><tr>
+<td>架設: %brackets%</td><td>最大連線: %max_players%</td>
+</tr></table>
+<center>
+<br><br>
+<table width=260><tr>
+<td><button value="唯獨GM上線" action="bypass -h admin_server_gm_only" width=95 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="踢除非GM" action="bypass -h admin_kick_non_gm" width=95 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="允許所有" action="bypass -h admin_server_all" width=95 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td></tr><tr>
+<td><button value="計時器開啟" action="bypass -h admin_server_list_clock on" width=95 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="計時器關閉" action="bypass -h admin_server_list_clock off" width=95 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="最大連線數" action="bypass -h admin_server_max_player $qbox" width=95 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td></tr></table>
+</center>
+</body></html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
+	<!-- 因為後面讀取的會取代前面讀取的，所以不直接修改原始檔案，而是增加相同 ID 來修改 -->
+	<!-- 修改相同 ID 的檔案時，先將要修改的那一段註解掉，再複製那一段來修改 -->
+	<!-- 但是要注意，必須每隔一段時間，檢查原始檔案是否有修正，或者改變寫法 -->
+	<!-- 原始內容
+	<skill id="239" levels="7" name="Expertise S84">
+		<table name="#icons"> icon.skill0239 icon.skill0240 icon.skill0241 icon.skill0242 icon.skill0243 icon.skill0243 icon.skill0243 </table>
+		<table name="#magicLvl"> 20 40 52 61 76 80 84 </table>
+	 -->
+	<skill id="239" levels="10" name="Expertise R99"> <!-- S84級專家 增加到 R99級專家 -->
+		<table name="#icons"> icon.skill0239 icon.skill0240 icon.skill0241 icon.skill0242 icon.skill0243 icon.skill0243 icon.skill0243 icon.skill0243_1 icon.skill0243_1 icon.skill0243_1 </table>
+		<table name="#magicLvl"> 20 40 52 61 76 80 84 90 95 99 </table>
+		<set name="icon" val="#icons" />
+		<set name="magicLvl" val="#magicLvl" />
+		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
+	</skill>
+	<!-- 原始內容
+	<skill id="248" levels="5" name="Crystallize">
+		<table name="#magicLvl"> 20 40 52 60 70 </table>
+	 -->
+	<skill id="248" levels="6" name="Crystallize"> <!-- 結晶製作 5級 增加到 6級 -->
+		<table name="#magicLvl"> 20 40 52 60 70 85 </table>
+		<set name="icon" val="icon.skill0248" />
+		<set name="magicLvl" val="#magicLvl" />
+		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
+	</skill>
+</list>

@@ -1,0 +1,67 @@
+﻿<html><title>L2J 效果管理</title><body>
+<center>
+<table width=270><tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>效果管理</center></td>
+<td width=45><button value="返回" action="bypass -h admin_admin6" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+<table width=270>
+<tr>
+<td>數值:</td>
+<td><edit var="qbox" width=120 height=15></td>
+<td><button value="幫助" action="bypass -h admin_html help/effects_menu.htm" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+玩家:<br1>
+<table width=270>
+<tr>
+<td><button value="指定改變" action="bypass -h admin_polymorph_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="解除改變" action="bypass -h admin_unpolymorph_menu" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="改變自己" action="bypass -h admin_polyself_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="解除自己" action="bypass -h admin_unpolyself_menu" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td><button value="指定麻痺" action="bypass -h admin_para_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="解除麻痺" action="bypass -h admin_unpara_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="麻痺全部" action="bypass -h admin_para_all_menu" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="解除全部" action="bypass -h admin_unpara_all_menu" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td><br></td>
+</tr>
+<tr>
+<td><button value="異常效果" action="bypass -h admin_ave_abnormal $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="特殊效果" action="bypass -h admin_ave_special $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="活動效果" action="bypass -h admin_ave_event $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td><button value="社交動作" action="bypass -h admin_social_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="技能效果" action="bypass -h admin_effect_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td><button value="變身效果" action="bypass -h admin_transform_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="還原小頭" action="bypass -h admin_shrinkhead" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="大頭效果" action="bypass -h admin_bighead" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="技能顯示" action="bypass -h admin_set_displayeffect_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br><br>
+世界:<br1>
+<table width=270>
+<tr>
+<td><button value="白天天空" action="bypass -h admin_atmosphere_menu sky day 0" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="夜晚天空" action="bypass -h admin_atmosphere_menu sky night 0" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="黎明天空" action="bypass -h admin_atmosphere_menu signsky dawn 0" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="黃昏天空" action="bypass -h admin_atmosphere_menu signsky dusk 0" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr><tr>
+<td><button value="紅色天空" action="bypass -h admin_atmosphere_menu sky red $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="地震效果" action="bypass -h admin_earthquake_menu $qbox" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="音樂選單" action="bypass -h admin_play_sounds" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="怪物群組" action="bypass -h admin_mobmenu" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td></td><td></td>
+</tr></table><br><br>
+<br><br>
+</center>
+伺服器軟體由 L2JTW 開發提供 www.l2jtw.com
+</body></html>

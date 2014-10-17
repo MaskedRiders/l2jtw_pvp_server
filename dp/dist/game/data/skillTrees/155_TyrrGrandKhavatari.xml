@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/skillTrees.xsd">
+	<!-- 提爾卡巴塔里宗師 -->
+	<skillTree type="classSkillTree" classId="155" parentClassId="114">
+		<skill skillName="R級專家" skillId="239" skillLvl="8" getLevel="85" autoGet="true" />
+		<skill skillName="R95級專家" skillId="239" skillLvl="9" getLevel="95" autoGet="true" />
+		<skill skillName="R99級專家" skillId="239" skillLvl="10" getLevel="99" autoGet="true" />
+		<skill skillName="結晶製作" skillId="248" skillLvl="1" getLevel="85" autoGet="true" />
+		<skill skillName="結晶製作" skillId="248" skillLvl="2" getLevel="85" autoGet="true" />
+		<skill skillName="結晶製作" skillId="248" skillLvl="3" getLevel="85" autoGet="true" />
+		<skill skillName="結晶製作" skillId="248" skillLvl="4" getLevel="85" autoGet="true" />
+		<skill skillName="結晶製作" skillId="248" skillLvl="5" getLevel="85" autoGet="true" />
+		<skill skillName="結晶製作" skillId="248" skillLvl="6" getLevel="85" autoGet="true" />
+		<skill skillName="製作一般道具" skillId="1320" skillLvl="10" getLevel="85" autoGet="true" />
+		<skill skillName="道具擴充加持" skillId="1571" skillLvl="1" getLevel="1" autoGet="true" />
+		<skill skillName="負重加持" skillId="1572" skillLvl="1" getLevel="1" autoGet="true" />
+		<skill skillName="騎乘野性薔薇" skillId="8601" skillLvl="1" getLevel="1" autoGet="true" />
+	</skillTree>
+</list>

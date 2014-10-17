@@ -1,0 +1,22 @@
+﻿<html><body>
+<font color="LEVEL">只可在一個根據地投標</font>，與投標結束的同時，會從血盟倉庫把與投標價相等的金幣 <font color="LEVEL">寄存於拍賣所</font>。投標價的 <font color="LEVEL">10%是交易稅</font>，而取消投標時也不會退還。<br>
+投標價應比<font color="LEVEL">最低投標價</font>【再次投標時，以之前投標價為準】高一些，在拍賣結束時以寫出最高價的血盟得標。<br>
+現在在血盟倉庫有 <font color="aaccff">%PLEDGE_ADENA%</font> 金幣，可投標的最低金額是 <font color="aaccff">%AGIT_AUCTION_MINBID%</font> 金幣。<br>
+投標價要寫出多少？
+<table width=270 border=0>
+<tr>
+<td width=220 align=right><edit var=bidprice width=230 align=right type=number></td>
+<td width=40 align=right>金幣</td>
+</tr>
+</table>
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+<table width=270 border=0>
+<tr>
+<td width=110></td>
+<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="上一步" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_bid $bidprice" value="確認已投標" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+</body></html>

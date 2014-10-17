@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/zones.xsd">
+	<zone name="說話之島村莊 --> 埃薩吉拉遺蹟地" type="JumpZone" shape="Cylinder" minZ="-1530" maxZ="-1480" rad="50">
+		<stat name="trackId" val="12" />
+		<node X="-113218" Y="256468" />
+	</zone>
+	<zone name="英魂之墓 --> 說話之島村莊" type="JumpZone" shape="Cylinder" minZ="-2875" maxZ="-2825" rad="50">
+		<stat name="trackId" val="20" />
+		<node X="-114643" Y="226854" />
+	</zone>
+	<zone name="古魯丁飛空艇碼頭 --> 柯塞勒斯同盟聯合基地" type="JumpZone" shape="Cylinder" minZ="-150" maxZ="-100" rad="50">
+		<stat name="trackId" val="22" />
+		<node X="-149248" Y="253323" />
+	</zone>
+	<zone name="柯塞勒斯同盟聯合基地 --> 古魯丁飛空艇碼頭" type="JumpZone" shape="Cylinder" minZ="2590" maxZ="2640" rad="50">
+		<stat name="trackId" val="23" />
+		<node X="-186315" Y="243738" />
+	</zone>
+	<zone name="黑暗精靈森林 --> 血之沼澤/魔物祭壇" type="JumpZone" shape="Cylinder" minZ="-3635" maxZ="-3585" rad="50">
+		<stat name="trackId" val="21" />
+		<node X="-15588" Y="30652" />
+	</zone>
+	<zone name="狄恩城鎮 --> 基洛德要塞西門/北門" type="JumpZone" shape="Cylinder" minZ="-2680" maxZ="-2630" rad="50">
+		<stat name="trackId" val="27" />
+		<node X="14655" Y="143185" />
+	</zone>
+	<zone name="奇岩城鎮 --> 基洛德要塞東門/北門" type="JumpZone" shape="Cylinder" minZ="-3430" maxZ="-3380" rad="50">
+		<stat name="trackId" val="34" />
+		<node X="83964" Y="147721" />
+	</zone>
+	<zone name="亞丁城鎮北方 --> 亞丁城鎮西方/東方" type="JumpZone" shape="Cylinder" minZ="-1990" maxZ="-1940" rad="50">
+		<stat name="trackId" val="28" />
+		<node X="146364" Y="19680" />
+	</zone>
+	<zone name="亞丁城鎮東方 --> 亞丁城鎮西方/北方" type="JumpZone" shape="Cylinder" minZ="-2135" maxZ="-2085" rad="50">
+		<stat name="trackId" val="29" />
+		<node X="153235" Y="24566" />
+	</zone>
+	<zone name="亞丁城鎮西方 --> 亞丁城鎮東方/北方" type="JumpZone" shape="Cylinder" minZ="-2245" maxZ="-2195" rad="50">
+		<stat name="trackId" val="30" />
+		<node X="140395" Y="25199" />
+	</zone>
+	<zone name="英魂之島港口 --> 第2據點/第3據點" type="JumpZone" shape="Cylinder" minZ="-3705" maxZ="-3655" rad="50">
+		<stat name="trackId" val="37" />
+		<node X="-74605" Y="53127" />
+	</zone>
+	<zone name="第2據點 --> 英魂之島港口/第3據點" type="JumpZone" shape="Cylinder" minZ="-2055" maxZ="-2005" rad="50">
+		<stat name="trackId" val="39" />
+		<node X="-95039" Y="52056" />
+	</zone>
+	<zone name="第3據點 --> 英魂之島港口/第2據點" type="JumpZone" shape="Cylinder" minZ="-2080" maxZ="-2030" rad="50">
+		<stat name="trackId" val="38" />
+		<node X="-86088" Y="36986" />
+	</zone>
+	<zone name="魯因城鎮 --> 魯因城外城1號地區/2號地區" type="JumpZone" shape="Cylinder" minZ="-860" maxZ="-810" rad="50">
+		<stat name="trackId" val="33" />
+		<node X="40740" Y="-52141" />
+	</zone>
+	<zone name="魯因城 --> 魯因城外城1號地區/2號地區" type="JumpZone" shape="Cylinder" minZ="-1325" maxZ="-1275" rad="50">
+		<stat name="trackId" val="32" />
+		<node X="22260" Y="-50415" />
+	</zone>
+	<zone name="魯因城外城 --> 魯因城1號地區/2號地區" type="JumpZone" shape="Cylinder" minZ="-1315" maxZ="-1265" rad="50">
+		<stat name="trackId" val="31" />
+		<node X="28016" Y="-49177" />
+	</zone>
+	<zone name="妖精殖民地(左) --> 古都 亞爾康(左)" type="JumpZone" shape="Cylinder" minZ="800" maxZ="850" rad="50">
+		<stat name="trackId" val="16" />
+		<node X="213680" Y="80686" />
+	</zone>
+	<zone name="妖精殖民地(右) --> 古都 亞爾康(右)" type="JumpZone" shape="Cylinder" minZ="800" maxZ="850" rad="50">
+		<stat name="trackId" val="17" />
+		<node X="214400" Y="81571" />
+	</zone>
+	<zone name="古都 亞爾康(左) --> 北方森林深處/提米妮爾懷抱" type="JumpZone" shape="Cylinder" minZ="390" maxZ="440" rad="50">
+		<stat name="trackId" val="14" />
+		<node X="205888" Y="80587" />
+	</zone>
+	<zone name="古都 亞爾康(右) --> 南方森林深處/提米妮爾懷抱" type="JumpZone" shape="Cylinder" minZ="110" maxZ="160" rad="50">
+		<stat name="trackId" val="15" />
+		<node X="211809" Y="82905" />
+	</zone>
+	<zone name="創世庭園(上) --> 阿芙蘿絲庭園/噴水池庭園/天使像庭園" type="JumpZone" shape="Cylinder" minZ="-2080" maxZ="-2030" rad="40">
+		<stat name="trackId" val="18" />
+		<node X="206849" Y="110723" />
+	</zone>
+	<zone name="創世庭園(下) --> 阿芙蘿絲庭園/噴水池庭園/創世庭園入口" type="JumpZone" shape="Cylinder" minZ="-2090" maxZ="-2040" rad="40">
+		<stat name="trackId" val="19" />
+		<node X="221507" Y="118861" />
+	</zone>
+	<zone name="刑場一層(北) --> 刑場二層(北)" type="JumpZone" shape="Cylinder" minZ="-3685" maxZ="-3635" rad="50">
+		<stat name="trackId" val="35" />
+		<node X="49083" Y="142616" />
+	</zone>
+	<zone name="刑場一層(南) --> 刑場二層(南)" type="JumpZone" shape="Cylinder" minZ="-3575" maxZ="-3525" rad="50">
+		<stat name="trackId" val="36" />
+		<node X="50803" Y="152845" />
+	</zone>
+	<zone name="刑場二層(北) --> 刑場高層(北)" type="JumpZone" shape="Cylinder" minZ="-2580" maxZ="-2530" rad="50">
+		<stat name="trackId" val="26" />
+		<node X="44373" Y="142191" />
+	</zone>
+	<zone name="刑場三層(南) --> 刑場上層(南)" type="JumpZone" shape="Cylinder" minZ="-1965" maxZ="-1915" rad="50">
+		<stat name="trackId" val="24" />
+		<node X="47046" Y="154392" />
+	</zone>
+	<zone name="刑場上層(南) --> 刑場三層(南)" type="JumpZone" shape="Cylinder" minZ="-1100" maxZ="-1050" rad="50">
+		<stat name="trackId" val="25" />
+		<node X="45075" Y="154690" />
+	</zone>
+</list>

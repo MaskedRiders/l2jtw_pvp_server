@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
+	<!-- 因為後面讀取的會取代前面讀取的，所以不直接修改原始檔案，而是增加相同 ID 來修改 -->
+	<!-- 修改相同 ID 的檔案時，先將要修改的那一段註解掉，再複製那一段來修改 -->
+	<!-- 但是要注意，必須每隔一段時間，檢查原始檔案是否有修正，或者改變寫法 -->
+	<skill id="7029" levels="4" name="Super Haste">
+		<!-- GM 超級加速 改為切換型 -->
+		<table name="#amount"> 1.5 2 3 4 </table>
+		<table name="#mAtkSpd"> 1.5 1.8 3 4 </table>
+		<table name="#pAtkSpd"> 1.2 1.5 2 3 </table>
+		<table name="#reuse"> 1 0.5 0.25 0.01 </table>
+		<table name="#runSpd"> 1.5 2 3 4 </table>
+		<set name="abnormalVisualEffect" val="NONE" />
+		<set name="icon" val="icon.skill7029" />
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="T" />
+		<set name="targetType" val="SELF" />
+		<for>
+			<effect name="Buff">
+				<mul order="0x30" stat="pAtkSpd" val="#pAtkSpd" />
+				<mul order="0x30" stat="runSpd" val="#runSpd" />
+				<mul order="0x30" stat="mAtkSpd" val="#mAtkSpd" />
+				<mul order="0x30" stat="pReuse" val="#reuse" />
+				<mul order="0x30" stat="mReuse" val="#reuse" />
+				<mul order="0x30" stat="regHp" val="#amount" />
+				<mul order="0x30" stat="regMp" val="#amount" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="7052" levels="1" name="Master's Blessing - Magic Barrier">
+		<!-- GM Skill -->
+		<set name="abnormalLvl" val="3" />
+		<set name="abnormalTime" val="3600" />
+		<!-- GM的祝福-魔法屏障 Type 錯誤
+		<set name="abnormalType" val="PD_UP" />
+		 -->
+		<set name="abnormalType" val="MD_UP" />
+		<set name="castRange" val="400" />
+		<set name="effectPoint" val="1" />
+		<set name="effectRange" val="900" />
+		<set name="hitTime" val="500" />
+		<set name="icon" val="icon.skill1036" />
+		<set name="isMagic" val="1" /> <!-- Magic Skill -->
+		<set name="magicLvl" val="52" />
+		<set name="mpConsume" val="2" />
+		<set name="operateType" val="A2" />
+		<set name="targetType" val="ONE" />
+		<for>
+			<effect name="Buff">
+				<mul order="0x30" stat="mDef" val="1.3" />
+			</effect>
+		</for>
+	</skill>
+</list>

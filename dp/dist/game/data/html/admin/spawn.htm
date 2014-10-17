@@ -1,0 +1,32 @@
+﻿<html><title>召喚選單</title><body>
+<center>
+<table width=270><tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center><button value="召喚NPC-名稱" action="bypass -h admin_show_npcs" width=100 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></center></td>
+<td width=45><button value="返回" action="bypass -h admin_spawn" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+召喚 NPC/怪物 ID:<font color="LEVEL"> [*]</font><br1>
+<table width=270><tr>
+<td width=90>ID|名稱/數量:</td>
+<td width=60><edit var="id" width=60 height=15></td>
+<td width=15><edit var="qty" width=15 height=15></td>
+<td width=45><button value="永久" action="bypass -h admin_spawn_monster $id $qty" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=45><button value="暫時" action="bypass -h admin_spawn_once $id $qty" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+特別的:<br1>
+<table width=270>
+<tr>
+	<td><button value="重新讀取" action="bypass -h admin_spawn_reload" width=90 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+	<td><button value="移除所有NPC" action="bypass -h admin_unspawnall" width=90 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+	<td><button value="重新召喚NPC" action="bypass -h admin_respawnall" width=90 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td><button value="夜晚型" action="bypass -h admin_spawnnight" width=90 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="白天型" action="bypass -h admin_spawnday" width=90 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td></td>
+</tr>
+</table>
+</center><br>
+[*]: Names are case insensitive, but you must use underscores instead of spaces.<br>
+You can leave qty field empty if you don't need more than one mob.
+</body></html>

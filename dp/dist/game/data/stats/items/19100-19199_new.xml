@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<item id="19166" name="飾品用生命石-R級" type="EtcItem">
+		<table name="#Desc">怪物內部的結石受到物理/魔法攻擊而僵硬的礦石。可成為精煉飾品的材料，等級85以上的角色可以使用。</table>
+		<set name="icon" val="icon.r_mineral_unique_i00" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="2" />
+		<set name="is_stackable" val="true" />
+		<cond msgId="113">
+			<player level="85" />
+		</cond>
+	</item>
+	<item id="19167" name="飾品用生命石-R95級" type="EtcItem">
+		<table name="#Desc">怪物內部的結石受到物理/魔法攻擊而僵硬的礦石。可成為精煉飾品的材料，等級95以上的角色可以使用。</table>
+		<set name="icon" val="icon.r95_mineral_unique_i00" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="2" />
+		<set name="is_stackable" val="true" />
+		<cond msgId="113">
+			<player level="95" />
+		</cond>
+	</item>
+	<item id="19168" name="飾品用生命石-R99級" type="EtcItem">
+		<table name="#Desc">怪物內部的結石受到物理/魔法攻擊而僵硬的礦石。可成為精煉飾品的材料，等級99以上的角色可以使用。</table>
+		<set name="icon" val="icon.r99_mineral_unique_i00" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="2" />
+		<set name="is_stackable" val="true" />
+		<cond msgId="113">
+			<player level="99" />
+		</cond>
+	</item>
+</list>

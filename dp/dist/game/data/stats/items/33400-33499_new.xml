@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<item id="33478" name="破滅武器強化卷軸-R級" type="EtcItem">
+		<table name="#Desc">強化時，R級劍/單手、鈍器/單手、匕首、槍，以及其他類武器的物理攻擊力可提升6；劍/雙手、鈍器/雙手、二刀流、格鬥兵器/雙手、弩類武器的物理攻擊力可提升7；弓類武器的攻擊力可提升12；所有武器的魔法攻擊力可提升5。從強化+4開始，大幅提升物理攻擊力/魔法攻擊力。與一般武器相比，祝福的武器在所有層面上都有較大的增幅度。強化失敗時，藉由破滅女神之力，現有的裝備雖不會被結晶化，但將維持現有的強化數值。無法用於強化+15以上的防具。</table>
+		<set name="icon" val="icon.scroll_of_enchant_weapon_i06" />
+		<set name="default_action" val="SKILL_REDUCE" />
+		<set name="etcitem_type" val="ANCIENT_CRYSTAL_ENCHANT_WP" /> <!-- l2jtw : 603 -->
+		<set name="material" val="PAPER" />
+		<set name="is_stackable" val="true" />
+		<set name="is_premium" val="true" />
+		<set name="is_oly_restricted" val="true" />
+		<set name="handler" val="EnchantScrolls" />
+		<set name="item_skill" val="12872-1" />
+	</item>
+	<item id="33479" name="破滅防具強化卷軸-R級" type="EtcItem">
+		<table name="#Desc">強化時，R級防具或飾品的物理防禦力可提升2，從強化+4開始大幅提升物理防禦力。至+3為止能安全進行強化。防具強化+4以上時，隨著強化值HP也會提升。強化失敗時，藉由破滅女神之力，現有的裝備雖不會被結晶化，但將維持現有的強化數值。無法用於強化+6以上的防具。</table>
+		<set name="icon" val="icon.scroll_of_enchant_armor_i06" />
+		<set name="default_action" val="SKILL_REDUCE" />
+		<set name="etcitem_type" val="ANCIENT_CRYSTAL_ENCHANT_AM" /> <!-- l2jtw : 603 -->
+		<set name="material" val="PAPER" />
+		<set name="is_stackable" val="true" />
+		<set name="is_premium" val="true" />
+		<set name="is_oly_restricted" val="true" />
+		<set name="handler" val="EnchantScrolls" />
+		<set name="item_skill" val="12873-1" />
+	</item>
+</list>

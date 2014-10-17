@@ -1,0 +1,29 @@
+﻿<html><body>
+<table width=260><tr>
+<td width=40><button value="首頁" action="bypass -h admin_admin" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>人物管理選單</center></td>
+<td width=40><button value="返回" action="bypass -h admin_character_info %name%" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table>
+<br><br>
+<center>編輯: <font color="LEVEL">%name%</font></center>
+<table width=270>
+<tr><td>等級: %level%</td></tr>
+<tr><td>職業: %class%</td></tr>
+<tr><td>EXP: %xp%</td></tr>
+<tr><td>SP: %sp%</td></tr></table>
+<center><br>
+注意：必須輸入兩個數值，如果不需要修改的請填0<br1>
+<br>
+<table width=270><tr>
+<td width=30>Exp:</td><td><edit var="exp_to_add" width=50></td>
+<td width=30>SP:</td><td><edit var="sp_to_add" width=50></td>
+<td><button value="增加" action="bypass -h admin_add_exp_sp $exp_to_add $sp_to_add" width=50 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="扣除" action="bypass -h admin_remove_exp_sp $exp_to_add $sp_to_add" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br><br>
+調整角色等級:<br1>
+<table width=270><tr>
+<td width=35>等級:</td><td><edit var="lv" width=50></td>
+<td><button value="設置等級" action="bypass -h admin_set_level $lv" width=80 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=100></td>
+</tr></table>
+</center></body></html>

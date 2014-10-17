@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
+	<!-- 因為後面讀取的會取代前面讀取的，所以不直接修改原始檔案，而是增加相同 ID 來修改 -->
+	<!-- 修改相同 ID 的檔案時，先將要修改的那一段註解掉，再複製那一段來修改 -->
+	<!-- 但是要注意，必須每隔一段時間，檢查原始檔案是否有修正，或者改變寫法 -->
+	<!-- 原始內容
+	<skill id="1320" levels="9" name="Create Common Item">
+	 -->
+	<skill id="1320" levels="10" name="Create Common Item"> <!-- 製作一般道具 9級 增加到 10級 -->
+		<set name="icon" val="icon.skill0172" />
+		<set name="magicLvl" val="5" />
+		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
+	</skill>
+</list>

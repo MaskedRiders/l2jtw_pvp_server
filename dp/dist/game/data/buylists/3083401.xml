@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/buylist.xsd">
+	<npcs>
+		<npc>30834</npc> <!-- Cema -->
+	</npcs>
+	<item id="1835" /> <!-- Soulshot: No Grade -->
+	<item id="2509" /> <!-- Spiritshot: No Grade -->
+	<item id="3947" /> <!-- Blessed Spiritshot: No Grade -->
+	<item id="5146" /> <!-- Compressed Package of Blessed Spiritshots: No Grade -->
+	<item id="5140" /> <!-- Compressed Package of Spiritshots: No Grade -->
+	<item id="5134" /> <!-- Compressed Package of Soulshots: No Grade -->
+	<item id="5262" /> <!-- Greater Compressed Package of Blessed Spiritshots (No-Grade) -->
+	<item id="5256" /> <!-- Greater Compressed Package of Spiritshots (No-Grade) -->
+	<item id="5250" /> <!-- Greater Compressed Package of Soulshots (No-Grade) -->
+	<item id="17" /> <!-- Wooden Arrow -->
+	<item id="1341" /> <!-- Bone Arrow -->
+	<item id="1342" /> <!-- Steel Arrow -->
+	<item id="1060" /> <!-- Lesser Healing Potion -->
+	<item id="1061" /> <!-- Greater Healing Potion -->
+	<item id="1831" /> <!-- Antidote -->
+	<item id="1832" /> <!-- Greater Antidote -->
+	<item id="1833" /> <!-- Bandage -->
+	<item id="1834" /> <!-- Emergency Dressing -->
+	<item id="734" /> <!-- Haste Potion -->
+	<item id="735" /> <!-- Alacrity Potion -->
+	<item id="6035" /> <!-- Magic Haste Potion -->
+	<item id="6037" /> <!-- Waking Scroll -->
+	<item id="736" /> <!-- Scroll of Escape -->
+	<item id="737" /> <!-- Scroll of Resurrection -->
+	<item id="1829" /> <!-- Scroll of Escape: Clan Hall -->
+	<item id="1830" /> <!-- Scroll of Escape: Castle -->
+	<item id="5589" /> <!-- Energy Stone -->
+	<item id="1661" /> <!-- Thief Key -->
+	<item id="2508" /> <!-- Cursed Bone -->
+	<item id="9633" /> <!-- Bone Bolt -->
+	<item id="9634" /> <!-- Steel Bolt -->
+	<item id="10409" /> <!-- A Bottle of Souls -->
+	<item id="4625" /> <!-- Dice (Heart) -->
+	<item id="4626" /> <!-- Dice (Spade) -->
+	<item id="4627" /> <!-- Dice (Clover) -->
+	<item id="4628" /> <!-- Dice (Diamond) -->
+	<item id="21746" /> <!-- Maestro's Key -->
+	<item id="32249" price="2000" /> <!-- 無限木箭筒 -->
+	<item id="32250" price="4000" /> <!-- 無限骨箭筒 -->
+	<item id="32251" price="8000" /> <!-- 無限鐵箭筒 -->
+	<item id="32252" price="16000" /> <!-- 無限銀箭筒 -->
+	<item id="32253" price="32000" /> <!-- 無限米索莉之箭筒 -->
+	<item id="32254" price="64000" /> <!-- 無限閃耀箭筒 -->
+	<item id="32256" price="2000" /> <!-- 無限木製弩箭筒 -->
+	<item id="32257" price="4000" /> <!-- 無限骨製弩箭筒 -->
+	<item id="32258" price="8000" /> <!-- 無限鋼鐵弩箭筒 -->
+	<item id="32259" price="16000" /> <!-- 無限銀弩箭筒 -->
+	<item id="32260" price="32000" /> <!-- 無限米索莉弩箭筒 -->
+	<item id="32261" price="64000" /> <!-- 無限閃耀弩箭筒 -->
+</list>

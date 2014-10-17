@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
+	<skill id="8904" levels="1" name="騎乘拳鬥狐">
+		<table name="#Desc-LV1">騎乘拳鬥士專用狐狸。</table>
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="3600" />
+		<set name="abnormalType" val="TRANSFORM" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="effectPoint" val="1" />
+		<set name="hitTime" val="1000" />
+		<set name="icon" val="icon.skill8904" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target race="ERTHEIA" />
+			<player canTransform="true" />
+		</cond>
+		<for>
+			<effect name="Transformation">
+				<param id="154" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="8905" levels="1" name="騎乘預知狐">
+		<table name="#Desc-LV1">騎乘預知者專用狐狸。</table>
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="3600" />
+		<set name="abnormalType" val="TRANSFORM" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="effectPoint" val="1" />
+		<set name="hitTime" val="1000" />
+		<set name="icon" val="icon.skill8905" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target race="ERTHEIA" />
+			<player canTransform="true" />
+		</cond>
+		<for>
+			<effect name="Transformation">
+				<param id="155" />
+			</effect>
+		</for>
+	</skill>
+</list>

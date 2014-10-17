@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<item id="30310" name="亞貝里烏斯斗篷" type="Armor">
+		<table name="#Plus">席格爾騎士</table>
+		<table name="#Desc">繼承古代巨人-亞貝里烏斯之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30311" name="薩菲洛斯斗篷" type="Armor">
+		<table name="#Plus">提爾鬥士</table>
+		<table name="#Desc">繼承古代巨人-薩菲洛斯之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30312" name="凱修納格斗篷" type="Armor">
+		<table name="#Plus">歐瑟遊俠</table>
+		<table name="#Desc">繼承古代巨人-凱修納格之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30313" name="克倫畢斯特斗篷" type="Armor">
+		<table name="#Plus">尤爾弓手</table>
+		<table name="#Desc">繼承古代巨人-克倫畢斯特之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30314" name="索特克里格斗篷" type="Armor">
+		<table name="#Plus">菲歐巫師</table>
+		<table name="#Desc">繼承古代巨人-索特克里格之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30315" name="納比亞羅普斗篷" type="Armor">
+		<table name="#Plus">維因召喚士</table>
+		<table name="#Desc">繼承古代巨人-納比亞羅普之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30316" name="拉伊斯特斗篷" type="Armor">
+		<table name="#Plus">伊斯法師</table>
+		<table name="#Desc">繼承古代巨人-拉伊斯特之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30317" name="拉奇西斯斗篷" type="Armor">
+		<table name="#Plus">艾羅牧師</table>
+		<table name="#Desc">繼承古代巨人-拉奇西斯之力的人所裝備的斗篷。魔法防禦+40。</table>
+		<set name="icon" val="icon.vesper_cloack_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="back" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="220" />
+		<for>
+			<add order="0x10" stat="mDef" val="40" />
+			<add order="0x10" stat="pDef" val="50" />
+		</for>
+	</item>
+	<item id="30381" name="武器用強化輔助石-R級" type="EtcItem">
+		<table name="#Desc">強化R級武器時，可將機率提升10%的道具。僅限使用於強化3~9的道具。無法交易、丟棄、刪除的道具，但可以保管在個人倉庫。</table>
+		<set name="icon" val="icon.ench_wp_potion_violet_i00" />
+		<set name="etcitem_type" val="SCRL_INC_ENCHANT_PROP_WP" />
+		<set name="material" val="PAPER" />
+		<set name="weight" val="120" />
+		<set name="is_stackable" val="true" />
+		<set name="is_oly_restricted" val="true" />
+		<set name="handler" val="ItemSkills" />
+		<set name="item_skill" val="9207-1" />
+	</item>
+	<item id="30382" name="防具用強化輔助石-R級" type="EtcItem">
+		<table name="#Desc">強化R級防具時，可將機率提升15%的道具。僅限使用於強化3~9的道具；而連身防具則僅限使用於強化4~9的道具。無法交易、丟棄、刪除的道具，但可以保管在個人倉庫。</table>
+		<set name="icon" val="icon.ench_am_potion_violet_i00" />
+		<set name="etcitem_type" val="SCRL_INC_ENCHANT_PROP_AM" />
+		<set name="material" val="PAPER" />
+		<set name="weight" val="120" />
+		<set name="is_stackable" val="true" />
+		<set name="is_oly_restricted" val="true" />
+		<set name="handler" val="ItemSkills" />
+		<set name="item_skill" val="9208-1" />
+	</item>
+</list>

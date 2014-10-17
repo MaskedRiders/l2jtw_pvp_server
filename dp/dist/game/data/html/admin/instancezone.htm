@@ -1,0 +1,43 @@
+﻿<html><title>即時地區創造選單</title><body>
+<center>
+<table width=270><tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>即時地區創造選單</center></td>
+<td width=45><button value="返回" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+<table width=260>
+<tr>
+<td><button value="General" action="bypass -h admin_html instancezone.htm" width=83 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="Individual" action="bypass -h admin_html instancezone2.htm" width=83 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="Template IDs" action="bypass -h admin_html help/instancezone_list.htm" width=83 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table><br>
+範例：<br1>
+Instance: [ 1 ] - Template: [ demo.xml ]<br>
+<table width=260>
+<tr>
+<td></td>
+<td>Instance</td>
+<td>Template XML</td>
+</tr>
+<tr>
+<td><button value="創造" action="bypass -h admin_createinstance $instanceid_create $templateid" width=80 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><edit var="instanceid_create" width=50></td>
+<td><edit var="templateid" width=80></td>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+<td><button value="離開" action="bypass -h admin_destroyinstance $instanceid_destroy $templateid" width=80 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><edit var="instanceid_destroy" width=50></td>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+<td><button value="設置" action="bypass -h admin_setinstance $instanceid_set $templateid" width=80 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><edit var="instanceid_set" width=50></td>
+</tr>
+</table>
+<br><br>
+<button value="列出" action="bypass -h admin_listinstances" width=110 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"><br><br>
+<font color="LEVEL">IDs => 300000: 是預留作動態即時地區！</font>
+</center>
+</body></html>

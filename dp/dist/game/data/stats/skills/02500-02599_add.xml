@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
+	<!-- 因為後面讀取的會取代前面讀取的，所以不直接修改原始檔案，而是增加相同 ID 來修改 -->
+	<!-- 修改相同 ID 的檔案時，先將要修改的那一段註解掉，再複製那一段來修改 -->
+	<!-- 但是要注意，必須每隔一段時間，檢查原始檔案是否有修正，或者改變寫法 -->
+	<skill id="2512" levels="1" name="Herb of Vampiric Rage">
+		<!-- Confirmed CT2.5 -->
+		<set name="abnormalInstant" val="true" />
+		<!-- 修正藥草覆蓋其它的輔助
+		<set name="abnormalLvl" val="4" />
+		 -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="300" />
+		<set name="abnormalType" val="VAMPIRIC_ATTACK" />
+		<set name="effectPoint" val="100" />
+		<set name="icon" val="BranchSys2.icon.etc_vampiric_rage_herb_i01" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="40" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="2000" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<player flyMounted="false" />
+		</cond>
+		<for>
+			<effect name="Buff">
+				<add order="0x40" stat="absorbDam" val="9" /> <!-- absorb 9% HP from damage inflicted on enemies -->
+			</effect>
+		</for>
+	</skill>
+	<skill id="2514" levels="1" name="Herb of Critical Attack - Power">
+		<!-- Confirmed CT2.5 -->
+		<set name="abnormalInstant" val="true" />
+		<!-- 修正藥草覆蓋其它的輔助
+		<set name="abnormalLvl" val="3" />
+		 -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="300" />
+		<set name="abnormalType" val="CRITICAL_DMG_UP" />
+		<set name="effectPoint" val="100" />
+		<set name="icon" val="BranchSys2.icon.etc_crt_force_herb_i01" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="48" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="2000" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<player flyMounted="false" />
+		</cond>
+		<for>
+			<effect name="Buff">
+				<mul order="0x30" stat="cAtk" val="1.35" />
+			</effect>
+		</for>
+	</skill>
+</list>

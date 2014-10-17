@@ -1,0 +1,20 @@
+﻿<html><body>
+<table width=270><tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>IP</center></td>
+<td width=45><button value="返回" action="bypass -h admin_character_info" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+自 <font color="LEVEL">%ip%</font> 登陸的玩家 :<br>
+<table width=270>
+<tr><td width=80>名稱</td><td width=110>職業</td><td width=40>等級</td></tr>
+%results%
+</table>
+<br>
+<center>
+<table><tr>
+<td width=100>IP 位址:</td>
+<td><edit var="ip_number" width=100></td>
+<td><button value="搜尋" action="bypass -h admin_find_ip $ip_number" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table></center>
+<br>搜尋到 %number% 個玩家%end%
+</body></html>

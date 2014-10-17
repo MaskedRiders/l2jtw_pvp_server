@@ -1,0 +1,105 @@
+﻿<html><title>L2J 遊戲管理</title><body> 
+<center>
+<table width=270 border=0 bgcolor="444444">
+<tr>
+<td><button value="首頁" action="bypass -h admin_admin" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="人物" action="bypass -h admin_admin6" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="遊戲" action="bypass -h admin_admin2" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="GM" action="bypass -h admin_admin7" width=65 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table><br>
+<table width=240>
+<tr>
+<td>數值:</td>
+<td><edit var="qbox" width=120 height=15></td>
+<td><button value="幫助" action="bypass -h admin_html help/game_menu.htm" width=45 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+血盟相關:<br1>
+<table width=240>
+<tr>
+<td><button value="創造血盟" action="bypass -h admin_pledge create $qbox" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="血盟資訊" action="bypass -h admin_pledge info" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="修改等級" action="bypass -h admin_pledge setlevel $qbox" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td><button value="刪除血盟" action="bypass -h admin_pledge dismiss $qbox" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="修改聲望" action="bypass -h admin_pledge rep $qbox" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="變更盟主" action="bypass -h admin_clan_show_pending" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+戰爭相關:<br1>
+<table width=240>
+<tr>
+<td><button value="城堡/根據地" action="bypass -h admin_siege" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="邊境要塞" action="bypass -h admin_fortsiege" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="領地戰" action="bypass -h admin_territory_war" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+受詛咒的武器:<br1>
+<table width=240>
+<tr>
+<td><button value="資訊" action="bypass -h admin_cw_info_menu $qbox" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="增加" action="bypass -h admin_cw_add $qbox" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="移除" action="bypass -h admin_cw_remove $qbox" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+七封印:<br1>
+<table width="240">
+<tr>
+<td><button value="財富鐵匠" action="bypass -h admin_mammon_find 1" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="財富商人" action="bypass -h admin_mammon_find 2" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="重新設置" action="bypass -h admin_mammon_respawn" width=82 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+莊園:<br1>
+<table width="125">
+<tr>
+<td><button value="莊園資訊" action="bypass -h admin_manor" width="125" height="20" back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+格勒西亞:<br1>
+<table width="125">
+<tr>
+<td><button value="格勒西亞資訊" action="bypass -h admin_gracia_seeds" width="125" height="20" back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+地獄邊界:<br1>
+<table width="125">
+<tr>
+<td><button value="地獄邊界資訊" action="bypass -h admin_hellbound" width="125" height="20" back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+大型首領:<br1>
+<table width="125">
+<tr>
+<td><button value="大型首領資訊" action="bypass -h admin_grandboss" width="125" height="20" back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+奧林匹亞:<br1>
+<table width="125">
+<tr>
+<td><button value="儲存奧林匹亞" action="bypass -h admin_saveolymp" width="125" height="20" back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+Heroes:<br1>
+<table width="250">
+<tr>
+<td><button value="暫時設為英雄" action="bypass -h admin_sethero" width="100" height="20" back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="給予英雄(GS會報錯)" action="bypass -h admin_givehero" width="150" height="20" back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+</center>
+伺服器軟體由 L2JTW 開發提供 www.l2jtw.com
+</body></html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<item id="17697" type="EtcItem" name="LV5 巨人力量紋章染料">
+		<table name="#Plus">Str+5</table>
+		<table name="#Desc">Lv5 巨人力量紋章染料（Str+5）。去找村莊的紋章製造人的話，可以在身體刻上變化能力的魔法紋章。若想刻上紋章的話，需要有10個染料。可以使用的職業：全系列，覺醒或三次解放之後可以使用。</table>
+		<set name="icon" val="icon.lv5_1_dye_str" />
+		<set name="etcitem_type" val="DYE" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="150" />
+		<set name="is_stackable" val="true" />
+	</item>
+	<item id="17698" type="EtcItem" name="LV5 巨人敏捷紋章染料">
+		<table name="#Plus">Dex+5</table>
+		<table name="#Desc">Lv5 巨人敏捷紋章染料（Dex+5）。去找村莊的紋章製造人的話，可以在身體刻上變化能力的魔法紋章。若想刻上紋章的話，需要有10個染料。可以使用的職業：全系列，覺醒或三次解放之後可以使用。</table>
+		<set name="icon" val="icon.lv5_1_dye_dex" />
+		<set name="etcitem_type" val="DYE" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="150" />
+		<set name="is_stackable" val="true" />
+	</item>
+	<item id="17699" type="EtcItem" name="LV5 巨人體質紋章染料">
+		<table name="#Plus">Con+5</table>
+		<table name="#Desc">Lv5 巨人體質紋章染料（Con+5）。去找村莊的紋章製造人的話，可以在身體刻上變化能力的魔法紋章。若想刻上紋章的話，需要有10個染料。可以使用的職業：全系列，覺醒或三次解放之後可以使用。</table>
+		<set name="icon" val="icon.lv5_1_dye_con" />
+		<set name="etcitem_type" val="DYE" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="150" />
+		<set name="is_stackable" val="true" />
+	</item>
+</list>

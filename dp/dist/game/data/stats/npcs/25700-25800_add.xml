@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/npcs.xsd">
+	<!-- 因為後面讀取的會取代前面讀取的，所以不直接修改原始檔案，而是增加相同 ID 來修改 -->
+	<!-- 修改相同 ID 的檔案時，先將要修改的那一段註解掉，再複製那一段來修改 -->
+	<!-- 但是要注意，必須每隔一段時間，檢查原始檔案是否有修正，或者改變寫法 -->
+	<!-- 原始內容
+	<npc id="25721" level="84" type="L2RaidBoss" name="Blackdagger Wing" title="Raid Boss">
+	暫時將 L2RaidBoss 的類型改為 L2Monster
+	因為 raidboss_spawnlist.sql 沒有加入這個怪物
+	但是 spawnlist.sql 卻有加入這個怪物
+	 -->
+	<npc id="25721" level="84" type="L2Monster" name="Blackdagger Wing" title="Raid Boss">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill02_ID" id="6833" level="1" /> <!-- Power Strike -->
+			<skill name="Skill02_ID" id="6833" level="1" /> <!-- Power Strike -->
+		</parameters>
+		<race>DRAGON</race>
+		<sex>MALE</sex>
+		<acquire expRate="2991.9" sp="2855962.8" raidPoints="356" />
+		<stats str="40" int="21" dex="30" wit="20" con="43" men="20">
+			<vitals hp="3750258.43683614" hpRegen="240.220217981479" mp="18120.0" mpRegen="30" />
+			<attack physical="19948.8396409168" magical="25843.9357196815" random="30" critical="4" accuracy="5" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1073.60169" magical="523.74" evasion="-18" />
+			<attribute>
+				<attack type="UNHOLY" value="300" />
+				<defence fire="250" water="250" wind="250" earth="250" holy="220" dark="300" default="260" />
+			</attribute>
+			<speed>
+				<walk ground="60" />
+				<run ground="300" />
+			</speed>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+			<skill id="4494" level="1" /> <!--Raid Boss -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+			<skill id="5598" level="12" /> <!--Flash Resistance -->
+			<skill id="6833" level="1" /> <!--Power Strike -->
+			<skill id="6834" level="1" /> <!--Range Magic Attack -->
+			<skill id="6901" level="1" /> <!--84 level Raid Boss -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="300" clanHelpRange="300" isAggressive="false" />
+		<drop_lists>
+			<death>
+				<item id="17267" min="1" max="1" chance="10" /> <!-- Sealed Blood Crystal -->
+				<group chance="2.9621999263763428">
+					<item id="14109" min="1" max="1" chance="16.6667" /> <!-- Sealed Vesper Gauntlet -->
+					<item id="14113" min="1" max="1" chance="16.6667" /> <!-- Sealed Vesper Leather Gloves -->
+					<item id="14116" min="1" max="1" chance="16.6667" /> <!-- Sealed Vesper Gloves -->
+					<item id="14110" min="1" max="1" chance="16.6667" /> <!-- Sealed Vesper Boots -->
+					<item id="14114" min="1" max="1" chance="16.6667" /> <!-- Sealed Vesper Leather Boots -->
+					<item id="14117" min="1" max="1" chance="16.6665" /> <!-- Sealed Vesper Shoes -->
+				</group>
+				<group chance="3.470099925994873">
+					<item id="13143" min="1" max="1" chance="17.0732" /> <!-- Sealed Vesper Helmet -->
+					<item id="13144" min="1" max="1" chance="17.0732" /> <!-- Sealed Vesper Leather Helmet -->
+					<item id="13145" min="1" max="1" chance="17.0732" /> <!-- Sealed Vesper Circlet -->
+					<item id="14111" min="1" max="1" chance="24.3902" /> <!-- Sealed Vesper Shield -->
+					<item id="13887" min="1" max="1" chance="24.3902" /> <!-- Sealed Vesper Sigil -->
+				</group>
+				<group chance="7.093299865722656">
+					<item id="959" min="1" max="1" chance="47.3684" /> <!-- Scroll: Enchant Weapon (S-Grade) -->
+					<item id="6578" min="1" max="1" chance="52.6316" /> <!-- Blessed Scroll: Enchant Armor (S-Grade) -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="112" />
+			<height normal="150" />
+		</collision>
+	</npc>
+</list>

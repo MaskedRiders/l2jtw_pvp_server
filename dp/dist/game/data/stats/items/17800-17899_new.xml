@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<item id="17800" name="半獸人女性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17803" name="半獸人男性巫醫假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17804" name="半獸人男性巫醫假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17807" name="半獸人女性巫醫假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17808" name="半獸人女性巫醫假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17811" name="闇天使男性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="KAMAEL" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17812" name="闇天使男性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="KAMAEL" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17815" name="闇天使女性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="KAMAEL" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17816" name="闇天使女性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="KAMAEL" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+</list>

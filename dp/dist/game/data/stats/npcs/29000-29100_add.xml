@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/npcs.xsd">
+	<!-- 因為後面讀取的會取代前面讀取的，所以不直接修改原始檔案，而是增加相同 ID 來修改 -->
+	<!-- 修改相同 ID 的檔案時，先將要修改的那一段註解掉，再複製那一段來修改 -->
+	<!-- 但是要注意，必須每隔一段時間，檢查原始檔案是否有修正，或者改變寫法 -->
+	<!-- 原始內容
+	<npc id="29030" level="84" type="L2RaidBoss" name="Fenril Hound Kerinne" title="Family of Valakas">
+	暫時將 L2RaidBoss 的類型改為 L2Monster
+	因為 raidboss_spawnlist.sql 沒有加入這個怪物
+	但是 spawnlist.sql 卻有加入這個怪物
+	 -->
+	<npc id="29030" level="84" type="L2Monster" name="Fenril Hound Kerinne" title="Family of Valakas">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<minions name="Privates">
+				<npc id="29031" respawnTime="360" weightPoint="1" /> <!-- Kerinne's Ifrit -->
+				<npc id="29031" respawnTime="360" weightPoint="1" /> <!-- Kerinne's Ifrit -->
+				<npc id="29032" respawnTime="360" weightPoint="1" /> <!-- Kerinne's Golem -->
+				<npc id="29032" respawnTime="360" weightPoint="1" /> <!-- Kerinne's Golem -->
+			</minions>
+			<skill name="RangeDDMagic_a" id="4178" level="9" /> <!-- BOSS Flamestrike -->
+		</parameters>
+		<race>BEAST</race>
+		<sex>MALE</sex>
+		<acquire expRate="341.253826530612" sp="1226568" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="104586.37" hpRegen="170.72" mp="1657.536" mpRegen="9.7" />
+			<attack physical="2512.3" magical="586.96652138195" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="2681.953" magical="490.626" evasion="-21" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<speed>
+				<walk ground="30" />
+				<run ground="200" />
+			</speed>
+			<hit_time>490</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4178" level="9" /> <!--BOSS Flamestrike -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="4" /> <!--One-handed Sword -->
+			<skill id="4416" level="3" /> <!--Beasts -->
+			<skill id="4494" level="1" /> <!--Raid Boss -->
+			<skill id="4978" level="1" /> <!--Raid Boss - Level 81 -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="1000" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FIRE</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="29.326099395751953">
+					<item id="6652" min="2" max="6" chance="63.6766" /> <!-- Scroll: Protection of Valakas -->
+					<item id="6654" min="18" max="54" chance="22.1099" /> <!-- Scroll: Flames of Valakas -->
+					<item id="6655" min="14" max="42" chance="14.2135" /> <!-- Scroll: Slay Valakas -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="21" />
+			<height normal="30" />
+		</collision>
+	</npc>
+	<!-- 原始內容
+	<npc id="29033" level="84" type="L2RaidBoss" name="Fenril Hound Freki" title="Family of Valakas">
+	暫時將 L2RaidBoss 的類型改為 L2Monster
+	因為 raidboss_spawnlist.sql 沒有加入這個怪物
+	但是 spawnlist.sql 卻有加入這個怪物
+	 -->
+	<npc id="29033" level="84" type="L2Monster" name="Fenril Hound Freki" title="Family of Valakas">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<minions name="Privates">
+				<npc id="29034" respawnTime="360" weightPoint="1" /> <!-- Freki's Ifrit -->
+				<npc id="29034" respawnTime="360" weightPoint="1" /> <!-- Freki's Ifrit -->
+				<npc id="29034" respawnTime="360" weightPoint="1" /> <!-- Freki's Ifrit -->
+				<npc id="29035" respawnTime="360" weightPoint="1" /> <!-- Freki's Golem -->
+			</minions>
+			<skill name="RangeHold_a" id="4197" level="9" /> <!-- Hold -->
+		</parameters>
+		<race>BEAST</race>
+		<sex>MALE</sex>
+		<acquire expRate="344.967120181406" sp="1257012" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="105872.34" hpRegen="171.99" mp="1708.14" mpRegen="9.8" />
+			<attack physical="2593.57" magical="611.11393355078" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="2742.236" magical="501.662" evasion="-20" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<speed>
+				<walk ground="30" />
+				<run ground="200" />
+			</speed>
+			<hit_time>490</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4197" level="9" /> <!--Hold -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="4" /> <!--One-handed Sword -->
+			<skill id="4416" level="3" /> <!--Beasts -->
+			<skill id="4494" level="1" /> <!--Raid Boss -->
+			<skill id="4979" level="1" /> <!--Raid Boss - Level 82 -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="1000" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FIRE</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="29.7450008392334">
+					<item id="6652" min="2" max="6" chance="63.6766" /> <!-- Scroll: Protection of Valakas -->
+					<item id="6654" min="18" max="54" chance="22.1099" /> <!-- Scroll: Flames of Valakas -->
+					<item id="6655" min="14" max="42" chance="14.2135" /> <!-- Scroll: Slay Valakas -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="21" />
+			<height normal="30" />
+		</collision>
+	</npc>
+	<!-- 原始內容
+	<npc id="29036" level="84" type="L2RaidBoss" name="Fenril Hound Uruz" title="Family of Valakas">
+	暫時將 L2RaidBoss 的類型改為 L2Monster
+	因為 raidboss_spawnlist.sql 沒有加入這個怪物
+	但是 spawnlist.sql 卻有加入這個怪物
+	 -->
+	<npc id="29036" level="84" type="L2Monster" name="Fenril Hound Uruz" title="Family of Valakas">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<skill name="SelfRangeCancel_a" id="4177" level="9" /> <!-- BOSS Cancel Magic -->
+			<skill name="SelfBuff_a" id="4175" level="9" /> <!-- BOSS Haste -->
+			<skill name="PhysicalSpecial_a" id="4170" level="9" /> <!-- BOSS Mortal Blow -->
+			<skill name="SelfRangePhysicalSpecial_a" id="4172" level="9" /> <!-- Stun -->
+		</parameters>
+		<race>BEAST</race>
+		<sex>MALE</sex>
+		<acquire expRate="349.526927437642" sp="1289662" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="214199.37" hpRegen="345.51" mp="1759.626" mpRegen="9.9" />
+			<attack physical="5351.94" magical="635.498613944512" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="2802.591" magical="512.721" evasion="-19" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<speed>
+				<walk ground="30" />
+				<run ground="200" />
+			</speed>
+			<hit_time>490</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4170" level="9" /> <!--BOSS Mortal Blow -->
+			<skill id="4172" level="9" /> <!--Stun -->
+			<skill id="4175" level="9" /> <!--BOSS Haste -->
+			<skill id="4177" level="9" /> <!--BOSS Cancel Magic -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="4" /> <!--One-handed Sword -->
+			<skill id="4416" level="3" /> <!--Beasts -->
+			<skill id="4494" level="1" /> <!--Raid Boss -->
+			<skill id="4980" level="1" /> <!--Raid Boss - Level 83 -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="1000" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FIRE</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="30.19099998474121">
+					<item id="6652" min="2" max="6" chance="63.6766" /> <!-- Scroll: Protection of Valakas -->
+					<item id="6654" min="18" max="54" chance="22.1099" /> <!-- Scroll: Flames of Valakas -->
+					<item id="6655" min="14" max="42" chance="14.2135" /> <!-- Scroll: Slay Valakas -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="21" />
+			<height normal="30" />
+		</collision>
+	</npc>
+	<!-- 原始內容
+	<npc id="29037" level="84" type="L2RaidBoss" name="Fenril Hound Kinaz" title="Family of Valakas">
+	暫時將 L2RaidBoss 的類型改為 L2Monster
+	因為 raidboss_spawnlist.sql 沒有加入這個怪物
+	但是 spawnlist.sql 卻有加入這個怪物
+	 -->
+	<npc id="29037" level="84" type="L2Monster" name="Fenril Hound Kinaz" title="Family of Valakas">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<minions name="Privates">
+				<npc id="29038" respawnTime="360" weightPoint="1" /> <!-- Kinaz's Ifrit -->
+				<npc id="29038" respawnTime="360" weightPoint="1" /> <!-- Kinaz's Ifrit -->
+				<npc id="29038" respawnTime="360" weightPoint="1" /> <!-- Kinaz's Ifrit -->
+				<npc id="29039" respawnTime="360" weightPoint="1" /> <!-- Kinaz's Ifrit -->
+			</minions>
+			<skill name="DDMagic_a" id="4195" level="9" /> <!-- BOSS Twister -->
+			<skill name="SelfRangeDebuff_a" id="4184" level="9" /> <!-- Decrease Atk. Spd. -->
+			<skill name="SelfRangeDebuffAnother_a" id="4188" level="9" /> <!-- Bleed -->
+		</parameters>
+		<race>BEAST</race>
+		<sex>MALE</sex>
+		<acquire expRate="355" sp="1322688" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="108266.5" hpRegen="174" mp="1812.0" mpRegen="10" />
+			<attack physical="2759.5" magical="660.073042542101" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="2863" magical="523.7" evasion="-18" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<speed>
+				<walk ground="30" />
+				<run ground="200" />
+			</speed>
+			<hit_time>490</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4184" level="9" /> <!--Decrease Atk. Spd. -->
+			<skill id="4188" level="9" /> <!--Bleed -->
+			<skill id="4195" level="9" /> <!--BOSS Twister -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="4" /> <!--One-handed Sword -->
+			<skill id="4416" level="3" /> <!--Beasts -->
+			<skill id="4494" level="1" /> <!--Raid Boss -->
+			<skill id="4981" level="1" /> <!--Raid Boss - Level 84 -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="1000" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FIRE</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="30.621299743652344">
+					<item id="6652" min="2" max="6" chance="63.6766" /> <!-- Scroll: Protection of Valakas -->
+					<item id="6654" min="18" max="54" chance="22.1099" /> <!-- Scroll: Flames of Valakas -->
+					<item id="6655" min="14" max="42" chance="14.2135" /> <!-- Scroll: Slay Valakas -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="21" />
+			<height normal="30" />
+		</collision>
+	</npc>
+</list>

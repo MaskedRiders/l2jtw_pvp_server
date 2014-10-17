@@ -1,0 +1,15 @@
+﻿<html><body>
+在取消拍賣投標時，不可退還交易稅（<font color="LEVEL">投標價的10%</font>）。<br>
+這個根據地的投標價是<font color="aaccff">%AGIT_BID%</font> 金幣，扣除交易稅後剩餘的<font color="aaccff">%AGIT_BID_REMAIN%</font> 金幣可以退回。<br>
+要取消投標嗎？<br>
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+<table width=270 border=0>
+<tr>
+<td width=110></td>
+<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="上一步" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_doCancelBid" value="取消投標" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+</body></html>

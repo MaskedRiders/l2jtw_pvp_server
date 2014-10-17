@@ -1,0 +1,116 @@
+﻿<html><title>人物資訊: %name%</title><body>
+<center>
+<table width=270>
+<tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>玩家: %name%</center></td>
+<td width=45><button value="返回" action="bypass -h admin_admin7" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+<table width=240>
+<tr>
+<td><button value="前往玩家" action="bypass -h admin_goto_char_menu %name%" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="踢除玩家" action="bypass -h admin_kick_menu %name%" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="封鎖帳號" action="bypass -h admin_ban_acc %name%" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="角色停權" action="bypass -h admin_ban_char %name%" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr><tr>
+<td><button value="召喚玩家" action="bypass -h admin_recall_char_menu %name%" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="技能相關" action="bypass -h admin_show_skills" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="修改玩家" action="bypass -h admin_edit_character" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="變更職業" action="bypass -h admin_setclass" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr><tr>
+<td><button value="Lv/Exp/Sp" action="bypass -h admin_add_exp_sp_to_character" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="即時地區" action="bypass -h admin_instancezone %name%" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="輔助狀態" action="bypass -h admin_getbuffs %name%" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="隊伍資訊" action="bypass -h admin_partyinfo" width=65 height=18 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+<table width=240 bgcolor="666666">
+<tr>
+<td>帳號: </td><td><font color="LEVEL"><a action="bypass -h admin_find_account %name%">%account%</a></font></td>
+</tr>
+<tr>
+<td>IP: </td><td><font color="LEVEL"><a action="bypass -h admin_find_ip %ip%">%ip%</a></font></td>
+</tr>
+<tr> 
+<td>懲罰: </td><td><font color="LEVEL"><a action="bypass -h admin_punishment player %name%">Info</a></font></td>
+</tr> 
+</table>
+<br>
+<br>
+<table width=240 bgcolor="666666">
+<tr>
+<td>名稱:</td><td>%name%</td><td><button value="更新" action="bypass -h admin_character_info %name%" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td>血盟:</td><td>%clan%</td>
+</tr>
+<tr>
+<td>等級:</td><td>%level%</td>
+</tr>
+<tr>
+<td>職業:</td><td>%class%</td>
+</tr>
+<tr>
+<td>BaseClass:</td><td>%baseclass%</td>
+</tr>
+<tr>
+<td>CP:</td><td> <font color="LEVEL">%currentcp%</font> / %maxcp%</td>
+</tr>
+<tr>
+<td>HP:</td><td> <font color="LEVEL">%currenthp%</font> / %maxhp%</td>
+</tr>
+<tr>
+<td>MP:</td><td><font color="LEVEL">%currentmp%</font> / %maxmp%</td>
+</tr>
+<tr>
+<td>負重:</td><td>%currentload% / %maxload%</td>
+</tr>
+<tr>
+<td>EXP:</td><td>%xp%</td>
+</tr>
+<tr>
+<td>SP:</td><td>%sp%</td>
+</tr>
+<tr>
+<td>貴族:</td><td>%noblesse%</td>
+</tr>
+%inst%
+</table>
+<br>
+<table width=240>
+<tr>
+<td>PvP 指數: </td><td>%pvpkills%</td>
+<td>性向: </td><td>%karma%</td>
+</tr>
+<tr>
+<td>PK 指數: </td><td>%pkkills%</td>
+<td>PvP 狀態: </td><td>%pvpflag%</td>
+</tr>
+</table>
+<br>
+<table width=240 bgcolor="666666">
+<tr>
+<td>物攻:</td><td>%patk%</td><td>魔功:</td><td>%matk%</td>
+</tr>
+<tr>
+<td>物防:</td><td>%pdef%</td><td>魔防:</td><td>%mdef%</td>
+</tr>
+<tr>
+<td>命中:</td><td>%accuracy%</td><td>迴避:</td><td>%evasion%</td>
+</tr>
+<tr>
+<td>致命:</td><td>%critical%</td><td>跑速:</td><td>%runspeed%</td>
+</tr>
+<tr>
+<td>攻速:</td><td>%patkspd%</td><td>施展:</td><td>%matkspd%</td>
+</tr>
+</table>
+<br>
+玩家位置: %x% %y% %z%
+<br1>
+AI: %ai%
+</center>
+</body></html>

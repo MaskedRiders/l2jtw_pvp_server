@@ -1,0 +1,28 @@
+﻿<html><title>玩家列表</title><body>
+<table width=270>
+<tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>玩家列表</center></td>
+<td width=45><button value="返回" action="bypass -h admin_admin6" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+請輸入要搜尋的玩家名稱或關鍵字<br1>
+<table width=250>
+<tr>
+<td><edit var="character_name" width=150 height=15></td>
+<td><button value="搜尋" action="bypass -h admin_find_character $character_name" width=100 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+<table width=270>
+<tr><td width=80>名稱:</td><td width=110>職業:</td><td width=40>等級:</td></tr>
+%players%
+</table>
+<img src="L2UI.SquareBlank" width=1 height=3>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<br>%pages%<br>
+</center>
+</body></html>

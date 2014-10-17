@@ -1,0 +1,46 @@
+﻿<html><body>
+<table width=260><tr>
+<td width=40><button value="首頁" action="bypass -h admin_admin" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>玩家/血盟技能修改</center></td>
+<td width=40><button value="返回" action="bypass -h admin_character_info %name%" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table>
+<br><br>
+<center>修改人物: <font color="LEVEL">%name%</font>
+<br>
+<table width=270>
+	<tr>
+		<td width=35>職業:</td>
+		<td width=160><font color="LEVEL">%class%</font></td>
+		<td width=35>等級:</td>
+		<td width=40><font color="LEVEL">%level%</font></td>
+	</tr>
+</table>
+<br>
+============ 玩家 ============
+<br>
+<table width=270>
+<tr>
+	<td><button value="增加技能" action="bypass -h admin_skill_list" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+	<td><button value="取得技能" action="bypass -h admin_get_skills" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+	<td><button value="刪除技能" action="bypass -h admin_remove_skills 0" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+	<td><button value="恢復技能" action="bypass -h admin_reset_skills" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+	<td><button value="增加所有技能" action="bypass -h admin_give_all_skills" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+	<td><button value="移除所有技能" action="bypass -h admin_remove_all_skills" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+	<td><button value="增加所有技能 FS" action="bypass -h admin_give_all_skills_fs" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table>
+<br>
+============ 血盟 ============
+<br>
+<table width=270>
+<tr>
+	<td><button value="增加血盟技能" action="bypass -h admin_give_clan_skills" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+	<td><button value="增加所有血盟技能" action="bypass -h admin_give_all_clan_skills" width=130 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table></center></body></html>

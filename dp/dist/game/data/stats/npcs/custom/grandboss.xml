@@ -1,0 +1,2577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xsd/npcs.xsd">
+	<!-- 將大型首領的類型 L2GrandBoss 改為 L2Monster，並將 ID x 10 倍，以方便在遊戲中，不必接任務就可以召喚 -->
+	<npc id="290010" displayId="29001" level="40" type="L2Monster" name="Queen Ant">
+		<!-- Confirmed CT2.5 -->
+		<race>BUG</race>
+		<sex>FEMALE</sex>
+		<acquire expRate="1362.20985" sp="140740" raidPoints="1680" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="96596" hpRegen="208" mp="300.8" mpRegen="2.1" />
+			<attack physical="105" magical="8" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1252" magical="229" evasion="-18" />
+			<attribute>
+				<defence fire="-83" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<speed>
+				<walk ground="80" />
+				<run ground="230" />
+			</speed>
+			<hit_time>370</hit_time>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4019" level="1" /> <!--Decrease Speed -->
+			<skill id="4021" level="1" /> <!--Queen Ant -->
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="12" /> <!--Bugs -->
+		</skill_list>
+		<corpse_time>300</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="2000" clanHelpRange="2000" isAggressive="false">
+			<clan_list>
+				<clan>QUEEN_ANT</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="50">
+					<item id="2499" min="1" max="1" chance="12" /> <!-- Elven Long Sword -->
+					<item id="70" min="1" max="1" chance="12" /> <!-- Claymore -->
+					<item id="159" min="1" max="1" chance="11" /> <!-- Bonebreaker -->
+					<item id="189" min="1" max="1" chance="11" /> <!-- Staff of Life -->
+					<item id="188" min="1" max="1" chance="11" /> <!-- Ghost Staff -->
+					<item id="225" min="1" max="1" chance="11" /> <!-- Mithril Dagger -->
+					<item id="262" min="1" max="1" chance="10" /> <!-- Scallop Jamadhr -->
+					<item id="280" min="1" max="1" chance="11" /> <!-- Light Crossbow -->
+					<item id="297" min="1" max="1" chance="11" /> <!-- Glaive -->
+				</group>
+				<group chance="100">
+					<item id="851" min="1" max="2" chance="35" /> <!-- Omen Beast's Eye Earring -->
+					<item id="914" min="1" max="2" chance="30" /> <!-- Necklace of Darkness -->
+					<item id="882" min="1" max="2" chance="35" /> <!-- Mithril Ring -->
+				</group>
+				<group chance="75">
+					<item id="353" min="1" max="2" chance="50" /> <!-- Half Plate Armor -->
+					<item id="380" min="1" max="2" chance="50" /> <!-- Plate Gaiters -->
+				</group>
+				<group chance="85">
+					<item id="396" min="1" max="2" chance="50" /> <!-- Salamander Skin Mail -->
+					<item id="438" min="1" max="2" chance="50" /> <!-- Sage's Rag -->
+				</group>
+				<group chance="100">
+					<item id="2412" min="1" max="3" chance="20" /> <!-- Plate Helmet -->
+					<item id="1125" min="1" max="3" chance="20" /> <!-- Assault Boots -->
+					<item id="607" min="1" max="3" chance="20" /> <!-- Ogre Power Gauntlets -->
+					<item id="630" min="1" max="3" chance="20" /> <!-- Square Shield -->
+					<item id="955" min="1" max="3" chance="20" /> <!-- Scroll: Enchant Weapon (D-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="57" min="140000" max="170000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="140000" max="170000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="140000" max="170000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="140000" max="170000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="140000" max="170000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="140000" max="170000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="120000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="30">
+					<item id="6660" min="1" max="1" chance="100" /> <!-- Ring of Queen Ant -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="45" />
+			<height normal="53" />
+		</collision>
+	</npc>
+	<npc id="290060" displayId="29006" level="50" type="L2Monster" name="Core">
+		<!-- Confirmed CT2.5 -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<acquire expRate="816.56286" sp="153786" raidPoints="1508" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="261551.926" hpRegen="441.65" mp="1708.8" mpRegen="20" />
+			<attack physical="722.31" magical="1398.68" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1602" magical="293" evasion="-18" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<speed>
+				<walk ground="50" />
+				<run ground="110" />
+			</speed>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="2" /> <!--Magic Creatures -->
+		</skill_list>
+		<corpse_time>10</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="2000" clanHelpRange="4500" isAggressive="false">
+			<clan_list>
+				<clan>CURMA_CORE</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="40">
+					<item id="75" min="1" max="1" chance="12" /> <!-- Caliburs -->
+					<item id="84" min="1" max="1" chance="10" /> <!-- Homunkulus's Sword -->
+					<item id="162" min="1" max="1" chance="12" /> <!-- War Axe -->
+					<item id="174" min="1" max="1" chance="10" /> <!-- Nirvana Axe -->
+					<item id="200" min="1" max="1" chance="10" /> <!-- Sage's Staff -->
+					<item id="233" min="1" max="1" chance="12" /> <!-- Dark Screamer -->
+					<item id="265" min="1" max="1" chance="10" /> <!-- Fisted Blade -->
+					<item id="283" min="1" max="1" chance="12" /> <!-- Akat Long Bow -->
+					<item id="301" min="1" max="1" chance="12" /> <!-- Scorpion -->
+				</group>
+				<group chance="60">
+					<item id="60" min="1" max="1" chance="20" /> <!-- Composite Armor -->
+					<item id="400" min="1" max="1" chance="20" /> <!-- Theca Leather Armor -->
+					<item id="420" min="1" max="1" chance="20" /> <!-- Theca Leather Gaiters -->
+					<item id="441" min="1" max="1" chance="20" /> <!-- Demon's Tunic -->
+					<item id="472" min="1" max="1" chance="20" /> <!-- Demon's Stockings -->
+				</group>
+				<group chance="70">
+					<item id="517" min="1" max="1" chance="20" /> <!-- Composite Helmet -->
+					<item id="2435" min="1" max="1" chance="20" /> <!-- Demon's Boots -->
+					<item id="2459" min="1" max="1" chance="20" /> <!-- Demon's Gloves -->
+					<item id="107" min="1" max="1" chance="20" /> <!-- Composite Shield -->
+					<item id="951" min="1" max="1" chance="20" /> <!-- Scroll: Enchant Weapon (C-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="57" min="100000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="100000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="100000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="100000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="100000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="8744" min="2" max="4" chance="45" /> <!-- High-Grade Life Stone - Level 49 -->
+					<item id="8745" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 52 -->
+					<item id="8754" min="1" max="2" chance="10" /> <!-- Top-Grade Life Stone - Level 49 -->
+					<item id="8755" min="1" max="2" chance="5" /> <!-- Top-Grade Life Stone - Level 52 -->
+				</group>
+				<group chance="30">
+					<item id="6662" min="1" max="1" chance="100" /> <!-- Ring of Core -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="140" />
+			<height normal="75" />
+		</collision>
+	</npc>
+	<npc id="290140" displayId="29014" level="50" type="L2Monster" name="Orfen">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<param name="MoveAroundSocial" value="80" />
+			<param name="MoveAroundSocial1" value="80" />
+			<param name="MoveAroundSocial2" value="80" />
+		</parameters>
+		<race>FAIRY</race>
+		<sex>FEMALE</sex>
+		<acquire expRate="816.56286" sp="153786" raidPoints="1508" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="261551.926" hpRegen="441.65" mp="1708.8" mpRegen="20" />
+			<attack physical="722.31" magical="1398.68" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1602" magical="293" evasion="-18" />
+			<attribute>
+				<defence fire="-83" water="20" wind="53" earth="20" holy="20" dark="20" />
+			</attribute>
+			<speed>
+				<walk ground="60" />
+				<run ground="230" />
+			</speed>
+			<hit_time>710</hit_time>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4062" level="1" /> <!--Orfen -->
+			<skill id="4063" level="1" /> <!--Paralysis -->
+			<skill id="4064" level="1" /> <!--Paralysis -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="13" /> <!--Fairies -->
+		</skill_list>
+		<corpse_time>300</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="1000" clanHelpRange="3500" isAggressive="false">
+			<clan_list>
+				<clan>ORFEN</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="35">
+					<item id="76" min="1" max="1" chance="12" /> <!-- Sword of Delusion -->
+					<item id="145" min="1" max="1" chance="10" /> <!-- Sword of Whispering Death -->
+					<item id="162" min="1" max="1" chance="12" /> <!-- War Axe -->
+					<item id="201" min="1" max="1" chance="10" /> <!-- Club of Nature -->
+					<item id="199" min="1" max="1" chance="10" /> <!-- Pa'agrian Hammer -->
+					<item id="231" min="1" max="1" chance="12" /> <!-- Grace Dagger -->
+					<item id="265" min="1" max="1" chance="10" /> <!-- Fisted Blade -->
+					<item id="283" min="1" max="1" chance="12" /> <!-- Akat Long Bow -->
+					<item id="303" min="1" max="1" chance="12" /> <!-- Widow Maker -->
+				</group>
+				<group chance="100">
+					<item id="854" min="1" max="2" chance="35" /> <!-- Earring of Seal -->
+					<item id="917" min="1" max="2" chance="30" /> <!-- Necklace of Mermaid -->
+					<item id="885" min="1" max="2" chance="35" /> <!-- Ring of Ages -->
+				</group>
+				<group chance="50">
+					<item id="60" min="1" max="1" chance="20" /> <!-- Composite Armor -->
+					<item id="400" min="1" max="1" chance="20" /> <!-- Theca Leather Armor -->
+					<item id="420" min="1" max="1" chance="20" /> <!-- Theca Leather Gaiters -->
+					<item id="441" min="1" max="1" chance="20" /> <!-- Demon's Tunic -->
+					<item id="472" min="1" max="1" chance="20" /> <!-- Demon's Stockings -->
+				</group>
+				<group chance="50">
+					<item id="517" min="1" max="2" chance="20" /> <!-- Composite Helmet -->
+					<item id="64" min="1" max="2" chance="20" /> <!-- Composite Boots -->
+					<item id="608" min="1" max="2" chance="20" /> <!-- Mithril Gauntlets -->
+					<item id="103" min="1" max="2" chance="20" /> <!-- Tower Shield -->
+					<item id="951" min="1" max="2" chance="20" /> <!-- Scroll: Enchant Weapon (C-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="57" min="110000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="110000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="110000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="110000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="110000" max="150000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="8744" min="2" max="4" chance="45" /> <!-- High-Grade Life Stone - Level 49 -->
+					<item id="8745" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 52 -->
+					<item id="8754" min="1" max="2" chance="10" /> <!-- Top-Grade Life Stone - Level 49 -->
+					<item id="8755" min="1" max="2" chance="5" /> <!-- Top-Grade Life Stone - Level 52 -->
+				</group>
+				<group chance="30">
+					<item id="6661" min="1" max="1" chance="100" /> <!-- Earring of Orfen -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="35" />
+			<height normal="143" />
+		</collision>
+	</npc>
+	<npc id="290190" displayId="29019" level="79" type="L2Monster" name="Antharas">
+		<!-- Confirmed CT2.5 -->
+		<race>DRAGON</race>
+		<sex>MALE</sex>
+		<acquire expRate="42095.9651" sp="29116376" raidPoints="30780" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="7500000" hpRegen="1100" mp="18000.0" mpRegen="99" />
+			<attack physical="4900" magical="2550" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="3840" magical="825" evasion="-18" />
+			<attribute>
+				<defence fire="50" water="50" wind="-83" earth="300" holy="50" dark="50" />
+			</attribute>
+			<speed>
+				<walk ground="50" />
+				<run ground="186" />
+			</speed>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="2" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4106" level="1" /> <!--Antharas Stun -->
+			<skill id="4107" level="1" /> <!--Antharas Stun -->
+			<skill id="4108" level="1" /> <!--Antharas Terror -->
+			<skill id="4109" level="1" /> <!--Curse of Antharas -->
+			<skill id="4110" level="2" /> <!--Breath Attack -->
+			<skill id="4111" level="1" /> <!--Antharas Fossilization -->
+			<skill id="4112" level="1" /> <!--Ordinary Attack -->
+			<skill id="4113" level="1" /> <!--Animal doing ordinary attack -->
+			<skill id="4122" level="1" /> <!--Antharas -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+			<skill id="5092" level="1" /> <!--Antharas Terror -->
+			<skill id="5093" level="1" /> <!--Antharas Meteor -->
+		</skill_list>
+		<corpse_time>14</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="4096" clanHelpRange="300" isAggressive="false" />
+		<drop_lists>
+			<death>
+				<item id="8620" min="10" max="30" chance="50" /> <!-- Ancient Book: Divine Inspiration (Manuscript) -->
+				<item id="13893" min="1" max="2" chance="50" /> <!-- Sealed Holy Spirit's Cloak -->
+				<group chance="100">
+					<item id="80" min="1" max="2" chance="25" /> <!-- Tallum Blade -->
+					<item id="98" min="1" max="2" chance="25" /> <!-- Halberd -->
+					<item id="269" min="1" max="2" chance="25" /> <!-- Blood Tornado -->
+					<item id="2504" min="1" max="2" chance="25" /> <!-- Meteor Shower -->
+				</group>
+				<group chance="100">
+					<item id="235" min="1" max="2" chance="25" /> <!-- Bloody Orchid -->
+					<item id="288" min="1" max="2" chance="25" /> <!-- Carnage Bow -->
+					<item id="150" min="1" max="2" chance="25" /> <!-- Elemental Sword -->
+					<item id="212" min="1" max="2" chance="25" /> <!-- Dasparion's Staff -->
+				</group>
+				<group chance="100">
+					<item id="81" min="1" max="2" chance="25" /> <!-- Dragon Slayer -->
+					<item id="151" min="1" max="2" chance="25" /> <!-- Sword of Miracles -->
+					<item id="2500" min="1" max="2" chance="25" /> <!-- Dark Legion's Edge -->
+					<item id="164" min="1" max="2" chance="25" /> <!-- Elysian -->
+				</group>
+				<group chance="100">
+					<item id="236" min="1" max="2" chance="20" /> <!-- Soul Separator -->
+					<item id="270" min="1" max="2" chance="20" /> <!-- Dragon Grinder -->
+					<item id="289" min="1" max="2" chance="20" /> <!-- Soul Bow -->
+					<item id="213" min="1" max="2" chance="20" /> <!-- Branch of the Mother Tree -->
+					<item id="305" min="1" max="2" chance="20" /> <!-- Tallum Glaive -->
+				</group>
+				<group chance="100">
+					<item id="6364" min="1" max="1" chance="17" /> <!-- Forgotten Blade -->
+					<item id="6365" min="1" max="1" chance="17" /> <!-- Basalt Battlehammer -->
+					<item id="6369" min="1" max="1" chance="17" /> <!-- Dragon Hunter Axe -->
+					<item id="6370" min="1" max="1" chance="17" /> <!-- Saint Spear -->
+					<item id="6372" min="1" max="1" chance="16" /> <!-- Heaven's Divider -->
+					<item id="6580" min="1" max="1" chance="16" /> <!-- Tallum Blade*Dark Legion's Edge -->
+				</group>
+				<group chance="100">
+					<item id="7575" min="1" max="1" chance="20" /> <!-- Draconic Bow -->
+					<item id="6366" min="1" max="1" chance="20" /> <!-- Imperial Staff -->
+					<item id="6367" min="1" max="1" chance="20" /> <!-- Angel Slayer -->
+					<item id="6371" min="1" max="1" chance="20" /> <!-- Demon Splinter -->
+					<item id="6579" min="1" max="1" chance="20" /> <!-- Arcana Mace -->
+				</group>
+				<group chance="100">
+					<item id="6326" min="1" max="5" chance="30" /> <!-- Sealed Majestic Necklace -->
+					<item id="6327" min="1" max="5" chance="35" /> <!-- Sealed Majestic Earring -->
+					<item id="6328" min="1" max="5" chance="35" /> <!-- Sealed Majestic Ring -->
+				</group>
+				<group chance="100">
+					<item id="6323" min="1" max="5" chance="30" /> <!-- Sealed Phoenix Necklace -->
+					<item id="6324" min="1" max="5" chance="35" /> <!-- Sealed Phoenix Earring -->
+					<item id="6325" min="1" max="5" chance="35" /> <!-- Sealed Phoenix Ring -->
+				</group>
+				<group chance="100">
+					<item id="6724" min="1" max="1" chance="35" /> <!-- Sealed Tateossian Earring -->
+					<item id="6725" min="1" max="1" chance="35" /> <!-- Sealed Tateossian Ring -->
+					<item id="6726" min="1" max="1" chance="30" /> <!-- Sealed Tateossian Necklace -->
+				</group>
+				<group chance="100">
+					<item id="5287" min="1" max="3" chance="50" /> <!-- Sealed Dark Crystal breastplate -->
+					<item id="5297" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Leather Armor -->
+					<item id="5304" min="1" max="3" chance="25" /> <!-- Sealed Tallum Tunic -->
+				</group>
+				<group chance="100">
+					<item id="5311" min="1" max="3" chance="35" /> <!-- Sealed Armor of Nightmare -->
+					<item id="5320" min="1" max="3" chance="35" /> <!-- Sealed Leather Armor of Nightmare -->
+					<item id="5326" min="1" max="3" chance="30" /> <!-- Sealed Robe of Nightmare -->
+				</group>
+				<group chance="100">
+					<item id="5293" min="1" max="3" chance="25" /> <!-- Sealed Tallum Plate Armor -->
+					<item id="5301" min="1" max="3" chance="25" /> <!-- Sealed Tallum Leather Armor -->
+					<item id="5308" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Robe -->
+					<item id="5316" min="1" max="3" chance="8" /> <!-- Sealed Majestic Plate Armor -->
+					<item id="5323" min="1" max="3" chance="8" /> <!-- Sealed Majestic Leather Armor -->
+					<item id="5329" min="1" max="3" chance="9" /> <!-- Sealed Majestic Robe -->
+				</group>
+				<group chance="100">
+					<item id="5288" min="1" max="3" chance="35" /> <!-- Sealed Dark Crystal Gaiters -->
+					<item id="5298" min="1" max="3" chance="35" /> <!-- Sealed Dark Crystal Leggings -->
+					<item id="5305" min="1" max="3" chance="30" /> <!-- Sealed Tallum Stockings -->
+				</group>
+				<group chance="100">
+					<item id="6674" min="1" max="1" chance="15" /> <!-- Sealed Imperial Crusader Breastplate -->
+					<item id="6675" min="1" max="1" chance="15" /> <!-- Sealed Imperial Crusader Gaiters -->
+					<item id="6680" min="1" max="1" chance="35" /> <!-- Sealed Draconic Leather Armor -->
+					<item id="6684" min="1" max="1" chance="35" /> <!-- Sealed Major Arcana Robe -->
+				</group>
+				<group chance="100">
+					<item id="5289" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Helmet -->
+					<item id="5294" min="1" max="3" chance="25" /> <!-- Sealed Tallum Helmet -->
+					<item id="5312" min="1" max="3" chance="25" /> <!-- Sealed Helm of Nightmare -->
+					<item id="5317" min="1" max="3" chance="25" /> <!-- Sealed Majestic Circlet -->
+				</group>
+				<group chance="100">
+					<item id="5291" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Boots -->
+					<item id="5296" min="1" max="3" chance="25" /> <!-- Sealed Tallum Boots -->
+					<item id="5314" min="1" max="3" chance="25" /> <!-- Sealed Boots of Nightmare -->
+					<item id="5319" min="1" max="3" chance="25" /> <!-- Sealed Majestic Boots -->
+				</group>
+				<group chance="100">
+					<item id="5290" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Gloves -->
+					<item id="5295" min="1" max="3" chance="25" /> <!-- Sealed Tallum Gloves -->
+					<item id="5313" min="1" max="3" chance="25" /> <!-- Sealed Gauntlets of Nightmare -->
+					<item id="5318" min="1" max="3" chance="25" /> <!-- Sealed Majestic Gauntlets -->
+				</group>
+				<group chance="100">
+					<item id="5292" min="1" max="3" chance="40" /> <!-- Sealed Dark Crystal Shield -->
+					<item id="5315" min="1" max="3" chance="40" /> <!-- Sealed Shield of Nightmare -->
+					<item id="6678" min="1" max="1" chance="20" /> <!-- Sealed Imperial Crusader Shield -->
+				</group>
+				<group chance="100">
+					<item id="6676" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Gauntlet -->
+					<item id="6681" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Glove -->
+					<item id="6685" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Glove -->
+				</group>
+				<group chance="100">
+					<item id="6677" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Boots -->
+					<item id="6682" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Boots -->
+					<item id="6686" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Boots -->
+				</group>
+				<group chance="100">
+					<item id="6679" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Helmet -->
+					<item id="6683" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Helmet -->
+					<item id="6687" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Circlet -->
+				</group>
+				<group chance="100">
+					<item id="729" min="1" max="19" chance="100" /> <!-- Scroll: Enchant Weapon (A-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="1538" min="1" max="59" chance="100" /> <!-- Blessed Scroll of Escape -->
+				</group>
+				<group chance="100">
+					<item id="3936" min="1" max="39" chance="100" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="9000000" max="13000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="6656" min="1" max="1" chance="100" /> <!-- Earring of Antharas -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="300" />
+			<height normal="300" />
+		</collision>
+	</npc>
+	<npc id="290200" displayId="29020" level="75" type="L2Monster" name="Baium">
+		<!-- Confirmed CT2.5 -->
+		<race>UNDEAD</race>
+		<sex>MALE</sex>
+		<acquire expRate="1822.82674" sp="1081544" raidPoints="13008" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="1709400" hpRegen="750" mp="18000.0" mpRegen="99" />
+			<attack physical="3374.18" magical="2200" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="3300" magical="2200" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="53" />
+			</attribute>
+			<speed>
+				<walk ground="80" />
+				<run ground="120" />
+			</speed>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4127" level="1" /> <!--Baium: General Attack -->
+			<skill id="4256" level="1" /> <!--100% stun resistance. -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="1" /> <!--Undead -->
+		</skill_list>
+		<corpse_time>13</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="1000" clanHelpRange="300" isAggressive="false">
+			<skill primaryId="4127" />
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="8620" min="5" max="15" chance="100" /> <!-- Ancient Book: Divine Inspiration (Manuscript) -->
+				<group chance="30">
+					<item id="80" min="1" max="1" chance="20" /> <!-- Tallum Blade -->
+					<item id="98" min="1" max="1" chance="20" /> <!-- Halberd -->
+					<item id="288" min="1" max="1" chance="20" /> <!-- Carnage Bow -->
+					<item id="150" min="1" max="1" chance="20" /> <!-- Elemental Sword -->
+					<item id="6364" min="1" max="1" chance="4" /> <!-- Forgotten Blade -->
+					<item id="6365" min="1" max="1" chance="4" /> <!-- Basalt Battlehammer -->
+					<item id="6580" min="1" max="1" chance="3" /> <!-- Tallum Blade*Dark Legion's Edge -->
+					<item id="6367" min="1" max="1" chance="3" /> <!-- Angel Slayer -->
+					<item id="6369" min="1" max="1" chance="3" /> <!-- Dragon Hunter Axe -->
+					<item id="6370" min="1" max="1" chance="3" /> <!-- Saint Spear -->
+				</group>
+				<group chance="30">
+					<item id="269" min="1" max="1" chance="20" /> <!-- Blood Tornado -->
+					<item id="2504" min="1" max="1" chance="20" /> <!-- Meteor Shower -->
+					<item id="235" min="1" max="1" chance="20" /> <!-- Bloody Orchid -->
+					<item id="212" min="1" max="1" chance="20" /> <!-- Dasparion's Staff -->
+					<item id="7575" min="1" max="1" chance="4" /> <!-- Draconic Bow -->
+					<item id="6366" min="1" max="1" chance="4" /> <!-- Imperial Staff -->
+					<item id="6371" min="1" max="1" chance="4" /> <!-- Demon Splinter -->
+					<item id="6579" min="1" max="1" chance="4" /> <!-- Arcana Mace -->
+					<item id="6372" min="1" max="1" chance="4" /> <!-- Heaven's Divider -->
+				</group>
+				<group chance="100">
+					<item id="8751" min="1" max="2" chance="45" /> <!-- High-Grade Life Stone - Level 70 -->
+					<item id="8752" min="1" max="2" chance="40" /> <!-- High-Grade Life Stone - Level 76 -->
+					<item id="8761" min="1" max="1" chance="10" /> <!-- Top-Grade Life Stone - Level 70 -->
+					<item id="8762" min="1" max="1" chance="5" /> <!-- Top-Grade Life Stone - Level 76 -->
+				</group>
+				<group chance="100">
+					<item id="6658" min="1" max="1" chance="100" /> <!-- Ring of Baium -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="65" />
+			<height normal="174" />
+		</collision>
+	</npc>
+	<npc id="290220" displayId="29022" level="60" type="L2Monster" name="Zaken">
+		<!-- Confirmed CT2.5 -->
+		<race>UNDEAD</race>
+		<sex>MALE</sex>
+		<acquire expRate="1355.48497" sp="423589" raidPoints="10448" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="360722" hpRegen="346.8" mp="180000.0" mpRegen="100" />
+			<attack physical="3616" magical="1520" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1981" magical="966.39" evasion="-18" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="53" />
+			</attribute>
+			<speed>
+				<walk ground="42" />
+				<run ground="190" />
+			</speed>
+			<hit_time>590</hit_time>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="1" /> <!--Undead -->
+		</skill_list>
+		<corpse_time>300</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="1000" clanHelpRange="300" isAggressive="false" />
+		<drop_lists>
+			<death>
+				<group chance="30">
+					<item id="135" min="1" max="1" chance="16" /> <!-- Samurai Longsword -->
+					<item id="204" min="1" max="1" chance="4" /> <!-- Deadman's Staff -->
+					<item id="205" min="1" max="1" chance="4" /> <!-- Ghoul's Staff -->
+					<item id="206" min="1" max="1" chance="5" /> <!-- Demon's Staff -->
+					<item id="228" min="1" max="1" chance="16" /> <!-- Crystal Dagger -->
+					<item id="266" min="1" max="1" chance="10" /> <!-- Great Pata -->
+					<item id="286" min="1" max="1" chance="13" /> <!-- Eminence Bow -->
+					<item id="299" min="1" max="1" chance="10" /> <!-- Orcish Poleaxe -->
+					<item id="2503" min="1" max="1" chance="12" /> <!-- Yaksa Mace -->
+					<item id="5286" min="1" max="1" chance="10" /> <!-- Berserker Blade -->
+				</group>
+				<group chance="10">
+					<item id="78" min="1" max="1" chance="10" /> <!-- Great Sword -->
+					<item id="91" min="1" max="1" chance="12" /> <!-- Heavy War Axe -->
+					<item id="92" min="1" max="1" chance="13" /> <!-- Sprite's Staff -->
+					<item id="142" min="1" max="1" chance="8" /> <!-- Keshanberk -->
+					<item id="148" min="1" max="1" chance="8" /> <!-- Sword of Valhalla -->
+					<item id="229" min="1" max="1" chance="8" /> <!-- Kris -->
+					<item id="243" min="1" max="1" chance="8" /> <!-- Hell Knife -->
+					<item id="267" min="1" max="1" chance="10" /> <!-- Arthro Nail -->
+					<item id="284" min="1" max="1" chance="13" /> <!-- Dark Elven Long Bow -->
+					<item id="300" min="1" max="1" chance="10" /> <!-- Great Axe -->
+				</group>
+				<group chance="20">
+					<item id="357" min="1" max="1" chance="25" /> <!-- Zubei's Breastplate -->
+					<item id="2384" min="1" max="1" chance="25" /> <!-- Zubei's Leather Shirt -->
+					<item id="2376" min="1" max="1" chance="25" /> <!-- Avadon Breastplate -->
+					<item id="2397" min="1" max="1" chance="25" /> <!-- Tunic of Zubei -->
+				</group>
+				<group chance="20">
+					<item id="383" min="1" max="1" chance="25" /> <!-- Zubei's Gaiters -->
+					<item id="2379" min="1" max="1" chance="25" /> <!-- Avadon Gaiters -->
+					<item id="2388" min="1" max="1" chance="25" /> <!-- Zubei's Leather Gaiters -->
+					<item id="2402" min="1" max="1" chance="25" /> <!-- Stockings of Zubei -->
+				</group>
+				<group chance="20">
+					<item id="2390" min="1" max="1" chance="50" /> <!-- Avadon Leather Armor -->
+					<item id="2406" min="1" max="1" chance="50" /> <!-- Avadon Robe -->
+				</group>
+				<group chance="30">
+					<item id="503" min="1" max="1" chance="10" /> <!-- Zubei's Helmet -->
+					<item id="554" min="1" max="1" chance="10" /> <!-- Sealed Zubei's Boots -->
+					<item id="600" min="1" max="1" chance="10" /> <!-- Sealed Avadon Boots -->
+					<item id="612" min="1" max="1" chance="10" /> <!-- Sealed Zubei's Gauntlets -->
+					<item id="633" min="1" max="1" chance="10" /> <!-- Zubei's Shield -->
+					<item id="673" min="1" max="1" chance="10" /> <!-- Avadon Shield -->
+					<item id="2415" min="1" max="1" chance="10" /> <!-- Avadon Circlet -->
+					<item id="2464" min="1" max="1" chance="10" /> <!-- Sealed Avadon Gloves -->
+					<item id="947" min="1" max="1" chance="20" /> <!-- Scroll: Enchant Weapon (B-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="57" min="180000" max="220000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="180000" max="220000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="180000" max="220000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="180000" max="220000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="180000" max="220000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="180000" max="220000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="180000" max="220000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="85">
+					<item id="6659" min="1" max="1" chance="100" /> <!-- Earring of Zaken -->
+				</group>
+				<group chance="100">
+					<item id="8747" min="2" max="4" chance="45" /> <!-- High-Grade Life Stone - Level 58 -->
+					<item id="8748" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 61 -->
+					<item id="8757" min="1" max="2" chance="10" /> <!-- Top-Grade Life Stone - Level 58 -->
+					<item id="8758" min="1" max="2" chance="5" /> <!-- Top-Grade Life Stone - Level 61 -->
+				</group>
+				<group chance="1">
+					<item id="8922" min="1" max="1" chance="100" /> <!-- Pirate Hat -->
+				</group>
+				<group chance="1.0">
+					<item id="10295" min="1" max="1" chance="100" /> <!-- Transformation Sealbook: Zaken -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="16" />
+			<height normal="32" />
+		</collision>
+	</npc>
+	<npc id="290280" displayId="29028" level="85" type="L2Monster" name="Valakas" title="Fire Dragon">
+		<!-- Confirmed CT2.5 -->
+		<race>DRAGON</race>
+		<sex>MALE</sex>
+		<acquire expRate="40983.4324219697" sp="34817181" raidPoints="38248" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="26068032.77311" hpRegen="1836" mp="1012870.27027" mpRegen="1000" />
+			<attack physical="5686.34407" magical="382.21561" random="50" critical="1" accuracy="9" attackSpeed="253" type="BLUNT" range="40" distance="80" width="120" />
+			<defence physical="3806.32183" magical="516.72362" evasion="3" />
+			<attribute>
+				<attack type="FIRE" value="370" />
+				<defence fire="370" water="250" wind="300" earth="300" holy="300" dark="300" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="120" />
+				<run ground="300" />
+			</speed>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="2" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="5" /> <!--Blunt Weapons -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+			<skill id="4679" level="1" /> <!--Valakas -->
+			<skill id="5462" level="1" /> <!--Fire Attacks -->
+		</skill_list>
+		<corpse_time>21</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="4096" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>VALAKAS</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="8620" min="10" max="30" chance="50" /> <!-- Ancient Book: Divine Inspiration (Manuscript) -->
+				<item id="13893" min="1" max="2" chance="50" /> <!-- Sealed Holy Spirit's Cloak -->
+				<group chance="70">
+					<item id="15560" min="1" max="1" chance="9.1" /> <!-- Vigwik Axe -->
+					<item id="15561" min="1" max="1" chance="9.09" /> <!-- Devilish Maul -->
+					<item id="15562" min="1" max="1" chance="9.09" /> <!-- Feather Eye Blade -->
+					<item id="15563" min="1" max="1" chance="9.09" /> <!-- Octo Claw -->
+					<item id="15564" min="1" max="1" chance="9.09" /> <!-- Doubletop Spear -->
+					<item id="15565" min="1" max="1" chance="9.09" /> <!-- Rising Star -->
+					<item id="15566" min="1" max="1" chance="9.09" /> <!-- Black Visage -->
+					<item id="15567" min="1" max="1" chance="9.09" /> <!-- Veniplant Sword -->
+					<item id="15568" min="1" max="1" chance="9.09" /> <!-- Skull Carnium Bow -->
+					<item id="15558" min="1" max="1" chance="9.09" /> <!-- Periel Sword -->
+					<item id="15559" min="1" max="1" chance="9.09" /> <!-- Skull Edge -->
+				</group>
+				<group chance="50">
+					<item id="15544" min="1" max="1" chance="9.09" /> <!-- Eternal Core Sword -->
+					<item id="15545" min="1" max="1" chance="9.09" /> <!-- Mamba Edge -->
+					<item id="15546" min="1" max="1" chance="9.09" /> <!-- Eversor Mace -->
+					<item id="15547" min="1" max="1" chance="9.09" /> <!-- Contristo Hammer -->
+					<item id="15548" min="1" max="1" chance="9.09" /> <!-- Lava Saw -->
+					<item id="15549" min="1" max="1" chance="9.09" /> <!-- Jade Claw -->
+					<item id="15550" min="1" max="1" chance="9.09" /> <!-- Demitelum -->
+					<item id="15551" min="1" max="1" chance="9.09" /> <!-- Sacredium -->
+					<item id="15552" min="1" max="1" chance="9.09" /> <!-- Cyclic Cane -->
+					<item id="15553" min="1" max="1" chance="9.09" /> <!-- Archangel Sword -->
+					<item id="15554" min="1" max="1" chance="9.09" /> <!-- Recurve Thorne Bow -->
+				</group>
+				<group chance="100">
+					<item id="15743" min="1" max="1" chance="9.1" /> <!-- Sealed Vorpal Helmet -->
+					<item id="15744" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Helmet -->
+					<item id="15745" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Circlet -->
+					<item id="15752" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Gauntlet -->
+					<item id="15753" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Gloves -->
+					<item id="15754" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Gloves -->
+					<item id="15755" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Boots -->
+					<item id="15756" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Boots -->
+					<item id="15757" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Shoes -->
+					<item id="15758" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Shield -->
+					<item id="15759" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Sigil -->
+				</group>
+				<group chance="100">
+					<item id="15746" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Breastplate -->
+					<item id="15747" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Leather Breastplate -->
+					<item id="15748" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Tunic -->
+					<item id="15749" min="1" max="1" chance="16.7" /> <!-- Sealed Vorpal Gaiter -->
+					<item id="15750" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Leather Legging -->
+					<item id="15751" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Stockings -->
+				</group>
+				<group chance="50">
+					<item id="15763" min="1" max="1" chance="33.4" /> <!-- Sealed Vorpal Ring -->
+					<item id="15764" min="1" max="1" chance="33.3" /> <!-- Sealed Vorpal Earring -->
+					<item id="15765" min="1" max="1" chance="33.3" /> <!-- Sealed Vorpal Necklace -->
+				</group>
+				<group chance="100">
+					<item id="959" min="1" max="19" chance="100" /> <!-- Scroll: Enchant Weapon (S-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="1538" min="1" max="59" chance="100" /> <!-- Blessed Scroll of Escape -->
+				</group>
+				<group chance="100">
+					<item id="3936" min="1" max="39" chance="100" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="2000000" max="6000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="16162" min="2" max="4" chance="45" /> <!-- High-Grade Life Stone - Level 85 -->
+					<item id="16166" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 86 -->
+					<item id="16163" min="1" max="2" chance="10" /> <!-- Top-Grade Life Stone - Level 85 -->
+					<item id="16167" min="1" max="2" chance="5" /> <!-- Top-Grade Life Stone - Level 86 -->
+				</group>
+				<group chance="100">
+					<item id="6657" min="1" max="1" chance="100" /> <!-- Necklace of Valakas -->
+				</group>
+				<group chance="100.0">
+					<item id="10549" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Rune -->
+					<item id="10550" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Elemental -->
+					<item id="10551" min="1" max="1" chance="34" /> <!-- Forgotten Scroll - Protection of Alignment -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="190" />
+			<height normal="335" />
+		</collision>
+	</npc>
+	<npc id="290450" displayId="29045" level="85" type="L2Monster" name="Frintezza">
+		<!-- Confirmed CT2.5 -->
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<stats str="60" int="76" dex="73" wit="43" con="57" men="80">
+			<vitals hp="428076.229929773" hpRegen="2484.3" mp="23423.9034583234" mpRegen="3.15" />
+			<attack physical="2641.63342970569" magical="971.856593649426" random="10" critical="4" accuracy="5" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
+			<defence physical="4218.55484265502" magical="3093.6078479881" />
+			<attribute>
+				<attack type="WIND" value="350" />
+				<defence fire="300" water="300" wind="370" earth="250" holy="300" dark="300" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="30" />
+				<run ground="31" />
+			</speed>
+			<hit_time>430</hit_time>
+		</stats>
+		<status canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="1" /> <!--Bare Hands -->
+			<skill id="4416" level="6" /> <!--Humanoids -->
+			<skill id="5464" level="1" /> <!--Wind Attacks -->
+		</skill_list>
+		<corpse_time>15</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED">
+			<clan_list>
+				<clan>FRINTESSA</clan>
+			</clan_list>
+		</ai>
+		<collision>
+			<radius normal="45" />
+			<height normal="42.7" />
+		</collision>
+	</npc>
+	<npc id="290460" displayId="29046" level="85" type="L2Monster" name="Scarlet van Halisha">
+		<!-- Confirmed CT2.5 -->
+		<race>DEMONIC</race>
+		<sex>MALE</sex>
+		<equipment rhand="8204" /> <!-- rhand: Monster Only (Follower of Frintezza Calibur) -->
+		<stats str="60" int="76" dex="73" wit="43" con="57" men="80">
+			<vitals hp="2254518.0975573" hpRegen="248.43" mp="11026.9882971101" mpRegen="109" />
+			<attack physical="3135.90530099925" magical="1442.51644402476" random="10" critical="4" accuracy="5" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
+			<defence physical="1342.97453242915" magical="2089.07149518896" />
+			<attribute>
+				<attack type="UNHOLY" value="370" />
+				<defence fire="300" water="300" wind="300" earth="300" holy="250" dark="270" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="240" />
+				<run ground="111" />
+			</speed>
+			<hit_time>430</hit_time>
+		</stats>
+		<status canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="4" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="1" /> <!--Bare Hands -->
+			<skill id="4416" level="9" /> <!--Demons -->
+			<skill id="5078" level="1" /> <!--Frintezza Critical Power -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+		</skill_list>
+		<corpse_time>18</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="3000" clanHelpRange="2000">
+			<skill primaryId="5014" />
+			<clan_list>
+				<clan>FRINTESSA</clan>
+			</clan_list>
+		</ai>
+		<collision>
+			<radius normal="45" grown="54" />
+			<height normal="90.7" grown="109.4" />
+		</collision>
+	</npc>
+	<npc id="290470" displayId="29047" level="85" type="L2Monster" name="Scarlet van Halisha">
+		<!-- Confirmed CT2.5 -->
+		<race>DEMONIC</race>
+		<sex>MALE</sex>
+		<equipment rhand="8222" /> <!-- rhand: Monster Only (Follower of Frintezza Tran Calibur) -->
+		<acquire expRate="18110.588716926" sp="10028450" raidPoints="14727" />
+		<stats str="60" int="76" dex="73" wit="43" con="57" men="80">
+			<vitals hp="3842432.67633202" hpRegen="248.43" mp="23156.6754239312" mpRegen="109" />
+			<attack physical="8890.29152833288" magical="8989.0725799934" random="10" critical="4" accuracy="5" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
+			<defence physical="1566.80362116734" magical="2193.5250699484" />
+			<attribute>
+				<attack type="UNHOLY" value="370" />
+				<defence fire="300" water="300" wind="300" earth="300" holy="250" dark="270" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="250" />
+				<run ground="155" />
+			</speed>
+			<hit_time>430</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="4" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="1" /> <!--Bare Hands -->
+			<skill id="4416" level="9" /> <!--Demons -->
+			<skill id="5078" level="1" /> <!--Frintezza Critical Power -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="3000" clanHelpRange="2000" isAggressive="false">
+			<skill primaryId="5014" shortRangeId="5019" shortRangeChance="10" />
+			<clan_list>
+				<clan>FRINTESSA</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="8620" min="5" max="25" chance="60" /> <!-- Ancient Book: Divine Inspiration (Manuscript) -->
+				<item id="13893" min="1" max="1" chance="40" /> <!-- Sealed Holy Spirit's Cloak -->
+				<group chance="70">
+					<item id="15743" min="1" max="1" chance="9.1" /> <!-- Sealed Vorpal Helmet -->
+					<item id="15744" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Helmet -->
+					<item id="15745" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Circlet -->
+					<item id="15752" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Gauntlet -->
+					<item id="15753" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Gloves -->
+					<item id="15754" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Gloves -->
+					<item id="15755" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Boots -->
+					<item id="15756" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Boots -->
+					<item id="15757" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Shoes -->
+					<item id="15758" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Shield -->
+					<item id="15759" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Sigil -->
+				</group>
+				<group chance="70">
+					<item id="15746" min="1" max="1" chance="16.7" /> <!-- Sealed Vorpal Breastplate -->
+					<item id="15747" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Leather Breastplate -->
+					<item id="15748" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Tunic -->
+					<item id="15749" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Gaiter -->
+					<item id="15750" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Leather Legging -->
+					<item id="15751" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Stockings -->
+				</group>
+				<group chance="50">
+					<item id="13457" min="1" max="1" chance="9.1" /> <!-- Vesper Cutter -->
+					<item id="13458" min="1" max="1" chance="9.09" /> <!-- Vesper Slasher -->
+					<item id="13459" min="1" max="1" chance="9.09" /> <!-- Vesper Buster -->
+					<item id="13460" min="1" max="1" chance="9.09" /> <!-- Vesper Shaper -->
+					<item id="13466" min="1" max="1" chance="9.09" /> <!-- Vesper Singer -->
+					<item id="13461" min="1" max="1" chance="9.09" /> <!-- Vesper Fighter -->
+					<item id="13462" min="1" max="1" chance="9.09" /> <!-- Vesper Stormer -->
+					<item id="13463" min="1" max="1" chance="9.09" /> <!-- Vesper Avenger -->
+					<item id="13464" min="1" max="1" chance="9.09" /> <!-- Vesper Retributer -->
+					<item id="13465" min="1" max="1" chance="9.09" /> <!-- Vesper Caster -->
+					<item id="13467" min="1" max="1" chance="9.09" /> <!-- Vesper Thrower -->
+				</group>
+				<group chance="60">
+					<item id="1538" min="1" max="30" chance="100" /> <!-- Blessed Scroll of Escape -->
+				</group>
+				<group chance="60">
+					<item id="3936" min="1" max="10" chance="100" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+				<group chance="100">
+					<item id="57" min="9000000" max="11000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="9000000" max="11000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="16162" min="2" max="4" chance="60" /> <!-- High-Grade Life Stone - Level 85 -->
+					<item id="16166" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 86 -->
+				</group>
+				<group chance="30">
+					<item id="8191" min="1" max="1" chance="100" /> <!-- Necklace of Frintezza -->
+				</group>
+				<group chance="100.0">
+					<item id="10549" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Rune -->
+					<item id="10550" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Elemental -->
+					<item id="10551" min="1" max="1" chance="34" /> <!-- Forgotten Scroll - Protection of Alignment -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="92" />
+			<height normal="112.8" />
+		</collision>
+	</npc>
+	<npc id="290660" displayId="29066" level="79" type="L2Monster" name="Antharas">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<param name="ultra_respawn_time" value="8" />
+		</parameters>
+		<race>DRAGON</race>
+		<sex>MALE</sex>
+		<acquire expRate="42095.9651" sp="29116376" raidPoints="30780" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="6100000" hpRegen="1100" mp="1800000.0" mpRegen="1000" />
+			<attack physical="4900" magical="2550" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="3456" magical="862.5" />
+			<attribute>
+				<defence fire="50" water="50" wind="-83" earth="300" holy="50" dark="50" />
+			</attribute>
+			<speed>
+				<walk ground="50" />
+				<run ground="186" />
+			</speed>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="2" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4122" level="1" /> <!--Antharas -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+		</skill_list>
+		<corpse_time>14</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="4096" clanHelpRange="300" isAggressive="false">
+			<skill maxChance="25" />
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="8620" min="10" max="30" chance="50" /> <!-- Ancient Book: Divine Inspiration (Manuscript) -->
+				<item id="13893" min="1" max="2" chance="50" /> <!-- Sealed Holy Spirit's Cloak -->
+				<group chance="100">
+					<item id="80" min="1" max="2" chance="25" /> <!-- Tallum Blade -->
+					<item id="98" min="1" max="2" chance="25" /> <!-- Halberd -->
+					<item id="269" min="1" max="2" chance="25" /> <!-- Blood Tornado -->
+					<item id="2504" min="1" max="2" chance="25" /> <!-- Meteor Shower -->
+				</group>
+				<group chance="100">
+					<item id="235" min="1" max="2" chance="25" /> <!-- Bloody Orchid -->
+					<item id="288" min="1" max="2" chance="25" /> <!-- Carnage Bow -->
+					<item id="150" min="1" max="2" chance="25" /> <!-- Elemental Sword -->
+					<item id="212" min="1" max="2" chance="25" /> <!-- Dasparion's Staff -->
+				</group>
+				<group chance="100">
+					<item id="81" min="1" max="2" chance="25" /> <!-- Dragon Slayer -->
+					<item id="151" min="1" max="2" chance="25" /> <!-- Sword of Miracles -->
+					<item id="2500" min="1" max="2" chance="25" /> <!-- Dark Legion's Edge -->
+					<item id="164" min="1" max="2" chance="25" /> <!-- Elysian -->
+				</group>
+				<group chance="100">
+					<item id="236" min="1" max="2" chance="20" /> <!-- Soul Separator -->
+					<item id="270" min="1" max="2" chance="20" /> <!-- Dragon Grinder -->
+					<item id="289" min="1" max="2" chance="20" /> <!-- Soul Bow -->
+					<item id="213" min="1" max="2" chance="20" /> <!-- Branch of the Mother Tree -->
+					<item id="305" min="1" max="2" chance="20" /> <!-- Tallum Glaive -->
+				</group>
+				<group chance="100">
+					<item id="6364" min="1" max="1" chance="17" /> <!-- Forgotten Blade -->
+					<item id="6365" min="1" max="1" chance="17" /> <!-- Basalt Battlehammer -->
+					<item id="6369" min="1" max="1" chance="17" /> <!-- Dragon Hunter Axe -->
+					<item id="6370" min="1" max="1" chance="17" /> <!-- Saint Spear -->
+					<item id="6372" min="1" max="1" chance="16" /> <!-- Heaven's Divider -->
+					<item id="6580" min="1" max="1" chance="16" /> <!-- Tallum Blade*Dark Legion's Edge -->
+				</group>
+				<group chance="100">
+					<item id="7575" min="1" max="1" chance="20" /> <!-- Draconic Bow -->
+					<item id="6366" min="1" max="1" chance="20" /> <!-- Imperial Staff -->
+					<item id="6367" min="1" max="1" chance="20" /> <!-- Angel Slayer -->
+					<item id="6371" min="1" max="1" chance="20" /> <!-- Demon Splinter -->
+					<item id="6579" min="1" max="1" chance="20" /> <!-- Arcana Mace -->
+				</group>
+				<group chance="100">
+					<item id="6326" min="1" max="5" chance="30" /> <!-- Sealed Majestic Necklace -->
+					<item id="6327" min="1" max="5" chance="35" /> <!-- Sealed Majestic Earring -->
+					<item id="6328" min="1" max="5" chance="35" /> <!-- Sealed Majestic Ring -->
+				</group>
+				<group chance="100">
+					<item id="6323" min="1" max="5" chance="30" /> <!-- Sealed Phoenix Necklace -->
+					<item id="6324" min="1" max="5" chance="35" /> <!-- Sealed Phoenix Earring -->
+					<item id="6325" min="1" max="5" chance="35" /> <!-- Sealed Phoenix Ring -->
+				</group>
+				<group chance="100">
+					<item id="6724" min="1" max="1" chance="35" /> <!-- Sealed Tateossian Earring -->
+					<item id="6725" min="1" max="1" chance="35" /> <!-- Sealed Tateossian Ring -->
+					<item id="6726" min="1" max="1" chance="30" /> <!-- Sealed Tateossian Necklace -->
+				</group>
+				<group chance="100">
+					<item id="5287" min="1" max="3" chance="50" /> <!-- Sealed Dark Crystal breastplate -->
+					<item id="5297" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Leather Armor -->
+					<item id="5304" min="1" max="3" chance="25" /> <!-- Sealed Tallum Tunic -->
+				</group>
+				<group chance="100">
+					<item id="5311" min="1" max="3" chance="35" /> <!-- Sealed Armor of Nightmare -->
+					<item id="5320" min="1" max="3" chance="35" /> <!-- Sealed Leather Armor of Nightmare -->
+					<item id="5326" min="1" max="3" chance="30" /> <!-- Sealed Robe of Nightmare -->
+				</group>
+				<group chance="100">
+					<item id="5293" min="1" max="3" chance="25" /> <!-- Sealed Tallum Plate Armor -->
+					<item id="5301" min="1" max="3" chance="25" /> <!-- Sealed Tallum Leather Armor -->
+					<item id="5308" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Robe -->
+					<item id="5316" min="1" max="3" chance="8" /> <!-- Sealed Majestic Plate Armor -->
+					<item id="5323" min="1" max="3" chance="8" /> <!-- Sealed Majestic Leather Armor -->
+					<item id="5329" min="1" max="3" chance="9" /> <!-- Sealed Majestic Robe -->
+				</group>
+				<group chance="100">
+					<item id="5288" min="1" max="3" chance="35" /> <!-- Sealed Dark Crystal Gaiters -->
+					<item id="5298" min="1" max="3" chance="35" /> <!-- Sealed Dark Crystal Leggings -->
+					<item id="5305" min="1" max="3" chance="30" /> <!-- Sealed Tallum Stockings -->
+				</group>
+				<group chance="100">
+					<item id="6674" min="1" max="1" chance="15" /> <!-- Sealed Imperial Crusader Breastplate -->
+					<item id="6675" min="1" max="1" chance="15" /> <!-- Sealed Imperial Crusader Gaiters -->
+					<item id="6680" min="1" max="1" chance="35" /> <!-- Sealed Draconic Leather Armor -->
+					<item id="6684" min="1" max="1" chance="35" /> <!-- Sealed Major Arcana Robe -->
+				</group>
+				<group chance="100">
+					<item id="5289" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Helmet -->
+					<item id="5294" min="1" max="3" chance="25" /> <!-- Sealed Tallum Helmet -->
+					<item id="5312" min="1" max="3" chance="25" /> <!-- Sealed Helm of Nightmare -->
+					<item id="5317" min="1" max="3" chance="25" /> <!-- Sealed Majestic Circlet -->
+				</group>
+				<group chance="100">
+					<item id="5291" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Boots -->
+					<item id="5296" min="1" max="3" chance="25" /> <!-- Sealed Tallum Boots -->
+					<item id="5314" min="1" max="3" chance="25" /> <!-- Sealed Boots of Nightmare -->
+					<item id="5319" min="1" max="3" chance="25" /> <!-- Sealed Majestic Boots -->
+				</group>
+				<group chance="100">
+					<item id="5290" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Gloves -->
+					<item id="5295" min="1" max="3" chance="25" /> <!-- Sealed Tallum Gloves -->
+					<item id="5313" min="1" max="3" chance="25" /> <!-- Sealed Gauntlets of Nightmare -->
+					<item id="5318" min="1" max="3" chance="25" /> <!-- Sealed Majestic Gauntlets -->
+				</group>
+				<group chance="100">
+					<item id="5292" min="1" max="3" chance="40" /> <!-- Sealed Dark Crystal Shield -->
+					<item id="5315" min="1" max="3" chance="40" /> <!-- Sealed Shield of Nightmare -->
+					<item id="6678" min="1" max="1" chance="20" /> <!-- Sealed Imperial Crusader Shield -->
+				</group>
+				<group chance="100">
+					<item id="6676" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Gauntlet -->
+					<item id="6681" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Glove -->
+					<item id="6685" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Glove -->
+				</group>
+				<group chance="100">
+					<item id="6677" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Boots -->
+					<item id="6682" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Boots -->
+					<item id="6686" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Boots -->
+				</group>
+				<group chance="100">
+					<item id="6679" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Helmet -->
+					<item id="6683" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Helmet -->
+					<item id="6687" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Circlet -->
+				</group>
+				<group chance="100">
+					<item id="729" min="1" max="19" chance="100" /> <!-- Scroll: Enchant Weapon (A-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="1538" min="1" max="59" chance="100" /> <!-- Blessed Scroll of Escape -->
+				</group>
+				<group chance="100">
+					<item id="3936" min="1" max="39" chance="100" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="9000000" max="13000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="8751" min="2" max="4" chance="45" /> <!-- High-Grade Life Stone - Level 70 -->
+					<item id="8752" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 76 -->
+					<item id="8761" min="1" max="2" chance="10" /> <!-- Top-Grade Life Stone - Level 70 -->
+					<item id="8762" min="1" max="2" chance="5" /> <!-- Top-Grade Life Stone - Level 76 -->
+				</group>
+				<group chance="100">
+					<item id="6656" min="1" max="1" chance="100" /> <!-- Earring of Antharas -->
+				</group>
+				<group chance="100.0">
+					<item id="10549" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Rune -->
+					<item id="10550" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Elemental -->
+					<item id="10551" min="1" max="1" chance="34" /> <!-- Forgotten Scroll - Protection of Alignment -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="300" />
+			<height normal="300" />
+		</collision>
+	</npc>
+	<npc id="290670" displayId="29067" level="79" type="L2Monster" name="Antharas">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<param name="ultra_respawn_time" value="5" />
+		</parameters>
+		<race>DRAGON</race>
+		<sex>MALE</sex>
+		<acquire expRate="56830" sp="39307416" raidPoints="34984" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="6800000" hpRegen="1100" mp="1800000.0" mpRegen="1000" />
+			<attack physical="4900" magical="2550" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="3456" magical="862.5" />
+			<attribute>
+				<defence fire="50" water="50" wind="-83" earth="300" holy="50" dark="50" />
+			</attribute>
+			<speed>
+				<walk ground="50" />
+				<run ground="186" />
+			</speed>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="2" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4122" level="1" /> <!--Antharas -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+		</skill_list>
+		<corpse_time>14</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="4096" clanHelpRange="300" isAggressive="false">
+			<skill maxChance="25" />
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="8620" min="10" max="30" chance="50" /> <!-- Ancient Book: Divine Inspiration (Manuscript) -->
+				<item id="13893" min="1" max="2" chance="50" /> <!-- Sealed Holy Spirit's Cloak -->
+				<group chance="100">
+					<item id="80" min="1" max="2" chance="25" /> <!-- Tallum Blade -->
+					<item id="98" min="1" max="2" chance="25" /> <!-- Halberd -->
+					<item id="269" min="1" max="2" chance="25" /> <!-- Blood Tornado -->
+					<item id="2504" min="1" max="2" chance="25" /> <!-- Meteor Shower -->
+				</group>
+				<group chance="100">
+					<item id="235" min="1" max="2" chance="25" /> <!-- Bloody Orchid -->
+					<item id="288" min="1" max="2" chance="25" /> <!-- Carnage Bow -->
+					<item id="150" min="1" max="2" chance="25" /> <!-- Elemental Sword -->
+					<item id="212" min="1" max="2" chance="25" /> <!-- Dasparion's Staff -->
+				</group>
+				<group chance="100">
+					<item id="81" min="1" max="2" chance="25" /> <!-- Dragon Slayer -->
+					<item id="151" min="1" max="2" chance="25" /> <!-- Sword of Miracles -->
+					<item id="2500" min="1" max="2" chance="25" /> <!-- Dark Legion's Edge -->
+					<item id="164" min="1" max="2" chance="25" /> <!-- Elysian -->
+				</group>
+				<group chance="100">
+					<item id="236" min="1" max="2" chance="20" /> <!-- Soul Separator -->
+					<item id="270" min="1" max="2" chance="20" /> <!-- Dragon Grinder -->
+					<item id="289" min="1" max="2" chance="20" /> <!-- Soul Bow -->
+					<item id="213" min="1" max="2" chance="20" /> <!-- Branch of the Mother Tree -->
+					<item id="305" min="1" max="2" chance="20" /> <!-- Tallum Glaive -->
+				</group>
+				<group chance="100">
+					<item id="6364" min="1" max="1" chance="17" /> <!-- Forgotten Blade -->
+					<item id="6365" min="1" max="1" chance="17" /> <!-- Basalt Battlehammer -->
+					<item id="6369" min="1" max="1" chance="17" /> <!-- Dragon Hunter Axe -->
+					<item id="6370" min="1" max="1" chance="17" /> <!-- Saint Spear -->
+					<item id="6372" min="1" max="1" chance="16" /> <!-- Heaven's Divider -->
+					<item id="6580" min="1" max="1" chance="16" /> <!-- Tallum Blade*Dark Legion's Edge -->
+				</group>
+				<group chance="100">
+					<item id="7575" min="1" max="1" chance="20" /> <!-- Draconic Bow -->
+					<item id="6366" min="1" max="1" chance="20" /> <!-- Imperial Staff -->
+					<item id="6367" min="1" max="1" chance="20" /> <!-- Angel Slayer -->
+					<item id="6371" min="1" max="1" chance="20" /> <!-- Demon Splinter -->
+					<item id="6579" min="1" max="1" chance="20" /> <!-- Arcana Mace -->
+				</group>
+				<group chance="100">
+					<item id="6326" min="1" max="5" chance="30" /> <!-- Sealed Majestic Necklace -->
+					<item id="6327" min="1" max="5" chance="35" /> <!-- Sealed Majestic Earring -->
+					<item id="6328" min="1" max="5" chance="35" /> <!-- Sealed Majestic Ring -->
+				</group>
+				<group chance="100">
+					<item id="6323" min="1" max="5" chance="30" /> <!-- Sealed Phoenix Necklace -->
+					<item id="6324" min="1" max="5" chance="35" /> <!-- Sealed Phoenix Earring -->
+					<item id="6325" min="1" max="5" chance="35" /> <!-- Sealed Phoenix Ring -->
+				</group>
+				<group chance="100">
+					<item id="6724" min="1" max="1" chance="35" /> <!-- Sealed Tateossian Earring -->
+					<item id="6725" min="1" max="1" chance="35" /> <!-- Sealed Tateossian Ring -->
+					<item id="6726" min="1" max="1" chance="30" /> <!-- Sealed Tateossian Necklace -->
+				</group>
+				<group chance="100">
+					<item id="5287" min="1" max="3" chance="50" /> <!-- Sealed Dark Crystal breastplate -->
+					<item id="5297" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Leather Armor -->
+					<item id="5304" min="1" max="3" chance="25" /> <!-- Sealed Tallum Tunic -->
+				</group>
+				<group chance="100">
+					<item id="5311" min="1" max="3" chance="35" /> <!-- Sealed Armor of Nightmare -->
+					<item id="5320" min="1" max="3" chance="35" /> <!-- Sealed Leather Armor of Nightmare -->
+					<item id="5326" min="1" max="3" chance="30" /> <!-- Sealed Robe of Nightmare -->
+				</group>
+				<group chance="100">
+					<item id="5293" min="1" max="3" chance="25" /> <!-- Sealed Tallum Plate Armor -->
+					<item id="5301" min="1" max="3" chance="25" /> <!-- Sealed Tallum Leather Armor -->
+					<item id="5308" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Robe -->
+					<item id="5316" min="1" max="3" chance="8" /> <!-- Sealed Majestic Plate Armor -->
+					<item id="5323" min="1" max="3" chance="8" /> <!-- Sealed Majestic Leather Armor -->
+					<item id="5329" min="1" max="3" chance="9" /> <!-- Sealed Majestic Robe -->
+				</group>
+				<group chance="100">
+					<item id="5288" min="1" max="3" chance="35" /> <!-- Sealed Dark Crystal Gaiters -->
+					<item id="5298" min="1" max="3" chance="35" /> <!-- Sealed Dark Crystal Leggings -->
+					<item id="5305" min="1" max="3" chance="30" /> <!-- Sealed Tallum Stockings -->
+				</group>
+				<group chance="100">
+					<item id="6674" min="1" max="1" chance="15" /> <!-- Sealed Imperial Crusader Breastplate -->
+					<item id="6675" min="1" max="1" chance="15" /> <!-- Sealed Imperial Crusader Gaiters -->
+					<item id="6680" min="1" max="1" chance="35" /> <!-- Sealed Draconic Leather Armor -->
+					<item id="6684" min="1" max="1" chance="35" /> <!-- Sealed Major Arcana Robe -->
+				</group>
+				<group chance="100">
+					<item id="5289" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Helmet -->
+					<item id="5294" min="1" max="3" chance="25" /> <!-- Sealed Tallum Helmet -->
+					<item id="5312" min="1" max="3" chance="25" /> <!-- Sealed Helm of Nightmare -->
+					<item id="5317" min="1" max="3" chance="25" /> <!-- Sealed Majestic Circlet -->
+				</group>
+				<group chance="100">
+					<item id="5291" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Boots -->
+					<item id="5296" min="1" max="3" chance="25" /> <!-- Sealed Tallum Boots -->
+					<item id="5314" min="1" max="3" chance="25" /> <!-- Sealed Boots of Nightmare -->
+					<item id="5319" min="1" max="3" chance="25" /> <!-- Sealed Majestic Boots -->
+				</group>
+				<group chance="100">
+					<item id="5290" min="1" max="3" chance="25" /> <!-- Sealed Dark Crystal Gloves -->
+					<item id="5295" min="1" max="3" chance="25" /> <!-- Sealed Tallum Gloves -->
+					<item id="5313" min="1" max="3" chance="25" /> <!-- Sealed Gauntlets of Nightmare -->
+					<item id="5318" min="1" max="3" chance="25" /> <!-- Sealed Majestic Gauntlets -->
+				</group>
+				<group chance="100">
+					<item id="5292" min="1" max="3" chance="40" /> <!-- Sealed Dark Crystal Shield -->
+					<item id="5315" min="1" max="3" chance="40" /> <!-- Sealed Shield of Nightmare -->
+					<item id="6678" min="1" max="1" chance="20" /> <!-- Sealed Imperial Crusader Shield -->
+				</group>
+				<group chance="100">
+					<item id="6676" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Gauntlet -->
+					<item id="6681" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Glove -->
+					<item id="6685" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Glove -->
+				</group>
+				<group chance="100">
+					<item id="6677" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Boots -->
+					<item id="6682" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Boots -->
+					<item id="6686" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Boots -->
+				</group>
+				<group chance="100">
+					<item id="6679" min="1" max="1" chance="34" /> <!-- Sealed Imperial Crusader Helmet -->
+					<item id="6683" min="1" max="1" chance="33" /> <!-- Sealed Draconic Leather Helmet -->
+					<item id="6687" min="1" max="1" chance="33" /> <!-- Sealed Major Arcana Circlet -->
+				</group>
+				<group chance="100">
+					<item id="729" min="1" max="19" chance="100" /> <!-- Scroll: Enchant Weapon (A-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="1538" min="1" max="59" chance="100" /> <!-- Blessed Scroll of Escape -->
+				</group>
+				<group chance="100">
+					<item id="3936" min="1" max="39" chance="100" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="9000000" max="13000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="8751" min="2" max="4" chance="45" /> <!-- High-Grade Life Stone - Level 70 -->
+					<item id="8752" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 76 -->
+					<item id="8761" min="1" max="2" chance="10" /> <!-- Top-Grade Life Stone - Level 70 -->
+					<item id="8762" min="1" max="2" chance="5" /> <!-- Top-Grade Life Stone - Level 76 -->
+				</group>
+				<group chance="100">
+					<item id="959" min="8" max="12" chance="100" /> <!-- Scroll: Enchant Weapon (S-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="6656" min="1" max="1" chance="100" /> <!-- Earring of Antharas -->
+				</group>
+				<group chance="100.0">
+					<item id="10549" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Rune -->
+					<item id="10550" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Elemental -->
+					<item id="10551" min="1" max="1" chance="34" /> <!-- Forgotten Scroll - Protection of Alignment -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="300" />
+			<height normal="300" />
+		</collision>
+	</npc>
+	<npc id="290680" displayId="29068" level="85" type="L2Monster" name="Antharas" title="Earth Dragon">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<param name="ultra_respawn_time" value="3" />
+		</parameters>
+		<race>DRAGON</race>
+		<sex>MALE</sex>
+		<acquire expRate="74538.2124407948" sp="63323403" raidPoints="38248" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="26387521.42857" hpRegen="1830" mp="900000.0" mpRegen="1000" />
+			<attack physical="4799.20533" magical="263.60854" random="30" critical="4" accuracy="5" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="3974.13793" magical="496.01325" />
+			<attribute>
+				<attack type="EARTH" value="370" />
+				<defence fire="300" water="300" wind="250" earth="370" holy="300" dark="300" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="50" />
+				<run ground="186" />
+			</speed>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="2" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4112" level="1" /> <!--Ordinary Attack -->
+			<skill id="4122" level="1" /> <!--Antharas -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+			<skill id="5465" level="1" /> <!--Earth Attacks -->
+		</skill_list>
+		<corpse_time>14</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="4096" clanHelpRange="300" isAggressive="false">
+			<skill maxChance="25" primaryId="4112" />
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="8620" min="10" max="30" chance="50" /> <!-- Ancient Book: Divine Inspiration (Manuscript) -->
+				<item id="13893" min="1" max="2" chance="50" /> <!-- Sealed Holy Spirit's Cloak -->
+				<group chance="70">
+					<item id="15560" min="1" max="1" chance="9.1" /> <!-- Vigwik Axe -->
+					<item id="15561" min="1" max="1" chance="9.09" /> <!-- Devilish Maul -->
+					<item id="15562" min="1" max="1" chance="9.09" /> <!-- Feather Eye Blade -->
+					<item id="15563" min="1" max="1" chance="9.09" /> <!-- Octo Claw -->
+					<item id="15564" min="1" max="1" chance="9.09" /> <!-- Doubletop Spear -->
+					<item id="15565" min="1" max="1" chance="9.09" /> <!-- Rising Star -->
+					<item id="15566" min="1" max="1" chance="9.09" /> <!-- Black Visage -->
+					<item id="15567" min="1" max="1" chance="9.09" /> <!-- Veniplant Sword -->
+					<item id="15568" min="1" max="1" chance="9.09" /> <!-- Skull Carnium Bow -->
+					<item id="15558" min="1" max="1" chance="9.09" /> <!-- Periel Sword -->
+					<item id="15559" min="1" max="1" chance="9.09" /> <!-- Skull Edge -->
+				</group>
+				<group chance="50">
+					<item id="15544" min="1" max="1" chance="9.1" /> <!-- Eternal Core Sword -->
+					<item id="15545" min="1" max="1" chance="9.09" /> <!-- Mamba Edge -->
+					<item id="15546" min="1" max="1" chance="9.09" /> <!-- Eversor Mace -->
+					<item id="15547" min="1" max="1" chance="9.09" /> <!-- Contristo Hammer -->
+					<item id="15548" min="1" max="1" chance="9.09" /> <!-- Lava Saw -->
+					<item id="15549" min="1" max="1" chance="9.09" /> <!-- Jade Claw -->
+					<item id="15550" min="1" max="1" chance="9.09" /> <!-- Demitelum -->
+					<item id="15551" min="1" max="1" chance="9.09" /> <!-- Sacredium -->
+					<item id="15552" min="1" max="1" chance="9.09" /> <!-- Cyclic Cane -->
+					<item id="15553" min="1" max="1" chance="9.09" /> <!-- Archangel Sword -->
+					<item id="15554" min="1" max="1" chance="9.09" /> <!-- Recurve Thorne Bow -->
+				</group>
+				<group chance="100">
+					<item id="15743" min="1" max="1" chance="9.1" /> <!-- Sealed Vorpal Helmet -->
+					<item id="15744" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Helmet -->
+					<item id="15745" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Circlet -->
+					<item id="15752" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Gauntlet -->
+					<item id="15753" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Gloves -->
+					<item id="15754" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Gloves -->
+					<item id="15755" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Boots -->
+					<item id="15756" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Leather Boots -->
+					<item id="15757" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Shoes -->
+					<item id="15758" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Shield -->
+					<item id="15759" min="1" max="1" chance="9.09" /> <!-- Sealed Vorpal Sigil -->
+				</group>
+				<group chance="100">
+					<item id="15746" min="1" max="1" chance="16.7" /> <!-- Sealed Vorpal Breastplate -->
+					<item id="15747" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Leather Breastplate -->
+					<item id="15748" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Tunic -->
+					<item id="15749" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Gaiter -->
+					<item id="15750" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Leather Legging -->
+					<item id="15751" min="1" max="1" chance="16.66" /> <!-- Sealed Vorpal Stockings -->
+				</group>
+				<group chance="50">
+					<item id="15763" min="1" max="1" chance="33.4" /> <!-- Sealed Vorpal Ring -->
+					<item id="15764" min="1" max="1" chance="33.3" /> <!-- Sealed Vorpal Earring -->
+					<item id="15765" min="1" max="1" chance="33.3" /> <!-- Sealed Vorpal Necklace -->
+				</group>
+				<group chance="100">
+					<item id="959" min="1" max="19" chance="100" /> <!-- Scroll: Enchant Weapon (S-Grade) -->
+				</group>
+				<group chance="60">
+					<item id="1538" min="1" max="59" chance="100" /> <!-- Blessed Scroll of Escape -->
+				</group>
+				<group chance="60">
+					<item id="3936" min="1" max="39" chance="100" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+				<group chance="100">
+					<item id="57" min="14000000" max="18000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="57" min="2000000" max="6000000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="16162" min="2" max="4" chance="45" /> <!-- High-Grade Life Stone - Level 85 -->
+					<item id="16166" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 86 -->
+					<item id="16163" min="1" max="2" chance="10" /> <!-- Top-Grade Life Stone - Level 85 -->
+					<item id="16167" min="1" max="2" chance="5" /> <!-- Top-Grade Life Stone - Level 86 -->
+				</group>
+				<group chance="100">
+					<item id="6656" min="1" max="1" chance="100" /> <!-- Earring of Antharas -->
+				</group>
+				<group chance="100.0">
+					<item id="10549" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Rune -->
+					<item id="10550" min="1" max="1" chance="33" /> <!-- Forgotten Scroll - Protection of Elemental -->
+					<item id="10551" min="1" max="1" chance="34" /> <!-- Forgotten Scroll - Protection of Alignment -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="300" />
+			<height normal="300" />
+		</collision>
+	</npc>
+	<npc id="290990" displayId="29099" level="83" type="L2Monster" name="Baylor" title="Warden">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<skill name="selfbuff1" id="5221" level="1" /> <!-- Balor - Physical Close Range Weak Point -->
+			<skill name="selfbuff2" id="5222" level="1" /> <!-- Balor - Physical Long Range Weak Point -->
+			<skill name="selfbuff3" id="5223" level="1" /> <!-- Balor - Magic Weak Point -->
+			<skill name="selfbuff4" id="5224" level="1" /> <!-- Berserk -->
+			<skill name="selfbuff5" id="5225" level="1" /> <!-- Invincible -->
+			<skill name="PhysicalSpecial1" id="5227" level="1" /> <!-- Ground Strike -->
+			<skill name="PhysicalSpecial2" id="5228" level="1" /> <!-- Jump Attack -->
+			<skill name="PhysicalSpecial3" id="5229" level="1" /> <!-- Strong Punch -->
+			<skill name="PhysicalSpecial4" id="5226" level="1" /> <!-- Imprison -->
+			<skill name="d_skill1" id="5402" level="1" /> <!-- Presentation - Balor 2 -->
+			<skill name="d_skill2" id="5403" level="1" /> <!-- Presentation - Balor 3 -->
+			<skill name="d_skill3" id="5404" level="1" /> <!-- Presentation - Balor 4 -->
+		</parameters>
+		<race>DEMONIC</race>
+		<sex>MALE</sex>
+		<acquire expRate="463.086762109777" sp="2191683" raidPoints="399" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="1078413.49462422" hpRegen="100.862738374864" mp="100000.0" mpRegen="1000" />
+			<attack physical="2098.5269559057" magical="1433.02186584885" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
+			<defence physical="1415.44576" magical="1035.7618" evasion="-18" />
+			<attribute>
+				<attack type="UNHOLY" value="80" />
+				<defence fire="70" water="70" wind="70" earth="70" holy="50" dark="95" default="60" />
+			</attribute>
+			<speed>
+				<walk ground="34" />
+				<run ground="180" />
+			</speed>
+			<hit_time>470</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="1" /> <!--Bare Hands -->
+			<skill id="4416" level="9" /> <!--Demons -->
+			<skill id="5221" level="1" /> <!--Balor - Physical Close Range Weak Point -->
+			<skill id="5222" level="1" /> <!--Balor - Physical Long Range Weak Point -->
+			<skill id="5223" level="1" /> <!--Balor - Magic Weak Point -->
+			<skill id="5224" level="1" /> <!--Berserk -->
+			<skill id="5227" level="1" /> <!--Ground Strike -->
+			<skill id="5228" level="1" /> <!--Jump Attack -->
+			<skill id="5229" level="1" /> <!--Strong Punch -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+			<skill id="5479" level="1" /> <!--Boss Petrification Resistance -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="450" clanHelpRange="300" />
+		<collision>
+			<radius normal="54" />
+			<height normal="77.5" />
+		</collision>
+	</npc>
+	<npc id="291180" displayId="29118" level="83" type="L2Monster" name="Beleth">
+		<!-- Confirmed CT2.5 -->
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<acquire expRate="2387.49266947307" sp="1362651" raidPoints="3997" />
+		<stats str="40" int="21" dex="30" wit="20" con="43" men="20">
+			<vitals hp="2603600" hpRegen="200" mp="1000000.0" mpRegen="1000" />
+			<attack physical="4000" magical="2300" random="50" critical="4" accuracy="9" attackSpeed="253" type="BLUNT" range="40" distance="80" width="120" />
+			<defence physical="590" magical="650" />
+			<attribute>
+				<attack type="UNHOLY" value="300" />
+				<defence fire="300" water="300" wind="300" earth="300" holy="250" dark="370" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="60" />
+				<run ground="160" />
+			</speed>
+		</stats>
+		<status canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="3" /> <!--Light Armor Type -->
+			<skill id="4415" level="5" /> <!--Blunt Weapons -->
+			<skill id="4416" level="6" /> <!--Humanoids -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+			<skill id="5479" level="1" /> <!--Boss Petrification Resistance -->
+		</skill_list>
+		<corpse_time>20</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="MAGE" aggroRange="450" clanHelpRange="2000" isAggressive="false">
+			<clan_list>
+				<clan>BERES</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="13893" min="1" max="1" chance="40" /> <!-- Sealed Holy Spirit's Cloak -->
+				<item id="10552" min="1" max="1" chance="20" /> <!-- Forgotten Scroll - Fighter's Will -->
+				<item id="10553" min="1" max="1" chance="20" /> <!-- Forgotten Scroll - Archer's Will -->
+				<item id="14219" min="1" max="1" chance="20" /> <!-- Forgotten Scroll - Magician's Will -->
+				<group chance="100">
+					<item id="13457" min="1" max="1" chance="3.77" /> <!-- Vesper Cutter -->
+					<item id="13458" min="1" max="1" chance="3.76" /> <!-- Vesper Slasher -->
+					<item id="13459" min="1" max="1" chance="3.76" /> <!-- Vesper Buster -->
+					<item id="13460" min="1" max="1" chance="3.77" /> <!-- Vesper Shaper -->
+					<item id="13461" min="1" max="1" chance="3.77" /> <!-- Vesper Fighter -->
+					<item id="13462" min="1" max="1" chance="3.76" /> <!-- Vesper Stormer -->
+					<item id="13463" min="1" max="1" chance="3.77" /> <!-- Vesper Avenger -->
+					<item id="13464" min="1" max="1" chance="3.76" /> <!-- Vesper Retributer -->
+					<item id="13465" min="1" max="1" chance="3.76" /> <!-- Vesper Caster -->
+					<item id="13467" min="1" max="1" chance="3.76" /> <!-- Vesper Thrower -->
+					<item id="13466" min="1" max="1" chance="3.76" /> <!-- Vesper Singer -->
+					<item id="10215" min="1" max="1" chance="6.52" /> <!-- Icarus Sawsword -->
+					<item id="10216" min="1" max="1" chance="6.51" /> <!-- Icarus Disperser -->
+					<item id="10217" min="1" max="1" chance="6.51" /> <!-- Icarus Spirit -->
+					<item id="10218" min="1" max="1" chance="6.51" /> <!-- Icarus Heavy Arms -->
+					<item id="10219" min="1" max="1" chance="6.51" /> <!-- Icarus Trident -->
+					<item id="10220" min="1" max="1" chance="6.51" /> <!-- Icarus Hammer -->
+					<item id="10221" min="1" max="1" chance="6.51" /> <!-- Icarus Hand -->
+					<item id="10222" min="1" max="1" chance="6.51" /> <!-- Icarus Hall -->
+					<item id="10223" min="1" max="1" chance="6.51" /> <!-- Icarus Spitter -->
+				</group>
+				<group chance="50.0">
+					<item id="10215" min="1" max="1" chance="11.2" /> <!-- Icarus Sawsword -->
+					<item id="10216" min="1" max="1" chance="11.1" /> <!-- Icarus Disperser -->
+					<item id="10217" min="1" max="1" chance="11.1" /> <!-- Icarus Spirit -->
+					<item id="10218" min="1" max="1" chance="11.1" /> <!-- Icarus Heavy Arms -->
+					<item id="10219" min="1" max="1" chance="11.1" /> <!-- Icarus Trident -->
+					<item id="10220" min="1" max="1" chance="11.1" /> <!-- Icarus Hammer -->
+					<item id="10221" min="1" max="1" chance="11.1" /> <!-- Icarus Hand -->
+					<item id="10222" min="1" max="1" chance="11.1" /> <!-- Icarus Hall -->
+					<item id="10223" min="1" max="1" chance="11.1" /> <!-- Icarus Spitter -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="15" />
+			<height normal="30" />
+		</collision>
+	</npc>
+	<npc id="291500" displayId="29150" level="82" type="L2Monster" name="Ekimus" title="Lord of Immortality">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<skill name="Skill_HPBuff" id="5916" level="1" /> <!-- Cruising Aura -->
+		</parameters>
+		<race>UNDEAD</race>
+		<sex>MALE</sex>
+		<acquire raidPoints="3975" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="1178416.99142083" hpRegen="1754.50097962536" mp="184680.0" mpRegen="1000" />
+			<attack physical="2054.09667" magical="1506.055474" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="12734.94253" magical="8471.70752" />
+			<attribute>
+				<attack type="UNHOLY" value="250" />
+				<defence fire="200" water="200" wind="200" earth="200" holy="150" dark="250" default="150" />
+			</attribute>
+			<speed>
+				<walk ground="60" />
+				<run ground="200" />
+			</speed>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="13" /> <!--MP Increase (5x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="4" /> <!--One-handed Sword -->
+			<skill id="4416" level="1" /> <!--Undead -->
+			<skill id="4438" level="5" /> <!--Greater Resist Sleep -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+			<skill id="5916" level="1" /> <!--Cruising Aura -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="300" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>ACEED</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="14160" min="1" max="1" chance="35" /> <!-- Sealed Vesper Earring -->
+				<item id="14161" min="1" max="1" chance="30" /> <!-- Sealed Vesper Necklace -->
+				<item id="14162" min="1" max="1" chance="35" /> <!-- Sealed Vesper Ring -->
+				<group chance="100">
+					<item id="13143" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Helmet -->
+					<item id="13144" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Leather Helmet -->
+					<item id="13145" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Circlet -->
+					<item id="13887" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Sigil -->
+					<item id="14105" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Breastplate -->
+					<item id="14106" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Leather Breastplate -->
+					<item id="14107" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Tunic -->
+					<item id="14108" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Gaiters -->
+					<item id="14109" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Gauntlet -->
+					<item id="14110" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Boots -->
+					<item id="14111" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Shield -->
+					<item id="14112" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Leather Leggings -->
+					<item id="14113" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Leather Gloves -->
+					<item id="14114" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Leather Boots -->
+					<item id="14115" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Stockings -->
+					<item id="14116" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Gloves -->
+					<item id="14117" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Shoes -->
+					<item id="13146" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Helmet -->
+					<item id="13147" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Leather Helmet -->
+					<item id="13148" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Circlet -->
+					<item id="13886" min="1" max="1" chance="2.94" /> <!-- Sealed Dynasty Sigil -->
+					<item id="17006" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Breastplate -->
+					<item id="17007" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Leather Breastplate -->
+					<item id="17008" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Tunic -->
+					<item id="17009" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Gaiters -->
+					<item id="17010" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Gauntlet -->
+					<item id="17011" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Boots -->
+					<item id="9529" min="1" max="1" chance="2.94" /> <!-- Sealed Dynasty Shield -->
+					<item id="17012" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Leather Leggings -->
+					<item id="17013" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Leather Gloves -->
+					<item id="17014" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Leather Boots -->
+					<item id="17015" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Stockings -->
+					<item id="17016" min="1" max="1" chance="2.94" /> <!-- Sealed Vesper Noble Gloves -->
+					<item id="17017" min="1" max="1" chance="2.98" /> <!-- Sealed Vesper Noble Shoes -->
+				</group>
+				<group chance="100.0">
+					<item id="13893" min="1" max="1" chance="10" /> <!-- Sealed Holy Spirit's Cloak -->
+					<item id="10552" min="1" max="1" chance="30" /> <!-- Forgotten Scroll - Fighter's Will -->
+					<item id="10553" min="1" max="1" chance="30" /> <!-- Forgotten Scroll - Archer's Will -->
+					<item id="14219" min="1" max="1" chance="30" /> <!-- Forgotten Scroll - Magician's Will -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="25" />
+			<height normal="70" />
+		</collision>
+	</npc>
+	<npc id="291630" displayId="29163" level="82" type="L2Monster" name="Tiat" title="Witch of the Dragon of Darkness">
+		<!-- Confirmed CT2.5 -->
+		<race>DRAGON</race>
+		<sex>FEMALE</sex>
+		<acquire raidPoints="3975" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="5523846.14458983" hpRegen="548.283697654583" mp="184680.0" mpRegen="1000" />
+			<attack physical="3093.77456970222" magical="2112.64697503607" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="530.6226053" magical="352.987813333333" />
+			<attribute>
+				<attack type="FIRE" value="250" />
+				<defence fire="250" water="150" wind="200" earth="200" holy="200" dark="200" default="150" />
+			</attribute>
+			<speed>
+				<walk ground="80" />
+				<run ground="200" />
+			</speed>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="3" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4116" level="5" /> <!--Resist M. Atk. -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="4" /> <!--One-handed Sword -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+			<skill id="5462" level="1" /> <!--Fire Attacks -->
+			<skill id="5839" level="1" /> <!--Breath -->
+			<skill id="5840" level="1" /> <!--Fire Breath -->
+			<skill id="5841" level="1" /> <!--Multi Defense -->
+			<skill id="5842" level="1" /> <!--Spinning Slasher -->
+			<skill id="5843" level="1" /> <!--Terror -->
+			<skill id="6127" level="1" /> <!--Anti-limit -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="450" clanHelpRange="1000" isAggressive="false">
+			<clan_list>
+				<clan>DES_DRAGON</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<item id="13893" min="1" max="1" chance="20" /> <!-- Sealed Holy Spirit's Cloak -->
+				<item id="10550" min="1" max="1" chance="40" /> <!-- Forgotten Scroll - Protection of Elemental -->
+				<item id="10552" min="1" max="1" chance="40" /> <!-- Forgotten Scroll - Fighter's Will -->
+				<group chance="100">
+					<item id="13457" min="1" max="1" chance="3.77" /> <!-- Vesper Cutter -->
+					<item id="13458" min="1" max="1" chance="3.76" /> <!-- Vesper Slasher -->
+					<item id="13459" min="1" max="1" chance="3.76" /> <!-- Vesper Buster -->
+					<item id="13460" min="1" max="1" chance="3.77" /> <!-- Vesper Shaper -->
+					<item id="13461" min="1" max="1" chance="3.77" /> <!-- Vesper Fighter -->
+					<item id="13462" min="1" max="1" chance="3.76" /> <!-- Vesper Stormer -->
+					<item id="13463" min="1" max="1" chance="3.77" /> <!-- Vesper Avenger -->
+					<item id="13464" min="1" max="1" chance="3.76" /> <!-- Vesper Retributer -->
+					<item id="13465" min="1" max="1" chance="3.76" /> <!-- Vesper Caster -->
+					<item id="13467" min="1" max="1" chance="3.76" /> <!-- Vesper Thrower -->
+					<item id="13466" min="1" max="1" chance="3.76" /> <!-- Vesper Singer -->
+					<item id="10215" min="1" max="1" chance="6.52" /> <!-- Icarus Sawsword -->
+					<item id="10216" min="1" max="1" chance="6.51" /> <!-- Icarus Disperser -->
+					<item id="10217" min="1" max="1" chance="6.51" /> <!-- Icarus Spirit -->
+					<item id="10218" min="1" max="1" chance="6.51" /> <!-- Icarus Heavy Arms -->
+					<item id="10219" min="1" max="1" chance="6.51" /> <!-- Icarus Trident -->
+					<item id="10220" min="1" max="1" chance="6.51" /> <!-- Icarus Hammer -->
+					<item id="10221" min="1" max="1" chance="6.51" /> <!-- Icarus Hand -->
+					<item id="10222" min="1" max="1" chance="6.51" /> <!-- Icarus Hall -->
+					<item id="10223" min="1" max="1" chance="6.51" /> <!-- Icarus Spitter -->
+				</group>
+				<group chance="100.0">
+					<item id="10553" min="1" max="1" chance="50" /> <!-- Forgotten Scroll - Archer's Will -->
+					<item id="14219" min="1" max="1" chance="50" /> <!-- Forgotten Scroll - Magician's Will -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="55" grown="66" />
+			<height normal="104" grown="124.8" />
+		</collision>
+	</npc>
+	<npc id="291750" displayId="29175" level="82" type="L2Monster" name="Tiat" title="Witch of the Dragon of Darkness">
+		<!-- Confirmed CT2.5 -->
+		<race>DRAGON</race>
+		<sex>FEMALE</sex>
+		<acquire expRate="1707.36682763236" sp="4460470.034" raidPoints="3975" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="5523846.14458983" hpRegen="548.283697654583" mp="184680.0" mpRegen="1000" />
+			<attack physical="3093.77456970222" magical="2112.64697503607" random="30" critical="4" accuracy="4.75" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="530.6226053" magical="352.987813333333" />
+			<attribute>
+				<attack type="FIRE" value="250" />
+				<defence fire="250" water="150" wind="200" earth="200" holy="200" dark="200" default="150" />
+			</attribute>
+			<speed>
+				<walk ground="80" />
+				<run ground="200" />
+			</speed>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4071" level="3" /> <!--Resist Bow/Crossbow Weapons -->
+			<skill id="4116" level="5" /> <!--Resist M. Atk. -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="10" /> <!--Dragons -->
+			<skill id="5462" level="1" /> <!--Fire Attacks -->
+			<skill id="6127" level="1" /> <!--Anti-limit -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="450" clanHelpRange="1000" isAggressive="false">
+			<clan_list>
+				<clan>DES_DRAGON</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="21.704700469970703">
+					<item id="7575" min="1" max="1" chance="4.8834" /> <!-- Draconic Bow -->
+					<item id="7579" min="12" max="36" chance="95.1166" /> <!-- Draconic Bow Shaft -->
+				</group>
+				<group chance="62.86330032348633">
+					<item id="6676" min="1" max="1" chance="5.6413" /> <!-- Sealed Imperial Crusader Gauntlet -->
+					<item id="6677" min="1" max="1" chance="5.6413" /> <!-- Sealed Imperial Crusader Boots -->
+					<item id="6681" min="1" max="1" chance="5.6413" /> <!-- Sealed Draconic Leather Glove -->
+					<item id="6682" min="1" max="1" chance="5.6413" /> <!-- Sealed Draconic Leather Boots -->
+					<item id="6685" min="1" max="1" chance="5.6413" /> <!-- Sealed Major Arcana Glove -->
+					<item id="6686" min="1" max="1" chance="5.6413" /> <!-- Sealed Major Arcana Boots -->
+					<item id="6703" min="112" max="336" chance="5.7282" /> <!-- Sealed Imperial Crusader Gauntlets Design -->
+					<item id="6704" min="203" max="607" chance="3.1682" /> <!-- Sealed Imperial Crusader Boots Design -->
+					<item id="6708" min="320" max="960" chance="2.0049" /> <!-- Sealed Draconic Leather Gloves Fabric -->
+					<item id="6709" min="28" max="82" chance="23.3295" /> <!-- Sealed Draconic Leather Boots Design -->
+					<item id="6712" min="36" max="108" chance="17.8211" /> <!-- Sealed Major Arcana Gloves fabric -->
+					<item id="6713" min="46" max="136" chance="14.1003" /> <!-- Sealed Major Arcana Boots Design -->
+				</group>
+				<group chance="64.87049865722656">
+					<item id="6578" min="1" max="1" chance="15.0943" /> <!-- Blessed Scroll: Enchant Armor (S-Grade) -->
+					<item id="3936" min="1" max="3" chance="84.9057" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="55" grown="66" />
+			<height normal="104" grown="124.8" />
+		</collision>
+	</npc>
+	<npc id="291760" displayId="29176" level="60" type="L2Monster" name="Zaken">
+		<!-- Confirmed CT2.5 -->
+		<race>UNDEAD</race>
+		<sex>MALE</sex>
+		<acquire expRate="1154.07890173387" sp="587466.813342582" raidPoints="572" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="90456.5" hpRegen="337" mp="30000.0" mpRegen="200" />
+			<attack physical="1211.5" magical="328.69659" random="30" critical="4" accuracy="5" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="247.65008" magical="181.21958" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="53" />
+			</attribute>
+			<speed>
+				<walk ground="42" />
+				<run ground="190" />
+			</speed>
+			<hit_time>590</hit_time>
+		</stats>
+		<status undying="false" noSleepMode="true" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="1" /> <!--Undead -->
+			<skill id="4444" level="1" /> <!--Higher Resist Bow/Crossbow Weapons -->
+			<skill id="5601" level="7" /> <!--Short-Range Physical Attack Resistance -->
+		</skill_list>
+		<corpse_time>300</corpse_time>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai type="BALANCED" aggroRange="1000" clanHelpRange="300" isAggressive="false" />
+		<drop_lists>
+			<death>
+				<group chance="48.80440139770508">
+					<item id="80" min="1" max="1" chance="4.3508" /> <!-- Tallum Blade -->
+					<item id="150" min="1" max="1" chance="4.3508" /> <!-- Elemental Sword -->
+					<item id="5548" min="24" max="72" chance="21.7377" /> <!-- Tallum Blade Edge -->
+					<item id="5547" min="8" max="22" chance="69.5607" /> <!-- Elemental Sword Edge -->
+				</group>
+				<group chance="74.33370208740234">
+					<item id="729" min="1" max="1" chance="11.6009" /> <!-- Scroll: Enchant Weapon (A-Grade) -->
+					<item id="730" min="1" max="1" chance="87.007" /> <!-- Scroll: Enchant Armor (A-Grade) -->
+					<item id="6569" min="1" max="1" chance="1.3921" /> <!-- Blessed Scroll: Enchant Weapon (A-Grade) -->
+				</group>
+				<group chance="0.09000000357627869">
+					<item id="6659" min="1" max="1" chance="100" /> <!-- Earring of Zaken -->
+				</group>
+				<group chance="0.09000000357627869">
+					<item id="8922" min="1" max="1" chance="100" /> <!-- Pirate Hat -->
+				</group>
+				<group chance="0.18000000715255737">
+					<item id="8619" min="1" max="1" chance="100" /> <!-- Ancient Book: Divine Inspiration (Original Language Version) -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="16" />
+			<height normal="32" />
+		</collision>
+	</npc>
+	<npc id="291770" displayId="29177" level="85" type="L2Monster" name="Freya" title="Ice Queen">
+		<!-- Confirmed CT2.5 -->
+		<race>HUMANOID</race>
+		<sex>FEMALE</sex>
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="1989104.85860933" hpRegen="556.482123682282" mp="184680.0" mpRegen="300" />
+			<attack physical="8184.13933986331" magical="2579.001338104" random="30" critical="4" accuracy="5" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1085.36442" magical="529.48" />
+			<attribute>
+				<attack type="WATER" value="370" />
+				<defence fire="250" water="370" wind="300" earth="300" holy="300" dark="300" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="45" />
+				<run ground="150" />
+			</speed>
+		</stats>
+		<status canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="6" /> <!--Humanoids -->
+			<skill id="5463" level="1" /> <!--Water Attacks -->
+			<skill id="6644" level="1" /> <!--Ice Queen Freya -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="300" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FREYA</clan>
+			</clan_list>
+		</ai>
+		<collision>
+			<radius normal="50" />
+			<height normal="98.5" />
+		</collision>
+	</npc>
+	<npc id="291780" displayId="29178" level="85" type="L2Monster" name="Freya" title="Ice Queen">
+		<!-- Confirmed CT2.5 -->
+		<race>HUMANOID</race>
+		<sex>FEMALE</sex>
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="1989104.85860933" hpRegen="556.482123682282" mp="184680.0" mpRegen="300" />
+			<attack physical="8184.13933986331" magical="2579.001338104" random="30" critical="4" accuracy="5" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1085.36442" magical="529.48" />
+			<attribute>
+				<attack type="WATER" value="370" />
+				<defence fire="250" water="370" wind="300" earth="300" holy="300" dark="300" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="45" />
+				<run ground="150" />
+			</speed>
+		</stats>
+		<status targetable="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="6" /> <!--Humanoids -->
+			<skill id="5463" level="1" /> <!--Water Attacks -->
+			<skill id="6644" level="1" /> <!--Ice Queen Freya -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="300" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FREYA</clan>
+			</clan_list>
+		</ai>
+		<collision>
+			<radius normal="50" />
+			<height normal="98.5" />
+		</collision>
+	</npc>
+	<npc id="291790" displayId="29179" level="85" type="L2Monster" name="Freya" title="Ice Queen">
+		<!-- Confirmed CT2.5 -->
+		<race>HUMANOID</race>
+		<sex>FEMALE</sex>
+		<acquire expRate="7137.70752978229" sp="6164678.02046629" raidPoints="11965" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="2662001.19529538" hpRegen="612.13033605051" mp="184680.0" mpRegen="300" />
+			<attack physical="9002.55327384964" magical="3120.59161910585" random="30" critical="4" accuracy="5" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1193.900862" magical="582.428" />
+			<attribute>
+				<attack type="WATER" value="370" />
+				<defence fire="250" water="370" wind="300" earth="300" holy="300" dark="300" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="6" /> <!--Humanoids -->
+			<skill id="5463" level="1" /> <!--Water Attacks -->
+			<skill id="6644" level="1" /> <!--Ice Queen Freya -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="300" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FREYA</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="15">
+					<item id="15560" min="1" max="1" chance="9.1" /> <!-- Vigwik Axe -->
+					<item id="15561" min="1" max="1" chance="9.09" /> <!-- Devilish Maul -->
+					<item id="15562" min="1" max="1" chance="9.09" /> <!-- Feather Eye Blade -->
+					<item id="15563" min="1" max="1" chance="9.09" /> <!-- Octo Claw -->
+					<item id="15564" min="1" max="1" chance="9.09" /> <!-- Doubletop Spear -->
+					<item id="15565" min="1" max="1" chance="9.09" /> <!-- Rising Star -->
+					<item id="15566" min="1" max="1" chance="9.09" /> <!-- Black Visage -->
+					<item id="15567" min="1" max="1" chance="9.09" /> <!-- Veniplant Sword -->
+					<item id="15568" min="1" max="1" chance="9.09" /> <!-- Skull Carnium Bow -->
+					<item id="15558" min="1" max="1" chance="9.09" /> <!-- Periel Sword -->
+					<item id="15559" min="1" max="1" chance="9.09" /> <!-- Skull Edge -->
+				</group>
+				<group chance="50">
+					<item id="13143" min="1" max="1" chance="9.1" /> <!-- Sealed Vesper Helmet -->
+					<item id="13144" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Leather Helmet -->
+					<item id="13145" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Circlet -->
+					<item id="14109" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Gauntlet -->
+					<item id="14113" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Leather Gloves -->
+					<item id="14116" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Gloves -->
+					<item id="14110" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Boots -->
+					<item id="14114" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Leather Boots -->
+					<item id="14117" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Shoes -->
+					<item id="14111" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Shield -->
+					<item id="13887" min="1" max="1" chance="9.09" /> <!-- Sealed Vesper Sigil -->
+				</group>
+				<group chance="50">
+					<item id="14105" min="1" max="1" chance="16.7" /> <!-- Sealed Vesper Breastplate -->
+					<item id="14106" min="1" max="1" chance="16.66" /> <!-- Sealed Vesper Leather Breastplate -->
+					<item id="14107" min="1" max="1" chance="16.66" /> <!-- Sealed Vesper Tunic -->
+					<item id="14108" min="1" max="1" chance="16.66" /> <!-- Sealed Vesper Gaiters -->
+					<item id="14112" min="1" max="1" chance="16.66" /> <!-- Sealed Vesper Leather Leggings -->
+					<item id="14115" min="1" max="1" chance="16.66" /> <!-- Sealed Vesper Stockings -->
+				</group>
+				<group chance="50">
+					<item id="14162" min="1" max="1" chance="33.4" /> <!-- Sealed Vesper Ring -->
+					<item id="14160" min="1" max="1" chance="33.3" /> <!-- Sealed Vesper Earring -->
+					<item id="14161" min="1" max="1" chance="33.3" /> <!-- Sealed Vesper Necklace -->
+				</group>
+				<group chance="4.107600212097168">
+					<item id="6577" min="1" max="1" chance="13.0435" /> <!-- Blessed Scroll: Enchant Weapon (S-Grade) -->
+					<item id="6578" min="1" max="1" chance="86.9565" /> <!-- Blessed Scroll: Enchant Armor (S-Grade) -->
+				</group>
+				<group chance="100">
+					<item id="16164" min="2" max="4" chance="60" /> <!-- Life Stone - Level 86 -->
+					<item id="16165" min="2" max="4" chance="40" /> <!-- Mid-Grade Life Stone - Level 86 -->
+				</group>
+				<group chance="25">
+					<item id="16025" min="1" max="1" chance="100" /> <!-- Necklace of Freya -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="22" />
+			<height normal="55" />
+		</collision>
+	</npc>
+	<npc id="291800" displayId="29180" level="85" type="L2Monster" name="Freya" title="Ice Queen">
+		<!-- Confirmed CT2.5 -->
+		<race>HUMANOID</race>
+		<sex>FEMALE</sex>
+		<acquire expRate="15058.7616814741" sp="12524211.7184757" raidPoints="15922" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="47212840.5768211" hpRegen="18363.9100815153" mp="184680.0" mpRegen="1000" />
+			<attack physical="21208.8451812642" magical="5528.31840933477" random="30" critical="4" accuracy="7" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1589.082047322" magical="1193.8" evasion="11" />
+			<attribute>
+				<attack type="WATER" value="370" />
+				<defence fire="250" water="370" wind="300" earth="300" holy="300" dark="300" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="6" /> <!--Humanoids -->
+			<skill id="5463" level="1" /> <!--Water Attacks -->
+			<skill id="6644" level="1" /> <!--Ice Queen Freya -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="300" clanHelpRange="300" isAggressive="false">
+			<clan_list>
+				<clan>FREYA</clan>
+			</clan_list>
+		</ai>
+		<drop_lists>
+			<death>
+				<group chance="30">
+					<item id="15560" min="1" max="1" chance="9.1" /> <!-- Vigwik Axe -->
+					<item id="15561" min="1" max="1" chance="9.09" /> <!-- Devilish Maul -->
+					<item id="15562" min="1" max="1" chance="9.09" /> <!-- Feather Eye Blade -->
+					<item id="15563" min="1" max="1" chance="9.09" /> <!-- Octo Claw -->
+					<item id="15564" min="1" max="1" chance="9.09" /> <!-- Doubletop Spear -->
+					<item id="15565" min="1" max="1" chance="9.09" /> <!-- Rising Star -->
+					<item id="15566" min="1" max="1" chance="9.09" /> <!-- Black Visage -->
+					<item id="15567" min="1" max="1" chance="9.09" /> <!-- Veniplant Sword -->
+					<item id="15568" min="1" max="1" chance="9.09" /> <!-- Skull Carnium Bow -->
+					<item id="15558" min="1" max="1" chance="9.09" /> <!-- Periel Sword -->
+					<item id="15559" min="1" max="1" chance="9.09" /> <!-- Skull Edge -->
+				</group>
+				<group chance="50">
+					<item id="15726" min="1" max="1" chance="9.1" /> <!-- Sealed Elegia Helmet -->
+					<item id="15727" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Leather Helmet -->
+					<item id="15728" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Circlet -->
+					<item id="15735" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Gauntlet -->
+					<item id="15736" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Leather Gloves -->
+					<item id="15737" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Gloves -->
+					<item id="15738" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Boots -->
+					<item id="15739" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Leather Boots -->
+					<item id="15740" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Shoes -->
+					<item id="15741" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Shield -->
+					<item id="15742" min="1" max="1" chance="9.09" /> <!-- Sealed Elegia Sigil -->
+				</group>
+				<group chance="50">
+					<item id="15729" min="1" max="1" chance="16.7" /> <!-- Sealed Elegia Breastplate -->
+					<item id="15730" min="1" max="1" chance="16.66" /> <!-- Sealed Elegia Leather Breastplate -->
+					<item id="15731" min="1" max="1" chance="16.66" /> <!-- Sealed Elegia Tunic -->
+					<item id="15732" min="1" max="1" chance="16.66" /> <!-- Sealed Elegia Gaiter -->
+					<item id="15733" min="1" max="1" chance="16.66" /> <!-- Sealed Elegia Leather Legging -->
+					<item id="15734" min="1" max="1" chance="16.66" /> <!-- Sealed Elegia Stockings -->
+				</group>
+				<group chance="50">
+					<item id="15760" min="1" max="1" chance="33.4" /> <!-- Sealed Elegia Ring -->
+					<item id="15761" min="1" max="1" chance="33.3" /> <!-- Sealed Elegia Earring -->
+					<item id="15762" min="1" max="1" chance="33.3" /> <!-- Sealed Elegia Necklace -->
+				</group>
+				<group chance="4.107600212097168">
+					<item id="6577" min="1" max="1" chance="13.0435" /> <!-- Blessed Scroll: Enchant Weapon (S-Grade) -->
+					<item id="6578" min="1" max="1" chance="86.9565" /> <!-- Blessed Scroll: Enchant Armor (S-Grade) -->
+				</group>
+				<group chance="30">
+					<item id="16026" min="1" max="1" chance="100" /> <!-- Blessed Necklace of Freya -->
+				</group>
+				<group chance="50">
+					<item id="16027" min="1" max="1" chance="100" /> <!-- Bottle of Freya's Soul -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="22" />
+			<height normal="55" />
+		</collision>
+	</npc>
+	<npc id="291810" displayId="29181" level="83" type="L2Monster" name="Zaken">
+		<!-- Confirmed CT2.5 -->
+		<race>UNDEAD</race>
+		<sex>MALE</sex>
+		<acquire expRate="2218.44806945083" sp="2051807" raidPoints="1795" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="3155900.34672804" hpRegen="818.275841116973" mp="177740.0" mpRegen="300" />
+			<attack physical="8022.87946266377" magical="2559.9693577641" random="30" critical="4" accuracy="7" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="1061.58432" magical="517.88" evasion="-18" />
+			<attribute>
+				<attack type="UNHOLY" value="370" />
+				<defence fire="300" water="300" wind="300" earth="300" holy="250" dark="370" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="42" />
+				<run ground="190" />
+			</speed>
+			<hit_time>590</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="1" /> <!--Undead -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="1000" clanHelpRange="300" isAggressive="false" />
+		<drop_lists>
+			<death>
+				<group chance="30">
+					<item id="13143" min="1" max="1" chance="5.92" /> <!-- Sealed Vesper Helmet -->
+					<item id="13144" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Leather Helmet -->
+					<item id="13145" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Circlet -->
+					<item id="14109" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Gauntlet -->
+					<item id="14113" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Leather Gloves -->
+					<item id="14116" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Gloves -->
+					<item id="14110" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Boots -->
+					<item id="14114" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Leather Boots -->
+					<item id="14117" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Shoes -->
+					<item id="14111" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Shield -->
+					<item id="13887" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Sigil -->
+					<item id="14105" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Breastplate -->
+					<item id="14106" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Leather Breastplate -->
+					<item id="14107" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Tunic -->
+					<item id="14108" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Gaiters -->
+					<item id="14112" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Leather Leggings -->
+					<item id="14115" min="1" max="1" chance="5.88" /> <!-- Sealed Vesper Stockings -->
+				</group>
+				<group chance="70">
+					<item id="15694" min="1" max="1" chance="5.92" /> <!-- Sealed Moirai Helmet -->
+					<item id="15695" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Leather Helmet -->
+					<item id="15696" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Circlet -->
+					<item id="15703" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Gauntlet -->
+					<item id="15704" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Leather Gloves -->
+					<item id="15705" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Gloves -->
+					<item id="15706" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Boots -->
+					<item id="15707" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Leather Boots -->
+					<item id="15708" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Shoes -->
+					<item id="15710" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Shield -->
+					<item id="15709" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Sigil -->
+					<item id="15697" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Breastplate -->
+					<item id="15698" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Leather Breastplate -->
+					<item id="15699" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Tunic -->
+					<item id="15700" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Gaiter -->
+					<item id="15701" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Leather Legging -->
+					<item id="15702" min="1" max="1" chance="5.88" /> <!-- Sealed Moirai Stockings -->
+				</group>
+				<group chance="50">
+					<item id="14162" min="1" max="1" chance="33.4" /> <!-- Sealed Vesper Ring -->
+					<item id="14160" min="1" max="1" chance="33.3" /> <!-- Sealed Vesper Earring -->
+					<item id="14161" min="1" max="1" chance="33.3" /> <!-- Sealed Vesper Necklace -->
+				</group>
+				<group chance="100">
+					<item id="1538" min="1" max="30" chance="100" /> <!-- Blessed Scroll of Escape -->
+				</group>
+				<group chance="100">
+					<item id="3936" min="1" max="10" chance="100" /> <!-- Blessed Scroll of Resurrection -->
+				</group>
+				<group chance="100">
+					<item id="57" min="9000000" max="1100000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="100">
+					<item id="16162" min="2" max="4" chance="60" /> <!-- High-Grade Life Stone - Level 85 -->
+					<item id="16166" min="2" max="4" chance="40" /> <!-- High-Grade Life Stone - Level 86 -->
+				</group>
+				<group chance="0.09000000357627869">
+					<item id="6659" min="1" max="1" chance="100" /> <!-- Earring of Zaken -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="16" />
+			<height normal="32" />
+		</collision>
+	</npc>
+	<npc id="291860" displayId="29186" level="85" type="L2Monster" name="Baylor" title="Warden">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<skill name="selfbuff1" id="5221" level="1" /> <!-- Balor - Physical Close Range Weak Point -->
+			<skill name="selfbuff2" id="5222" level="1" /> <!-- Balor - Physical Long Range Weak Point -->
+			<skill name="selfbuff3" id="5223" level="1" /> <!-- Balor - Magic Weak Point -->
+			<skill name="selfbuff4" id="5224" level="1" /> <!-- Berserk -->
+			<skill name="selfbuff5" id="5225" level="1" /> <!-- Invincible -->
+			<skill name="PhysicalSpecial1" id="5227" level="1" /> <!-- Ground Strike -->
+			<skill name="PhysicalSpecial2" id="5228" level="1" /> <!-- Jump Attack -->
+			<skill name="PhysicalSpecial3" id="5229" level="1" /> <!-- Strong Punch -->
+			<skill name="PhysicalSpecial4" id="5226" level="1" /> <!-- Imprison -->
+			<skill name="d_skill1" id="5402" level="1" /> <!-- Presentation - Balor 2 -->
+			<skill name="d_skill2" id="5403" level="1" /> <!-- Presentation - Balor 3 -->
+			<skill name="d_skill3" id="5404" level="1" /> <!-- Presentation - Balor 4 -->
+		</parameters>
+		<race>DEMONIC</race>
+		<sex>MALE</sex>
+		<acquire expRate="1374.48259550507" sp="1322209" raidPoints="1177" />
+		<stats str="60" int="76" dex="73" wit="70" con="57" men="80">
+			<vitals hp="985293.229521332" hpRegen="378.673670134" mp="1955.34" mpRegen="300" />
+			<attack physical="3825.01371594665" magical="1860.88877295069" random="10" critical="4" accuracy="5" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
+			<defence physical="1654.784486487" magical="1181.91313447627" />
+			<attribute>
+				<attack type="UNHOLY" value="370" />
+				<defence fire="300" water="300" wind="300" earth="300" holy="250" dark="370" default="300" />
+			</attribute>
+			<speed>
+				<walk ground="34" />
+				<run ground="180" />
+			</speed>
+			<hit_time>470</hit_time>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skill_list>
+			<skill id="4045" level="1" /> <!--Resist Full Magic Attack -->
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="11" /> <!--Average M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="1" /> <!--Bare Hands -->
+			<skill id="4416" level="9" /> <!--Demons -->
+			<skill id="5221" level="1" /> <!--Balor - Physical Close Range Weak Point -->
+			<skill id="5222" level="1" /> <!--Balor - Physical Long Range Weak Point -->
+			<skill id="5223" level="1" /> <!--Balor - Magic Weak Point -->
+			<skill id="5224" level="1" /> <!--Berserk -->
+			<skill id="5225" level="1" /> <!--Invincible -->
+			<skill id="5226" level="1" /> <!--Imprison -->
+			<skill id="5227" level="1" /> <!--Ground Strike -->
+			<skill id="5228" level="1" /> <!--Jump Attack -->
+			<skill id="5229" level="1" /> <!--Strong Punch -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+			<skill id="5479" level="1" /> <!--Boss Petrification Resistance -->
+		</skill_list>
+		<ex_crt_effect>true</ex_crt_effect>
+		<ai aggroRange="300" clanHelpRange="300" isAggressive="false" />
+		<drop_lists>
+			<death>
+				<group chance="100">
+					<item id="13143" min="1" max="1" chance="8.37" /> <!-- Sealed Vesper Helmet -->
+					<item id="13144" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Leather Helmet -->
+					<item id="13145" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Circlet -->
+					<item id="14109" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Gauntlet -->
+					<item id="14113" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Leather Gloves -->
+					<item id="14116" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Gloves -->
+					<item id="14110" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Boots -->
+					<item id="14114" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Leather Boots -->
+					<item id="14117" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Shoes -->
+					<item id="14111" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Shield -->
+					<item id="13887" min="1" max="1" chance="8.33" /> <!-- Sealed Vesper Sigil -->
+					<item id="10170" min="1" max="1" chance="8.33" /> <!-- Baylor's Earring -->
+				</group>
+				<group chance="4.107600212097168">
+					<item id="6577" min="1" max="1" chance="13.0435" /> <!-- Blessed Scroll: Enchant Weapon (S-Grade) -->
+					<item id="6578" min="1" max="1" chance="86.9565" /> <!-- Blessed Scroll: Enchant Armor (S-Grade) -->
+				</group>
+			</death>
+		</drop_lists>
+		<collision>
+			<radius normal="54" />
+			<height normal="77.5" />
+		</collision>
+	</npc>
+</list>

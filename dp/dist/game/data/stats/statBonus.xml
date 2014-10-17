@@ -1,0 +1,3113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/statBonus.xsd">
+	<STR>
+		<!-- 1.008900^(STR-(48.400000)) -->
+		<!--
+for STR in xrange(0,512):
+    print """<stat value="%d" bonus="%.2f"/>""" % (STR, 1.008900**(STR-(48.400000)))		
+		-->
+		<stat value="0" bonus="0.65"/>
+		<stat value="1" bonus="0.66"/>
+		<stat value="2" bonus="0.66"/>
+		<stat value="3" bonus="0.67"/>
+		<stat value="4" bonus="0.67"/>
+		<stat value="5" bonus="0.68"/>
+		<stat value="6" bonus="0.69"/>
+		<stat value="7" bonus="0.69"/>
+		<stat value="8" bonus="0.70"/>
+		<stat value="9" bonus="0.71"/>
+		<stat value="10" bonus="0.71"/>
+		<stat value="11" bonus="0.72"/>
+		<stat value="12" bonus="0.72"/>
+		<stat value="13" bonus="0.73"/>
+		<stat value="14" bonus="0.74"/>
+		<stat value="15" bonus="0.74"/>
+		<stat value="16" bonus="0.75"/>
+		<stat value="17" bonus="0.76"/>
+		<stat value="18" bonus="0.76"/>
+		<stat value="19" bonus="0.77"/>
+		<stat value="20" bonus="0.78"/>
+		<stat value="21" bonus="0.78"/>
+		<stat value="22" bonus="0.79"/>
+		<stat value="23" bonus="0.80"/>
+		<stat value="24" bonus="0.81"/>
+		<stat value="25" bonus="0.81"/>
+		<stat value="26" bonus="0.82"/>
+		<stat value="27" bonus="0.83"/>
+		<stat value="28" bonus="0.83"/>
+		<stat value="29" bonus="0.84"/>
+		<stat value="30" bonus="0.85"/>
+		<stat value="31" bonus="0.86"/>
+		<stat value="32" bonus="0.86"/>
+		<stat value="33" bonus="0.87"/>
+		<stat value="34" bonus="0.88"/>
+		<stat value="35" bonus="0.89"/>
+		<stat value="36" bonus="0.90"/>
+		<stat value="37" bonus="0.90"/>
+		<stat value="38" bonus="0.91"/>
+		<stat value="39" bonus="0.92"/>
+		<stat value="40" bonus="0.93"/>
+		<stat value="41" bonus="0.94"/>
+		<stat value="42" bonus="0.94"/>
+		<stat value="43" bonus="0.95"/>
+		<stat value="44" bonus="0.96"/>
+		<stat value="45" bonus="0.97"/>
+		<stat value="46" bonus="0.98"/>
+		<stat value="47" bonus="0.99"/>
+		<stat value="48" bonus="1.00"/>
+		<stat value="49" bonus="1.01"/>
+		<stat value="50" bonus="1.01"/>
+		<stat value="51" bonus="1.02"/>
+		<stat value="52" bonus="1.03"/>
+		<stat value="53" bonus="1.04"/>
+		<stat value="54" bonus="1.05"/>
+		<stat value="55" bonus="1.06"/>
+		<stat value="56" bonus="1.07"/>
+		<stat value="57" bonus="1.08"/>
+		<stat value="58" bonus="1.09"/>
+		<stat value="59" bonus="1.10"/>
+		<stat value="60" bonus="1.11"/>
+		<stat value="61" bonus="1.12"/>
+		<stat value="62" bonus="1.13"/>
+		<stat value="63" bonus="1.14"/>
+		<stat value="64" bonus="1.15"/>
+		<stat value="65" bonus="1.16"/>
+		<stat value="66" bonus="1.17"/>
+		<stat value="67" bonus="1.18"/>
+		<stat value="68" bonus="1.19"/>
+		<stat value="69" bonus="1.20"/>
+		<stat value="70" bonus="1.21"/>
+		<stat value="71" bonus="1.22"/>
+		<stat value="72" bonus="1.23"/>
+		<stat value="73" bonus="1.24"/>
+		<stat value="74" bonus="1.25"/>
+		<stat value="75" bonus="1.27"/>
+		<stat value="76" bonus="1.28"/>
+		<stat value="77" bonus="1.29"/>
+		<stat value="78" bonus="1.30"/>
+		<stat value="79" bonus="1.31"/>
+		<stat value="80" bonus="1.32"/>
+		<stat value="81" bonus="1.33"/>
+		<stat value="82" bonus="1.35"/>
+		<stat value="83" bonus="1.36"/>
+		<stat value="84" bonus="1.37"/>
+		<stat value="85" bonus="1.38"/>
+		<stat value="86" bonus="1.40"/>
+		<stat value="87" bonus="1.41"/>
+		<stat value="88" bonus="1.42"/>
+		<stat value="89" bonus="1.43"/>
+		<stat value="90" bonus="1.45"/>
+		<stat value="91" bonus="1.46"/>
+		<stat value="92" bonus="1.47"/>
+		<stat value="93" bonus="1.48"/>
+		<stat value="94" bonus="1.50"/>
+		<stat value="95" bonus="1.51"/>
+		<stat value="96" bonus="1.52"/>
+		<stat value="97" bonus="1.54"/>
+		<stat value="98" bonus="1.55"/>
+		<stat value="99" bonus="1.57"/>
+		<stat value="100" bonus="1.58"/>
+		<stat value="101" bonus="1.59"/>
+		<stat value="102" bonus="1.61"/>
+		<stat value="103" bonus="1.62"/>
+		<stat value="104" bonus="1.64"/>
+		<stat value="105" bonus="1.65"/>
+		<stat value="106" bonus="1.67"/>
+		<stat value="107" bonus="1.68"/>
+		<stat value="108" bonus="1.70"/>
+		<stat value="109" bonus="1.71"/>
+		<stat value="110" bonus="1.73"/>
+		<stat value="111" bonus="1.74"/>
+		<stat value="112" bonus="1.76"/>
+		<stat value="113" bonus="1.77"/>
+		<stat value="114" bonus="1.79"/>
+		<stat value="115" bonus="1.80"/>
+		<stat value="116" bonus="1.82"/>
+		<stat value="117" bonus="1.84"/>
+		<stat value="118" bonus="1.85"/>
+		<stat value="119" bonus="1.87"/>
+		<stat value="120" bonus="1.89"/>
+		<stat value="121" bonus="1.90"/>
+		<stat value="122" bonus="1.92"/>
+		<stat value="123" bonus="1.94"/>
+		<stat value="124" bonus="1.95"/>
+		<stat value="125" bonus="1.97"/>
+		<stat value="126" bonus="1.99"/>
+		<stat value="127" bonus="2.01"/>
+		<stat value="128" bonus="2.02"/>
+		<stat value="129" bonus="2.04"/>
+		<stat value="130" bonus="2.06"/>
+		<stat value="131" bonus="2.08"/>
+		<stat value="132" bonus="2.10"/>
+		<stat value="133" bonus="2.12"/>
+		<stat value="134" bonus="2.14"/>
+		<stat value="135" bonus="2.15"/>
+		<stat value="136" bonus="2.17"/>
+		<stat value="137" bonus="2.19"/>
+		<stat value="138" bonus="2.21"/>
+		<stat value="139" bonus="2.23"/>
+		<stat value="140" bonus="2.25"/>
+		<stat value="141" bonus="2.27"/>
+		<stat value="142" bonus="2.29"/>
+		<stat value="143" bonus="2.31"/>
+		<stat value="144" bonus="2.33"/>
+		<stat value="145" bonus="2.35"/>
+		<stat value="146" bonus="2.37"/>
+		<stat value="147" bonus="2.40"/>
+		<stat value="148" bonus="2.42"/>
+		<stat value="149" bonus="2.44"/>
+		<stat value="150" bonus="2.46"/>
+		<stat value="151" bonus="2.48"/>
+		<stat value="152" bonus="2.50"/>
+		<stat value="153" bonus="2.53"/>
+		<stat value="154" bonus="2.55"/>
+		<stat value="155" bonus="2.57"/>
+		<stat value="156" bonus="2.59"/>
+		<stat value="157" bonus="2.62"/>
+		<stat value="158" bonus="2.64"/>
+		<stat value="159" bonus="2.66"/>
+		<stat value="160" bonus="2.69"/>
+		<stat value="161" bonus="2.71"/>
+		<stat value="162" bonus="2.74"/>
+		<stat value="163" bonus="2.76"/>
+		<stat value="164" bonus="2.79"/>
+		<stat value="165" bonus="2.81"/>
+		<stat value="166" bonus="2.83"/>
+		<stat value="167" bonus="2.86"/>
+		<stat value="168" bonus="2.89"/>
+		<stat value="169" bonus="2.91"/>
+		<stat value="170" bonus="2.94"/>
+		<stat value="171" bonus="2.96"/>
+		<stat value="172" bonus="2.99"/>
+		<stat value="173" bonus="3.02"/>
+		<stat value="174" bonus="3.04"/>
+		<stat value="175" bonus="3.07"/>
+		<stat value="176" bonus="3.10"/>
+		<stat value="177" bonus="3.13"/>
+		<stat value="178" bonus="3.15"/>
+		<stat value="179" bonus="3.18"/>
+		<stat value="180" bonus="3.21"/>
+		<stat value="181" bonus="3.24"/>
+		<stat value="182" bonus="3.27"/>
+		<stat value="183" bonus="3.30"/>
+		<stat value="184" bonus="3.33"/>
+		<stat value="185" bonus="3.35"/>
+		<stat value="186" bonus="3.38"/>
+		<stat value="187" bonus="3.41"/>
+		<stat value="188" bonus="3.45"/>
+		<stat value="189" bonus="3.48"/>
+		<stat value="190" bonus="3.51"/>
+		<stat value="191" bonus="3.54"/>
+		<stat value="192" bonus="3.57"/>
+		<stat value="193" bonus="3.60"/>
+		<stat value="194" bonus="3.63"/>
+		<stat value="195" bonus="3.67"/>
+		<stat value="196" bonus="3.70"/>
+		<stat value="197" bonus="3.73"/>
+		<stat value="198" bonus="3.76"/>
+		<stat value="199" bonus="3.80"/>
+		<stat value="200" bonus="3.83"/>
+		<stat value="201" bonus="3.87"/>
+		<stat value="202" bonus="3.90"/>
+		<stat value="203" bonus="3.93"/>
+		<stat value="204" bonus="3.97"/>
+		<stat value="205" bonus="4.01"/>
+		<stat value="206" bonus="4.04"/>
+		<stat value="207" bonus="4.08"/>
+		<stat value="208" bonus="4.11"/>
+		<stat value="209" bonus="4.15"/>
+		<stat value="210" bonus="4.19"/>
+		<stat value="211" bonus="4.22"/>
+		<stat value="212" bonus="4.26"/>
+		<stat value="213" bonus="4.30"/>
+		<stat value="214" bonus="4.34"/>
+		<stat value="215" bonus="4.38"/>
+		<stat value="216" bonus="4.42"/>
+		<stat value="217" bonus="4.45"/>
+		<stat value="218" bonus="4.49"/>
+		<stat value="219" bonus="4.53"/>
+		<stat value="220" bonus="4.57"/>
+		<stat value="221" bonus="4.62"/>
+		<stat value="222" bonus="4.66"/>
+		<stat value="223" bonus="4.70"/>
+		<stat value="224" bonus="4.74"/>
+		<stat value="225" bonus="4.78"/>
+		<stat value="226" bonus="4.82"/>
+		<stat value="227" bonus="4.87"/>
+		<stat value="228" bonus="4.91"/>
+		<stat value="229" bonus="4.95"/>
+		<stat value="230" bonus="5.00"/>
+		<stat value="231" bonus="5.04"/>
+		<stat value="232" bonus="5.09"/>
+		<stat value="233" bonus="5.13"/>
+		<stat value="234" bonus="5.18"/>
+		<stat value="235" bonus="5.22"/>
+		<stat value="236" bonus="5.27"/>
+		<stat value="237" bonus="5.32"/>
+		<stat value="238" bonus="5.37"/>
+		<stat value="239" bonus="5.41"/>
+		<stat value="240" bonus="5.46"/>
+		<stat value="241" bonus="5.51"/>
+		<stat value="242" bonus="5.56"/>
+		<stat value="243" bonus="5.61"/>
+		<stat value="244" bonus="5.66"/>
+		<stat value="245" bonus="5.71"/>
+		<stat value="246" bonus="5.76"/>
+		<stat value="247" bonus="5.81"/>
+		<stat value="248" bonus="5.86"/>
+		<stat value="249" bonus="5.91"/>
+		<stat value="250" bonus="5.97"/>
+		<stat value="251" bonus="6.02"/>
+		<stat value="252" bonus="6.07"/>
+		<stat value="253" bonus="6.13"/>
+		<stat value="254" bonus="6.18"/>
+		<stat value="255" bonus="6.24"/>
+		<stat value="256" bonus="6.29"/>
+		<stat value="257" bonus="6.35"/>
+		<stat value="258" bonus="6.41"/>
+		<stat value="259" bonus="6.46"/>
+		<stat value="260" bonus="6.52"/>
+		<stat value="261" bonus="6.58"/>
+		<stat value="262" bonus="6.64"/>
+		<stat value="263" bonus="6.70"/>
+		<stat value="264" bonus="6.76"/>
+		<stat value="265" bonus="6.82"/>
+		<stat value="266" bonus="6.88"/>
+		<stat value="267" bonus="6.94"/>
+		<stat value="268" bonus="7.00"/>
+		<stat value="269" bonus="7.06"/>
+		<stat value="270" bonus="7.12"/>
+		<stat value="271" bonus="7.19"/>
+		<stat value="272" bonus="7.25"/>
+		<stat value="273" bonus="7.32"/>
+		<stat value="274" bonus="7.38"/>
+		<stat value="275" bonus="7.45"/>
+		<stat value="276" bonus="7.51"/>
+		<stat value="277" bonus="7.58"/>
+		<stat value="278" bonus="7.65"/>
+		<stat value="279" bonus="7.72"/>
+		<stat value="280" bonus="7.78"/>
+		<stat value="281" bonus="7.85"/>
+		<stat value="282" bonus="7.92"/>
+		<stat value="283" bonus="7.99"/>
+		<stat value="284" bonus="8.07"/>
+		<stat value="285" bonus="8.14"/>
+		<stat value="286" bonus="8.21"/>
+		<stat value="287" bonus="8.28"/>
+		<stat value="288" bonus="8.36"/>
+		<stat value="289" bonus="8.43"/>
+		<stat value="290" bonus="8.51"/>
+		<stat value="291" bonus="8.58"/>
+		<stat value="292" bonus="8.66"/>
+		<stat value="293" bonus="8.73"/>
+		<stat value="294" bonus="8.81"/>
+		<stat value="295" bonus="8.89"/>
+		<stat value="296" bonus="8.97"/>
+		<stat value="297" bonus="9.05"/>
+		<stat value="298" bonus="9.13"/>
+		<stat value="299" bonus="9.21"/>
+		<stat value="300" bonus="9.29"/>
+		<stat value="301" bonus="9.38"/>
+		<stat value="302" bonus="9.46"/>
+		<stat value="303" bonus="9.54"/>
+		<stat value="304" bonus="9.63"/>
+		<stat value="305" bonus="9.71"/>
+		<stat value="306" bonus="9.80"/>
+		<stat value="307" bonus="9.89"/>
+		<stat value="308" bonus="9.98"/>
+		<stat value="309" bonus="10.07"/>
+		<stat value="310" bonus="10.15"/>
+		<stat value="311" bonus="10.25"/>
+		<stat value="312" bonus="10.34"/>
+		<stat value="313" bonus="10.43"/>
+		<stat value="314" bonus="10.52"/>
+		<stat value="315" bonus="10.61"/>
+		<stat value="316" bonus="10.71"/>
+		<stat value="317" bonus="10.80"/>
+		<stat value="318" bonus="10.90"/>
+		<stat value="319" bonus="11.00"/>
+		<stat value="320" bonus="11.10"/>
+		<stat value="321" bonus="11.19"/>
+		<stat value="322" bonus="11.29"/>
+		<stat value="323" bonus="11.39"/>
+		<stat value="324" bonus="11.50"/>
+		<stat value="325" bonus="11.60"/>
+		<stat value="326" bonus="11.70"/>
+		<stat value="327" bonus="11.81"/>
+		<stat value="328" bonus="11.91"/>
+		<stat value="329" bonus="12.02"/>
+		<stat value="330" bonus="12.12"/>
+		<stat value="331" bonus="12.23"/>
+		<stat value="332" bonus="12.34"/>
+		<stat value="333" bonus="12.45"/>
+		<stat value="334" bonus="12.56"/>
+		<stat value="335" bonus="12.67"/>
+		<stat value="336" bonus="12.79"/>
+		<stat value="337" bonus="12.90"/>
+		<stat value="338" bonus="13.01"/>
+		<stat value="339" bonus="13.13"/>
+		<stat value="340" bonus="13.25"/>
+		<stat value="341" bonus="13.36"/>
+		<stat value="342" bonus="13.48"/>
+		<stat value="343" bonus="13.60"/>
+		<stat value="344" bonus="13.72"/>
+		<stat value="345" bonus="13.85"/>
+		<stat value="346" bonus="13.97"/>
+		<stat value="347" bonus="14.09"/>
+		<stat value="348" bonus="14.22"/>
+		<stat value="349" bonus="14.35"/>
+		<stat value="350" bonus="14.47"/>
+		<stat value="351" bonus="14.60"/>
+		<stat value="352" bonus="14.73"/>
+		<stat value="353" bonus="14.86"/>
+		<stat value="354" bonus="15.00"/>
+		<stat value="355" bonus="15.13"/>
+		<stat value="356" bonus="15.26"/>
+		<stat value="357" bonus="15.40"/>
+		<stat value="358" bonus="15.54"/>
+		<stat value="359" bonus="15.68"/>
+		<stat value="360" bonus="15.82"/>
+		<stat value="361" bonus="15.96"/>
+		<stat value="362" bonus="16.10"/>
+		<stat value="363" bonus="16.24"/>
+		<stat value="364" bonus="16.39"/>
+		<stat value="365" bonus="16.53"/>
+		<stat value="366" bonus="16.68"/>
+		<stat value="367" bonus="16.83"/>
+		<stat value="368" bonus="16.98"/>
+		<stat value="369" bonus="17.13"/>
+		<stat value="370" bonus="17.28"/>
+		<stat value="371" bonus="17.43"/>
+		<stat value="372" bonus="17.59"/>
+		<stat value="373" bonus="17.75"/>
+		<stat value="374" bonus="17.90"/>
+		<stat value="375" bonus="18.06"/>
+		<stat value="376" bonus="18.22"/>
+		<stat value="377" bonus="18.39"/>
+		<stat value="378" bonus="18.55"/>
+		<stat value="379" bonus="18.71"/>
+		<stat value="380" bonus="18.88"/>
+		<stat value="381" bonus="19.05"/>
+		<stat value="382" bonus="19.22"/>
+		<stat value="383" bonus="19.39"/>
+		<stat value="384" bonus="19.56"/>
+		<stat value="385" bonus="19.74"/>
+		<stat value="386" bonus="19.91"/>
+		<stat value="387" bonus="20.09"/>
+		<stat value="388" bonus="20.27"/>
+		<stat value="389" bonus="20.45"/>
+		<stat value="390" bonus="20.63"/>
+		<stat value="391" bonus="20.81"/>
+		<stat value="392" bonus="21.00"/>
+		<stat value="393" bonus="21.19"/>
+		<stat value="394" bonus="21.38"/>
+		<stat value="395" bonus="21.57"/>
+		<stat value="396" bonus="21.76"/>
+		<stat value="397" bonus="21.95"/>
+		<stat value="398" bonus="22.15"/>
+		<stat value="399" bonus="22.34"/>
+		<stat value="400" bonus="22.54"/>
+		<stat value="401" bonus="22.74"/>
+		<stat value="402" bonus="22.95"/>
+		<stat value="403" bonus="23.15"/>
+		<stat value="404" bonus="23.36"/>
+		<stat value="405" bonus="23.56"/>
+		<stat value="406" bonus="23.77"/>
+		<stat value="407" bonus="23.98"/>
+		<stat value="408" bonus="24.20"/>
+		<stat value="409" bonus="24.41"/>
+		<stat value="410" bonus="24.63"/>
+		<stat value="411" bonus="24.85"/>
+		<stat value="412" bonus="25.07"/>
+		<stat value="413" bonus="25.29"/>
+		<stat value="414" bonus="25.52"/>
+		<stat value="415" bonus="25.75"/>
+		<stat value="416" bonus="25.98"/>
+		<stat value="417" bonus="26.21"/>
+		<stat value="418" bonus="26.44"/>
+		<stat value="419" bonus="26.68"/>
+		<stat value="420" bonus="26.91"/>
+		<stat value="421" bonus="27.15"/>
+		<stat value="422" bonus="27.39"/>
+		<stat value="423" bonus="27.64"/>
+		<stat value="424" bonus="27.88"/>
+		<stat value="425" bonus="28.13"/>
+		<stat value="426" bonus="28.38"/>
+		<stat value="427" bonus="28.64"/>
+		<stat value="428" bonus="28.89"/>
+		<stat value="429" bonus="29.15"/>
+		<stat value="430" bonus="29.41"/>
+		<stat value="431" bonus="29.67"/>
+		<stat value="432" bonus="29.93"/>
+		<stat value="433" bonus="30.20"/>
+		<stat value="434" bonus="30.47"/>
+		<stat value="435" bonus="30.74"/>
+		<stat value="436" bonus="31.01"/>
+		<stat value="437" bonus="31.29"/>
+		<stat value="438" bonus="31.57"/>
+		<stat value="439" bonus="31.85"/>
+		<stat value="440" bonus="32.13"/>
+		<stat value="441" bonus="32.42"/>
+		<stat value="442" bonus="32.71"/>
+		<stat value="443" bonus="33.00"/>
+		<stat value="444" bonus="33.29"/>
+		<stat value="445" bonus="33.59"/>
+		<stat value="446" bonus="33.89"/>
+		<stat value="447" bonus="34.19"/>
+		<stat value="448" bonus="34.49"/>
+		<stat value="449" bonus="34.80"/>
+		<stat value="450" bonus="35.11"/>
+		<stat value="451" bonus="35.42"/>
+		<stat value="452" bonus="35.74"/>
+		<stat value="453" bonus="36.05"/>
+		<stat value="454" bonus="36.37"/>
+		<stat value="455" bonus="36.70"/>
+		<stat value="456" bonus="37.02"/>
+		<stat value="457" bonus="37.35"/>
+		<stat value="458" bonus="37.69"/>
+		<stat value="459" bonus="38.02"/>
+		<stat value="460" bonus="38.36"/>
+		<stat value="461" bonus="38.70"/>
+		<stat value="462" bonus="39.05"/>
+		<stat value="463" bonus="39.39"/>
+		<stat value="464" bonus="39.74"/>
+		<stat value="465" bonus="40.10"/>
+		<stat value="466" bonus="40.46"/>
+		<stat value="467" bonus="40.82"/>
+		<stat value="468" bonus="41.18"/>
+		<stat value="469" bonus="41.55"/>
+		<stat value="470" bonus="41.91"/>
+		<stat value="471" bonus="42.29"/>
+		<stat value="472" bonus="42.66"/>
+		<stat value="473" bonus="43.04"/>
+		<stat value="474" bonus="43.43"/>
+		<stat value="475" bonus="43.81"/>
+		<stat value="476" bonus="44.20"/>
+		<stat value="477" bonus="44.60"/>
+		<stat value="478" bonus="44.99"/>
+		<stat value="479" bonus="45.39"/>
+		<stat value="480" bonus="45.80"/>
+		<stat value="481" bonus="46.21"/>
+		<stat value="482" bonus="46.62"/>
+		<stat value="483" bonus="47.03"/>
+		<stat value="484" bonus="47.45"/>
+		<stat value="485" bonus="47.87"/>
+		<stat value="486" bonus="48.30"/>
+		<stat value="487" bonus="48.73"/>
+		<stat value="488" bonus="49.16"/>
+		<stat value="489" bonus="49.60"/>
+		<stat value="490" bonus="50.04"/>
+		<stat value="491" bonus="50.49"/>
+		<stat value="492" bonus="50.94"/>
+		<stat value="493" bonus="51.39"/>
+		<stat value="494" bonus="51.85"/>
+		<stat value="495" bonus="52.31"/>
+		<stat value="496" bonus="52.77"/>
+		<stat value="497" bonus="53.24"/>
+		<stat value="498" bonus="53.72"/>
+		<stat value="499" bonus="54.20"/>
+		<stat value="500" bonus="54.68"/>
+		<stat value="501" bonus="55.16"/>
+		<stat value="502" bonus="55.66"/>
+		<stat value="503" bonus="56.15"/>
+		<stat value="504" bonus="56.65"/>
+		<stat value="505" bonus="57.15"/>
+		<stat value="506" bonus="57.66"/>
+		<stat value="507" bonus="58.18"/>
+		<stat value="508" bonus="58.69"/>
+		<stat value="509" bonus="59.22"/>
+		<stat value="510" bonus="59.74"/>
+		<stat value="511" bonus="60.28"/>
+	</STR>
+	<INT>
+		<!-- ax^2 + bx + c = -0.000014*INT^2 + 0.016943*INT + -0.030000 -->
+		<stat value="0" bonus="-0.03" />
+		<stat value="1" bonus="-0.01" />
+		<stat value="2" bonus="0.00" />
+		<stat value="3" bonus="0.02" />
+		<stat value="4" bonus="0.04" />
+		<stat value="5" bonus="0.05" />
+		<stat value="6" bonus="0.07" />
+		<stat value="7" bonus="0.09" />
+		<stat value="8" bonus="0.10" />
+		<stat value="9" bonus="0.12" />
+		<stat value="10" bonus="0.14" />
+		<stat value="11" bonus="0.15" />
+		<stat value="12" bonus="0.17" />
+		<stat value="13" bonus="0.19" />
+		<stat value="14" bonus="0.20" />
+		<stat value="15" bonus="0.22" />
+		<stat value="16" bonus="0.24" />
+		<stat value="17" bonus="0.25" />
+		<stat value="18" bonus="0.27" />
+		<stat value="19" bonus="0.29" />
+		<stat value="20" bonus="0.30" />
+		<stat value="21" bonus="0.32" />
+		<stat value="22" bonus="0.34" />
+		<stat value="23" bonus="0.35" />
+		<stat value="24" bonus="0.37" />
+		<stat value="25" bonus="0.38" />
+		<stat value="26" bonus="0.40" />
+		<stat value="27" bonus="0.42" />
+		<stat value="28" bonus="0.43" />
+		<stat value="29" bonus="0.45" />
+		<stat value="30" bonus="0.47" />
+		<stat value="31" bonus="0.48" />
+		<stat value="32" bonus="0.50" />
+		<stat value="33" bonus="0.51" />
+		<stat value="34" bonus="0.53" />
+		<stat value="35" bonus="0.55" />
+		<stat value="36" bonus="0.56" />
+		<stat value="37" bonus="0.58" />
+		<stat value="38" bonus="0.59" />
+		<stat value="39" bonus="0.61" />
+		<stat value="40" bonus="0.62" />
+		<stat value="41" bonus="0.64" />
+		<stat value="42" bonus="0.66" />
+		<stat value="43" bonus="0.67" />
+		<stat value="44" bonus="0.69" />
+		<stat value="45" bonus="0.70" />
+		<stat value="46" bonus="0.72" />
+		<stat value="47" bonus="0.73" />
+		<stat value="48" bonus="0.75" />
+		<stat value="49" bonus="0.77" />
+		<stat value="50" bonus="0.78" />
+		<stat value="51" bonus="0.80" />
+		<stat value="52" bonus="0.81" />
+		<stat value="53" bonus="0.83" />
+		<stat value="54" bonus="0.84" />
+		<stat value="55" bonus="0.86" />
+		<stat value="56" bonus="0.87" />
+		<stat value="57" bonus="0.89" />
+		<stat value="58" bonus="0.90" />
+		<stat value="59" bonus="0.92" />
+		<stat value="60" bonus="0.94" />
+		<stat value="61" bonus="0.95" />
+		<stat value="62" bonus="0.97" />
+		<stat value="63" bonus="0.98" />
+		<stat value="64" bonus="1.00" />
+		<stat value="65" bonus="1.01" />
+		<stat value="66" bonus="1.03" />
+		<stat value="67" bonus="1.04" />
+		<stat value="68" bonus="1.06" />
+		<stat value="69" bonus="1.07" />
+		<stat value="70" bonus="1.09" />
+		<stat value="71" bonus="1.10" />
+		<stat value="72" bonus="1.12" />
+		<stat value="73" bonus="1.13" />
+		<stat value="74" bonus="1.15" />
+		<stat value="75" bonus="1.16" />
+		<stat value="76" bonus="1.18" />
+		<stat value="77" bonus="1.19" />
+		<stat value="78" bonus="1.20" />
+		<stat value="79" bonus="1.22" />
+		<stat value="80" bonus="1.23" />
+		<stat value="81" bonus="1.25" />
+		<stat value="82" bonus="1.26" />
+		<stat value="83" bonus="1.28" />
+		<stat value="84" bonus="1.29" />
+		<stat value="85" bonus="1.31" />
+		<stat value="86" bonus="1.32" />
+		<stat value="87" bonus="1.34" />
+		<stat value="88" bonus="1.35" />
+		<stat value="89" bonus="1.36" />
+		<stat value="90" bonus="1.38" />
+		<stat value="91" bonus="1.39" />
+		<stat value="92" bonus="1.41" />
+		<stat value="93" bonus="1.42" />
+		<stat value="94" bonus="1.44" />
+		<stat value="95" bonus="1.45" />
+		<stat value="96" bonus="1.46" />
+		<stat value="97" bonus="1.48" />
+		<stat value="98" bonus="1.49" />
+		<stat value="99" bonus="1.51" />
+		<stat value="100" bonus="1.52" />
+		<stat value="101" bonus="1.54" />
+		<stat value="102" bonus="1.55" />
+		<stat value="103" bonus="1.56" />
+		<stat value="104" bonus="1.58" />
+		<stat value="105" bonus="1.59" />
+		<stat value="106" bonus="1.61" />
+		<stat value="107" bonus="1.62" />
+		<stat value="108" bonus="1.63" />
+		<stat value="109" bonus="1.65" />
+		<stat value="110" bonus="1.66" />
+		<stat value="111" bonus="1.67" />
+		<stat value="112" bonus="1.69" />
+		<stat value="113" bonus="1.70" />
+		<stat value="114" bonus="1.72" />
+		<stat value="115" bonus="1.73" />
+		<stat value="116" bonus="1.74" />
+		<stat value="117" bonus="1.76" />
+		<stat value="118" bonus="1.77" />
+		<stat value="119" bonus="1.78" />
+		<stat value="120" bonus="1.80" />
+		<stat value="121" bonus="1.81" />
+		<stat value="122" bonus="1.82" />
+		<stat value="123" bonus="1.84" />
+		<stat value="124" bonus="1.85" />
+		<stat value="125" bonus="1.86" />
+		<stat value="126" bonus="1.88" />
+		<stat value="127" bonus="1.89" />
+		<stat value="128" bonus="1.90" />
+		<stat value="129" bonus="1.92" />
+		<stat value="130" bonus="1.93" />
+		<stat value="131" bonus="1.94" />
+		<stat value="132" bonus="1.96" />
+		<stat value="133" bonus="1.97" />
+		<stat value="134" bonus="1.98" />
+		<stat value="135" bonus="2.00" />
+		<stat value="136" bonus="2.01" />
+		<stat value="137" bonus="2.02" />
+		<stat value="138" bonus="2.04" />
+		<stat value="139" bonus="2.05" />
+		<stat value="140" bonus="2.06" />
+		<stat value="141" bonus="2.07" />
+		<stat value="142" bonus="2.09" />
+		<stat value="143" bonus="2.10" />
+		<stat value="144" bonus="2.11" />
+		<stat value="145" bonus="2.13" />
+		<stat value="146" bonus="2.14" />
+		<stat value="147" bonus="2.15" />
+		<stat value="148" bonus="2.16" />
+		<stat value="149" bonus="2.18" />
+		<stat value="150" bonus="2.19" />
+		<stat value="151" bonus="2.20" />
+		<stat value="152" bonus="2.22" />
+		<stat value="153" bonus="2.23" />
+		<stat value="154" bonus="2.24" />
+		<stat value="155" bonus="2.25" />
+		<stat value="156" bonus="2.27" />
+		<stat value="157" bonus="2.28" />
+		<stat value="158" bonus="2.29" />
+		<stat value="159" bonus="2.30" />
+		<stat value="160" bonus="2.32" />
+		<stat value="161" bonus="2.33" />
+		<stat value="162" bonus="2.34" />
+		<stat value="163" bonus="2.35" />
+		<stat value="164" bonus="2.36" />
+		<stat value="165" bonus="2.38" />
+		<stat value="166" bonus="2.39" />
+		<stat value="167" bonus="2.40" />
+		<stat value="168" bonus="2.41" />
+		<stat value="169" bonus="2.43" />
+		<stat value="170" bonus="2.44" />
+		<stat value="171" bonus="2.45" />
+		<stat value="172" bonus="2.46" />
+		<stat value="173" bonus="2.47" />
+		<stat value="174" bonus="2.49" />
+		<stat value="175" bonus="2.50" />
+		<stat value="176" bonus="2.51" />
+		<stat value="177" bonus="2.52" />
+		<stat value="178" bonus="2.53" />
+		<stat value="179" bonus="2.55" />
+		<stat value="180" bonus="2.56" />
+		<stat value="181" bonus="2.57" />
+		<stat value="182" bonus="2.58" />
+		<stat value="183" bonus="2.59" />
+		<stat value="184" bonus="2.60" />
+		<stat value="185" bonus="2.62" />
+		<stat value="186" bonus="2.63" />
+		<stat value="187" bonus="2.64" />
+		<stat value="188" bonus="2.65" />
+		<stat value="189" bonus="2.66" />
+		<stat value="190" bonus="2.67" />
+		<stat value="191" bonus="2.68" />
+		<stat value="192" bonus="2.70" />
+		<stat value="193" bonus="2.71" />
+		<stat value="194" bonus="2.72" />
+		<stat value="195" bonus="2.73" />
+		<stat value="196" bonus="2.74" />
+		<stat value="197" bonus="2.75" />
+		<stat value="198" bonus="2.76" />
+		<stat value="199" bonus="2.78" />
+		<stat value="200" bonus="2.79" />
+		<stat value="201" bonus="2.80" />
+		<stat value="202" bonus="2.81" />
+		<stat value="203" bonus="2.82" />
+		<stat value="204" bonus="2.83" />
+		<stat value="205" bonus="2.84" />
+		<stat value="206" bonus="2.85" />
+		<stat value="207" bonus="2.87" />
+		<stat value="208" bonus="2.88" />
+		<stat value="209" bonus="2.89" />
+		<stat value="210" bonus="2.90" />
+		<stat value="211" bonus="2.91" />
+		<stat value="212" bonus="2.92" />
+		<stat value="213" bonus="2.93" />
+		<stat value="214" bonus="2.94" />
+		<stat value="215" bonus="2.95" />
+		<stat value="216" bonus="2.96" />
+		<stat value="217" bonus="2.97" />
+		<stat value="218" bonus="2.98" />
+		<stat value="219" bonus="3.00" />
+		<stat value="220" bonus="3.01" />
+		<stat value="221" bonus="3.02" />
+		<stat value="222" bonus="3.03" />
+		<stat value="223" bonus="3.04" />
+		<stat value="224" bonus="3.05" />
+		<stat value="225" bonus="3.06" />
+		<stat value="226" bonus="3.07" />
+		<stat value="227" bonus="3.08" />
+		<stat value="228" bonus="3.09" />
+		<stat value="229" bonus="3.10" />
+		<stat value="230" bonus="3.11" />
+		<stat value="231" bonus="3.12" />
+		<stat value="232" bonus="3.13" />
+		<stat value="233" bonus="3.14" />
+		<stat value="234" bonus="3.15" />
+		<stat value="235" bonus="3.16" />
+		<stat value="236" bonus="3.17" />
+		<stat value="237" bonus="3.18" />
+		<stat value="238" bonus="3.19" />
+		<stat value="239" bonus="3.20" />
+		<stat value="240" bonus="3.21" />
+		<stat value="241" bonus="3.22" />
+		<stat value="242" bonus="3.23" />
+		<stat value="243" bonus="3.24" />
+		<stat value="244" bonus="3.25" />
+		<stat value="245" bonus="3.26" />
+		<stat value="246" bonus="3.27" />
+		<stat value="247" bonus="3.28" />
+		<stat value="248" bonus="3.29" />
+		<stat value="249" bonus="3.30" />
+		<stat value="250" bonus="3.31" />
+		<stat value="251" bonus="3.32" />
+		<stat value="252" bonus="3.33" />
+		<stat value="253" bonus="3.34" />
+		<stat value="254" bonus="3.35" />
+		<stat value="255" bonus="3.36" />
+		<stat value="256" bonus="3.37" />
+		<stat value="257" bonus="3.38" />
+		<stat value="258" bonus="3.39" />
+		<stat value="259" bonus="3.40" />
+		<stat value="260" bonus="3.41" />
+		<stat value="261" bonus="3.42" />
+		<stat value="262" bonus="3.43" />
+		<stat value="263" bonus="3.44" />
+		<stat value="264" bonus="3.45" />
+		<stat value="265" bonus="3.46" />
+		<stat value="266" bonus="3.47" />
+		<stat value="267" bonus="3.48" />
+		<stat value="268" bonus="3.48" />
+		<stat value="269" bonus="3.49" />
+		<stat value="270" bonus="3.50" />
+		<stat value="271" bonus="3.51" />
+		<stat value="272" bonus="3.52" />
+		<stat value="273" bonus="3.53" />
+		<stat value="274" bonus="3.54" />
+		<stat value="275" bonus="3.55" />
+		<stat value="276" bonus="3.56" />
+		<stat value="277" bonus="3.57" />
+		<stat value="278" bonus="3.58" />
+		<stat value="279" bonus="3.59" />
+		<stat value="280" bonus="3.59" />
+		<stat value="281" bonus="3.60" />
+		<stat value="282" bonus="3.61" />
+		<stat value="283" bonus="3.62" />
+		<stat value="284" bonus="3.63" />
+		<stat value="285" bonus="3.64" />
+		<stat value="286" bonus="3.65" />
+		<stat value="287" bonus="3.66" />
+		<stat value="288" bonus="3.66" />
+		<stat value="289" bonus="3.67" />
+		<stat value="290" bonus="3.68" />
+		<stat value="291" bonus="3.69" />
+		<stat value="292" bonus="3.70" />
+		<stat value="293" bonus="3.71" />
+		<stat value="294" bonus="3.72" />
+		<stat value="295" bonus="3.72" />
+		<stat value="296" bonus="3.73" />
+		<stat value="297" bonus="3.74" />
+		<stat value="298" bonus="3.75" />
+		<stat value="299" bonus="3.76" />
+		<stat value="300" bonus="3.77" />
+		<stat value="301" bonus="3.78" />
+		<stat value="302" bonus="3.78" />
+		<stat value="303" bonus="3.79" />
+		<stat value="304" bonus="3.80" />
+		<stat value="305" bonus="3.81" />
+		<stat value="306" bonus="3.82" />
+		<stat value="307" bonus="3.83" />
+		<stat value="308" bonus="3.83" />
+		<stat value="309" bonus="3.84" />
+		<stat value="310" bonus="3.85" />
+		<stat value="311" bonus="3.86" />
+		<stat value="312" bonus="3.87" />
+		<stat value="313" bonus="3.87" />
+		<stat value="314" bonus="3.88" />
+		<stat value="315" bonus="3.89" />
+		<stat value="316" bonus="3.90" />
+		<stat value="317" bonus="3.91" />
+		<stat value="318" bonus="3.91" />
+		<stat value="319" bonus="3.92" />
+		<stat value="320" bonus="3.93" />
+		<stat value="321" bonus="3.94" />
+		<stat value="322" bonus="3.94" />
+		<stat value="323" bonus="3.95" />
+		<stat value="324" bonus="3.96" />
+		<stat value="325" bonus="3.97" />
+		<stat value="326" bonus="3.98" />
+		<stat value="327" bonus="3.98" />
+		<stat value="328" bonus="3.99" />
+		<stat value="329" bonus="4.00" />
+		<stat value="330" bonus="4.01" />
+		<stat value="331" bonus="4.01" />
+		<stat value="332" bonus="4.02" />
+		<stat value="333" bonus="4.03" />
+		<stat value="334" bonus="4.04" />
+		<stat value="335" bonus="4.04" />
+		<stat value="336" bonus="4.05" />
+		<stat value="337" bonus="4.06" />
+		<stat value="338" bonus="4.06" />
+		<stat value="339" bonus="4.07" />
+		<stat value="340" bonus="4.08" />
+		<stat value="341" bonus="4.09" />
+		<stat value="342" bonus="4.09" />
+		<stat value="343" bonus="4.10" />
+		<stat value="344" bonus="4.11" />
+		<stat value="345" bonus="4.11" />
+		<stat value="346" bonus="4.12" />
+		<stat value="347" bonus="4.13" />
+		<stat value="348" bonus="4.14" />
+		<stat value="349" bonus="4.14" />
+		<stat value="350" bonus="4.15" />
+		<stat value="351" bonus="4.16" />
+		<stat value="352" bonus="4.16" />
+		<stat value="353" bonus="4.17" />
+		<stat value="354" bonus="4.18" />
+		<stat value="355" bonus="4.18" />
+		<stat value="356" bonus="4.19" />
+		<stat value="357" bonus="4.20" />
+		<stat value="358" bonus="4.20" />
+		<stat value="359" bonus="4.21" />
+		<stat value="360" bonus="4.22" />
+		<stat value="361" bonus="4.22" />
+		<stat value="362" bonus="4.23" />
+		<stat value="363" bonus="4.24" />
+		<stat value="364" bonus="4.24" />
+		<stat value="365" bonus="4.25" />
+		<stat value="366" bonus="4.26" />
+		<stat value="367" bonus="4.26" />
+		<stat value="368" bonus="4.27" />
+		<stat value="369" bonus="4.28" />
+		<stat value="370" bonus="4.28" />
+		<stat value="371" bonus="4.29" />
+		<stat value="372" bonus="4.30" />
+		<stat value="373" bonus="4.30" />
+		<stat value="374" bonus="4.31" />
+		<stat value="375" bonus="4.31" />
+		<stat value="376" bonus="4.32" />
+		<stat value="377" bonus="4.33" />
+		<stat value="378" bonus="4.33" />
+		<stat value="379" bonus="4.34" />
+		<stat value="380" bonus="4.35" />
+		<stat value="381" bonus="4.35" />
+		<stat value="382" bonus="4.36" />
+		<stat value="383" bonus="4.36" />
+		<stat value="384" bonus="4.37" />
+		<stat value="385" bonus="4.38" />
+		<stat value="386" bonus="4.38" />
+		<stat value="387" bonus="4.39" />
+		<stat value="388" bonus="4.39" />
+		<stat value="389" bonus="4.40" />
+		<stat value="390" bonus="4.40" />
+		<stat value="391" bonus="4.41" />
+		<stat value="392" bonus="4.42" />
+		<stat value="393" bonus="4.42" />
+		<stat value="394" bonus="4.43" />
+		<stat value="395" bonus="4.43" />
+		<stat value="396" bonus="4.44" />
+		<stat value="397" bonus="4.44" />
+		<stat value="398" bonus="4.45" />
+		<stat value="399" bonus="4.46" />
+		<stat value="400" bonus="4.46" />
+		<stat value="401" bonus="4.47" />
+		<stat value="402" bonus="4.47" />
+		<stat value="403" bonus="4.48" />
+		<stat value="404" bonus="4.48" />
+		<stat value="405" bonus="4.49" />
+		<stat value="406" bonus="4.49" />
+		<stat value="407" bonus="4.50" />
+		<stat value="408" bonus="4.50" />
+		<stat value="409" bonus="4.51" />
+		<stat value="410" bonus="4.52" />
+		<stat value="411" bonus="4.52" />
+		<stat value="412" bonus="4.53" />
+		<stat value="413" bonus="4.53" />
+		<stat value="414" bonus="4.54" />
+		<stat value="415" bonus="4.54" />
+		<stat value="416" bonus="4.55" />
+		<stat value="417" bonus="4.55" />
+		<stat value="418" bonus="4.56" />
+		<stat value="419" bonus="4.56" />
+		<stat value="420" bonus="4.57" />
+		<stat value="421" bonus="4.57" />
+		<stat value="422" bonus="4.58" />
+		<stat value="423" bonus="4.58" />
+		<stat value="424" bonus="4.59" />
+		<stat value="425" bonus="4.59" />
+		<stat value="426" bonus="4.60" />
+		<stat value="427" bonus="4.60" />
+		<stat value="428" bonus="4.60" />
+		<stat value="429" bonus="4.61" />
+		<stat value="430" bonus="4.61" />
+		<stat value="431" bonus="4.62" />
+		<stat value="432" bonus="4.62" />
+		<stat value="433" bonus="4.63" />
+		<stat value="434" bonus="4.63" />
+		<stat value="435" bonus="4.64" />
+		<stat value="436" bonus="4.64" />
+		<stat value="437" bonus="4.65" />
+		<stat value="438" bonus="4.65" />
+		<stat value="439" bonus="4.65" />
+		<stat value="440" bonus="4.66" />
+		<stat value="441" bonus="4.66" />
+		<stat value="442" bonus="4.67" />
+		<stat value="443" bonus="4.67" />
+		<stat value="444" bonus="4.68" />
+		<stat value="445" bonus="4.68" />
+		<stat value="446" bonus="4.68" />
+		<stat value="447" bonus="4.69" />
+		<stat value="448" bonus="4.69" />
+		<stat value="449" bonus="4.70" />
+		<stat value="450" bonus="4.70" />
+		<stat value="451" bonus="4.71" />
+		<stat value="452" bonus="4.71" />
+		<stat value="453" bonus="4.71" />
+		<stat value="454" bonus="4.72" />
+		<stat value="455" bonus="4.72" />
+		<stat value="456" bonus="4.73" />
+		<stat value="457" bonus="4.73" />
+		<stat value="458" bonus="4.73" />
+		<stat value="459" bonus="4.74" />
+		<stat value="460" bonus="4.74" />
+		<stat value="461" bonus="4.74" />
+		<stat value="462" bonus="4.75" />
+		<stat value="463" bonus="4.75" />
+		<stat value="464" bonus="4.76" />
+		<stat value="465" bonus="4.76" />
+		<stat value="466" bonus="4.76" />
+		<stat value="467" bonus="4.77" />
+		<stat value="468" bonus="4.77" />
+		<stat value="469" bonus="4.77" />
+		<stat value="470" bonus="4.78" />
+		<stat value="471" bonus="4.78" />
+		<stat value="472" bonus="4.78" />
+		<stat value="473" bonus="4.79" />
+		<stat value="474" bonus="4.79" />
+		<stat value="475" bonus="4.79" />
+		<stat value="476" bonus="4.80" />
+		<stat value="477" bonus="4.80" />
+		<stat value="478" bonus="4.80" />
+		<stat value="479" bonus="4.81" />
+		<stat value="480" bonus="4.81" />
+		<stat value="481" bonus="4.81" />
+		<stat value="482" bonus="4.82" />
+		<stat value="483" bonus="4.82" />
+		<stat value="484" bonus="4.82" />
+		<stat value="485" bonus="4.83" />
+		<stat value="486" bonus="4.83" />
+		<stat value="487" bonus="4.83" />
+		<stat value="488" bonus="4.84" />
+		<stat value="489" bonus="4.84" />
+		<stat value="490" bonus="4.84" />
+		<stat value="491" bonus="4.84" />
+		<stat value="492" bonus="4.85" />
+		<stat value="493" bonus="4.85" />
+		<stat value="494" bonus="4.85" />
+		<stat value="495" bonus="4.86" />
+		<stat value="496" bonus="4.86" />
+		<stat value="497" bonus="4.86" />
+		<stat value="498" bonus="4.86" />
+		<stat value="499" bonus="4.87" />
+		<stat value="500" bonus="4.87" />
+		<stat value="501" bonus="4.87" />
+		<stat value="502" bonus="4.88" />
+		<stat value="503" bonus="4.88" />
+		<stat value="504" bonus="4.88" />
+		<stat value="505" bonus="4.88" />
+		<stat value="506" bonus="4.89" />
+		<stat value="507" bonus="4.89" />
+		<stat value="508" bonus="4.89" />
+		<stat value="509" bonus="4.89" />
+		<stat value="510" bonus="4.90" />
+		<stat value="511" bonus="4.90" />
+	</INT>
+	<CON>
+		<!-- 1.011850^(CON-(-16.400000)) -->
+		<!--
+for CON in xrange(0,512):
+    print """<stat value="%d" bonus="%.2f"/>""" % (CON, (1.011850**(CON-(-16.400000))))
+		-->
+		<stat value="0" bonus="1.21"/>
+		<stat value="1" bonus="1.23"/>
+		<stat value="2" bonus="1.24"/>
+		<stat value="3" bonus="1.26"/>
+		<stat value="4" bonus="1.27"/>
+		<stat value="5" bonus="1.29"/>
+		<stat value="6" bonus="1.30"/>
+		<stat value="7" bonus="1.32"/>
+		<stat value="8" bonus="1.33"/>
+		<stat value="9" bonus="1.35"/>
+		<stat value="10" bonus="1.36"/>
+		<stat value="11" bonus="1.38"/>
+		<stat value="12" bonus="1.40"/>
+		<stat value="13" bonus="1.41"/>
+		<stat value="14" bonus="1.43"/>
+		<stat value="15" bonus="1.45"/>
+		<stat value="16" bonus="1.46"/>
+		<stat value="17" bonus="1.48"/>
+		<stat value="18" bonus="1.50"/>
+		<stat value="19" bonus="1.52"/>
+		<stat value="20" bonus="1.54"/>
+		<stat value="21" bonus="1.55"/>
+		<stat value="22" bonus="1.57"/>
+		<stat value="23" bonus="1.59"/>
+		<stat value="24" bonus="1.61"/>
+		<stat value="25" bonus="1.63"/>
+		<stat value="26" bonus="1.65"/>
+		<stat value="27" bonus="1.67"/>
+		<stat value="28" bonus="1.69"/>
+		<stat value="29" bonus="1.71"/>
+		<stat value="30" bonus="1.73"/>
+		<stat value="31" bonus="1.75"/>
+		<stat value="32" bonus="1.77"/>
+		<stat value="33" bonus="1.79"/>
+		<stat value="34" bonus="1.81"/>
+		<stat value="35" bonus="1.83"/>
+		<stat value="36" bonus="1.85"/>
+		<stat value="37" bonus="1.88"/>
+		<stat value="38" bonus="1.90"/>
+		<stat value="39" bonus="1.92"/>
+		<stat value="40" bonus="1.94"/>
+		<stat value="41" bonus="1.97"/>
+		<stat value="42" bonus="1.99"/>
+		<stat value="43" bonus="2.01"/>
+		<stat value="44" bonus="2.04"/>
+		<stat value="45" bonus="2.06"/>
+		<stat value="46" bonus="2.09"/>
+		<stat value="47" bonus="2.11"/>
+		<stat value="48" bonus="2.14"/>
+		<stat value="49" bonus="2.16"/>
+		<stat value="50" bonus="2.19"/>
+		<stat value="51" bonus="2.21"/>
+		<stat value="52" bonus="2.24"/>
+		<stat value="53" bonus="2.26"/>
+		<stat value="54" bonus="2.29"/>
+		<stat value="55" bonus="2.32"/>
+		<stat value="56" bonus="2.35"/>
+		<stat value="57" bonus="2.37"/>
+		<stat value="58" bonus="2.40"/>
+		<stat value="59" bonus="2.43"/>
+		<stat value="60" bonus="2.46"/>
+		<stat value="61" bonus="2.49"/>
+		<stat value="62" bonus="2.52"/>
+		<stat value="63" bonus="2.55"/>
+		<stat value="64" bonus="2.58"/>
+		<stat value="65" bonus="2.61"/>
+		<stat value="66" bonus="2.64"/>
+		<stat value="67" bonus="2.67"/>
+		<stat value="68" bonus="2.70"/>
+		<stat value="69" bonus="2.73"/>
+		<stat value="70" bonus="2.77"/>
+		<stat value="71" bonus="2.80"/>
+		<stat value="72" bonus="2.83"/>
+		<stat value="73" bonus="2.87"/>
+		<stat value="74" bonus="2.90"/>
+		<stat value="75" bonus="2.94"/>
+		<stat value="76" bonus="2.97"/>
+		<stat value="77" bonus="3.01"/>
+		<stat value="78" bonus="3.04"/>
+		<stat value="79" bonus="3.08"/>
+		<stat value="80" bonus="3.11"/>
+		<stat value="81" bonus="3.15"/>
+		<stat value="82" bonus="3.19"/>
+		<stat value="83" bonus="3.23"/>
+		<stat value="84" bonus="3.26"/>
+		<stat value="85" bonus="3.30"/>
+		<stat value="86" bonus="3.34"/>
+		<stat value="87" bonus="3.38"/>
+		<stat value="88" bonus="3.42"/>
+		<stat value="89" bonus="3.46"/>
+		<stat value="90" bonus="3.50"/>
+		<stat value="91" bonus="3.54"/>
+		<stat value="92" bonus="3.59"/>
+		<stat value="93" bonus="3.63"/>
+		<stat value="94" bonus="3.67"/>
+		<stat value="95" bonus="3.71"/>
+		<stat value="96" bonus="3.76"/>
+		<stat value="97" bonus="3.80"/>
+		<stat value="98" bonus="3.85"/>
+		<stat value="99" bonus="3.89"/>
+		<stat value="100" bonus="3.94"/>
+		<stat value="101" bonus="3.99"/>
+		<stat value="102" bonus="4.03"/>
+		<stat value="103" bonus="4.08"/>
+		<stat value="104" bonus="4.13"/>
+		<stat value="105" bonus="4.18"/>
+		<stat value="106" bonus="4.23"/>
+		<stat value="107" bonus="4.28"/>
+		<stat value="108" bonus="4.33"/>
+		<stat value="109" bonus="4.38"/>
+		<stat value="110" bonus="4.43"/>
+		<stat value="111" bonus="4.49"/>
+		<stat value="112" bonus="4.54"/>
+		<stat value="113" bonus="4.59"/>
+		<stat value="114" bonus="4.65"/>
+		<stat value="115" bonus="4.70"/>
+		<stat value="116" bonus="4.76"/>
+		<stat value="117" bonus="4.81"/>
+		<stat value="118" bonus="4.87"/>
+		<stat value="119" bonus="4.93"/>
+		<stat value="120" bonus="4.99"/>
+		<stat value="121" bonus="5.05"/>
+		<stat value="122" bonus="5.11"/>
+		<stat value="123" bonus="5.17"/>
+		<stat value="124" bonus="5.23"/>
+		<stat value="125" bonus="5.29"/>
+		<stat value="126" bonus="5.35"/>
+		<stat value="127" bonus="5.42"/>
+		<stat value="128" bonus="5.48"/>
+		<stat value="129" bonus="5.54"/>
+		<stat value="130" bonus="5.61"/>
+		<stat value="131" bonus="5.68"/>
+		<stat value="132" bonus="5.74"/>
+		<stat value="133" bonus="5.81"/>
+		<stat value="134" bonus="5.88"/>
+		<stat value="135" bonus="5.95"/>
+		<stat value="136" bonus="6.02"/>
+		<stat value="137" bonus="6.09"/>
+		<stat value="138" bonus="6.16"/>
+		<stat value="139" bonus="6.24"/>
+		<stat value="140" bonus="6.31"/>
+		<stat value="141" bonus="6.39"/>
+		<stat value="142" bonus="6.46"/>
+		<stat value="143" bonus="6.54"/>
+		<stat value="144" bonus="6.62"/>
+		<stat value="145" bonus="6.69"/>
+		<stat value="146" bonus="6.77"/>
+		<stat value="147" bonus="6.85"/>
+		<stat value="148" bonus="6.94"/>
+		<stat value="149" bonus="7.02"/>
+		<stat value="150" bonus="7.10"/>
+		<stat value="151" bonus="7.19"/>
+		<stat value="152" bonus="7.27"/>
+		<stat value="153" bonus="7.36"/>
+		<stat value="154" bonus="7.44"/>
+		<stat value="155" bonus="7.53"/>
+		<stat value="156" bonus="7.62"/>
+		<stat value="157" bonus="7.71"/>
+		<stat value="158" bonus="7.80"/>
+		<stat value="159" bonus="7.90"/>
+		<stat value="160" bonus="7.99"/>
+		<stat value="161" bonus="8.08"/>
+		<stat value="162" bonus="8.18"/>
+		<stat value="163" bonus="8.28"/>
+		<stat value="164" bonus="8.37"/>
+		<stat value="165" bonus="8.47"/>
+		<stat value="166" bonus="8.57"/>
+		<stat value="167" bonus="8.68"/>
+		<stat value="168" bonus="8.78"/>
+		<stat value="169" bonus="8.88"/>
+		<stat value="170" bonus="8.99"/>
+		<stat value="171" bonus="9.09"/>
+		<stat value="172" bonus="9.20"/>
+		<stat value="173" bonus="9.31"/>
+		<stat value="174" bonus="9.42"/>
+		<stat value="175" bonus="9.53"/>
+		<stat value="176" bonus="9.65"/>
+		<stat value="177" bonus="9.76"/>
+		<stat value="178" bonus="9.88"/>
+		<stat value="179" bonus="9.99"/>
+		<stat value="180" bonus="10.11"/>
+		<stat value="181" bonus="10.23"/>
+		<stat value="182" bonus="10.35"/>
+		<stat value="183" bonus="10.48"/>
+		<stat value="184" bonus="10.60"/>
+		<stat value="185" bonus="10.72"/>
+		<stat value="186" bonus="10.85"/>
+		<stat value="187" bonus="10.98"/>
+		<stat value="188" bonus="11.11"/>
+		<stat value="189" bonus="11.24"/>
+		<stat value="190" bonus="11.38"/>
+		<stat value="191" bonus="11.51"/>
+		<stat value="192" bonus="11.65"/>
+		<stat value="193" bonus="11.78"/>
+		<stat value="194" bonus="11.92"/>
+		<stat value="195" bonus="12.07"/>
+		<stat value="196" bonus="12.21"/>
+		<stat value="197" bonus="12.35"/>
+		<stat value="198" bonus="12.50"/>
+		<stat value="199" bonus="12.65"/>
+		<stat value="200" bonus="12.80"/>
+		<stat value="201" bonus="12.95"/>
+		<stat value="202" bonus="13.10"/>
+		<stat value="203" bonus="13.26"/>
+		<stat value="204" bonus="13.42"/>
+		<stat value="205" bonus="13.57"/>
+		<stat value="206" bonus="13.73"/>
+		<stat value="207" bonus="13.90"/>
+		<stat value="208" bonus="14.06"/>
+		<stat value="209" bonus="14.23"/>
+		<stat value="210" bonus="14.40"/>
+		<stat value="211" bonus="14.57"/>
+		<stat value="212" bonus="14.74"/>
+		<stat value="213" bonus="14.92"/>
+		<stat value="214" bonus="15.09"/>
+		<stat value="215" bonus="15.27"/>
+		<stat value="216" bonus="15.45"/>
+		<stat value="217" bonus="15.64"/>
+		<stat value="218" bonus="15.82"/>
+		<stat value="219" bonus="16.01"/>
+		<stat value="220" bonus="16.20"/>
+		<stat value="221" bonus="16.39"/>
+		<stat value="222" bonus="16.58"/>
+		<stat value="223" bonus="16.78"/>
+		<stat value="224" bonus="16.98"/>
+		<stat value="225" bonus="17.18"/>
+		<stat value="226" bonus="17.38"/>
+		<stat value="227" bonus="17.59"/>
+		<stat value="228" bonus="17.80"/>
+		<stat value="229" bonus="18.01"/>
+		<stat value="230" bonus="18.22"/>
+		<stat value="231" bonus="18.44"/>
+		<stat value="232" bonus="18.66"/>
+		<stat value="233" bonus="18.88"/>
+		<stat value="234" bonus="19.10"/>
+		<stat value="235" bonus="19.33"/>
+		<stat value="236" bonus="19.56"/>
+		<stat value="237" bonus="19.79"/>
+		<stat value="238" bonus="20.02"/>
+		<stat value="239" bonus="20.26"/>
+		<stat value="240" bonus="20.50"/>
+		<stat value="241" bonus="20.74"/>
+		<stat value="242" bonus="20.99"/>
+		<stat value="243" bonus="21.24"/>
+		<stat value="244" bonus="21.49"/>
+		<stat value="245" bonus="21.74"/>
+		<stat value="246" bonus="22.00"/>
+		<stat value="247" bonus="22.26"/>
+		<stat value="248" bonus="22.53"/>
+		<stat value="249" bonus="22.79"/>
+		<stat value="250" bonus="23.06"/>
+		<stat value="251" bonus="23.34"/>
+		<stat value="252" bonus="23.61"/>
+		<stat value="253" bonus="23.89"/>
+		<stat value="254" bonus="24.18"/>
+		<stat value="255" bonus="24.46"/>
+		<stat value="256" bonus="24.75"/>
+		<stat value="257" bonus="25.05"/>
+		<stat value="258" bonus="25.34"/>
+		<stat value="259" bonus="25.64"/>
+		<stat value="260" bonus="25.95"/>
+		<stat value="261" bonus="26.26"/>
+		<stat value="262" bonus="26.57"/>
+		<stat value="263" bonus="26.88"/>
+		<stat value="264" bonus="27.20"/>
+		<stat value="265" bonus="27.52"/>
+		<stat value="266" bonus="27.85"/>
+		<stat value="267" bonus="28.18"/>
+		<stat value="268" bonus="28.51"/>
+		<stat value="269" bonus="28.85"/>
+		<stat value="270" bonus="29.19"/>
+		<stat value="271" bonus="29.54"/>
+		<stat value="272" bonus="29.89"/>
+		<stat value="273" bonus="30.24"/>
+		<stat value="274" bonus="30.60"/>
+		<stat value="275" bonus="30.96"/>
+		<stat value="276" bonus="31.33"/>
+		<stat value="277" bonus="31.70"/>
+		<stat value="278" bonus="32.08"/>
+		<stat value="279" bonus="32.46"/>
+		<stat value="280" bonus="32.84"/>
+		<stat value="281" bonus="33.23"/>
+		<stat value="282" bonus="33.62"/>
+		<stat value="283" bonus="34.02"/>
+		<stat value="284" bonus="34.43"/>
+		<stat value="285" bonus="34.83"/>
+		<stat value="286" bonus="35.25"/>
+		<stat value="287" bonus="35.66"/>
+		<stat value="288" bonus="36.09"/>
+		<stat value="289" bonus="36.51"/>
+		<stat value="290" bonus="36.95"/>
+		<stat value="291" bonus="37.39"/>
+		<stat value="292" bonus="37.83"/>
+		<stat value="293" bonus="38.28"/>
+		<stat value="294" bonus="38.73"/>
+		<stat value="295" bonus="39.19"/>
+		<stat value="296" bonus="39.65"/>
+		<stat value="297" bonus="40.12"/>
+		<stat value="298" bonus="40.60"/>
+		<stat value="299" bonus="41.08"/>
+		<stat value="300" bonus="41.57"/>
+		<stat value="301" bonus="42.06"/>
+		<stat value="302" bonus="42.56"/>
+		<stat value="303" bonus="43.06"/>
+		<stat value="304" bonus="43.57"/>
+		<stat value="305" bonus="44.09"/>
+		<stat value="306" bonus="44.61"/>
+		<stat value="307" bonus="45.14"/>
+		<stat value="308" bonus="45.67"/>
+		<stat value="309" bonus="46.22"/>
+		<stat value="310" bonus="46.76"/>
+		<stat value="311" bonus="47.32"/>
+		<stat value="312" bonus="47.88"/>
+		<stat value="313" bonus="48.45"/>
+		<stat value="314" bonus="49.02"/>
+		<stat value="315" bonus="49.60"/>
+		<stat value="316" bonus="50.19"/>
+		<stat value="317" bonus="50.78"/>
+		<stat value="318" bonus="51.38"/>
+		<stat value="319" bonus="51.99"/>
+		<stat value="320" bonus="52.61"/>
+		<stat value="321" bonus="53.23"/>
+		<stat value="322" bonus="53.86"/>
+		<stat value="323" bonus="54.50"/>
+		<stat value="324" bonus="55.15"/>
+		<stat value="325" bonus="55.80"/>
+		<stat value="326" bonus="56.46"/>
+		<stat value="327" bonus="57.13"/>
+		<stat value="328" bonus="57.81"/>
+		<stat value="329" bonus="58.49"/>
+		<stat value="330" bonus="59.19"/>
+		<stat value="331" bonus="59.89"/>
+		<stat value="332" bonus="60.60"/>
+		<stat value="333" bonus="61.32"/>
+		<stat value="334" bonus="62.04"/>
+		<stat value="335" bonus="62.78"/>
+		<stat value="336" bonus="63.52"/>
+		<stat value="337" bonus="64.28"/>
+		<stat value="338" bonus="65.04"/>
+		<stat value="339" bonus="65.81"/>
+		<stat value="340" bonus="66.59"/>
+		<stat value="341" bonus="67.38"/>
+		<stat value="342" bonus="68.17"/>
+		<stat value="343" bonus="68.98"/>
+		<stat value="344" bonus="69.80"/>
+		<stat value="345" bonus="70.63"/>
+		<stat value="346" bonus="71.46"/>
+		<stat value="347" bonus="72.31"/>
+		<stat value="348" bonus="73.17"/>
+		<stat value="349" bonus="74.03"/>
+		<stat value="350" bonus="74.91"/>
+		<stat value="351" bonus="75.80"/>
+		<stat value="352" bonus="76.70"/>
+		<stat value="353" bonus="77.61"/>
+		<stat value="354" bonus="78.53"/>
+		<stat value="355" bonus="79.46"/>
+		<stat value="356" bonus="80.40"/>
+		<stat value="357" bonus="81.35"/>
+		<stat value="358" bonus="82.32"/>
+		<stat value="359" bonus="83.29"/>
+		<stat value="360" bonus="84.28"/>
+		<stat value="361" bonus="85.28"/>
+		<stat value="362" bonus="86.29"/>
+		<stat value="363" bonus="87.31"/>
+		<stat value="364" bonus="88.34"/>
+		<stat value="365" bonus="89.39"/>
+		<stat value="366" bonus="90.45"/>
+		<stat value="367" bonus="91.52"/>
+		<stat value="368" bonus="92.61"/>
+		<stat value="369" bonus="93.70"/>
+		<stat value="370" bonus="94.81"/>
+		<stat value="371" bonus="95.94"/>
+		<stat value="372" bonus="97.07"/>
+		<stat value="373" bonus="98.23"/>
+		<stat value="374" bonus="99.39"/>
+		<stat value="375" bonus="100.57"/>
+		<stat value="376" bonus="101.76"/>
+		<stat value="377" bonus="102.96"/>
+		<stat value="378" bonus="104.18"/>
+		<stat value="379" bonus="105.42"/>
+		<stat value="380" bonus="106.67"/>
+		<stat value="381" bonus="107.93"/>
+		<stat value="382" bonus="109.21"/>
+		<stat value="383" bonus="110.51"/>
+		<stat value="384" bonus="111.82"/>
+		<stat value="385" bonus="113.14"/>
+		<stat value="386" bonus="114.48"/>
+		<stat value="387" bonus="115.84"/>
+		<stat value="388" bonus="117.21"/>
+		<stat value="389" bonus="118.60"/>
+		<stat value="390" bonus="120.00"/>
+		<stat value="391" bonus="121.43"/>
+		<stat value="392" bonus="122.87"/>
+		<stat value="393" bonus="124.32"/>
+		<stat value="394" bonus="125.79"/>
+		<stat value="395" bonus="127.29"/>
+		<stat value="396" bonus="128.79"/>
+		<stat value="397" bonus="130.32"/>
+		<stat value="398" bonus="131.86"/>
+		<stat value="399" bonus="133.43"/>
+		<stat value="400" bonus="135.01"/>
+		<stat value="401" bonus="136.61"/>
+		<stat value="402" bonus="138.23"/>
+		<stat value="403" bonus="139.86"/>
+		<stat value="404" bonus="141.52"/>
+		<stat value="405" bonus="143.20"/>
+		<stat value="406" bonus="144.90"/>
+		<stat value="407" bonus="146.61"/>
+		<stat value="408" bonus="148.35"/>
+		<stat value="409" bonus="150.11"/>
+		<stat value="410" bonus="151.89"/>
+		<stat value="411" bonus="153.69"/>
+		<stat value="412" bonus="155.51"/>
+		<stat value="413" bonus="157.35"/>
+		<stat value="414" bonus="159.22"/>
+		<stat value="415" bonus="161.10"/>
+		<stat value="416" bonus="163.01"/>
+		<stat value="417" bonus="164.94"/>
+		<stat value="418" bonus="166.90"/>
+		<stat value="419" bonus="168.88"/>
+		<stat value="420" bonus="170.88"/>
+		<stat value="421" bonus="172.90"/>
+		<stat value="422" bonus="174.95"/>
+		<stat value="423" bonus="177.02"/>
+		<stat value="424" bonus="179.12"/>
+		<stat value="425" bonus="181.24"/>
+		<stat value="426" bonus="183.39"/>
+		<stat value="427" bonus="185.56"/>
+		<stat value="428" bonus="187.76"/>
+		<stat value="429" bonus="189.99"/>
+		<stat value="430" bonus="192.24"/>
+		<stat value="431" bonus="194.52"/>
+		<stat value="432" bonus="196.82"/>
+		<stat value="433" bonus="199.16"/>
+		<stat value="434" bonus="201.52"/>
+		<stat value="435" bonus="203.90"/>
+		<stat value="436" bonus="206.32"/>
+		<stat value="437" bonus="208.76"/>
+		<stat value="438" bonus="211.24"/>
+		<stat value="439" bonus="213.74"/>
+		<stat value="440" bonus="216.27"/>
+		<stat value="441" bonus="218.84"/>
+		<stat value="442" bonus="221.43"/>
+		<stat value="443" bonus="224.05"/>
+		<stat value="444" bonus="226.71"/>
+		<stat value="445" bonus="229.40"/>
+		<stat value="446" bonus="232.11"/>
+		<stat value="447" bonus="234.86"/>
+		<stat value="448" bonus="237.65"/>
+		<stat value="449" bonus="240.46"/>
+		<stat value="450" bonus="243.31"/>
+		<stat value="451" bonus="246.20"/>
+		<stat value="452" bonus="249.11"/>
+		<stat value="453" bonus="252.07"/>
+		<stat value="454" bonus="255.05"/>
+		<stat value="455" bonus="258.08"/>
+		<stat value="456" bonus="261.13"/>
+		<stat value="457" bonus="264.23"/>
+		<stat value="458" bonus="267.36"/>
+		<stat value="459" bonus="270.53"/>
+		<stat value="460" bonus="273.73"/>
+		<stat value="461" bonus="276.98"/>
+		<stat value="462" bonus="280.26"/>
+		<stat value="463" bonus="283.58"/>
+		<stat value="464" bonus="286.94"/>
+		<stat value="465" bonus="290.34"/>
+		<stat value="466" bonus="293.78"/>
+		<stat value="467" bonus="297.26"/>
+		<stat value="468" bonus="300.79"/>
+		<stat value="469" bonus="304.35"/>
+		<stat value="470" bonus="307.96"/>
+		<stat value="471" bonus="311.61"/>
+		<stat value="472" bonus="315.30"/>
+		<stat value="473" bonus="319.03"/>
+		<stat value="474" bonus="322.81"/>
+		<stat value="475" bonus="326.64"/>
+		<stat value="476" bonus="330.51"/>
+		<stat value="477" bonus="334.43"/>
+		<stat value="478" bonus="338.39"/>
+		<stat value="479" bonus="342.40"/>
+		<stat value="480" bonus="346.46"/>
+		<stat value="481" bonus="350.56"/>
+		<stat value="482" bonus="354.72"/>
+		<stat value="483" bonus="358.92"/>
+		<stat value="484" bonus="363.17"/>
+		<stat value="485" bonus="367.48"/>
+		<stat value="486" bonus="371.83"/>
+		<stat value="487" bonus="376.24"/>
+		<stat value="488" bonus="380.70"/>
+		<stat value="489" bonus="385.21"/>
+		<stat value="490" bonus="389.77"/>
+		<stat value="491" bonus="394.39"/>
+		<stat value="492" bonus="399.06"/>
+		<stat value="493" bonus="403.79"/>
+		<stat value="494" bonus="408.58"/>
+		<stat value="495" bonus="413.42"/>
+		<stat value="496" bonus="418.32"/>
+		<stat value="497" bonus="423.28"/>
+		<stat value="498" bonus="428.29"/>
+		<stat value="499" bonus="433.37"/>
+		<stat value="500" bonus="438.50"/>
+		<stat value="501" bonus="443.70"/>
+		<stat value="502" bonus="448.96"/>
+		<stat value="503" bonus="454.28"/>
+		<stat value="504" bonus="459.66"/>
+		<stat value="505" bonus="465.11"/>
+		<stat value="506" bonus="470.62"/>
+		<stat value="507" bonus="476.20"/>
+		<stat value="508" bonus="481.84"/>
+		<stat value="509" bonus="487.55"/>
+		<stat value="510" bonus="493.33"/>
+		<stat value="511" bonus="499.17"/>
+	</CON>
+	<MEN>
+		<!-- ax^2 + bx + c = 0.000056*MEN^2 + -0.002014*MEN + 1.385000 -->
+		<!--
+for MEN in xrange(0,512):
+    print """<stat value="%d" bonus="%.2f"/>""" % (MEN, (0.000056*MEN**2 + -0.002014*MEN + 1.385000))
+		-->
+		<stat value="0" bonus="1.39"/>
+		<stat value="1" bonus="1.38"/>
+		<stat value="2" bonus="1.38"/>
+		<stat value="3" bonus="1.38"/>
+		<stat value="4" bonus="1.38"/>
+		<stat value="5" bonus="1.38"/>
+		<stat value="6" bonus="1.37"/>
+		<stat value="7" bonus="1.37"/>
+		<stat value="8" bonus="1.37"/>
+		<stat value="9" bonus="1.37"/>
+		<stat value="10" bonus="1.37"/>
+		<stat value="11" bonus="1.37"/>
+		<stat value="12" bonus="1.37"/>
+		<stat value="13" bonus="1.37"/>
+		<stat value="14" bonus="1.37"/>
+		<stat value="15" bonus="1.37"/>
+		<stat value="16" bonus="1.37"/>
+		<stat value="17" bonus="1.37"/>
+		<stat value="18" bonus="1.37"/>
+		<stat value="19" bonus="1.37"/>
+		<stat value="20" bonus="1.37"/>
+		<stat value="21" bonus="1.37"/>
+		<stat value="22" bonus="1.37"/>
+		<stat value="23" bonus="1.37"/>
+		<stat value="24" bonus="1.37"/>
+		<stat value="25" bonus="1.37"/>
+		<stat value="26" bonus="1.37"/>
+		<stat value="27" bonus="1.37"/>
+		<stat value="28" bonus="1.37"/>
+		<stat value="29" bonus="1.37"/>
+		<stat value="30" bonus="1.37"/>
+		<stat value="31" bonus="1.38"/>
+		<stat value="32" bonus="1.38"/>
+		<stat value="33" bonus="1.38"/>
+		<stat value="34" bonus="1.38"/>
+		<stat value="35" bonus="1.38"/>
+		<stat value="36" bonus="1.39"/>
+		<stat value="37" bonus="1.39"/>
+		<stat value="38" bonus="1.39"/>
+		<stat value="39" bonus="1.39"/>
+		<stat value="40" bonus="1.39"/>
+		<stat value="41" bonus="1.40"/>
+		<stat value="42" bonus="1.40"/>
+		<stat value="43" bonus="1.40"/>
+		<stat value="44" bonus="1.40"/>
+		<stat value="45" bonus="1.41"/>
+		<stat value="46" bonus="1.41"/>
+		<stat value="47" bonus="1.41"/>
+		<stat value="48" bonus="1.42"/>
+		<stat value="49" bonus="1.42"/>
+		<stat value="50" bonus="1.42"/>
+		<stat value="51" bonus="1.43"/>
+		<stat value="52" bonus="1.43"/>
+		<stat value="53" bonus="1.44"/>
+		<stat value="54" bonus="1.44"/>
+		<stat value="55" bonus="1.44"/>
+		<stat value="56" bonus="1.45"/>
+		<stat value="57" bonus="1.45"/>
+		<stat value="58" bonus="1.46"/>
+		<stat value="59" bonus="1.46"/>
+		<stat value="60" bonus="1.47"/>
+		<stat value="61" bonus="1.47"/>
+		<stat value="62" bonus="1.48"/>
+		<stat value="63" bonus="1.48"/>
+		<stat value="64" bonus="1.49"/>
+		<stat value="65" bonus="1.49"/>
+		<stat value="66" bonus="1.50"/>
+		<stat value="67" bonus="1.50"/>
+		<stat value="68" bonus="1.51"/>
+		<stat value="69" bonus="1.51"/>
+		<stat value="70" bonus="1.52"/>
+		<stat value="71" bonus="1.52"/>
+		<stat value="72" bonus="1.53"/>
+		<stat value="73" bonus="1.54"/>
+		<stat value="74" bonus="1.54"/>
+		<stat value="75" bonus="1.55"/>
+		<stat value="76" bonus="1.56"/>
+		<stat value="77" bonus="1.56"/>
+		<stat value="78" bonus="1.57"/>
+		<stat value="79" bonus="1.58"/>
+		<stat value="80" bonus="1.58"/>
+		<stat value="81" bonus="1.59"/>
+		<stat value="82" bonus="1.60"/>
+		<stat value="83" bonus="1.60"/>
+		<stat value="84" bonus="1.61"/>
+		<stat value="85" bonus="1.62"/>
+		<stat value="86" bonus="1.63"/>
+		<stat value="87" bonus="1.63"/>
+		<stat value="88" bonus="1.64"/>
+		<stat value="89" bonus="1.65"/>
+		<stat value="90" bonus="1.66"/>
+		<stat value="91" bonus="1.67"/>
+		<stat value="92" bonus="1.67"/>
+		<stat value="93" bonus="1.68"/>
+		<stat value="94" bonus="1.69"/>
+		<stat value="95" bonus="1.70"/>
+		<stat value="96" bonus="1.71"/>
+		<stat value="97" bonus="1.72"/>
+		<stat value="98" bonus="1.73"/>
+		<stat value="99" bonus="1.73"/>
+		<stat value="100" bonus="1.74"/>
+		<stat value="101" bonus="1.75"/>
+		<stat value="102" bonus="1.76"/>
+		<stat value="103" bonus="1.77"/>
+		<stat value="104" bonus="1.78"/>
+		<stat value="105" bonus="1.79"/>
+		<stat value="106" bonus="1.80"/>
+		<stat value="107" bonus="1.81"/>
+		<stat value="108" bonus="1.82"/>
+		<stat value="109" bonus="1.83"/>
+		<stat value="110" bonus="1.84"/>
+		<stat value="111" bonus="1.85"/>
+		<stat value="112" bonus="1.86"/>
+		<stat value="113" bonus="1.87"/>
+		<stat value="114" bonus="1.88"/>
+		<stat value="115" bonus="1.89"/>
+		<stat value="116" bonus="1.90"/>
+		<stat value="117" bonus="1.92"/>
+		<stat value="118" bonus="1.93"/>
+		<stat value="119" bonus="1.94"/>
+		<stat value="120" bonus="1.95"/>
+		<stat value="121" bonus="1.96"/>
+		<stat value="122" bonus="1.97"/>
+		<stat value="123" bonus="1.98"/>
+		<stat value="124" bonus="2.00"/>
+		<stat value="125" bonus="2.01"/>
+		<stat value="126" bonus="2.02"/>
+		<stat value="127" bonus="2.03"/>
+		<stat value="128" bonus="2.04"/>
+		<stat value="129" bonus="2.06"/>
+		<stat value="130" bonus="2.07"/>
+		<stat value="131" bonus="2.08"/>
+		<stat value="132" bonus="2.09"/>
+		<stat value="133" bonus="2.11"/>
+		<stat value="134" bonus="2.12"/>
+		<stat value="135" bonus="2.13"/>
+		<stat value="136" bonus="2.15"/>
+		<stat value="137" bonus="2.16"/>
+		<stat value="138" bonus="2.17"/>
+		<stat value="139" bonus="2.19"/>
+		<stat value="140" bonus="2.20"/>
+		<stat value="141" bonus="2.21"/>
+		<stat value="142" bonus="2.23"/>
+		<stat value="143" bonus="2.24"/>
+		<stat value="144" bonus="2.26"/>
+		<stat value="145" bonus="2.27"/>
+		<stat value="146" bonus="2.28"/>
+		<stat value="147" bonus="2.30"/>
+		<stat value="148" bonus="2.31"/>
+		<stat value="149" bonus="2.33"/>
+		<stat value="150" bonus="2.34"/>
+		<stat value="151" bonus="2.36"/>
+		<stat value="152" bonus="2.37"/>
+		<stat value="153" bonus="2.39"/>
+		<stat value="154" bonus="2.40"/>
+		<stat value="155" bonus="2.42"/>
+		<stat value="156" bonus="2.43"/>
+		<stat value="157" bonus="2.45"/>
+		<stat value="158" bonus="2.46"/>
+		<stat value="159" bonus="2.48"/>
+		<stat value="160" bonus="2.50"/>
+		<stat value="161" bonus="2.51"/>
+		<stat value="162" bonus="2.53"/>
+		<stat value="163" bonus="2.54"/>
+		<stat value="164" bonus="2.56"/>
+		<stat value="165" bonus="2.58"/>
+		<stat value="166" bonus="2.59"/>
+		<stat value="167" bonus="2.61"/>
+		<stat value="168" bonus="2.63"/>
+		<stat value="169" bonus="2.64"/>
+		<stat value="170" bonus="2.66"/>
+		<stat value="171" bonus="2.68"/>
+		<stat value="172" bonus="2.70"/>
+		<stat value="173" bonus="2.71"/>
+		<stat value="174" bonus="2.73"/>
+		<stat value="175" bonus="2.75"/>
+		<stat value="176" bonus="2.77"/>
+		<stat value="177" bonus="2.78"/>
+		<stat value="178" bonus="2.80"/>
+		<stat value="179" bonus="2.82"/>
+		<stat value="180" bonus="2.84"/>
+		<stat value="181" bonus="2.86"/>
+		<stat value="182" bonus="2.87"/>
+		<stat value="183" bonus="2.89"/>
+		<stat value="184" bonus="2.91"/>
+		<stat value="185" bonus="2.93"/>
+		<stat value="186" bonus="2.95"/>
+		<stat value="187" bonus="2.97"/>
+		<stat value="188" bonus="2.99"/>
+		<stat value="189" bonus="3.00"/>
+		<stat value="190" bonus="3.02"/>
+		<stat value="191" bonus="3.04"/>
+		<stat value="192" bonus="3.06"/>
+		<stat value="193" bonus="3.08"/>
+		<stat value="194" bonus="3.10"/>
+		<stat value="195" bonus="3.12"/>
+		<stat value="196" bonus="3.14"/>
+		<stat value="197" bonus="3.16"/>
+		<stat value="198" bonus="3.18"/>
+		<stat value="199" bonus="3.20"/>
+		<stat value="200" bonus="3.22"/>
+		<stat value="201" bonus="3.24"/>
+		<stat value="202" bonus="3.26"/>
+		<stat value="203" bonus="3.28"/>
+		<stat value="204" bonus="3.30"/>
+		<stat value="205" bonus="3.33"/>
+		<stat value="206" bonus="3.35"/>
+		<stat value="207" bonus="3.37"/>
+		<stat value="208" bonus="3.39"/>
+		<stat value="209" bonus="3.41"/>
+		<stat value="210" bonus="3.43"/>
+		<stat value="211" bonus="3.45"/>
+		<stat value="212" bonus="3.47"/>
+		<stat value="213" bonus="3.50"/>
+		<stat value="214" bonus="3.52"/>
+		<stat value="215" bonus="3.54"/>
+		<stat value="216" bonus="3.56"/>
+		<stat value="217" bonus="3.58"/>
+		<stat value="218" bonus="3.61"/>
+		<stat value="219" bonus="3.63"/>
+		<stat value="220" bonus="3.65"/>
+		<stat value="221" bonus="3.68"/>
+		<stat value="222" bonus="3.70"/>
+		<stat value="223" bonus="3.72"/>
+		<stat value="224" bonus="3.74"/>
+		<stat value="225" bonus="3.77"/>
+		<stat value="226" bonus="3.79"/>
+		<stat value="227" bonus="3.81"/>
+		<stat value="228" bonus="3.84"/>
+		<stat value="229" bonus="3.86"/>
+		<stat value="230" bonus="3.88"/>
+		<stat value="231" bonus="3.91"/>
+		<stat value="232" bonus="3.93"/>
+		<stat value="233" bonus="3.96"/>
+		<stat value="234" bonus="3.98"/>
+		<stat value="235" bonus="4.00"/>
+		<stat value="236" bonus="4.03"/>
+		<stat value="237" bonus="4.05"/>
+		<stat value="238" bonus="4.08"/>
+		<stat value="239" bonus="4.10"/>
+		<stat value="240" bonus="4.13"/>
+		<stat value="241" bonus="4.15"/>
+		<stat value="242" bonus="4.18"/>
+		<stat value="243" bonus="4.20"/>
+		<stat value="244" bonus="4.23"/>
+		<stat value="245" bonus="4.25"/>
+		<stat value="246" bonus="4.28"/>
+		<stat value="247" bonus="4.30"/>
+		<stat value="248" bonus="4.33"/>
+		<stat value="249" bonus="4.36"/>
+		<stat value="250" bonus="4.38"/>
+		<stat value="251" bonus="4.41"/>
+		<stat value="252" bonus="4.43"/>
+		<stat value="253" bonus="4.46"/>
+		<stat value="254" bonus="4.49"/>
+		<stat value="255" bonus="4.51"/>
+		<stat value="256" bonus="4.54"/>
+		<stat value="257" bonus="4.57"/>
+		<stat value="258" bonus="4.59"/>
+		<stat value="259" bonus="4.62"/>
+		<stat value="260" bonus="4.65"/>
+		<stat value="261" bonus="4.67"/>
+		<stat value="262" bonus="4.70"/>
+		<stat value="263" bonus="4.73"/>
+		<stat value="264" bonus="4.76"/>
+		<stat value="265" bonus="4.78"/>
+		<stat value="266" bonus="4.81"/>
+		<stat value="267" bonus="4.84"/>
+		<stat value="268" bonus="4.87"/>
+		<stat value="269" bonus="4.90"/>
+		<stat value="270" bonus="4.92"/>
+		<stat value="271" bonus="4.95"/>
+		<stat value="272" bonus="4.98"/>
+		<stat value="273" bonus="5.01"/>
+		<stat value="274" bonus="5.04"/>
+		<stat value="275" bonus="5.07"/>
+		<stat value="276" bonus="5.09"/>
+		<stat value="277" bonus="5.12"/>
+		<stat value="278" bonus="5.15"/>
+		<stat value="279" bonus="5.18"/>
+		<stat value="280" bonus="5.21"/>
+		<stat value="281" bonus="5.24"/>
+		<stat value="282" bonus="5.27"/>
+		<stat value="283" bonus="5.30"/>
+		<stat value="284" bonus="5.33"/>
+		<stat value="285" bonus="5.36"/>
+		<stat value="286" bonus="5.39"/>
+		<stat value="287" bonus="5.42"/>
+		<stat value="288" bonus="5.45"/>
+		<stat value="289" bonus="5.48"/>
+		<stat value="290" bonus="5.51"/>
+		<stat value="291" bonus="5.54"/>
+		<stat value="292" bonus="5.57"/>
+		<stat value="293" bonus="5.60"/>
+		<stat value="294" bonus="5.63"/>
+		<stat value="295" bonus="5.66"/>
+		<stat value="296" bonus="5.70"/>
+		<stat value="297" bonus="5.73"/>
+		<stat value="298" bonus="5.76"/>
+		<stat value="299" bonus="5.79"/>
+		<stat value="300" bonus="5.82"/>
+		<stat value="301" bonus="5.85"/>
+		<stat value="302" bonus="5.88"/>
+		<stat value="303" bonus="5.92"/>
+		<stat value="304" bonus="5.95"/>
+		<stat value="305" bonus="5.98"/>
+		<stat value="306" bonus="6.01"/>
+		<stat value="307" bonus="6.04"/>
+		<stat value="308" bonus="6.08"/>
+		<stat value="309" bonus="6.11"/>
+		<stat value="310" bonus="6.14"/>
+		<stat value="311" bonus="6.18"/>
+		<stat value="312" bonus="6.21"/>
+		<stat value="313" bonus="6.24"/>
+		<stat value="314" bonus="6.27"/>
+		<stat value="315" bonus="6.31"/>
+		<stat value="316" bonus="6.34"/>
+		<stat value="317" bonus="6.37"/>
+		<stat value="318" bonus="6.41"/>
+		<stat value="319" bonus="6.44"/>
+		<stat value="320" bonus="6.47"/>
+		<stat value="321" bonus="6.51"/>
+		<stat value="322" bonus="6.54"/>
+		<stat value="323" bonus="6.58"/>
+		<stat value="324" bonus="6.61"/>
+		<stat value="325" bonus="6.65"/>
+		<stat value="326" bonus="6.68"/>
+		<stat value="327" bonus="6.71"/>
+		<stat value="328" bonus="6.75"/>
+		<stat value="329" bonus="6.78"/>
+		<stat value="330" bonus="6.82"/>
+		<stat value="331" bonus="6.85"/>
+		<stat value="332" bonus="6.89"/>
+		<stat value="333" bonus="6.92"/>
+		<stat value="334" bonus="6.96"/>
+		<stat value="335" bonus="6.99"/>
+		<stat value="336" bonus="7.03"/>
+		<stat value="337" bonus="7.07"/>
+		<stat value="338" bonus="7.10"/>
+		<stat value="339" bonus="7.14"/>
+		<stat value="340" bonus="7.17"/>
+		<stat value="341" bonus="7.21"/>
+		<stat value="342" bonus="7.25"/>
+		<stat value="343" bonus="7.28"/>
+		<stat value="344" bonus="7.32"/>
+		<stat value="345" bonus="7.36"/>
+		<stat value="346" bonus="7.39"/>
+		<stat value="347" bonus="7.43"/>
+		<stat value="348" bonus="7.47"/>
+		<stat value="349" bonus="7.50"/>
+		<stat value="350" bonus="7.54"/>
+		<stat value="351" bonus="7.58"/>
+		<stat value="352" bonus="7.61"/>
+		<stat value="353" bonus="7.65"/>
+		<stat value="354" bonus="7.69"/>
+		<stat value="355" bonus="7.73"/>
+		<stat value="356" bonus="7.77"/>
+		<stat value="357" bonus="7.80"/>
+		<stat value="358" bonus="7.84"/>
+		<stat value="359" bonus="7.88"/>
+		<stat value="360" bonus="7.92"/>
+		<stat value="361" bonus="7.96"/>
+		<stat value="362" bonus="7.99"/>
+		<stat value="363" bonus="8.03"/>
+		<stat value="364" bonus="8.07"/>
+		<stat value="365" bonus="8.11"/>
+		<stat value="366" bonus="8.15"/>
+		<stat value="367" bonus="8.19"/>
+		<stat value="368" bonus="8.23"/>
+		<stat value="369" bonus="8.27"/>
+		<stat value="370" bonus="8.31"/>
+		<stat value="371" bonus="8.35"/>
+		<stat value="372" bonus="8.39"/>
+		<stat value="373" bonus="8.43"/>
+		<stat value="374" bonus="8.46"/>
+		<stat value="375" bonus="8.50"/>
+		<stat value="376" bonus="8.54"/>
+		<stat value="377" bonus="8.58"/>
+		<stat value="378" bonus="8.63"/>
+		<stat value="379" bonus="8.67"/>
+		<stat value="380" bonus="8.71"/>
+		<stat value="381" bonus="8.75"/>
+		<stat value="382" bonus="8.79"/>
+		<stat value="383" bonus="8.83"/>
+		<stat value="384" bonus="8.87"/>
+		<stat value="385" bonus="8.91"/>
+		<stat value="386" bonus="8.95"/>
+		<stat value="387" bonus="8.99"/>
+		<stat value="388" bonus="9.03"/>
+		<stat value="389" bonus="9.08"/>
+		<stat value="390" bonus="9.12"/>
+		<stat value="391" bonus="9.16"/>
+		<stat value="392" bonus="9.20"/>
+		<stat value="393" bonus="9.24"/>
+		<stat value="394" bonus="9.28"/>
+		<stat value="395" bonus="9.33"/>
+		<stat value="396" bonus="9.37"/>
+		<stat value="397" bonus="9.41"/>
+		<stat value="398" bonus="9.45"/>
+		<stat value="399" bonus="9.50"/>
+		<stat value="400" bonus="9.54"/>
+		<stat value="401" bonus="9.58"/>
+		<stat value="402" bonus="9.63"/>
+		<stat value="403" bonus="9.67"/>
+		<stat value="404" bonus="9.71"/>
+		<stat value="405" bonus="9.75"/>
+		<stat value="406" bonus="9.80"/>
+		<stat value="407" bonus="9.84"/>
+		<stat value="408" bonus="9.89"/>
+		<stat value="409" bonus="9.93"/>
+		<stat value="410" bonus="9.97"/>
+		<stat value="411" bonus="10.02"/>
+		<stat value="412" bonus="10.06"/>
+		<stat value="413" bonus="10.11"/>
+		<stat value="414" bonus="10.15"/>
+		<stat value="415" bonus="10.19"/>
+		<stat value="416" bonus="10.24"/>
+		<stat value="417" bonus="10.28"/>
+		<stat value="418" bonus="10.33"/>
+		<stat value="419" bonus="10.37"/>
+		<stat value="420" bonus="10.42"/>
+		<stat value="421" bonus="10.46"/>
+		<stat value="422" bonus="10.51"/>
+		<stat value="423" bonus="10.55"/>
+		<stat value="424" bonus="10.60"/>
+		<stat value="425" bonus="10.64"/>
+		<stat value="426" bonus="10.69"/>
+		<stat value="427" bonus="10.74"/>
+		<stat value="428" bonus="10.78"/>
+		<stat value="429" bonus="10.83"/>
+		<stat value="430" bonus="10.87"/>
+		<stat value="431" bonus="10.92"/>
+		<stat value="432" bonus="10.97"/>
+		<stat value="433" bonus="11.01"/>
+		<stat value="434" bonus="11.06"/>
+		<stat value="435" bonus="11.11"/>
+		<stat value="436" bonus="11.15"/>
+		<stat value="437" bonus="11.20"/>
+		<stat value="438" bonus="11.25"/>
+		<stat value="439" bonus="11.29"/>
+		<stat value="440" bonus="11.34"/>
+		<stat value="441" bonus="11.39"/>
+		<stat value="442" bonus="11.44"/>
+		<stat value="443" bonus="11.48"/>
+		<stat value="444" bonus="11.53"/>
+		<stat value="445" bonus="11.58"/>
+		<stat value="446" bonus="11.63"/>
+		<stat value="447" bonus="11.67"/>
+		<stat value="448" bonus="11.72"/>
+		<stat value="449" bonus="11.77"/>
+		<stat value="450" bonus="11.82"/>
+		<stat value="451" bonus="11.87"/>
+		<stat value="452" bonus="11.92"/>
+		<stat value="453" bonus="11.96"/>
+		<stat value="454" bonus="12.01"/>
+		<stat value="455" bonus="12.06"/>
+		<stat value="456" bonus="12.11"/>
+		<stat value="457" bonus="12.16"/>
+		<stat value="458" bonus="12.21"/>
+		<stat value="459" bonus="12.26"/>
+		<stat value="460" bonus="12.31"/>
+		<stat value="461" bonus="12.36"/>
+		<stat value="462" bonus="12.41"/>
+		<stat value="463" bonus="12.46"/>
+		<stat value="464" bonus="12.51"/>
+		<stat value="465" bonus="12.56"/>
+		<stat value="466" bonus="12.61"/>
+		<stat value="467" bonus="12.66"/>
+		<stat value="468" bonus="12.71"/>
+		<stat value="469" bonus="12.76"/>
+		<stat value="470" bonus="12.81"/>
+		<stat value="471" bonus="12.86"/>
+		<stat value="472" bonus="12.91"/>
+		<stat value="473" bonus="12.96"/>
+		<stat value="474" bonus="13.01"/>
+		<stat value="475" bonus="13.06"/>
+		<stat value="476" bonus="13.11"/>
+		<stat value="477" bonus="13.17"/>
+		<stat value="478" bonus="13.22"/>
+		<stat value="479" bonus="13.27"/>
+		<stat value="480" bonus="13.32"/>
+		<stat value="481" bonus="13.37"/>
+		<stat value="482" bonus="13.42"/>
+		<stat value="483" bonus="13.48"/>
+		<stat value="484" bonus="13.53"/>
+		<stat value="485" bonus="13.58"/>
+		<stat value="486" bonus="13.63"/>
+		<stat value="487" bonus="13.69"/>
+		<stat value="488" bonus="13.74"/>
+		<stat value="489" bonus="13.79"/>
+		<stat value="490" bonus="13.84"/>
+		<stat value="491" bonus="13.90"/>
+		<stat value="492" bonus="13.95"/>
+		<stat value="493" bonus="14.00"/>
+		<stat value="494" bonus="14.06"/>
+		<stat value="495" bonus="14.11"/>
+		<stat value="496" bonus="14.16"/>
+		<stat value="497" bonus="14.22"/>
+		<stat value="498" bonus="14.27"/>
+		<stat value="499" bonus="14.32"/>
+		<stat value="500" bonus="14.38"/>
+		<stat value="501" bonus="14.43"/>
+		<stat value="502" bonus="14.49"/>
+		<stat value="503" bonus="14.54"/>
+		<stat value="504" bonus="14.59"/>
+		<stat value="505" bonus="14.65"/>
+		<stat value="506" bonus="14.70"/>
+		<stat value="507" bonus="14.76"/>
+		<stat value="508" bonus="14.81"/>
+		<stat value="509" bonus="14.87"/>
+		<stat value="510" bonus="14.92"/>
+		<stat value="511" bonus="14.98"/>
+	</MEN>
+	<DEX>
+		<!-- 1.006333^(DEX-(28.380000)) -->
+		<!--
+for DEX in xrange(0,512):
+    print """<stat value="%d" bonus="%.2f"/>""" % (DEX, (1.006333**(DEX-(28.380000))))
+		-->
+		<stat value="0" bonus="0.84"/>
+		<stat value="1" bonus="0.84"/>
+		<stat value="2" bonus="0.85"/>
+		<stat value="3" bonus="0.85"/>
+		<stat value="4" bonus="0.86"/>
+		<stat value="5" bonus="0.86"/>
+		<stat value="6" bonus="0.87"/>
+		<stat value="7" bonus="0.87"/>
+		<stat value="8" bonus="0.88"/>
+		<stat value="9" bonus="0.88"/>
+		<stat value="10" bonus="0.89"/>
+		<stat value="11" bonus="0.90"/>
+		<stat value="12" bonus="0.90"/>
+		<stat value="13" bonus="0.91"/>
+		<stat value="14" bonus="0.91"/>
+		<stat value="15" bonus="0.92"/>
+		<stat value="16" bonus="0.92"/>
+		<stat value="17" bonus="0.93"/>
+		<stat value="18" bonus="0.94"/>
+		<stat value="19" bonus="0.94"/>
+		<stat value="20" bonus="0.95"/>
+		<stat value="21" bonus="0.95"/>
+		<stat value="22" bonus="0.96"/>
+		<stat value="23" bonus="0.97"/>
+		<stat value="24" bonus="0.97"/>
+		<stat value="25" bonus="0.98"/>
+		<stat value="26" bonus="0.99"/>
+		<stat value="27" bonus="0.99"/>
+		<stat value="28" bonus="1.00"/>
+		<stat value="29" bonus="1.00"/>
+		<stat value="30" bonus="1.01"/>
+		<stat value="31" bonus="1.02"/>
+		<stat value="32" bonus="1.02"/>
+		<stat value="33" bonus="1.03"/>
+		<stat value="34" bonus="1.04"/>
+		<stat value="35" bonus="1.04"/>
+		<stat value="36" bonus="1.05"/>
+		<stat value="37" bonus="1.06"/>
+		<stat value="38" bonus="1.06"/>
+		<stat value="39" bonus="1.07"/>
+		<stat value="40" bonus="1.08"/>
+		<stat value="41" bonus="1.08"/>
+		<stat value="42" bonus="1.09"/>
+		<stat value="43" bonus="1.10"/>
+		<stat value="44" bonus="1.10"/>
+		<stat value="45" bonus="1.11"/>
+		<stat value="46" bonus="1.12"/>
+		<stat value="47" bonus="1.12"/>
+		<stat value="48" bonus="1.13"/>
+		<stat value="49" bonus="1.14"/>
+		<stat value="50" bonus="1.15"/>
+		<stat value="51" bonus="1.15"/>
+		<stat value="52" bonus="1.16"/>
+		<stat value="53" bonus="1.17"/>
+		<stat value="54" bonus="1.18"/>
+		<stat value="55" bonus="1.18"/>
+		<stat value="56" bonus="1.19"/>
+		<stat value="57" bonus="1.20"/>
+		<stat value="58" bonus="1.21"/>
+		<stat value="59" bonus="1.21"/>
+		<stat value="60" bonus="1.22"/>
+		<stat value="61" bonus="1.23"/>
+		<stat value="62" bonus="1.24"/>
+		<stat value="63" bonus="1.24"/>
+		<stat value="64" bonus="1.25"/>
+		<stat value="65" bonus="1.26"/>
+		<stat value="66" bonus="1.27"/>
+		<stat value="67" bonus="1.28"/>
+		<stat value="68" bonus="1.28"/>
+		<stat value="69" bonus="1.29"/>
+		<stat value="70" bonus="1.30"/>
+		<stat value="71" bonus="1.31"/>
+		<stat value="72" bonus="1.32"/>
+		<stat value="73" bonus="1.33"/>
+		<stat value="74" bonus="1.33"/>
+		<stat value="75" bonus="1.34"/>
+		<stat value="76" bonus="1.35"/>
+		<stat value="77" bonus="1.36"/>
+		<stat value="78" bonus="1.37"/>
+		<stat value="79" bonus="1.38"/>
+		<stat value="80" bonus="1.39"/>
+		<stat value="81" bonus="1.39"/>
+		<stat value="82" bonus="1.40"/>
+		<stat value="83" bonus="1.41"/>
+		<stat value="84" bonus="1.42"/>
+		<stat value="85" bonus="1.43"/>
+		<stat value="86" bonus="1.44"/>
+		<stat value="87" bonus="1.45"/>
+		<stat value="88" bonus="1.46"/>
+		<stat value="89" bonus="1.47"/>
+		<stat value="90" bonus="1.48"/>
+		<stat value="91" bonus="1.48"/>
+		<stat value="92" bonus="1.49"/>
+		<stat value="93" bonus="1.50"/>
+		<stat value="94" bonus="1.51"/>
+		<stat value="95" bonus="1.52"/>
+		<stat value="96" bonus="1.53"/>
+		<stat value="97" bonus="1.54"/>
+		<stat value="98" bonus="1.55"/>
+		<stat value="99" bonus="1.56"/>
+		<stat value="100" bonus="1.57"/>
+		<stat value="101" bonus="1.58"/>
+		<stat value="102" bonus="1.59"/>
+		<stat value="103" bonus="1.60"/>
+		<stat value="104" bonus="1.61"/>
+		<stat value="105" bonus="1.62"/>
+		<stat value="106" bonus="1.63"/>
+		<stat value="107" bonus="1.64"/>
+		<stat value="108" bonus="1.65"/>
+		<stat value="109" bonus="1.66"/>
+		<stat value="110" bonus="1.67"/>
+		<stat value="111" bonus="1.68"/>
+		<stat value="112" bonus="1.70"/>
+		<stat value="113" bonus="1.71"/>
+		<stat value="114" bonus="1.72"/>
+		<stat value="115" bonus="1.73"/>
+		<stat value="116" bonus="1.74"/>
+		<stat value="117" bonus="1.75"/>
+		<stat value="118" bonus="1.76"/>
+		<stat value="119" bonus="1.77"/>
+		<stat value="120" bonus="1.78"/>
+		<stat value="121" bonus="1.79"/>
+		<stat value="122" bonus="1.81"/>
+		<stat value="123" bonus="1.82"/>
+		<stat value="124" bonus="1.83"/>
+		<stat value="125" bonus="1.84"/>
+		<stat value="126" bonus="1.85"/>
+		<stat value="127" bonus="1.86"/>
+		<stat value="128" bonus="1.88"/>
+		<stat value="129" bonus="1.89"/>
+		<stat value="130" bonus="1.90"/>
+		<stat value="131" bonus="1.91"/>
+		<stat value="132" bonus="1.92"/>
+		<stat value="133" bonus="1.94"/>
+		<stat value="134" bonus="1.95"/>
+		<stat value="135" bonus="1.96"/>
+		<stat value="136" bonus="1.97"/>
+		<stat value="137" bonus="1.99"/>
+		<stat value="138" bonus="2.00"/>
+		<stat value="139" bonus="2.01"/>
+		<stat value="140" bonus="2.02"/>
+		<stat value="141" bonus="2.04"/>
+		<stat value="142" bonus="2.05"/>
+		<stat value="143" bonus="2.06"/>
+		<stat value="144" bonus="2.07"/>
+		<stat value="145" bonus="2.09"/>
+		<stat value="146" bonus="2.10"/>
+		<stat value="147" bonus="2.11"/>
+		<stat value="148" bonus="2.13"/>
+		<stat value="149" bonus="2.14"/>
+		<stat value="150" bonus="2.16"/>
+		<stat value="151" bonus="2.17"/>
+		<stat value="152" bonus="2.18"/>
+		<stat value="153" bonus="2.20"/>
+		<stat value="154" bonus="2.21"/>
+		<stat value="155" bonus="2.22"/>
+		<stat value="156" bonus="2.24"/>
+		<stat value="157" bonus="2.25"/>
+		<stat value="158" bonus="2.27"/>
+		<stat value="159" bonus="2.28"/>
+		<stat value="160" bonus="2.30"/>
+		<stat value="161" bonus="2.31"/>
+		<stat value="162" bonus="2.32"/>
+		<stat value="163" bonus="2.34"/>
+		<stat value="164" bonus="2.35"/>
+		<stat value="165" bonus="2.37"/>
+		<stat value="166" bonus="2.38"/>
+		<stat value="167" bonus="2.40"/>
+		<stat value="168" bonus="2.41"/>
+		<stat value="169" bonus="2.43"/>
+		<stat value="170" bonus="2.45"/>
+		<stat value="171" bonus="2.46"/>
+		<stat value="172" bonus="2.48"/>
+		<stat value="173" bonus="2.49"/>
+		<stat value="174" bonus="2.51"/>
+		<stat value="175" bonus="2.52"/>
+		<stat value="176" bonus="2.54"/>
+		<stat value="177" bonus="2.56"/>
+		<stat value="178" bonus="2.57"/>
+		<stat value="179" bonus="2.59"/>
+		<stat value="180" bonus="2.60"/>
+		<stat value="181" bonus="2.62"/>
+		<stat value="182" bonus="2.64"/>
+		<stat value="183" bonus="2.65"/>
+		<stat value="184" bonus="2.67"/>
+		<stat value="185" bonus="2.69"/>
+		<stat value="186" bonus="2.70"/>
+		<stat value="187" bonus="2.72"/>
+		<stat value="188" bonus="2.74"/>
+		<stat value="189" bonus="2.76"/>
+		<stat value="190" bonus="2.77"/>
+		<stat value="191" bonus="2.79"/>
+		<stat value="192" bonus="2.81"/>
+		<stat value="193" bonus="2.83"/>
+		<stat value="194" bonus="2.85"/>
+		<stat value="195" bonus="2.86"/>
+		<stat value="196" bonus="2.88"/>
+		<stat value="197" bonus="2.90"/>
+		<stat value="198" bonus="2.92"/>
+		<stat value="199" bonus="2.94"/>
+		<stat value="200" bonus="2.95"/>
+		<stat value="201" bonus="2.97"/>
+		<stat value="202" bonus="2.99"/>
+		<stat value="203" bonus="3.01"/>
+		<stat value="204" bonus="3.03"/>
+		<stat value="205" bonus="3.05"/>
+		<stat value="206" bonus="3.07"/>
+		<stat value="207" bonus="3.09"/>
+		<stat value="208" bonus="3.11"/>
+		<stat value="209" bonus="3.13"/>
+		<stat value="210" bonus="3.15"/>
+		<stat value="211" bonus="3.17"/>
+		<stat value="212" bonus="3.19"/>
+		<stat value="213" bonus="3.21"/>
+		<stat value="214" bonus="3.23"/>
+		<stat value="215" bonus="3.25"/>
+		<stat value="216" bonus="3.27"/>
+		<stat value="217" bonus="3.29"/>
+		<stat value="218" bonus="3.31"/>
+		<stat value="219" bonus="3.33"/>
+		<stat value="220" bonus="3.35"/>
+		<stat value="221" bonus="3.37"/>
+		<stat value="222" bonus="3.40"/>
+		<stat value="223" bonus="3.42"/>
+		<stat value="224" bonus="3.44"/>
+		<stat value="225" bonus="3.46"/>
+		<stat value="226" bonus="3.48"/>
+		<stat value="227" bonus="3.50"/>
+		<stat value="228" bonus="3.53"/>
+		<stat value="229" bonus="3.55"/>
+		<stat value="230" bonus="3.57"/>
+		<stat value="231" bonus="3.59"/>
+		<stat value="232" bonus="3.62"/>
+		<stat value="233" bonus="3.64"/>
+		<stat value="234" bonus="3.66"/>
+		<stat value="235" bonus="3.69"/>
+		<stat value="236" bonus="3.71"/>
+		<stat value="237" bonus="3.73"/>
+		<stat value="238" bonus="3.76"/>
+		<stat value="239" bonus="3.78"/>
+		<stat value="240" bonus="3.80"/>
+		<stat value="241" bonus="3.83"/>
+		<stat value="242" bonus="3.85"/>
+		<stat value="243" bonus="3.88"/>
+		<stat value="244" bonus="3.90"/>
+		<stat value="245" bonus="3.93"/>
+		<stat value="246" bonus="3.95"/>
+		<stat value="247" bonus="3.98"/>
+		<stat value="248" bonus="4.00"/>
+		<stat value="249" bonus="4.03"/>
+		<stat value="250" bonus="4.05"/>
+		<stat value="251" bonus="4.08"/>
+		<stat value="252" bonus="4.10"/>
+		<stat value="253" bonus="4.13"/>
+		<stat value="254" bonus="4.16"/>
+		<stat value="255" bonus="4.18"/>
+		<stat value="256" bonus="4.21"/>
+		<stat value="257" bonus="4.23"/>
+		<stat value="258" bonus="4.26"/>
+		<stat value="259" bonus="4.29"/>
+		<stat value="260" bonus="4.32"/>
+		<stat value="261" bonus="4.34"/>
+		<stat value="262" bonus="4.37"/>
+		<stat value="263" bonus="4.40"/>
+		<stat value="264" bonus="4.43"/>
+		<stat value="265" bonus="4.45"/>
+		<stat value="266" bonus="4.48"/>
+		<stat value="267" bonus="4.51"/>
+		<stat value="268" bonus="4.54"/>
+		<stat value="269" bonus="4.57"/>
+		<stat value="270" bonus="4.60"/>
+		<stat value="271" bonus="4.63"/>
+		<stat value="272" bonus="4.66"/>
+		<stat value="273" bonus="4.68"/>
+		<stat value="274" bonus="4.71"/>
+		<stat value="275" bonus="4.74"/>
+		<stat value="276" bonus="4.77"/>
+		<stat value="277" bonus="4.80"/>
+		<stat value="278" bonus="4.83"/>
+		<stat value="279" bonus="4.87"/>
+		<stat value="280" bonus="4.90"/>
+		<stat value="281" bonus="4.93"/>
+		<stat value="282" bonus="4.96"/>
+		<stat value="283" bonus="4.99"/>
+		<stat value="284" bonus="5.02"/>
+		<stat value="285" bonus="5.05"/>
+		<stat value="286" bonus="5.09"/>
+		<stat value="287" bonus="5.12"/>
+		<stat value="288" bonus="5.15"/>
+		<stat value="289" bonus="5.18"/>
+		<stat value="290" bonus="5.22"/>
+		<stat value="291" bonus="5.25"/>
+		<stat value="292" bonus="5.28"/>
+		<stat value="293" bonus="5.32"/>
+		<stat value="294" bonus="5.35"/>
+		<stat value="295" bonus="5.38"/>
+		<stat value="296" bonus="5.42"/>
+		<stat value="297" bonus="5.45"/>
+		<stat value="298" bonus="5.49"/>
+		<stat value="299" bonus="5.52"/>
+		<stat value="300" bonus="5.56"/>
+		<stat value="301" bonus="5.59"/>
+		<stat value="302" bonus="5.63"/>
+		<stat value="303" bonus="5.66"/>
+		<stat value="304" bonus="5.70"/>
+		<stat value="305" bonus="5.73"/>
+		<stat value="306" bonus="5.77"/>
+		<stat value="307" bonus="5.81"/>
+		<stat value="308" bonus="5.84"/>
+		<stat value="309" bonus="5.88"/>
+		<stat value="310" bonus="5.92"/>
+		<stat value="311" bonus="5.95"/>
+		<stat value="312" bonus="5.99"/>
+		<stat value="313" bonus="6.03"/>
+		<stat value="314" bonus="6.07"/>
+		<stat value="315" bonus="6.11"/>
+		<stat value="316" bonus="6.15"/>
+		<stat value="317" bonus="6.18"/>
+		<stat value="318" bonus="6.22"/>
+		<stat value="319" bonus="6.26"/>
+		<stat value="320" bonus="6.30"/>
+		<stat value="321" bonus="6.34"/>
+		<stat value="322" bonus="6.38"/>
+		<stat value="323" bonus="6.42"/>
+		<stat value="324" bonus="6.46"/>
+		<stat value="325" bonus="6.51"/>
+		<stat value="326" bonus="6.55"/>
+		<stat value="327" bonus="6.59"/>
+		<stat value="328" bonus="6.63"/>
+		<stat value="329" bonus="6.67"/>
+		<stat value="330" bonus="6.71"/>
+		<stat value="331" bonus="6.76"/>
+		<stat value="332" bonus="6.80"/>
+		<stat value="333" bonus="6.84"/>
+		<stat value="334" bonus="6.89"/>
+		<stat value="335" bonus="6.93"/>
+		<stat value="336" bonus="6.97"/>
+		<stat value="337" bonus="7.02"/>
+		<stat value="338" bonus="7.06"/>
+		<stat value="339" bonus="7.11"/>
+		<stat value="340" bonus="7.15"/>
+		<stat value="341" bonus="7.20"/>
+		<stat value="342" bonus="7.24"/>
+		<stat value="343" bonus="7.29"/>
+		<stat value="344" bonus="7.33"/>
+		<stat value="345" bonus="7.38"/>
+		<stat value="346" bonus="7.43"/>
+		<stat value="347" bonus="7.47"/>
+		<stat value="348" bonus="7.52"/>
+		<stat value="349" bonus="7.57"/>
+		<stat value="350" bonus="7.62"/>
+		<stat value="351" bonus="7.67"/>
+		<stat value="352" bonus="7.71"/>
+		<stat value="353" bonus="7.76"/>
+		<stat value="354" bonus="7.81"/>
+		<stat value="355" bonus="7.86"/>
+		<stat value="356" bonus="7.91"/>
+		<stat value="357" bonus="7.96"/>
+		<stat value="358" bonus="8.01"/>
+		<stat value="359" bonus="8.06"/>
+		<stat value="360" bonus="8.11"/>
+		<stat value="361" bonus="8.16"/>
+		<stat value="362" bonus="8.22"/>
+		<stat value="363" bonus="8.27"/>
+		<stat value="364" bonus="8.32"/>
+		<stat value="365" bonus="8.37"/>
+		<stat value="366" bonus="8.43"/>
+		<stat value="367" bonus="8.48"/>
+		<stat value="368" bonus="8.53"/>
+		<stat value="369" bonus="8.59"/>
+		<stat value="370" bonus="8.64"/>
+		<stat value="371" bonus="8.70"/>
+		<stat value="372" bonus="8.75"/>
+		<stat value="373" bonus="8.81"/>
+		<stat value="374" bonus="8.86"/>
+		<stat value="375" bonus="8.92"/>
+		<stat value="376" bonus="8.98"/>
+		<stat value="377" bonus="9.03"/>
+		<stat value="378" bonus="9.09"/>
+		<stat value="379" bonus="9.15"/>
+		<stat value="380" bonus="9.21"/>
+		<stat value="381" bonus="9.26"/>
+		<stat value="382" bonus="9.32"/>
+		<stat value="383" bonus="9.38"/>
+		<stat value="384" bonus="9.44"/>
+		<stat value="385" bonus="9.50"/>
+		<stat value="386" bonus="9.56"/>
+		<stat value="387" bonus="9.62"/>
+		<stat value="388" bonus="9.68"/>
+		<stat value="389" bonus="9.74"/>
+		<stat value="390" bonus="9.81"/>
+		<stat value="391" bonus="9.87"/>
+		<stat value="392" bonus="9.93"/>
+		<stat value="393" bonus="9.99"/>
+		<stat value="394" bonus="10.06"/>
+		<stat value="395" bonus="10.12"/>
+		<stat value="396" bonus="10.18"/>
+		<stat value="397" bonus="10.25"/>
+		<stat value="398" bonus="10.31"/>
+		<stat value="399" bonus="10.38"/>
+		<stat value="400" bonus="10.44"/>
+		<stat value="401" bonus="10.51"/>
+		<stat value="402" bonus="10.58"/>
+		<stat value="403" bonus="10.64"/>
+		<stat value="404" bonus="10.71"/>
+		<stat value="405" bonus="10.78"/>
+		<stat value="406" bonus="10.85"/>
+		<stat value="407" bonus="10.92"/>
+		<stat value="408" bonus="10.99"/>
+		<stat value="409" bonus="11.05"/>
+		<stat value="410" bonus="11.12"/>
+		<stat value="411" bonus="11.20"/>
+		<stat value="412" bonus="11.27"/>
+		<stat value="413" bonus="11.34"/>
+		<stat value="414" bonus="11.41"/>
+		<stat value="415" bonus="11.48"/>
+		<stat value="416" bonus="11.55"/>
+		<stat value="417" bonus="11.63"/>
+		<stat value="418" bonus="11.70"/>
+		<stat value="419" bonus="11.78"/>
+		<stat value="420" bonus="11.85"/>
+		<stat value="421" bonus="11.92"/>
+		<stat value="422" bonus="12.00"/>
+		<stat value="423" bonus="12.08"/>
+		<stat value="424" bonus="12.15"/>
+		<stat value="425" bonus="12.23"/>
+		<stat value="426" bonus="12.31"/>
+		<stat value="427" bonus="12.39"/>
+		<stat value="428" bonus="12.46"/>
+		<stat value="429" bonus="12.54"/>
+		<stat value="430" bonus="12.62"/>
+		<stat value="431" bonus="12.70"/>
+		<stat value="432" bonus="12.78"/>
+		<stat value="433" bonus="12.86"/>
+		<stat value="434" bonus="12.94"/>
+		<stat value="435" bonus="13.03"/>
+		<stat value="436" bonus="13.11"/>
+		<stat value="437" bonus="13.19"/>
+		<stat value="438" bonus="13.28"/>
+		<stat value="439" bonus="13.36"/>
+		<stat value="440" bonus="13.44"/>
+		<stat value="441" bonus="13.53"/>
+		<stat value="442" bonus="13.62"/>
+		<stat value="443" bonus="13.70"/>
+		<stat value="444" bonus="13.79"/>
+		<stat value="445" bonus="13.88"/>
+		<stat value="446" bonus="13.96"/>
+		<stat value="447" bonus="14.05"/>
+		<stat value="448" bonus="14.14"/>
+		<stat value="449" bonus="14.23"/>
+		<stat value="450" bonus="14.32"/>
+		<stat value="451" bonus="14.41"/>
+		<stat value="452" bonus="14.50"/>
+		<stat value="453" bonus="14.59"/>
+		<stat value="454" bonus="14.69"/>
+		<stat value="455" bonus="14.78"/>
+		<stat value="456" bonus="14.87"/>
+		<stat value="457" bonus="14.97"/>
+		<stat value="458" bonus="15.06"/>
+		<stat value="459" bonus="15.16"/>
+		<stat value="460" bonus="15.25"/>
+		<stat value="461" bonus="15.35"/>
+		<stat value="462" bonus="15.45"/>
+		<stat value="463" bonus="15.55"/>
+		<stat value="464" bonus="15.64"/>
+		<stat value="465" bonus="15.74"/>
+		<stat value="466" bonus="15.84"/>
+		<stat value="467" bonus="15.94"/>
+		<stat value="468" bonus="16.04"/>
+		<stat value="469" bonus="16.15"/>
+		<stat value="470" bonus="16.25"/>
+		<stat value="471" bonus="16.35"/>
+		<stat value="472" bonus="16.45"/>
+		<stat value="473" bonus="16.56"/>
+		<stat value="474" bonus="16.66"/>
+		<stat value="475" bonus="16.77"/>
+		<stat value="476" bonus="16.88"/>
+		<stat value="477" bonus="16.98"/>
+		<stat value="478" bonus="17.09"/>
+		<stat value="479" bonus="17.20"/>
+		<stat value="480" bonus="17.31"/>
+		<stat value="481" bonus="17.42"/>
+		<stat value="482" bonus="17.53"/>
+		<stat value="483" bonus="17.64"/>
+		<stat value="484" bonus="17.75"/>
+		<stat value="485" bonus="17.86"/>
+		<stat value="486" bonus="17.97"/>
+		<stat value="487" bonus="18.09"/>
+		<stat value="488" bonus="18.20"/>
+		<stat value="489" bonus="18.32"/>
+		<stat value="490" bonus="18.43"/>
+		<stat value="491" bonus="18.55"/>
+		<stat value="492" bonus="18.67"/>
+		<stat value="493" bonus="18.79"/>
+		<stat value="494" bonus="18.91"/>
+		<stat value="495" bonus="19.03"/>
+		<stat value="496" bonus="19.15"/>
+		<stat value="497" bonus="19.27"/>
+		<stat value="498" bonus="19.39"/>
+		<stat value="499" bonus="19.51"/>
+		<stat value="500" bonus="19.64"/>
+		<stat value="501" bonus="19.76"/>
+		<stat value="502" bonus="19.89"/>
+		<stat value="503" bonus="20.01"/>
+		<stat value="504" bonus="20.14"/>
+		<stat value="505" bonus="20.27"/>
+		<stat value="506" bonus="20.39"/>
+		<stat value="507" bonus="20.52"/>
+		<stat value="508" bonus="20.65"/>
+		<stat value="509" bonus="20.78"/>
+		<stat value="510" bonus="20.92"/>
+		<stat value="511" bonus="21.05"/>
+	</DEX>
+	<WIT>
+		<!-- 1.014180^(WIT-(65.300000)) -->
+		<!--
+for WIT in xrange(0,512):
+    print """<stat value="%d" bonus="%.2f"/>""" % (WIT, (1.014180**(WIT-(65.300000))))
+		-->
+		<stat value="0" bonus="0.40"/>
+		<stat value="1" bonus="0.40"/>
+		<stat value="2" bonus="0.41"/>
+		<stat value="3" bonus="0.42"/>
+		<stat value="4" bonus="0.42"/>
+		<stat value="5" bonus="0.43"/>
+		<stat value="6" bonus="0.43"/>
+		<stat value="7" bonus="0.44"/>
+		<stat value="8" bonus="0.45"/>
+		<stat value="9" bonus="0.45"/>
+		<stat value="10" bonus="0.46"/>
+		<stat value="11" bonus="0.47"/>
+		<stat value="12" bonus="0.47"/>
+		<stat value="13" bonus="0.48"/>
+		<stat value="14" bonus="0.49"/>
+		<stat value="15" bonus="0.49"/>
+		<stat value="16" bonus="0.50"/>
+		<stat value="17" bonus="0.51"/>
+		<stat value="18" bonus="0.51"/>
+		<stat value="19" bonus="0.52"/>
+		<stat value="20" bonus="0.53"/>
+		<stat value="21" bonus="0.54"/>
+		<stat value="22" bonus="0.54"/>
+		<stat value="23" bonus="0.55"/>
+		<stat value="24" bonus="0.56"/>
+		<stat value="25" bonus="0.57"/>
+		<stat value="26" bonus="0.58"/>
+		<stat value="27" bonus="0.58"/>
+		<stat value="28" bonus="0.59"/>
+		<stat value="29" bonus="0.60"/>
+		<stat value="30" bonus="0.61"/>
+		<stat value="31" bonus="0.62"/>
+		<stat value="32" bonus="0.63"/>
+		<stat value="33" bonus="0.63"/>
+		<stat value="34" bonus="0.64"/>
+		<stat value="35" bonus="0.65"/>
+		<stat value="36" bonus="0.66"/>
+		<stat value="37" bonus="0.67"/>
+		<stat value="38" bonus="0.68"/>
+		<stat value="39" bonus="0.69"/>
+		<stat value="40" bonus="0.70"/>
+		<stat value="41" bonus="0.71"/>
+		<stat value="42" bonus="0.72"/>
+		<stat value="43" bonus="0.73"/>
+		<stat value="44" bonus="0.74"/>
+		<stat value="45" bonus="0.75"/>
+		<stat value="46" bonus="0.76"/>
+		<stat value="47" bonus="0.77"/>
+		<stat value="48" bonus="0.78"/>
+		<stat value="49" bonus="0.79"/>
+		<stat value="50" bonus="0.81"/>
+		<stat value="51" bonus="0.82"/>
+		<stat value="52" bonus="0.83"/>
+		<stat value="53" bonus="0.84"/>
+		<stat value="54" bonus="0.85"/>
+		<stat value="55" bonus="0.86"/>
+		<stat value="56" bonus="0.88"/>
+		<stat value="57" bonus="0.89"/>
+		<stat value="58" bonus="0.90"/>
+		<stat value="59" bonus="0.92"/>
+		<stat value="60" bonus="0.93"/>
+		<stat value="61" bonus="0.94"/>
+		<stat value="62" bonus="0.95"/>
+		<stat value="63" bonus="0.97"/>
+		<stat value="64" bonus="0.98"/>
+		<stat value="65" bonus="1.00"/>
+		<stat value="66" bonus="1.01"/>
+		<stat value="67" bonus="1.02"/>
+		<stat value="68" bonus="1.04"/>
+		<stat value="69" bonus="1.05"/>
+		<stat value="70" bonus="1.07"/>
+		<stat value="71" bonus="1.08"/>
+		<stat value="72" bonus="1.10"/>
+		<stat value="73" bonus="1.11"/>
+		<stat value="74" bonus="1.13"/>
+		<stat value="75" bonus="1.15"/>
+		<stat value="76" bonus="1.16"/>
+		<stat value="77" bonus="1.18"/>
+		<stat value="78" bonus="1.20"/>
+		<stat value="79" bonus="1.21"/>
+		<stat value="80" bonus="1.23"/>
+		<stat value="81" bonus="1.25"/>
+		<stat value="82" bonus="1.27"/>
+		<stat value="83" bonus="1.28"/>
+		<stat value="84" bonus="1.30"/>
+		<stat value="85" bonus="1.32"/>
+		<stat value="86" bonus="1.34"/>
+		<stat value="87" bonus="1.36"/>
+		<stat value="88" bonus="1.38"/>
+		<stat value="89" bonus="1.40"/>
+		<stat value="90" bonus="1.42"/>
+		<stat value="91" bonus="1.44"/>
+		<stat value="92" bonus="1.46"/>
+		<stat value="93" bonus="1.48"/>
+		<stat value="94" bonus="1.50"/>
+		<stat value="95" bonus="1.52"/>
+		<stat value="96" bonus="1.54"/>
+		<stat value="97" bonus="1.56"/>
+		<stat value="98" bonus="1.58"/>
+		<stat value="99" bonus="1.61"/>
+		<stat value="100" bonus="1.63"/>
+		<stat value="101" bonus="1.65"/>
+		<stat value="102" bonus="1.68"/>
+		<stat value="103" bonus="1.70"/>
+		<stat value="104" bonus="1.72"/>
+		<stat value="105" bonus="1.75"/>
+		<stat value="106" bonus="1.77"/>
+		<stat value="107" bonus="1.80"/>
+		<stat value="108" bonus="1.82"/>
+		<stat value="109" bonus="1.85"/>
+		<stat value="110" bonus="1.88"/>
+		<stat value="111" bonus="1.90"/>
+		<stat value="112" bonus="1.93"/>
+		<stat value="113" bonus="1.96"/>
+		<stat value="114" bonus="1.99"/>
+		<stat value="115" bonus="2.01"/>
+		<stat value="116" bonus="2.04"/>
+		<stat value="117" bonus="2.07"/>
+		<stat value="118" bonus="2.10"/>
+		<stat value="119" bonus="2.13"/>
+		<stat value="120" bonus="2.16"/>
+		<stat value="121" bonus="2.19"/>
+		<stat value="122" bonus="2.22"/>
+		<stat value="123" bonus="2.25"/>
+		<stat value="124" bonus="2.29"/>
+		<stat value="125" bonus="2.32"/>
+		<stat value="126" bonus="2.35"/>
+		<stat value="127" bonus="2.38"/>
+		<stat value="128" bonus="2.42"/>
+		<stat value="129" bonus="2.45"/>
+		<stat value="130" bonus="2.49"/>
+		<stat value="131" bonus="2.52"/>
+		<stat value="132" bonus="2.56"/>
+		<stat value="133" bonus="2.59"/>
+		<stat value="134" bonus="2.63"/>
+		<stat value="135" bonus="2.67"/>
+		<stat value="136" bonus="2.71"/>
+		<stat value="137" bonus="2.74"/>
+		<stat value="138" bonus="2.78"/>
+		<stat value="139" bonus="2.82"/>
+		<stat value="140" bonus="2.86"/>
+		<stat value="141" bonus="2.90"/>
+		<stat value="142" bonus="2.94"/>
+		<stat value="143" bonus="2.99"/>
+		<stat value="144" bonus="3.03"/>
+		<stat value="145" bonus="3.07"/>
+		<stat value="146" bonus="3.12"/>
+		<stat value="147" bonus="3.16"/>
+		<stat value="148" bonus="3.20"/>
+		<stat value="149" bonus="3.25"/>
+		<stat value="150" bonus="3.30"/>
+		<stat value="151" bonus="3.34"/>
+		<stat value="152" bonus="3.39"/>
+		<stat value="153" bonus="3.44"/>
+		<stat value="154" bonus="3.49"/>
+		<stat value="155" bonus="3.54"/>
+		<stat value="156" bonus="3.59"/>
+		<stat value="157" bonus="3.64"/>
+		<stat value="158" bonus="3.69"/>
+		<stat value="159" bonus="3.74"/>
+		<stat value="160" bonus="3.79"/>
+		<stat value="161" bonus="3.85"/>
+		<stat value="162" bonus="3.90"/>
+		<stat value="163" bonus="3.96"/>
+		<stat value="164" bonus="4.01"/>
+		<stat value="165" bonus="4.07"/>
+		<stat value="166" bonus="4.13"/>
+		<stat value="167" bonus="4.19"/>
+		<stat value="168" bonus="4.25"/>
+		<stat value="169" bonus="4.31"/>
+		<stat value="170" bonus="4.37"/>
+		<stat value="171" bonus="4.43"/>
+		<stat value="172" bonus="4.49"/>
+		<stat value="173" bonus="4.56"/>
+		<stat value="174" bonus="4.62"/>
+		<stat value="175" bonus="4.69"/>
+		<stat value="176" bonus="4.75"/>
+		<stat value="177" bonus="4.82"/>
+		<stat value="178" bonus="4.89"/>
+		<stat value="179" bonus="4.96"/>
+		<stat value="180" bonus="5.03"/>
+		<stat value="181" bonus="5.10"/>
+		<stat value="182" bonus="5.17"/>
+		<stat value="183" bonus="5.24"/>
+		<stat value="184" bonus="5.32"/>
+		<stat value="185" bonus="5.39"/>
+		<stat value="186" bonus="5.47"/>
+		<stat value="187" bonus="5.55"/>
+		<stat value="188" bonus="5.63"/>
+		<stat value="189" bonus="5.71"/>
+		<stat value="190" bonus="5.79"/>
+		<stat value="191" bonus="5.87"/>
+		<stat value="192" bonus="5.95"/>
+		<stat value="193" bonus="6.04"/>
+		<stat value="194" bonus="6.12"/>
+		<stat value="195" bonus="6.21"/>
+		<stat value="196" bonus="6.30"/>
+		<stat value="197" bonus="6.39"/>
+		<stat value="198" bonus="6.48"/>
+		<stat value="199" bonus="6.57"/>
+		<stat value="200" bonus="6.66"/>
+		<stat value="201" bonus="6.76"/>
+		<stat value="202" bonus="6.85"/>
+		<stat value="203" bonus="6.95"/>
+		<stat value="204" bonus="7.05"/>
+		<stat value="205" bonus="7.15"/>
+		<stat value="206" bonus="7.25"/>
+		<stat value="207" bonus="7.35"/>
+		<stat value="208" bonus="7.46"/>
+		<stat value="209" bonus="7.56"/>
+		<stat value="210" bonus="7.67"/>
+		<stat value="211" bonus="7.78"/>
+		<stat value="212" bonus="7.89"/>
+		<stat value="213" bonus="8.00"/>
+		<stat value="214" bonus="8.12"/>
+		<stat value="215" bonus="8.23"/>
+		<stat value="216" bonus="8.35"/>
+		<stat value="217" bonus="8.47"/>
+		<stat value="218" bonus="8.59"/>
+		<stat value="219" bonus="8.71"/>
+		<stat value="220" bonus="8.83"/>
+		<stat value="221" bonus="8.96"/>
+		<stat value="222" bonus="9.08"/>
+		<stat value="223" bonus="9.21"/>
+		<stat value="224" bonus="9.34"/>
+		<stat value="225" bonus="9.47"/>
+		<stat value="226" bonus="9.61"/>
+		<stat value="227" bonus="9.75"/>
+		<stat value="228" bonus="9.88"/>
+		<stat value="229" bonus="10.02"/>
+		<stat value="230" bonus="10.17"/>
+		<stat value="231" bonus="10.31"/>
+		<stat value="232" bonus="10.46"/>
+		<stat value="233" bonus="10.60"/>
+		<stat value="234" bonus="10.75"/>
+		<stat value="235" bonus="10.91"/>
+		<stat value="236" bonus="11.06"/>
+		<stat value="237" bonus="11.22"/>
+		<stat value="238" bonus="11.38"/>
+		<stat value="239" bonus="11.54"/>
+		<stat value="240" bonus="11.70"/>
+		<stat value="241" bonus="11.87"/>
+		<stat value="242" bonus="12.04"/>
+		<stat value="243" bonus="12.21"/>
+		<stat value="244" bonus="12.38"/>
+		<stat value="245" bonus="12.56"/>
+		<stat value="246" bonus="12.73"/>
+		<stat value="247" bonus="12.92"/>
+		<stat value="248" bonus="13.10"/>
+		<stat value="249" bonus="13.28"/>
+		<stat value="250" bonus="13.47"/>
+		<stat value="251" bonus="13.66"/>
+		<stat value="252" bonus="13.86"/>
+		<stat value="253" bonus="14.05"/>
+		<stat value="254" bonus="14.25"/>
+		<stat value="255" bonus="14.46"/>
+		<stat value="256" bonus="14.66"/>
+		<stat value="257" bonus="14.87"/>
+		<stat value="258" bonus="15.08"/>
+		<stat value="259" bonus="15.29"/>
+		<stat value="260" bonus="15.51"/>
+		<stat value="261" bonus="15.73"/>
+		<stat value="262" bonus="15.95"/>
+		<stat value="263" bonus="16.18"/>
+		<stat value="264" bonus="16.41"/>
+		<stat value="265" bonus="16.64"/>
+		<stat value="266" bonus="16.88"/>
+		<stat value="267" bonus="17.12"/>
+		<stat value="268" bonus="17.36"/>
+		<stat value="269" bonus="17.60"/>
+		<stat value="270" bonus="17.85"/>
+		<stat value="271" bonus="18.11"/>
+		<stat value="272" bonus="18.36"/>
+		<stat value="273" bonus="18.62"/>
+		<stat value="274" bonus="18.89"/>
+		<stat value="275" bonus="19.16"/>
+		<stat value="276" bonus="19.43"/>
+		<stat value="277" bonus="19.70"/>
+		<stat value="278" bonus="19.98"/>
+		<stat value="279" bonus="20.27"/>
+		<stat value="280" bonus="20.55"/>
+		<stat value="281" bonus="20.85"/>
+		<stat value="282" bonus="21.14"/>
+		<stat value="283" bonus="21.44"/>
+		<stat value="284" bonus="21.75"/>
+		<stat value="285" bonus="22.05"/>
+		<stat value="286" bonus="22.37"/>
+		<stat value="287" bonus="22.68"/>
+		<stat value="288" bonus="23.00"/>
+		<stat value="289" bonus="23.33"/>
+		<stat value="290" bonus="23.66"/>
+		<stat value="291" bonus="24.00"/>
+		<stat value="292" bonus="24.34"/>
+		<stat value="293" bonus="24.68"/>
+		<stat value="294" bonus="25.03"/>
+		<stat value="295" bonus="25.39"/>
+		<stat value="296" bonus="25.75"/>
+		<stat value="297" bonus="26.11"/>
+		<stat value="298" bonus="26.48"/>
+		<stat value="299" bonus="26.86"/>
+		<stat value="300" bonus="27.24"/>
+		<stat value="301" bonus="27.63"/>
+		<stat value="302" bonus="28.02"/>
+		<stat value="303" bonus="28.41"/>
+		<stat value="304" bonus="28.82"/>
+		<stat value="305" bonus="29.23"/>
+		<stat value="306" bonus="29.64"/>
+		<stat value="307" bonus="30.06"/>
+		<stat value="308" bonus="30.49"/>
+		<stat value="309" bonus="30.92"/>
+		<stat value="310" bonus="31.36"/>
+		<stat value="311" bonus="31.80"/>
+		<stat value="312" bonus="32.25"/>
+		<stat value="313" bonus="32.71"/>
+		<stat value="314" bonus="33.17"/>
+		<stat value="315" bonus="33.65"/>
+		<stat value="316" bonus="34.12"/>
+		<stat value="317" bonus="34.61"/>
+		<stat value="318" bonus="35.10"/>
+		<stat value="319" bonus="35.59"/>
+		<stat value="320" bonus="36.10"/>
+		<stat value="321" bonus="36.61"/>
+		<stat value="322" bonus="37.13"/>
+		<stat value="323" bonus="37.66"/>
+		<stat value="324" bonus="38.19"/>
+		<stat value="325" bonus="38.73"/>
+		<stat value="326" bonus="39.28"/>
+		<stat value="327" bonus="39.84"/>
+		<stat value="328" bonus="40.40"/>
+		<stat value="329" bonus="40.98"/>
+		<stat value="330" bonus="41.56"/>
+		<stat value="331" bonus="42.15"/>
+		<stat value="332" bonus="42.74"/>
+		<stat value="333" bonus="43.35"/>
+		<stat value="334" bonus="43.97"/>
+		<stat value="335" bonus="44.59"/>
+		<stat value="336" bonus="45.22"/>
+		<stat value="337" bonus="45.86"/>
+		<stat value="338" bonus="46.51"/>
+		<stat value="339" bonus="47.17"/>
+		<stat value="340" bonus="47.84"/>
+		<stat value="341" bonus="48.52"/>
+		<stat value="342" bonus="49.21"/>
+		<stat value="343" bonus="49.91"/>
+		<stat value="344" bonus="50.61"/>
+		<stat value="345" bonus="51.33"/>
+		<stat value="346" bonus="52.06"/>
+		<stat value="347" bonus="52.80"/>
+		<stat value="348" bonus="53.55"/>
+		<stat value="349" bonus="54.30"/>
+		<stat value="350" bonus="55.07"/>
+		<stat value="351" bonus="55.86"/>
+		<stat value="352" bonus="56.65"/>
+		<stat value="353" bonus="57.45"/>
+		<stat value="354" bonus="58.27"/>
+		<stat value="355" bonus="59.09"/>
+		<stat value="356" bonus="59.93"/>
+		<stat value="357" bonus="60.78"/>
+		<stat value="358" bonus="61.64"/>
+		<stat value="359" bonus="62.52"/>
+		<stat value="360" bonus="63.40"/>
+		<stat value="361" bonus="64.30"/>
+		<stat value="362" bonus="65.21"/>
+		<stat value="363" bonus="66.14"/>
+		<stat value="364" bonus="67.08"/>
+		<stat value="365" bonus="68.03"/>
+		<stat value="366" bonus="68.99"/>
+		<stat value="367" bonus="69.97"/>
+		<stat value="368" bonus="70.96"/>
+		<stat value="369" bonus="71.97"/>
+		<stat value="370" bonus="72.99"/>
+		<stat value="371" bonus="74.02"/>
+		<stat value="372" bonus="75.07"/>
+		<stat value="373" bonus="76.14"/>
+		<stat value="374" bonus="77.22"/>
+		<stat value="375" bonus="78.31"/>
+		<stat value="376" bonus="79.42"/>
+		<stat value="377" bonus="80.55"/>
+		<stat value="378" bonus="81.69"/>
+		<stat value="379" bonus="82.85"/>
+		<stat value="380" bonus="84.02"/>
+		<stat value="381" bonus="85.22"/>
+		<stat value="382" bonus="86.42"/>
+		<stat value="383" bonus="87.65"/>
+		<stat value="384" bonus="88.89"/>
+		<stat value="385" bonus="90.15"/>
+		<stat value="386" bonus="91.43"/>
+		<stat value="387" bonus="92.73"/>
+		<stat value="388" bonus="94.04"/>
+		<stat value="389" bonus="95.38"/>
+		<stat value="390" bonus="96.73"/>
+		<stat value="391" bonus="98.10"/>
+		<stat value="392" bonus="99.49"/>
+		<stat value="393" bonus="100.90"/>
+		<stat value="394" bonus="102.33"/>
+		<stat value="395" bonus="103.78"/>
+		<stat value="396" bonus="105.26"/>
+		<stat value="397" bonus="106.75"/>
+		<stat value="398" bonus="108.26"/>
+		<stat value="399" bonus="109.80"/>
+		<stat value="400" bonus="111.35"/>
+		<stat value="401" bonus="112.93"/>
+		<stat value="402" bonus="114.53"/>
+		<stat value="403" bonus="116.16"/>
+		<stat value="404" bonus="117.81"/>
+		<stat value="405" bonus="119.48"/>
+		<stat value="406" bonus="121.17"/>
+		<stat value="407" bonus="122.89"/>
+		<stat value="408" bonus="124.63"/>
+		<stat value="409" bonus="126.40"/>
+		<stat value="410" bonus="128.19"/>
+		<stat value="411" bonus="130.01"/>
+		<stat value="412" bonus="131.85"/>
+		<stat value="413" bonus="133.72"/>
+		<stat value="414" bonus="135.62"/>
+		<stat value="415" bonus="137.54"/>
+		<stat value="416" bonus="139.49"/>
+		<stat value="417" bonus="141.47"/>
+		<stat value="418" bonus="143.47"/>
+		<stat value="419" bonus="145.51"/>
+		<stat value="420" bonus="147.57"/>
+		<stat value="421" bonus="149.67"/>
+		<stat value="422" bonus="151.79"/>
+		<stat value="423" bonus="153.94"/>
+		<stat value="424" bonus="156.12"/>
+		<stat value="425" bonus="158.34"/>
+		<stat value="426" bonus="160.58"/>
+		<stat value="427" bonus="162.86"/>
+		<stat value="428" bonus="165.17"/>
+		<stat value="429" bonus="167.51"/>
+		<stat value="430" bonus="169.89"/>
+		<stat value="431" bonus="172.29"/>
+		<stat value="432" bonus="174.74"/>
+		<stat value="433" bonus="177.22"/>
+		<stat value="434" bonus="179.73"/>
+		<stat value="435" bonus="182.28"/>
+		<stat value="436" bonus="184.86"/>
+		<stat value="437" bonus="187.48"/>
+		<stat value="438" bonus="190.14"/>
+		<stat value="439" bonus="192.84"/>
+		<stat value="440" bonus="195.57"/>
+		<stat value="441" bonus="198.34"/>
+		<stat value="442" bonus="201.16"/>
+		<stat value="443" bonus="204.01"/>
+		<stat value="444" bonus="206.90"/>
+		<stat value="445" bonus="209.84"/>
+		<stat value="446" bonus="212.81"/>
+		<stat value="447" bonus="215.83"/>
+		<stat value="448" bonus="218.89"/>
+		<stat value="449" bonus="221.99"/>
+		<stat value="450" bonus="225.14"/>
+		<stat value="451" bonus="228.33"/>
+		<stat value="452" bonus="231.57"/>
+		<stat value="453" bonus="234.86"/>
+		<stat value="454" bonus="238.19"/>
+		<stat value="455" bonus="241.56"/>
+		<stat value="456" bonus="244.99"/>
+		<stat value="457" bonus="248.46"/>
+		<stat value="458" bonus="251.99"/>
+		<stat value="459" bonus="255.56"/>
+		<stat value="460" bonus="259.18"/>
+		<stat value="461" bonus="262.86"/>
+		<stat value="462" bonus="266.59"/>
+		<stat value="463" bonus="270.37"/>
+		<stat value="464" bonus="274.20"/>
+		<stat value="465" bonus="278.09"/>
+		<stat value="466" bonus="282.03"/>
+		<stat value="467" bonus="286.03"/>
+		<stat value="468" bonus="290.09"/>
+		<stat value="469" bonus="294.20"/>
+		<stat value="470" bonus="298.37"/>
+		<stat value="471" bonus="302.60"/>
+		<stat value="472" bonus="306.89"/>
+		<stat value="473" bonus="311.25"/>
+		<stat value="474" bonus="315.66"/>
+		<stat value="475" bonus="320.13"/>
+		<stat value="476" bonus="324.67"/>
+		<stat value="477" bonus="329.28"/>
+		<stat value="478" bonus="333.95"/>
+		<stat value="479" bonus="338.68"/>
+		<stat value="480" bonus="343.49"/>
+		<stat value="481" bonus="348.36"/>
+		<stat value="482" bonus="353.30"/>
+		<stat value="483" bonus="358.31"/>
+		<stat value="484" bonus="363.39"/>
+		<stat value="485" bonus="368.54"/>
+		<stat value="486" bonus="373.76"/>
+		<stat value="487" bonus="379.06"/>
+		<stat value="488" bonus="384.44"/>
+		<stat value="489" bonus="389.89"/>
+		<stat value="490" bonus="395.42"/>
+		<stat value="491" bonus="401.03"/>
+		<stat value="492" bonus="406.71"/>
+		<stat value="493" bonus="412.48"/>
+		<stat value="494" bonus="418.33"/>
+		<stat value="495" bonus="424.26"/>
+		<stat value="496" bonus="430.28"/>
+		<stat value="497" bonus="436.38"/>
+		<stat value="498" bonus="442.57"/>
+		<stat value="499" bonus="448.84"/>
+		<stat value="500" bonus="455.21"/>
+		<stat value="501" bonus="461.66"/>
+		<stat value="502" bonus="468.21"/>
+		<stat value="503" bonus="474.85"/>
+		<stat value="504" bonus="481.58"/>
+		<stat value="505" bonus="488.41"/>
+		<stat value="506" bonus="495.33"/>
+		<stat value="507" bonus="502.36"/>
+		<stat value="508" bonus="509.48"/>
+		<stat value="509" bonus="516.71"/>
+		<stat value="510" bonus="524.03"/>
+		<stat value="511" bonus="531.46"/>
+	</WIT>
+</list>

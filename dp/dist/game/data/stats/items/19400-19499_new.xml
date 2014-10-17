@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<item id="19440" name="寶石-R級" type="EtcItem">
+		<set name="icon" val="icon.etc_bead_gold_i00" />
+		<set name="etcitem_type" val="MATERIAL" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="2" />
+		<set name="is_stackable" val="true" />
+	</item>
+	<item id="19441" name="魔靈彈-R級" type="EtcItem">
+		<table name="#Desc">上級精靈之光加持於武器，暫時大幅強化魔法的威力。R級武器專用。</table>
+		<set name="icon" val="icon.spiritshot_r_i00" />
+		<set name="default_action" val="SPIRITSHOT" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="PAPER" />
+		<set name="weight" val="1" />
+		<set name="is_stackable" val="true" />
+		<set name="handler" val="SpiritShot" />
+		<set name="item_skill" val="9194-1" />
+	</item>
+	<item id="19442" name="祝福的魔靈彈-R級" type="EtcItem">
+		<table name="#Desc">上級精靈之光加持於武器，暫時大幅強化魔法的威力。R級武器專用。</table>
+		<set name="icon" val="icon.blessed_spiritshot_r_i00" />
+		<set name="default_action" val="SPIRITSHOT" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="PAPER" />
+		<set name="weight" val="1" />
+		<set name="is_stackable" val="true" />
+		<set name="handler" val="BlessedSpiritShot" />
+		<set name="item_skill" val="9195-1" />
+	</item>
+	<item id="19443" name="奧里哈魯根弩箭" type="EtcItem">
+		<table name="#Desc">用奧里哈魯根合金製成的弩箭。R級弩使用。</table>
+		<set name="icon" val="icon.etc_oricalcum_bolt_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="etcitem_type" val="BOLT" />
+		<set name="bodypart" val="lhand" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="MITHRIL" />
+		<set name="is_stackable" val="true" />
+	</item>
+	<item id="19447" name="祝福的武器強化卷軸-R級" type="EtcItem">
+		<table name="#Desc">強化時，R級劍/單手、鈍器/單手、匕首、槍，以及其他類武器的物理攻擊力可提升6；劍/雙手、鈍器/雙手、二刀流、格鬥兵器/雙手、弩類武器的物理攻擊力可提升7；弓類武器的攻擊力可提升12；所有武器的魔法攻擊力可提升5。從強化+4開始，大幅提升物理攻擊力/魔法攻擊力。與一般武器相比，祝福的武器在所有層面上都有較大的增幅度。強化失敗時，現有的裝備雖不會被結晶化，但是強化程度會初始化為+0。</table>
+		<set name="icon" val="icon.blessed_scroll_of_enchant_weapon_i06" />
+		<set name="default_action" val="SKILL_REDUCE" />
+		<set name="etcitem_type" val="BLESS_SCRL_ENCHANT_WP" />
+		<set name="material" val="PAPER" />
+		<set name="weight" val="120" />
+		<set name="is_stackable" val="true" />
+		<set name="is_oly_restricted" val="true" />
+		<set name="handler" val="EnchantScrolls" />
+		<set name="item_skill" val="9187-1" />
+	</item>
+	<item id="19448" name="祝福的防具強化卷軸-R級" type="EtcItem">
+		<table name="#Desc">強化時，R級防具或飾品的物理防禦力可提升2，從強化+4開始將大幅提升物理防禦力。至+3為止能安全進行強化。防具強化+4以上時，隨著強化值HP也會提升。強化失敗時，現有的裝備雖不會被結晶化，但是強化程度會初始化為+0。</table>
+		<set name="icon" val="icon.blessed_scroll_of_enchant_armor_i06" />
+		<set name="default_action" val="SKILL_REDUCE" />
+		<set name="etcitem_type" val="BLESS_SCRL_ENCHANT_AM" />
+		<set name="material" val="PAPER" />
+		<set name="weight" val="120" />
+		<set name="is_stackable" val="true" />
+		<set name="is_oly_restricted" val="true" />
+		<set name="handler" val="EnchantScrolls" />
+		<set name="item_skill" val="9196-1" />
+	</item>
+</list>

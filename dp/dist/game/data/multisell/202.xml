@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/multisell.xsd">
+	<npcs>
+		<npc>31756</npc> <!-- Mr. Cat (Test Server Helper) -->
+		<npc>31757</npc> <!-- Miss Queen (Test Server Helper) -->
+	</npcs>
+	<item>
+		<!-- 刪除轉職管理員交換的武器/防具 -->
+		<ingredient count="9999999" id="57" />
+		<production count="1" id="1665" />
+	</item>
+</list>

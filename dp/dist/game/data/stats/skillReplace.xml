@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/skillReplace.xsd">
+	<!-- 測試 -->
+	<skill id='29999'>
+		<remove id='39999'/>
+		<remove id='49999'/>
+		<remove id='59999'/>
+	</skill>
+</list>

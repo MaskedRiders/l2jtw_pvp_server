@@ -1,0 +1,16 @@
+﻿<html><body>
+<table width=270><tr>
+<td width=45><button value="首頁" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>玩家搜尋</center></td>
+<td width=45><button value="返回" action="bypass -h admin_show_characters 0" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table>
+<br>
+<table width=270>		
+<tr><td width=80>名稱</td><td width=110>職業</td><td width=40>等級</td></tr>
+%results%
+</table><br>
+<center>
+<table width=270><tr>
+<td><edit var="character_name" width=80></td>
+<td><button value="搜尋" action="bypass -h admin_find_character $character_name" width=80 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>搜尋到: %number% 個玩家%end%</center></body></html>

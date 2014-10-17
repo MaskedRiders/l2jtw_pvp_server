@@ -1,0 +1,54 @@
+﻿<html><title>傳送</title><body>
+<center>
+<table width=256><tr>
+<td align=center><button value="首頁" action="bypass -h admin_admin" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center width=176>選擇傳送位置</td>
+<td align=center><button value="返回" action="bypass -h admin_admin" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+<table width=256><tr>
+<td align=center><button action="bypass -h admin_html teleports/TownAreas.htm" value="城鎮/村莊" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/WorldAreas.htm" value="領地區域" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td align=center><button action="bypass -h admin_html teleports/CastleAreas.htm" value="城堡" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/fort.htm" value="邊境要塞" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td align=center><button action="bypass -h admin_html teleports/sevensigns.htm" value="七封印" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/instance.htm" value="即時地區" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td align=center><button action="bypass -h admin_html teleports/raid.htm" value="狩獵首領" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/OlympiadStadiums.htm" value="競技場" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td align=center><button action="bypass -h admin_html teleports/clanhall/clanhall.htm" value="爭奪要塞" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/OtherLocations.htm" value="其他區域" width=128 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+<table width=256><tr>
+<td align=center><button action="bypass -h admin_html teleports/gracia.htm" value="破滅國境" width=85 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/epilogue.htm" value="聖翼使命" width=85 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/freya.htm" value="芙蕾雅" width=85 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td align=center><button action="bypass -h admin_html teleports/Tauti.htm" value="塔武提" width=85 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/Tauti_2.htm" value="塔武提 未知" width=85 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td align=center><button action="bypass -h admin_html teleports/Tauti_3.htm" value="塔武提 跳躍" width=85 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>
+<button value="其他傳送模式" action="bypass -h admin_tele" width=180 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"><br>
+傳送座標位置<br1>
+<table width=256><tr>
+<td align=center width=85><font color="LEVEL">X</font></td>
+<td align=center width=85><font color="LEVEL">Y</font></td>
+<td align=center width=85><font color="LEVEL">Z</font></td>
+</tr></table>
+<table width=256><tr>
+<td align=center><edit var="char_cord_x" width=75></td>
+<td align=center><edit var="char_cord_y" width=75></td>
+<td align=center><edit var="char_cord_z" width=75></td>
+</tr></table>
+<table width=256><tr>
+<td align=center><button value="傳送" action="bypass -h admin_move_to $char_cord_x $char_cord_y $char_cord_z" width=31 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table>
+</center>
+</body></html>

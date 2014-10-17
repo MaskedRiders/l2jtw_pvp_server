@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/buylist.xsd">
+	<npcs>
+		<npc>31757</npc> <!-- Miss Queen -->
+	</npcs>
+	<item id="1665" price="9999999" /> <!-- 刪除轉職管理員賣的武器/防具 -->
+</list>

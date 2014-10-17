@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/cursedWeapons.xsd">
+	<item id="8190" name="魔劍‧薩雷奇" skillId="3603">
+		<disapearChance val="50" /> <!-- 持有魔劍死亡時，魔劍消失的機率 -->
+		<dropRate val="1" /> <!-- 怪物掉落魔劍的機率(100000 表示 100%) -->
+		<duration val="300" /> <!-- 可持有魔劍的時間(以分為單位) -->
+		<durationLost val="3" /> <!-- 魔劍掉落後，多久會消失(以分為單位) -->
+		<stageKills val="10" /> <!-- 魔劍每升一級需要殺死多少玩家 -->
+	</item>
+	<item id="8689" name="血劍‧阿卡瑪那夫" skillId="3629">
+		<disapearChance val="50" /> <!-- 持有魔劍死亡時，魔劍消失的機率 -->
+		<dropRate val="1" /> <!-- 怪物掉落魔劍的機率(100000 表示 100%) -->
+		<duration val="300" /> <!-- 可持有魔劍的時間(以分為單位) -->
+		<durationLost val="3" /> <!-- 魔劍掉落後，多久會消失(以分為單位) -->
+		<stageKills val="10" /> <!-- 魔劍每升一級需要殺死多少玩家 -->
+	</item>
+</list>

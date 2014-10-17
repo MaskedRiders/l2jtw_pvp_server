@@ -1,0 +1,87 @@
+﻿<html><title>NPC 資訊</title><body>
+<center>
+<table width=270 border=0 bgcolor="444444">
+<tr>
+<td><button value="殺死" action="bypass -h admin_kill" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="刪除" action="bypass -h admin_delete" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="召喚" action="bypass -h admin_recall_npc" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="狀態" action="bypass admin_getbuffs" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+<tr>
+<td><button value="任務" action="bypass admin_show_quests %tmplid%" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="檢視" action="bypass NpcViewMod view %objid%" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<img src="L2UI.SquareWhite" width=260 height=1><br>
+<table width=270 border=0>
+<tr><td colspan="4"><table width=270 border=0><tr><td width=270><font color="LEVEL">NPC 資訊</font> : %name% (<font color="LEVEL">%id%</font>) [<font color=00FF00>%lvl%</font> 等級]</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">ID:</font></td><td align=right width=170>%objid%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">類型:</font></td><td align=right width=170><font color=999999>%class%</font></td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">種族</font></td><td align=right width=170>%race%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">領域:</font></td><td align=right width=170>%territory%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">召喚類型:</font></td><td align=right width=170>%spawntype%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">出生座標:</font></td><td align=right width=170>%spawn%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">目前座標:</font></td><td align=right width=170>%loc%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">面向:</font></td><td align=right width=170>%heading%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">範圍:</font></td><td align=right width=170>%collision_radius%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">高度:</font></td><td align=right width=170>%collision_height%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">距離:</font></td><td align=right width=170>2D: %loc2d%, 3D: %loc3d%, You: %dist%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">重生時間:</font></td><td align=right width=170>%resp%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">主動性:</font></td><td align=right width=170><font color=999999>%aggro%</font></td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">HP:</font></td><td align=right width=170><font color=FF4040>%hp%/%hpmax%</font></td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">MP:</font></td><td align=right width=170><font color=6161FF>%mp%/%mpmax%</font></td></tr></table></td></tr>
+%ai_intention%
+%ai%
+%ai_type%
+%ai_clan%
+%ai_enemy_clan%
+%route%
+</table><br>
+
+<font color="LEVEL">戰鬥數值</font><br1>
+<table border="0" width="100%">
+<tr><td>物理攻擊力</td><td>%patk%</td><td>魔法攻擊力</td><td>%matk%</td></tr>
+<tr><td>物理防禦力</td><td>%pdef%</td><td>魔法防禦力</td><td>%mdef%</td></tr>
+<tr><td>命中能力</td><td>%accu%</td><td>迴避能力</td><td>%evas%</td></tr>
+<tr><td>致命攻擊率</td><td>%crit%</td><td>移動速度</td><td>%rspd%</td></tr>
+<tr><td>攻擊速度</td><td>%aspd%</td><td>施法速度</td><td>%cspd%</td></tr>
+<tr><td>攻擊類型:</td><td>%atkType%</td><td>攻擊範圍</td><td>%atkRng%</td></tr>
+</table><br>
+
+<font color="LEVEL">基本能力</font><br1>
+<table border="0" width="100%">
+<tr>
+<td>力量</td><td>%str%</td>
+<td>敏捷</td><td>%dex%</td>
+<td>體質</td><td>%con%</td>
+</tr>
+<tr>
+<td>智力</td><td>%int%</td>
+<td>智慧</td><td>%wit%</td>
+<td>精神</td><td>%men%</td>
+</tr>
+</table><br>
+
+<font color="LEVEL">元素</font><br1>
+<table border="0" width="100%">
+<tr>
+<td>元素屬性</td><td>%ele_atk%</td>
+<td>數值</td><td>%ele_atk_value%</td>
+</tr>
+<tr>
+<td>火</td><td>%ele_dfire%</td>
+<td>水</td><td>%ele_dwater%</td>
+</tr>
+<tr>
+<td>風</td><td>%ele_dwind%</td>
+<td>大地</td><td>%ele_dearth%</td>
+</tr>
+<tr>
+<td>神聖</td><td>%ele_dholy%</td>
+<td>黑暗</td><td>%ele_ddark%</td>
+</tr>
+</table><br>
+<br><img src="L2UI.SquareWhite" width=260 height=1><br>
+</center></body></html>

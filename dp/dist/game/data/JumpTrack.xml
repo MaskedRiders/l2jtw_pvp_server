@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<!-- <FlyToLocation ToX="-111994" ToY="257250" ToZ="-1392" Type="2"/> -->
+	<track trackId="12" zone="說話之島村莊 -> 埃薩吉拉遺蹟地" ToX="-111994" ToY="257250" ToZ="-1392">
+		<way id="0"><jumpLoc next="1" x="-112860" y="256154" z="-1232" /></way>
+		<way id="1"><jumpLoc next="2" x="-113337" y="255468" z="-1064" /></way>
+		<way id="2"><jumpLoc next="3" x="-113486" y="254176" z="-1200" /></way>
+		<way id="3"><jumpLoc next="4" x="-114259" y="252583" z="-1536" /></way>
+		<way id="4"><jumpLoc next="5" x="-114192" y="249690" z="-1768" /></way>
+		<way id="5"><jumpLoc next="6" x="-114910" y="248363" z="-1896" /></way>
+		<way id="6"><jumpLoc next="7" x="-117316" y="246637" z="-2312" /></way>
+		<way id="7"><jumpLoc next="8" x="-116685" y="245179" z="-1944" /></way>
+		<way id="8"><jumpLoc next="9" x="-116402" y="243260" z="-1440" /></way>
+		<way id="9"><jumpLoc next="10" x="-116609" y="241530" z="-2568" /></way>
+		<way id="10"><jumpLoc next="11" x="-117165" y="239769" z="-2736" /></way>
+		<way id="11"><jumpLoc next="12" x="-116650" y="238339" z="-2472" /></way>
+		<way id="12"><jumpLoc next="-1" x="-115737" y="236295" z="-3088" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="205888" ToY="80560" ToZ="1928" Type="2"/> -->
+	<track trackId="14" zone="古都 亞爾康(左) -> 北方森林深處/提米妮爾懷抱" ToX="205888" ToY="80560" ToZ="1928">
+		<way id="0">
+			<jumpLoc next="-1" x="205564" y="80480" z="404" />
+			<jumpLoc next="1" x="205324" y="77300" z="872" />
+			<jumpLoc next="5" x="207240" y="80900" z="608" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="203776" y="74224" z="832" /></way>
+		<way id="2"><jumpLoc next="3" x="205088" y="73600" z="1228" /></way>
+		<way id="3"><jumpLoc next="4" x="204828" y="71336" z="1312" /></way>
+		<way id="4"><jumpLoc next="-1" x="205536" y="71256" z="996" /></way>
+		<way id="5"><jumpLoc next="6" x="208432" y="80028" z="592" /></way>
+		<way id="6"><jumpLoc next="7" x="211104" y="80768" z="-112" /></way>
+		<way id="7"><jumpLoc next="8" x="212288" y="79124" z="496" /></way>
+		<way id="8"><jumpLoc next="9" x="213100" y="80004" z="1612" /></way>
+		<way id="9"><jumpLoc next="-1" x="213968" y="81232" z="816" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="211824" ToY="82800" ToZ="1456" Type="2"/> -->
+	<track trackId="15" zone="古都 亞爾康(右) -> 南方森林深處/提米妮爾懷抱" ToX="211824" ToY="82800" ToZ="1456">
+		<way id="0">
+			<jumpLoc next="-1" x="211952" y="82592" z="136" />
+			<jumpLoc next="1" x="213152" y="84496" z="980" />
+			<jumpLoc next="9" x="213604" y="81868" z="1836" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="214112" y="85312" z="1440" /></way>
+		<way id="2"><jumpLoc next="3" x="214896" y="86480" z="1640" /></way>
+		<way id="3"><jumpLoc next="4" x="217584" y="87984" z="1332" /></way>
+		<way id="4"><jumpLoc next="5" x="219680" y="88000" z="1328" /></way>
+		<way id="5"><jumpLoc next="6" x="220976" y="88368" z="1088" /></way>
+		<way id="6"><jumpLoc next="7" x="222336" y="88288" z="1064" /></way>
+		<way id="7"><jumpLoc next="8" x="222448" y="88424" z="1584" /></way>
+		<way id="8"><jumpLoc next="-1" x="222064" y="88944" z="812" /></way>
+		<way id="9"><jumpLoc next="-1" x="214032" y="81304" z="824" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="213512" ToY="80556" ToZ="1524" Type="2"/> -->
+	<track trackId="16" zone="妖精殖民地(左) -> 古都 亞爾康(左)" ToX="213512" ToY="80556" ToZ="1524">
+		<way id="0"><jumpLoc next="1" x="211088" y="81056" z="112" /></way>
+		<way id="1"><jumpLoc next="2" x="209216" y="80240" z="-112" /></way>
+		<way id="2"><jumpLoc next="3" x="208512" y="79952" z="592" /></way>
+		<way id="3"><jumpLoc next="4" x="206336" y="80432" z="1604" /></way>
+		<way id="4"><jumpLoc next="-1" x="205264" y="80420" z="416" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="214576" ToY="81936" ToZ="1960" Type="2"/> -->
+	<track trackId="17" zone="妖精殖民地(右) -> 古都 亞爾康(右)" ToX="214576" ToY="81936" ToZ="1960">
+		<way id="0"><jumpLoc next="1" x="213120" y="84432" z="944" /></way>
+		<way id="1"><jumpLoc next="2" x="212548" y="83588" z="544" /></way>
+		<way id="2"><jumpLoc next="3" x="211968" y="82880" z="960" /></way>
+		<way id="3"><jumpLoc next="-1" x="212096" y="82528" z="144" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="207189" ToY="110330" ToZ="-1147" Type="2"/> -->
+	<track trackId="18" zone="創世庭園(上) -> " ToX="207189" ToY="110330" ToZ="-1147">
+		<way id="0">
+			<jumpLoc next="23" x="207786" y="109675" z="-1102" />
+			<jumpLoc next="25" x="206864" y="111818" z="-1263" />
+		</way>
+		<way id="1"><jumpLoc next="7" x="209457" y="108552" z="-1056" /></way>
+		<way id="2"><jumpLoc next="3" x="205028" y="114828" z="-1292" /></way>
+		<way id="3">
+			<jumpLoc next="4" x="206386" y="114871" z="-1242" />
+			<jumpLoc next="5" x="205124" y="116584" z="-1037" />
+		</way>
+		<way id="4"><jumpLoc next="26" x="208298" y="115264" z="-1684" /></way>
+		<way id="5"><jumpLoc next="6" x="205948" y="118978" z="-1224" /></way>
+		<way id="6"><jumpLoc next="-1" x="205912" y="119379" z="-1673" /></way>
+		<way id="7"><jumpLoc next="8" x="211246" y="108653" z="-886" /></way>
+		<way id="8"><jumpLoc next="9" x="212654" y="108160" z="-1149" /></way>
+		<way id="9"><jumpLoc next="10" x="214113" y="108549" z="-1048" /></way>
+		<way id="10">
+			<jumpLoc next="11" x="215489" y="107803" z="-1001" />
+			<jumpLoc next="13" x="214095" y="109218" z="-638" />
+		</way>
+		<way id="11"><jumpLoc next="12" x="217554" y="107266" z="-796" /></way>
+		<way id="12"><jumpLoc next="-1" x="217768" y="107458" z="-1673" /></way>
+		<way id="13"><jumpLoc next="14" x="213567" y="110362" z="-1055" /></way>
+		<way id="14"><jumpLoc next="24" x="214033" y="111348" z="-1253" /></way>
+		<way id="15"><jumpLoc next="16" x="216195" y="114178" z="-1162" /></way>
+		<way id="16"><jumpLoc next="17" x="217493" y="115253" z="-895" /></way>
+		<way id="17"><jumpLoc next="-1" x="217662" y="115261" z="-1274" /></way>
+		<way id="18">
+			<jumpLoc next="-1" x="209608" y="115641" z="-1679" />
+			<jumpLoc next="19" x="210657" y="116738" z="-956" />
+		</way>
+		<way id="19"><jumpLoc next="20" x="211883" y="117085" z="-682" /></way>
+		<way id="20"><jumpLoc next="21" x="212718" y="117794" z="-1158" /></way>
+		<way id="21"><jumpLoc next="22" x="213693" y="119065" z="-897" /></way>
+		<way id="22"><jumpLoc next="-1" x="213696" y="119227" z="-1274" /></way>
+		<way id="23"><jumpLoc next="1" x="208453" y="109434" z="-848" /></way>
+		<way id="24">
+			<jumpLoc next="-1" x="214096" y="111164" z="-1679" />
+			<jumpLoc next="15" x="214991" y="112448" z="-938" />
+		</way>
+		<way id="25"><jumpLoc next="2" x="206071" y="113246" z="-1128" /></way>
+		<way id="26"><jumpLoc next="18" x="209494" y="115818" z="-1220" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="219719" ToY="119344" ToZ="-1075" Type="2"/> -->
+	<track trackId="19" zone="創世庭園(下) -> " ToX="219719" ToY="119344" ToZ="-1075">
+		<way id="0">
+			<jumpLoc next="1" x="217793" y="119365" z="-1412" />
+			<jumpLoc next="4" x="219721" y="117432" z="-1191" />
+		</way>
+		<way id="1">
+			<jumpLoc next="-1" x="217791" y="119065" z="-1764" />
+			<jumpLoc next="2" x="215886" y="119357" z="-1071" />
+		</way>
+		<way id="2"><jumpLoc next="3" x="213693" y="119065" z="-897" /></way>
+		<way id="3"><jumpLoc next="-1" x="213692" y="118426" z="-1026" /></way>
+		<way id="4"><jumpLoc next="5" x="218586" y="116649" z="-909" /></way>
+		<way id="5"><jumpLoc next="6" x="218072" y="115261" z="-1341" /></way>
+		<way id="6">
+			<jumpLoc next="7" x="218950" y="115019" z="-715" />
+			<jumpLoc next="11" x="215865" y="114365" z="-342" />
+		</way>
+		<way id="7"><jumpLoc next="8" x="219675" y="114155" z="-819" /></way>
+		<way id="8"><jumpLoc next="9" x="220943" y="113582" z="-1202" /></way>
+		<way id="9"><jumpLoc next="10" x="221926" y="111849" z="-1236" /></way>
+		<way id="10"><jumpLoc next="-1" x="221489" y="111141" z="-1680" /></way>
+		<way id="11"><jumpLoc next="12" x="215148" y="113648" z="-490" /></way>
+		<way id="12"><jumpLoc next="13" x="214493" y="112627" z="-40" /></way>
+		<way id="13"><jumpLoc next="14" x="211524" y="111880" z="-1136" /></way>
+		<way id="14"><jumpLoc next="15" x="209650" y="112165" z="-1474" /></way>
+		<way id="15"><jumpLoc next="16" x="207541" y="112487" z="-1807" /></way>
+		<way id="16"><jumpLoc next="-1" x="207825" y="112263" z="-2060" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="-114646" ToY="226867" ToZ="-2860" Type="2"/> -->
+	<track trackId="20" zone="英魂之墓 -> 說話之島村莊" ToX="-114646" ToY="226867" ToZ="-2860">
+		<way id="0"><jumpLoc next="1" x="-115382" y="228370" z="-2688" /></way>
+		<way id="1"><jumpLoc next="2" x="-115677" y="230311" z="-3592" /></way>
+		<way id="2"><jumpLoc next="3" x="-115470" y="232174" z="-3120" /></way>
+		<way id="3"><jumpLoc next="4" x="-115605" y="234757" z="-2824" /></way>
+		<way id="4"><jumpLoc next="5" x="-114147" y="236166" z="-2912" /></way>
+		<way id="5"><jumpLoc next="6" x="-112827" y="237548" z="-2776" /></way>
+		<way id="6"><jumpLoc next="7" x="-112374" y="237981" z="-2664" /></way>
+		<way id="7"><jumpLoc next="8" x="-111860" y="239665" z="-2920" /></way>
+		<way id="8"><jumpLoc next="9" x="-110831" y="241012" z="-2744" /></way>
+		<way id="9"><jumpLoc next="10" x="-110581" y="242703" z="-2408" /></way>
+		<way id="10"><jumpLoc next="11" x="-110901" y="243271" z="-2008" /></way>
+		<way id="11"><jumpLoc next="12" x="-110839" y="244080" z="-1560" /></way>
+		<way id="12"><jumpLoc next="13" x="-111069" y="245466" z="-1880" /></way>
+		<way id="13"><jumpLoc next="14" x="-111952" y="247788" z="-1984" /></way>
+		<way id="14"><jumpLoc next="15" x="-112756" y="249137" z="-1784" /></way>
+		<way id="15"><jumpLoc next="16" x="-113540" y="253377" z="-1208" /></way>
+		<way id="16"><jumpLoc next="17" x="-113501" y="254172" z="-1200" /></way>
+		<way id="17"><jumpLoc next="18" x="-113124" y="255947" z="-1136" /></way>
+		<way id="18"><jumpLoc next="-1" x="-112093" y="256836" z="-1440" /></way>
+	</track>     
+	<!-- <FlyToLocation ToX="-15591" ToY="30748" ToZ="-3600" Type="2"/> -->
+	<track trackId="21" zone="黑暗精靈森林 -> 血之沼澤/魔物祭壇" ToX="-15591" ToY="30748" ToZ="-3600">
+		<way id="0">
+			<jumpLoc next="-1" x="-15778" y="30638" z="-3616" />
+			<jumpLoc next="1" x="-15076" y="32311" z="-3560" />
+			<jumpLoc next="7" x="-14368" y="25609" z="-3592" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="-14569" y="33547" z="-3504" /></way>
+		<way id="2"><jumpLoc next="3" x="-13977" y="36452" z="-1251" /></way>
+		<way id="3"><jumpLoc next="4" x="-15379" y="38120" z="-3648" /></way>
+		<way id="4"><jumpLoc next="5" x="-14032" y="41275" z="-3704" /></way>
+		<way id="5"><jumpLoc next="6" x="-14602" y="43737" z="-3584" /></way>
+		<way id="6"><jumpLoc next="-1" x="-14602" y="43737" z="-3584" /></way>
+		<way id="7"><jumpLoc next="8" x="-15510" y="23868" z="-3712" /></way>
+		<way id="8"><jumpLoc next="9" x="-16195" y="22424" z="-3696" /></way>
+		<way id="9"><jumpLoc next="10" x="-13982" y="22124" z="-3616" /></way>
+		<way id="10"><jumpLoc next="-1" x="-13982" y="22124" z="-3616" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="-150678" ToY="252758" ToZ="-1369" Type="2"/> -->
+	<track trackId="22" zone="古魯丁飛空艇碼頭 -> 柯塞勒斯同盟聯合基地" ToX="-150678" ToY="252758" ToZ="-1369">
+		<way id="0"><jumpLoc next="1" x="-152694" y="253517" z="-825" /></way>
+		<way id="1"><jumpLoc next="2" x="-155227" y="253348" z="-1305" /></way>
+		<way id="2"><jumpLoc next="3" x="-156214" y="255930" z="-761" /></way>
+		<way id="3"><jumpLoc next="4" x="-158959" y="254966" z="-477" /></way>
+		<way id="4"><jumpLoc next="5" x="-160496" y="256829" z="-990" /></way>
+		<way id="5"><jumpLoc next="6" x="-163173" y="255571" z="-301" /></way>
+		<way id="6"><jumpLoc next="7" x="-166964" y="258460" z="170" /></way>
+		<way id="7"><jumpLoc next="8" x="-168406" y="255825" z="714" /></way>
+		<way id="8"><jumpLoc next="9" x="-167861" y="253295" z="1770" /></way>
+		<way id="9"><jumpLoc next="10" x="-170385" y="251797" z="778" /></way>
+		<way id="10"><jumpLoc next="11" x="-172266" y="252408" z="1269" /></way>
+		<way id="11"><jumpLoc next="12" x="-170225" y="249979" z="2408" /></way>
+		<way id="12"><jumpLoc next="13" x="-173368" y="249680" z="2198" /></way>
+		<way id="13"><jumpLoc next="14" x="-172144" y="245589" z="2397" /></way>
+		<way id="14"><jumpLoc next="15" x="-175238" y="242801" z="2031" /></way>
+		<way id="15"><jumpLoc next="16" x="-178198" y="243477" z="1162" /></way>
+		<way id="16"><jumpLoc next="17" x="-180790" y="243953" z="2666" /></way>
+		<way id="17"><jumpLoc next="18" x="-182344" y="242399" z="2122" /></way>
+		<way id="18"><jumpLoc next="19" x="-184413" y="243376" z="3114" /></way>
+		<way id="19"><jumpLoc next="-1" x="-186243" y="243560" z="2608" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="-184413" ToY="243376" ToZ="3114" Type="2"/> -->
+	<track trackId="23" zone="柯塞勒斯同盟聯合基地 -> 古魯丁飛空艇碼頭" ToX="-184413" ToY="243376" ToZ="3114">
+		<way id="0"><jumpLoc next="1" x="-182344" y="242399" z="2122" /></way>
+		<way id="1"><jumpLoc next="2" x="-180790" y="243953" z="2666" /></way>
+		<way id="2"><jumpLoc next="3" x="-178198" y="243477" z="1162" /></way>
+		<way id="3"><jumpLoc next="4" x="-175238" y="242801" z="2031" /></way>
+		<way id="4"><jumpLoc next="5" x="-172144" y="245589" z="2397" /></way>
+		<way id="5"><jumpLoc next="6" x="-173368" y="249680" z="2198" /></way>
+		<way id="6"><jumpLoc next="7" x="-170225" y="249979" z="2408" /></way>
+		<way id="7"><jumpLoc next="8" x="-172266" y="252408" z="1269" /></way>
+		<way id="8"><jumpLoc next="9" x="-170385" y="251797" z="778" /></way>
+		<way id="9"><jumpLoc next="10" x="-167861" y="253295" z="1770" /></way>
+		<way id="10"><jumpLoc next="11" x="-168406" y="255825" z="714" /></way>
+		<way id="11"><jumpLoc next="12" x="-166964" y="258460" z="170" /></way>
+		<way id="12"><jumpLoc next="13" x="-163173" y="255571" z="-301" /></way>
+		<way id="13"><jumpLoc next="14" x="-160496" y="256829" z="-990" /></way>
+		<way id="14"><jumpLoc next="15" x="-158959" y="254966" z="-477" /></way>
+		<way id="15"><jumpLoc next="16" x="-156214" y="255930" z="-761" /></way>
+		<way id="16"><jumpLoc next="17" x="-155227" y="253348" z="-1305" /></way>
+		<way id="17"><jumpLoc next="18" x="-152694" y="253517" z="-825" /></way>
+		<way id="18"><jumpLoc next="19" x="-150678" y="252758" z="-1369" /></way>
+		<way id="19"><jumpLoc next="-1" x="-149482" y="253328" z="-120" /></way>
+	</track>     
+	<!-- <FlyToLocation ToX="46888" ToY="154499" ToZ="-1928" Type="2"/> -->
+	<track trackId="24" zone="刑場三層(南) --> 刑場上層(南)" ToX="46888" ToY="154499" ToZ="-1928">
+		<way id="0">
+			<jumpLoc next="-1" x="46891" y="154392" z="-1928" />
+			<jumpLoc next="1" x="46455" y="156097" z="-864" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="45213" y="157407" z="-864" /></way>
+		<way id="2"><jumpLoc next="3" x="44882" y="156814" z="-1048" /></way>
+		<way id="3"><jumpLoc next="-1" x="44882" y="156814" z="-1048" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="45092" ToY="154679" ToZ="-1072" Type="2"/> -->
+	<track trackId="25" zone="刑場上層(南) --> 刑場三層(南)" ToX="45092" ToY="154679" ToZ="-1072">
+		<way id="0"><jumpLoc next="1" x="45531" y="154481" z="-864" /></way>
+		<way id="1"><jumpLoc next="2" x="43293" y="153730" z="-1520" /></way>
+		<way id="2"><jumpLoc next="3" x="43679" y="152511" z="-1936" /></way>
+		<way id="3"><jumpLoc next="-1" x="43679" y="152511" z="-1936" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="44379" ToY="142183" ToZ="-2552" Type="2"/> -->
+	<track trackId="26" zone="刑場二層(北) --> 刑場高層(北)" ToX="44379" ToY="142183" ToZ="-2552">
+		<way id="0"><jumpLoc next="1" x="41350" y="142449" z="-2288" /></way>
+		<way id="1"><jumpLoc next="2" x="40307" y="139914" z="-1928" /></way>
+		<way id="2"><jumpLoc next="3" x="40816" y="138463" z="-1232" /></way>
+		<way id="3"><jumpLoc next="4" x="41264" y="139373" z="-1280" /></way>
+		<way id="4"><jumpLoc next="5" x="43048" y="138903" z="-1280" /></way>
+		<way id="5"><jumpLoc next="6" x="42845" y="139463" z="-1464" /></way>
+		<way id="6"><jumpLoc next="-1" x="42845" y="139463" z="-1464" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="15415" ToY="143182" ToZ="-2688" Type="2"/> -->
+	<track trackId="27" zone="狄恩城鎮 -> 基洛德要塞西門/北門" ToX="14655" ToY="143185" ToZ="-2600">
+		<way id="0">
+			<jumpLoc next="-1" x="14905" y="143251" z="-2665" />
+			<jumpLoc next="1" x="16113" y="142617" z="-2336" />
+			<jumpLoc next="8" x="19583" y="144840" z="-2672" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="19629" y="143349" z="-2728" /></way>
+		<way id="2"><jumpLoc next="3" x="24557" y="142920" z="-2848" /></way>
+		<way id="3"><jumpLoc next="4" x="26465" y="143645" z="-2592" /></way>
+		<way id="4"><jumpLoc next="5" x="27431" y="144696" z="-2664" /></way>
+		<way id="5"><jumpLoc next="6" x="29360" y="146178" z="-2288" /></way>
+		<way id="6"><jumpLoc next="7" x="33206" y="144729" z="-3408" /></way>
+		<way id="7"><jumpLoc next="-1" x="33206" y="144729" z="-3408" /></way>
+		<way id="8"><jumpLoc next="9" x="20292" y="143878" z="-2776" /></way>
+		<way id="9"><jumpLoc next="10" x="20877" y="144338" z="-2632" /></way>
+		<way id="10"><jumpLoc next="11" x="21374" y="143669" z="-2936" /></way>
+		<way id="11"><jumpLoc next="12" x="22302" y="139026" z="-3376" /></way>
+		<way id="12"><jumpLoc next="13" x="23489" y="136897" z="-3192" /></way>
+		<way id="13"><jumpLoc next="14" x="26637" y="137534" z="-3192" /></way>
+		<way id="14"><jumpLoc next="15" x="27631" y="134332" z="-2568" /></way>
+		<way id="15"><jumpLoc next="16" x="28642" y="133682" z="-2616" /></way>
+		<way id="16"><jumpLoc next="17" x="30860" y="134905" z="-3088" /></way>
+		<way id="17"><jumpLoc next="18" x="31406" y="133822" z="-3080" /></way>
+		<way id="18"><jumpLoc next="19" x="31546" y="133000" z="-3112" /></way>
+		<way id="19"><jumpLoc next="20" x="32056" y="133043" z="-2936" /></way>
+		<way id="20"><jumpLoc next="21" x="34572" y="132706" z="-2904" /></way>
+		<way id="21"><jumpLoc next="22" x="37324" y="131962" z="-2912" /></way>
+		<way id="22"><jumpLoc next="23" x="40739" y="129898" z="-2912" /></way>
+		<way id="23"><jumpLoc next="24" x="46737" y="132039" z="-3224" /></way>
+		<way id="24"><jumpLoc next="25" x="50467" y="133963" z="-1952" /></way>
+		<way id="25"><jumpLoc next="26" x="54118" y="135247" z="-1376" /></way>
+		<way id="26"><jumpLoc next="27" x="54477" y="138044" z="-2536" /></way>
+		<way id="27"><jumpLoc next="-1" x="54477" y="138044" z="-2536" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="146365" ToY="19678" ToZ="-1952" Type="2"/> -->
+	<track trackId="28" zone="亞丁城鎮北方 -> 亞丁城鎮西方" ToX="146365" ToY="19678" ToZ="-1952">
+		<way id="0"><jumpLoc next="1" x="145855" y="20160" z="-1197" /></way>
+		<way id="1"><jumpLoc next="2" x="147434" y="23748" z="-568" /></way>
+		<way id="2"><jumpLoc next="3" x="147455" y="25104" z="-568" /></way>
+		<way id="3">
+			<jumpLoc next="4" x="146063" y="27140" z="-1552" />
+			<jumpLoc next="7" x="148859" y="27169" z="-1552" />
+		</way>
+		<way id="4"><jumpLoc next="5" x="143409" y="25560" z="-1392" /></way>
+		<way id="5"><jumpLoc next="6" x="140277" y="25564" z="-2240" /></way>
+		<way id="6"><jumpLoc next="-1" x="140277" y="25564" z="-2240" /></way>
+		<way id="7"><jumpLoc next="8" x="151492" y="26898" z="-1248" /></way>
+		<way id="8"><jumpLoc next="9" x="152799" y="25529" z="-2144" /></way>
+		<way id="9"><jumpLoc next="-1" x="152799" y="25529" z="-2144" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="153235" ToY="24565" ToZ="-2104" Type="2"/> -->
+	<track trackId="29" zone="亞丁城鎮東方 -> 亞丁城鎮西方" ToX="153235" ToY="24565" ToZ="-2104">
+		<way id="0"><jumpLoc next="1" x="151215" y="23809" z="-1256" /></way>
+		<way id="1"><jumpLoc next="2" x="149513" y="24697" z="-1320" /></way>
+		<way id="2">
+			<jumpLoc next="3" x="147930" y="26384" z="-1288" />
+			<jumpLoc next="8" x="148110" y="23755" z="-568" />
+		</way>
+		<way id="3"><jumpLoc next="4" x="146986" y="26402" z="-1288" /></way>
+		<way id="4"><jumpLoc next="5" x="145708" y="25394" z="-1512" /></way>
+		<way id="5"><jumpLoc next="6" x="143266" y="25584" z="-1392" /></way>
+		<way id="6"><jumpLoc next="7" x="142081" y="24439" z="-2240" /></way>
+		<way id="7"><jumpLoc next="-1" x="142081" y="24439" z="-2240" /></way>
+		<way id="8"><jumpLoc next="9" x="148510" y="20262" z="-1200" /></way>
+		<way id="9"><jumpLoc next="10" x="149000" y="16754" z="-1528" /></way>
+		<way id="10"><jumpLoc next="-1" x="149000" y="16754" z="-1528" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="140400" ToY="25200" ToZ="-2208" Type="2"/> -->
+	<track trackId="30" zone="亞丁城鎮西方 -> 亞丁城鎮東方" ToX="140400" ToY="25200" ToZ="-2208">
+		<way id="0"><jumpLoc next="1" x="143390" y="25209" z="-1512" /></way>
+		<way id="1"><jumpLoc next="2" x="146043" y="26667" z="-1552" /></way>
+		<way id="2">
+			<jumpLoc next="3" x="148853" y="27622" z="-1088" />
+			<jumpLoc next="6" x="146327" y="24394" z="-2008" />
+		</way>
+		<way id="3"><jumpLoc next="4" x="151261" y="26957" z="-1240" /></way>
+		<way id="4"><jumpLoc next="5" x="153312" y="24995" z="-2112" /></way>
+		<way id="5"><jumpLoc next="-1" x="153312" y="24995" z="-2112" /></way>
+		<way id="6"><jumpLoc next="7" x="145825" y="22984" z="-1384" /></way>
+		<way id="7"><jumpLoc next="8" x="146174" y="20168" z="-1200" /></way>
+		<way id="8"><jumpLoc next="9" x="145943" y="16913" z="-1568" /></way>
+		<way id="9"><jumpLoc next="-1" x="145943" y="16913" z="-1568" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="28015" ToY="-49177" ToZ="-1280" Type="2"/> -->
+	<track trackId="31" zone="魯因城外城 -> 魯因城1號地區" ToX="28015" ToY="-49177" ToZ="-1280">
+		<way id="0"><jumpLoc next="1" x="27814" y="-49529" z="-1152" /></way>
+		<way id="1"><jumpLoc next="2" x="26936" y="-51106" z="-1080" /></way>
+		<way id="2"><jumpLoc next="3" x="23112" y="-50806" z="-1560" /></way>
+		<way id="3"><jumpLoc next="4" x="22582" y="-50670" z="-1256" /></way>
+		<way id="4">
+			<jumpLoc next="5" x="22551" y="-49385" z="-1104" />
+			<jumpLoc next="6" x="22096" y="-49760" z="-1296" />
+		</way>
+		<way id="5"><jumpLoc next="-1" x="22096" y="-49760" z="-1296" /></way>
+		<way id="6"><jumpLoc next="7" x="22096" y="-48413" z="-1296" /></way>
+		<way id="7"><jumpLoc next="-1" x="22096" y="-48413" z="-1296" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="22263" ToY="-50416" ToZ="-1296" Type="2"/> -->
+	<track trackId="32" zone="魯因城 -> 魯因城外城1號地區" ToX="22263" ToY="-50416" ToZ="-1296">
+		<way id="0"><jumpLoc next="1" x="22562" y="-50147" z="-1256" /></way>
+		<way id="1"><jumpLoc next="2" x="22228" y="-50718" z="-904" /></way>
+		<way id="2"><jumpLoc next="3" x="24093" y="-49345" z="-1128" /></way>
+		<way id="3"><jumpLoc next="4" x="26957" y="-49328" z="-1112" /></way>
+		<way id="4">
+			<jumpLoc next="5" x="27314" y="-51562" z="-1352" />
+			<jumpLoc next="6" x="28697" y="-48710" z="-1352" />
+		</way>
+		<way id="5"><jumpLoc next="-1" x="27314" y="-51562" z="-1352" /></way>
+		<way id="6"><jumpLoc next="-1" x="28697" y="-48710" z="-1352" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="40741" ToY="-52143" ToZ="-832" Type="2"/> -->
+	<track trackId="33" zone="魯因城鎮 -> 魯因城外城1號地區" ToX="40741" ToY="-52143" ToZ="-832">
+		<way id="0"><jumpLoc next="1" x="39753" y="-52598" z="-800" /></way>
+		<way id="1"><jumpLoc next="2" x="37910" y="-52776" z="-976" /></way>
+		<way id="2"><jumpLoc next="3" x="35820" y="-51690" z="-1056" /></way>
+		<way id="3"><jumpLoc next="4" x="34411" y="-53193" z="-1208" /></way>
+		<way id="4"><jumpLoc next="5" x="33209" y="-50683" z="-392" /></way>
+		<way id="5"><jumpLoc next="6" x="31584" y="-50164" z="-608" /></way>
+		<way id="6">
+			<jumpLoc next="7" x="28992" y="-48644" z="-1336" />
+			<jumpLoc next="8" x="27762" y="-50166" z="-1304" />
+		</way>
+		<way id="7"><jumpLoc next="-1" x="28992" y="-48644" z="-1336" /></way>
+		<way id="8"><jumpLoc next="-1" x="27762" y="-50166" z="-1304" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="83964" ToY="147720" ToZ="-3400" Type="2"/> -->
+	<track trackId="34" zone="奇岩城鎮 -> 基洛德要塞東門/北門" ToX="83964" ToY="147720" ToZ="-3400">
+		<way id="0">
+			<jumpLoc next="-1" x="83951" y="147548" z="-3400" />
+			<jumpLoc next="1" x="81756" y="148447" z="-3136" />
+			<jumpLoc next="10" x="82884" y="146666" z="-2936" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="80668" y="148470" z="-2952" /></way>
+		<way id="2"><jumpLoc next="3" x="78580" y="148107" z="-2448" /></way>
+		<way id="3"><jumpLoc next="4" x="75786" y="150098" z="-2976" /></way>
+		<way id="4"><jumpLoc next="5" x="73158" y="151248" z="-2400" /></way>
+		<way id="5"><jumpLoc next="6" x="74529" y="154253" z="-2272" /></way>
+		<way id="6"><jumpLoc next="7" x="69588" y="153160" z="-2096" /></way>
+		<way id="7"><jumpLoc next="8" x="61029" y="156010" z="-1776" /></way>
+		<way id="8"><jumpLoc next="9" x="59874" y="154371" z="-2640" /></way>
+		<way id="9"><jumpLoc next="-1" x="59874" y="154371" z="-2640" /></way>
+		<way id="10"><jumpLoc next="11" x="82054" y="145324" z="-2384" /></way>
+		<way id="11"><jumpLoc next="12" x="79742" y="145440" z="-2880" /></way>
+		<way id="12"><jumpLoc next="13" x="77639" y="143755" z="-3376" /></way>
+		<way id="13"><jumpLoc next="14" x="75335" y="142661" z="-3608" /></way>
+		<way id="14"><jumpLoc next="15" x="73213" y="141394" z="-3528" /></way>
+		<way id="15"><jumpLoc next="16" x="71292" y="141068" z="-3120" /></way>
+		<way id="16"><jumpLoc next="17" x="66851" y="138289" z="-2520" /></way>
+		<way id="17"><jumpLoc next="18" x="60557" y="131728" z="-1616" /></way>
+		<way id="18"><jumpLoc next="19" x="54395" y="137376" z="-2592" /></way>
+		<way id="19"><jumpLoc next="-1" x="54395" y="137376" z="-2592" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="49080" ToY="142612" ToZ="-3656" Type="2"/> -->
+	<track trackId="35" zone="刑場一層(北) --> 刑場二層(北)" ToX="49080" ToY="142612" ToZ="-3656">
+		<way id="0">
+			<jumpLoc next="-1" x="48953" y="142850" z="-3680" />
+			<jumpLoc next="1" x="48767" y="139432" z="-2048" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="49425" y="140227" z="-2920" /></way>
+		<way id="2"><jumpLoc next="-1" x="49425" y="140227" z="-2920" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="50803" ToY="152847" ToZ="-3544" Type="2"/> -->
+	<track trackId="36" zone="刑場一層(南) --> 刑場二層(南)" ToX="50803" ToY="152847" ToZ="-3544">
+		<way id="0">
+			<jumpLoc next="-1" x="50498" y="152819" z="-3568" />
+			<jumpLoc next="1" x="51559" y="155203" z="-1840" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="50051" y="155608" z="-2744" /></way>
+		<way id="2"><jumpLoc next="-1" x="50051" y="155608" z="-2744" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="-74601" ToY="53172" ToZ="-3689" Type="2"/> -->
+	<track trackId="37" zone="英魂之島港口 -> 第2據點/第3據點" ToX="-74601" ToY="53172" ToZ="-3689">
+		<way id="0">
+			<jumpLoc next="-1" x="-74569" y="53397" z="-3680" />
+			<jumpLoc next="1" x="-79081" y="53684" z="-2361" />
+			<jumpLoc next="6" x="-74332" y="51980" z="-2985" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="-85716" y="52123" z="-1496" /></way>
+		<way id="2"><jumpLoc next="3" x="-89465" y="51188" z="-2105" /></way>
+		<way id="3"><jumpLoc next="4" x="-92585" y="52596" z="-1529" /></way>
+		<way id="4"><jumpLoc next="5" x="-94777" y="52484" z="-1609" /></way>
+		<way id="5"><jumpLoc next="-1" x="-94874" y="51974" z="-2024" /></way>
+		<way id="6"><jumpLoc next="7" x="-74701" y="50543" z="-3285" /></way>
+		<way id="7"><jumpLoc next="8" x="-73919" y="47882" z="-2677" /></way>
+		<way id="8"><jumpLoc next="9" x="-73580" y="46015" z="-2677" /></way>
+		<way id="9"><jumpLoc next="10" x="-75310" y="43052" z="-1670" /></way>
+		<way id="10"><jumpLoc next="11" x="-82173" y="40927" z="-1917" /></way>
+		<way id="11"><jumpLoc next="12" x="-84946" y="39482" z="-1353" /></way>
+		<way id="12"><jumpLoc next="13" x="-84989" y="37659" z="-1853" /></way>
+		<way id="13"><jumpLoc next="-1" x="-86079" y="37178" z="-2048" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="-86059" ToY="37025" ToZ="-2053" Type="2"/> -->
+	<track trackId="38" zone="第3據點 -> 英魂之島港口/第2據點" ToX="-86059" ToY="37025" ToZ="-2053">
+		<way id="0">
+			<jumpLoc next="-1" x="-86075" y="36737" z="-2053" />
+			<jumpLoc next="1" x="-84946" y="39482" z="-1353" />
+			<jumpLoc next="8" x="-87890" y="40798" z="-1581" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="-82173" y="40927" z="-1917" /></way>
+		<way id="2"><jumpLoc next="3" x="-75310" y="43052" z="-1670" /></way>
+		<way id="3"><jumpLoc next="4" x="-73580" y="46015" z="-2677" /></way>
+		<way id="4"><jumpLoc next="5" x="-73919" y="47882" z="-2677" /></way>
+		<way id="5"><jumpLoc next="6" x="-74701" y="50543" z="-3285" /></way>
+		<way id="6"><jumpLoc next="7" x="-74332" y="51980" z="-2985" /></way>
+		<way id="7"><jumpLoc next="-1" x="-74569" y="53397" z="-3680" /></way>
+		<way id="8"><jumpLoc next="9" x="-89644" y="42483" z="-1124" /></way>
+		<way id="9"><jumpLoc next="10" x="-89643" y="47813" z="-1189" /></way>
+		<way id="10"><jumpLoc next="11" x="-91354" y="48907" z="-1165" /></way>
+		<way id="11"><jumpLoc next="12" x="-93768" y="52185" z="-1309" /></way>
+		<way id="12"><jumpLoc next="13" x="-95291" y="51610" z="-1642" /></way>
+		<way id="13"><jumpLoc next="-1" x="-94802" y="51981" z="-2024" /></way>
+	</track>
+	<!-- <FlyToLocation ToX="-95049" ToY="52004" ToZ="-2025" Type="2"/> -->
+	<track trackId="39" zone="第2據點 -> 英魂之島港口/第3據點" ToX="-95049" ToY="52004" ToZ="-2025">
+		<way id="0">
+			<jumpLoc next="-1" x="-95273" y="52196" z="-2025" />
+			<jumpLoc next="1" x="-92585" y="52596" z="-1529" />
+			<jumpLoc next="6" x="-96003" y="48814" z="-1024" />
+		</way>
+		<way id="1"><jumpLoc next="2" x="-89465" y="51188" z="-2105" /></way>
+		<way id="2"><jumpLoc next="3" x="-85716" y="52123" z="-1496" /></way>
+		<way id="3"><jumpLoc next="4" x="-79081" y="53684" z="-2361" /></way>
+		<way id="4"><jumpLoc next="5" x="-75129" y="53060" z="-3289" /></way>
+		<way id="5"><jumpLoc next="-1" x="-74720" y="53302" z="-3680" /></way>
+		<way id="6"><jumpLoc next="7" x="-93820" y="49460" z="-1456" /></way>
+		<way id="7"><jumpLoc next="8" x="-93115" y="48057" z="-1320" /></way>
+		<way id="8"><jumpLoc next="9" x="-92117" y="45035" z="-1457" /></way>
+		<way id="9"><jumpLoc next="10" x="-89329" y="42534" z="-1104" /></way>
+		<way id="10"><jumpLoc next="11" x="-87890" y="40798" z="-1581" /></way>
+		<way id="11"><jumpLoc next="12" x="-86589" y="37047" z="-1689" /></way>
+		<way id="12"><jumpLoc next="-1" x="-86079" y="37178" z="-2048" /></way>
+	</track>     
+</list>

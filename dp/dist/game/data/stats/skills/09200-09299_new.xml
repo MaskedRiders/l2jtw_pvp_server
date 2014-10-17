@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
+	<skill id="9204" levels="1" name="酷酷魯">
+		<table name="#Desc-LV1">騎乘酷酷魯。</table>
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="60" />
+		<set name="abnormalType" val="TRANSFORM" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="effectPoint" val="1" />
+		<set name="icon" val="icon.skilltransform3" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="targetType" val="SELF" />
+		<cond>
+			<player canTransform="true" />
+		</cond>
+		<for>
+			<effect name="Transformation">
+				<param id="137" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="9206" levels="1" name="疾奔">
+		<table name="#Desc-LV1">在30秒內增加移動速度95。</table>
+		<set name="icon" val="icon.skill9206" />
+		<set name="abnormalTime" val="30" />
+		<set name="mpConsume" val="1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="45000" />
+		<set name="targetType" val="SELF" />
+		<for>
+			<effect name="Buff">
+				<add order="0x40" stat="runSpd" val="95" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="9207" levels="1" name="幸運的四葉草-R級">
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+	</skill>
+	<skill id="9208" levels="1" name="幸運的四葉草-R級">
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+	</skill>
+	<skill id="9210" levels="1" name="降下">
+		<table name="#Desc-LV1">從乘坐物上降下。</table>
+		<set name="effectPoint" val="10" />
+		<set name="hitTime" val="2500" />
+		<set name="icon" val="icon.skill9210" />
+		<set name="magicLvl" val="85" />
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+		<cond>
+			<player canUntransform="true" />
+		</cond>
+		<for>
+			<effect name="DispelBySlot">
+				<param dispel="TRANSFORM,-1" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="9224" levels="1" name="返回卷軸-說話之島">
+		<set name="hitTime" val="20000" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<and>
+				<player canEscape="true" />
+				<not>
+					<player insideZoneId="10501, 10502, 10503" />
+				</not>
+			</and>
+		</cond>
+		<for>
+			<effect name="Teleport">
+				<param x="-114558" y="253605" z="-1536" />
+			</effect>
+		</for>
+	</skill>
+</list>

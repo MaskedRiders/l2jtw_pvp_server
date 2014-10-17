@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<item id="17700" name="LV5 巨人智力紋章染料" type="EtcItem">
+		<table name="#Plus">Int+5</table>
+		<table name="#Desc">Lv5 巨人智力紋章染料（Int+5）。去找村莊的紋章製造人的話，可以在身體刻上變化能力的魔法紋章。若想刻上紋章的話，需要有10個染料。可以使用的職業：全系列。四次轉職之後可以使用。</table>
+		<set name="icon" val="icon.lv5_1_dye_int" />
+		<set name="etcitem_type" val="DYE" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="150" />
+		<set name="is_stackable" val="true" />
+	</item>
+	<item id="17701" name="LV5 巨人智慧紋章染料" type="EtcItem">
+		<table name="#Plus">Wit+5</table>
+		<table name="#Desc">Lv5 巨人智慧紋章染料（Wit+5）。去找村莊的紋章製造人的話，可以在身體刻上變化能力的魔法紋章。若想刻上紋章的話，需要有10個染料。可以使用的職業：全系列。四次轉職之後可以使用。</table>
+		<set name="icon" val="icon.lv5_1_dye_wit" />
+		<set name="etcitem_type" val="DYE" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="150" />
+		<set name="is_stackable" val="true" />
+	</item>
+	<item id="17702" name="LV5 巨人精神紋章染料" type="EtcItem">
+		<table name="#Plus">Men+5</table>
+		<table name="#Desc">Lv5 巨人精神紋章染料（Men+5）。去找村莊的紋章製造人的話，可以在身體刻上變化能力的魔法紋章。若想刻上紋章的話，需要有10個染料。可以使用的職業：全系列。四次轉職之後可以使用。</table>
+		<set name="icon" val="icon.lv5_1_dye_men" />
+		<set name="etcitem_type" val="DYE" />
+		<set name="material" val="LIQUID" />
+		<set name="weight" val="150" />
+		<set name="is_stackable" val="true" />
+	</item>
+	<item id="17754" name="靈魂彈-R級" type="EtcItem">
+		<table name="#Desc">精靈之光加持於武器，瞬間對敵人加以強力衝擊。R級武器專用。</table>
+		<set name="icon" val="icon.soulshot_r_i00" />
+		<set name="default_action" val="SOULSHOT" />
+		<set name="crystal_type" val="R" />
+		<set name="material" val="PAPER" />
+		<set name="weight" val="1" />
+		<set name="is_stackable" val="true" />
+		<set name="handler" val="SoulShots" />
+		<set name="item_skill" val="9193-1" />
+	</item>
+	<item id="17755" name="人類男性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17756" name="人類男性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17759" name="人類女性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17760" name="人類女性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17763" name="人類男性法師假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17764" name="人類男性法師假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17767" name="人類女性法師假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17768" name="人類女性法師假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="HUMAN" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17771" name="精靈男性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ELF" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17772" name="精靈男性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ELF" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17775" name="精靈女性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<player sex="1" />
+			<and>
+				<player races="ELF" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17776" name="精靈女性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ELF" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17779" name="黑暗精靈男性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DARK_ELF" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17780" name="黑暗精靈男性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DARK_ELF" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17783" name="黑暗精靈女性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DARK_ELF" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17784" name="黑暗精靈女性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DARK_ELF" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17787" name="矮人男性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DWARF" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17788" name="矮人男性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DWARF" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17791" name="矮人女性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DWARF" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17792" name="矮人女性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="DWARF" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+	<item id="17795" name="半獸人男性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17796" name="半獸人男性假髮-B" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="0" />
+			</and>
+		</cond>
+	</item>
+	<item id="17799" name="半獸人女性假髮-A" type="Armor">
+		<set name="icon" val="BranchSys.icon.br_plastic_hair_f_i00" />
+		<set name="default_action" val="EQUIP" />
+		<set name="bodypart" val="hairall" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<cond msgId="1518">
+			<and>
+				<player races="ORC" />
+				<player sex="1" />
+			</and>
+		</cond>
+	</item>
+</list>

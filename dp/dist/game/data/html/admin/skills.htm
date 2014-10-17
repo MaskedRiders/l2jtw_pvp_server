@@ -1,0 +1,34 @@
+﻿<html><title>技能</title><body>
+<table width=260>
+<tr>
+<td width=40><button value="首頁" action="bypass -h admin_admin" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>技能選單</center></td>
+<td width=40><button value="返回" action="bypass -h admin_show_skills" width=40 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr>
+</table><br>
+<table width=200>
+<tr><td><a action="bypass -h admin_html skills/Human/human.htm"><font color="deba73">人類技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Elf/elf.htm"><font color="bddf94">精靈技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/DarkElf/delf.htm"><font color="b5a6c6">黑暗精靈技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Orc/orc.htm"><font color="b5dfad">半獸人技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Dwarf/dwarf.htm"><font color="d6aa63">矮人技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Kamael/kamael.htm"><font color="ffffff">闇天使技能</font></a></td></tr>
+<tr><td><br><a action="bypass -h admin_html skills/Special/Common_Skills.htm"><font color="676767">普通技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Special/Clan_Skills.htm"><font color="9a9a9a">血盟技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Special/Hero_Skills.htm"><font color="88aaaa">英雄技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Special/Nobless_Skills.htm"><font color="77bbbb">貴族技能</font></a></td></tr>
+<tr><td><a action="bypass -h admin_html skills/Special/GM_Skills.htm"><font color="66cccc">ＧＭ技能</font></a></td></tr>
+</table>
+<br><br>增加技能:<br>
+<table width=270>
+<tr>
+<td>技能編號:</td>
+<td>技能等級:</td>
+<td></td>
+</tr>
+<tr>
+<td><edit var="id" width=60></td>
+<td><edit var="level" width=60></td>
+<td><button value="增加技能" action="bypass -h admin_add_skill $id $level" width=100 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td></tr>
+</table>
+</body></html>

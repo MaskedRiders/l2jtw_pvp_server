@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
+	<skill id="1566" levels="1" name="職業變更">
+		<table name="#Desc-LV1">變更職業。</table>
+		<set name="hitTime" val="5000" />
+		<set name="icon" val="icon.skill0810" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+		<set name="classIndex" val="0" />
+		<set name="showSkillListIcon" val="false" />
+		<cond msgId="3574">
+			<not>
+				<player active_effect_id="1570" />
+			</not>
+		</cond>
+		<for>
+			<effect name="Buff" />
+		</for>
+	</skill>
+	<skill id="1567" levels="1" name="職業變更">
+		<table name="#Desc-LV1">變更職業。</table>
+		<set name="hitTime" val="5000" />
+		<set name="icon" val="icon.skill0810" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+		<set name="classIndex" val="0" />
+		<set name="showSkillListIcon" val="false" />
+		<cond msgId="3574">
+			<not>
+				<player active_effect_id="1570" />
+			</not>
+		</cond>
+	</skill>
+	<skill id="1568" levels="1" name="職業變更">
+		<table name="#Desc-LV1">變更職業。</table>
+		<set name="hitTime" val="5000" />
+		<set name="icon" val="icon.skill0810" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+		<set name="classIndex" val="0" />
+		<set name="showSkillListIcon" val="false" />
+		<cond msgId="3574">
+			<not>
+				<player active_effect_id="1570" />
+			</not>
+		</cond>
+	</skill>
+	<skill id="1569" levels="1" name="職業變更">
+		<table name="#Desc-LV1">變更職業。</table>
+		<set name="hitTime" val="5000" />
+		<set name="icon" val="icon.skill0810" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="operateType" val="A1" />
+		<set name="targetType" val="SELF" />
+		<set name="classIndex" val="0" />
+		<set name="showSkillListIcon" val="false" />
+		<cond msgId="3574">
+			<not>
+				<player active_effect_id="1570" />
+			</not>
+		</cond>
+	</skill>
+	<skill id="1570" levels="1" name="身份混亂">
+		<table name="#Desc-LV1">在15秒內感受到身份造成的混亂，促使戰鬥能力降低，並無法使用技能和道具，但可使用藥水種類的道具。而且主職業/雙職業/副職業之間無法進行變更。</table>
+		<set name="icon" val="icon.skill1570" />
+		<set name="abnormalLvl" val="85" />
+		<set name="abnormalTime" val="15" />
+		<set name="abnormalType" val="POISON" />
+		<set name="operateType" val="A2" />
+		<set name="targetType" val="SELF" />
+		<for>
+			<effect name="Buff">
+				<mul order="0x30" stat="pAtk" val="0.6" />
+				<mul order="0x30" stat="mAtk" val="0.6" />
+				<mul order="0x30" stat="pAtkSpd" val="0.6" />
+				<mul order="0x30" stat="mAtkSpd" val="0.6" />
+				<sub order="0x40" stat="accCombat" val="8" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="1571" levels="1" name="道具擴充加持">
+		<table name="#Desc-LV1">道具欄位擴充18格。</table>
+		<set name="icon" val="icon.skill0332" />
+		<set name="magicLvl" val="85" />
+		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
+		<for>
+			<effect name="Buff">
+				<add order="0x40" stat="inventoryLimit" val="18" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="1572" levels="1" name="負重加持">
+		<table name="#Desc-LV1">增加限制重量10000。</table>
+		<set name="icon" val="icon.skill0150" />
+		<set name="magicLvl" val="85" />
+		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
+		<for>
+			<effect name="Buff">
+				<add order="0x40" stat="weightPenalty" val="10000" />
+			</effect>
+		</for>
+	</skill>
+	<skill id="1597" levels="1" name="負重加持">
+		<table name="#Desc-LV1">增加限制重量15000。</table>
+		<set name="icon" val="icon.skill0150" />
+		<set name="magicLvl" val="85" />
+		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
+		<for>
+			<effect name="Buff">
+				<add order="0x40" stat="weightPenalty" val="15000" />
+			</effect>
+		</for>
+	</skill>
+</list>
