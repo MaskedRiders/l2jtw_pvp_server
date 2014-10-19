@@ -1,5 +1,5 @@
 @echo off
-REM �M�z
+REM 清理
 if exist ..\game\data\stats\skills\10000-10099.xml del ..\game\data\stats\skills\10000-10099.xml
 if exist ..\game\data\stats\skills\27000-Add.xml del ..\game\data\stats\skills\27000-Add.xml
 if exist ..\game\data\stats\skills\27000-Subclass.xml del ..\game\data\stats\skills\27000-Subclass.xml
@@ -13,120 +13,120 @@ if exist ..\sql\L2JTW_2\item_tw.sql del ..\sql\L2JTW_2\item_tw.sql
 if exist ..\sql\L2JTW_2\npc_tw.sql del ..\sql\L2JTW_2\npc_tw.sql
 if exist ..\sql\L2JTW_2\skill_tw.sql del ..\sql\L2JTW_2\skill_tw.sql
 
-REM �ˬd�O�_�s�b GS �䴩��������T
+REM 檢查是否存在 GS 支援的版本資訊
 set dp_err=0
-if not exist ..\doc\L2J_Server_Ver.txt echo �S���o�{ GS �䴩��������T�I
-if not exist ..\doc\L2J_Server_Ver.txt echo �ЦA�@���G��s GS �� �sĶ GS �� �����Y GS �� �]�w Config
+if not exist ..\doc\L2J_Server_Ver.txt echo 沒有發現 GS 支援的版本資訊！
+if not exist ..\doc\L2J_Server_Ver.txt echo 請再一次：更新 GS → 編譯 GS → 解壓縮 GS → 設定 Config
 if not exist ..\doc\L2J_Server_Ver.txt echo.
 if not exist ..\doc\L2J_Server_Ver.txt pause
 if not exist ..\doc\L2J_Server_Ver.txt goto end
-REM ���o GS �䴩��������T
+REM 取得 GS 支援的版本資訊
 FOR /F %%g IN (..\doc\L2J_Server_Ver.txt) DO set vgs=%%g
-REM �ˬd GS �䴩��������T
-if not %vgs% == Ertheia echo �L�k�~��w�� DP�A�]���G
-if not %vgs% == Ertheia echo GS �䴩�������O�G%vgs%
-if not %vgs% == Ertheia echo DP �䴩�������O�GErtheia
-if not %vgs% == Ertheia echo �нT�w GS �M DP ���ϥάۦP��������A�A�դ@��
+REM 檢查 GS 支援的版本資訊
+if not %vgs% == Ertheia echo 無法繼續安裝 DP，因為：
+if not %vgs% == Ertheia echo GS 支援的版本是：%vgs%
+if not %vgs% == Ertheia echo DP 支援的版本是：Ertheia
+if not %vgs% == Ertheia echo 請確定 GS 和 DP 都使用相同的版本後，再試一次
 if not %vgs% == Ertheia echo.
 if not %vgs% == Ertheia pause
 if not %vgs% == Ertheia goto end
 
-REM �\�໡���G�C�j�@�q�ɶ��R�� libs �M�֨��A�H���� GS �X��
-if not exist ..\libs\*.jar echo �z�������s�����Y�u�sĶ�����v�� GS�A�~�i�H�~��w�˸�Ʈw
+REM 功能說明：每隔一段時間刪除 libs 和快取，以防止 GS 出錯
+if not exist ..\libs\*.jar echo 您必須重新解壓縮「編譯完成」的 GS，才可以繼續安裝資料庫
 if not exist ..\libs\*.jar echo.
 if not exist ..\libs\*.jar pause
 if not exist ..\libs\*.jar exit
 
-REM �p�G libs �֨����s�b�A�����٨S���ҰʹL���A���A�h���L�ˬd
+REM 如果 libs 快取不存在，表示還沒有啟動過伺服器，則跳過檢查
 if not exist ..\game\cachedir\ md ..\game\cachedir\
 if not exist ..\game\cachedir\packages\*.pkc goto _lib_update
 
-REM �p�G log ���s�b�A�����٨S���ҰʹL���A���A�h���L�ˬd
+REM 如果 log 不存在，表示還沒有啟動過伺服器，則跳過檢查
 if not exist ..\game\log\*.log goto _lib_update
 
 REM ------------------------------------------------------
-REM _lib_check1 ���ˬd �}�l
-REM �p�G Windows �� CMD ������T�w�s�b�A�h�����ˬd1
+REM _lib_check1 的檢查 開始
+REM 如果 Windows 的 CMD 版本資訊已存在，則跳到檢查1
 if exist ..\game\cachedir\check_w_ver.txt goto _lib_check1
 
-REM �p�G Windows �� CMD ������T���s�b�A�h�إ߸�T
+REM 如果 Windows 的 CMD 版本資訊不存在，則建立資訊
 ver > ..\game\cachedir\check_w_ver.txt
 goto _lib_del
 
 :_lib_check1
-REM ���o�ثe�� Windows CMD ������T
+REM 取得目前的 Windows CMD 版本資訊
 ver > %temp%\check.txt
 FOR /F "skip=1 delims=*" %%a IN (%temp%\check.txt) do set aaa=%%a
 
-REM ���o�w�s�b�� Windows CMD ������T
+REM 取得已存在的 Windows CMD 版本資訊
 FOR /F "skip=1 delims=*" %%b IN (..\game\cachedir\check_w_ver.txt) do set bbb=%%b
 
-REM ��� Windows �� CMD ������T
+REM 比較 Windows 的 CMD 版本資訊
 if "%aaa%"=="%bbb%" goto _start_lib_check2
-echo �]���z�� Windows ��������s�A�ҥH�����R���ª� libs �M�֨��A�H���� GS �X��
+echo 因為您的 Windows 版本有更新，所以必須刪除舊的 libs 和快取，以防止 GS 出錯
 echo.
 pause
 goto _lib_del
-REM _lib_check1 ���ˬd ����
+REM _lib_check1 的檢查 結束
 REM ------------------------------------------------------
 
 REM ------------------------------------------------------
 :_start_lib_check2
-REM _lib_check2 ���ˬd �}�l
-REM �p�G Java ���|���s�b�A�h����U�@���ˬd
-REM �Ȱ� _start_lib_check3 �o���ˬd if not exist "%ProgramFiles%\Java\jdk1.8.*" goto _start_lib_check3
+REM _lib_check2 的檢查 開始
+REM 如果 Java 路徑不存在，則跳到下一個檢查
+REM 暫停 _start_lib_check3 這個檢查 if not exist "%ProgramFiles%\Java\jdk1.8.*" goto _start_lib_check3
 if not exist "%ProgramFiles%\Java\jdk1.8.*" goto _lib_end
 
-REM �p�G Java ������T�w�s�b�A�h�����ˬd2
+REM 如果 Java 版本資訊已存在，則跳到檢查2
 if exist ..\game\cachedir\check_j_ver.txt goto _lib_check2
 
-REM �p�G Java ������T���s�b�A�h�إ߸�T
+REM 如果 Java 版本資訊不存在，則建立資訊
 dir "%ProgramFiles%\Java\jdk1.8.*" /A:D /B /O > ..\game\cachedir\check_j_ver.txt
 goto _lib_del
 
 :_lib_check2
-REM ���o�ثe�� Java ������T
+REM 取得目前的 Java 版本資訊
 dir "%ProgramFiles%\Java\jdk1.8.*" /A:D /B /O > %temp%\check.txt
 FOR /F %%j IN (%temp%\check.txt) DO set jjj=%%j
 
-REM ���o�w�s�b�� Java ������T
+REM 取得已存在的 Java 版本資訊
 FOR /F %%k IN (..\game\cachedir\check_j_ver.txt) do set kkk=%%k
 
-REM ��� Java ������T
-REM �Ȱ� _start_lib_check3 �o���ˬd if "%jjj%"=="%kkk%" goto _start_lib_check3
+REM 比較 Java 版本資訊
+REM 暫停 _start_lib_check3 這個檢查 if "%jjj%"=="%kkk%" goto _start_lib_check3
 if "%jjj%"=="%kkk%" goto _lib_end
-echo �]���z�� Java ��������s�A�ҥH�����R���ª� libs �M�֨��A�H���� GS �X��
+echo 因為您的 Java 版本有更新，所以必須刪除舊的 libs 和快取，以防止 GS 出錯
 echo.
 pause
 goto _lib_del
-REM _lib_check2 ���ˬd ����
+REM _lib_check2 的檢查 結束
 REM ------------------------------------------------------
 
 REM ------------------------------------------------------
 :_start_lib_check3
-REM _lib_check3 ���ˬd �}�l
-REM �p�G ���-��� ����T�w�s�b�A�h�����ˬd3
+REM _lib_check3 的檢查 開始
+REM 如果 日期-月份 的資訊已存在，則跳到檢查3
 if exist ..\game\cachedir\check_d_ver.txt goto _lib_check3
 
-REM �p�G ���-��� ����T���s�b�A�h�إ߸�T
+REM 如果 日期-月份 的資訊不存在，則建立資訊
 date/t > ..\game\cachedir\check_d_ver.txt
 goto _lib_del
 
 :_lib_check3
-REM ���o�ثe�� ���-��� ��T
+REM 取得目前的 日期-月份 資訊
 date/t > %temp%\check.txt
 FOR /F "tokens=2 delims=/" %%d IN (%temp%\check.txt) DO set ddd=%%d
 
-REM ���o�w�s�b�� ���-��� ��T
+REM 取得已存在的 日期-月份 資訊
 FOR /F "tokens=2 delims=/" %%m IN (..\game\cachedir\check_d_ver.txt) do set mmm=%%m
 
-REM ��� ���-��� ��T
+REM 比較 日期-月份 資訊
 if "%ddd%"=="%mmm%" goto _lib_end
-echo �����C�Ӥ�۰ʲM�z�ª� libs �M�֨��A�H���� GS �X��
+echo 此為每個月自動清理舊的 libs 和快取，以防止 GS 出錯
 echo.
 pause
 goto _lib_del
-REM _lib_check3 ���ˬd ����
+REM _lib_check3 的檢查 結束
 REM ------------------------------------------------------
 
 REM ------------------------------------------------------
@@ -136,11 +136,11 @@ if not exist ..\libs\backup\ md ..\libs\backup\
 copy ..\libs\*.* ..\libs\backup\ /Y > nul
 del ..\libs\*.* /F /Q > nul
 del ..\game\cachedir\packages\*.* /F /Q > nul
-if exist ..\libs\*.jar echo �L�k�R�� libs �M�֨��I�Х��������A���έ��s�}���A�M��A�դ@��
+if exist ..\libs\*.jar echo 無法刪除 libs 和快取！請先關閉伺服器或重新開機，然後再試一次
 if exist ..\libs\*.jar echo.
 if exist ..\libs\*.jar pause
 if exist ..\libs\*.jar exit
-if exist ..\game\cachedir\packages\*.pkc echo �L�k�R�� libs �M�֨��I�Х��������A���έ��s�}���A�M��A�դ@��
+if exist ..\game\cachedir\packages\*.pkc echo 無法刪除 libs 和快取！請先關閉伺服器或重新開機，然後再試一次
 if exist ..\game\cachedir\packages\*.pkc echo.
 if exist ..\game\cachedir\packages\*.pkc pause
 if exist ..\game\cachedir\packages\*.pkc exit
@@ -148,8 +148,8 @@ ver > ..\game\cachedir\check_w_ver.txt
 dir "%ProgramFiles%\Java\jdk1.8.*" /A:D /B /O > ..\game\cachedir\check_j_ver.txt
 date/t > ..\game\cachedir\check_d_ver.txt
 CLS
-echo �ª� libs �M�֨��M�z�����I
-echo �z�������s�����Y�u�sĶ�����v�� GS�A�~�i�H�~��w�˸�Ʈw
+echo 舊的 libs 和快取清理完畢！
+echo 您必須重新解壓縮「編譯完成」的 GS，才可以繼續安裝資料庫
 echo.
 pause
 exit
@@ -201,7 +201,7 @@ set fresh_setup=0
 
 :loadconfig
 cls
-title �w�� L2JTW DP - Ū���]�w��...�]���q %stage%�^
+title 安裝 L2JTW DP - 讀取設定檔...（階段 %stage%）
 if not exist %config_file% goto configure
 ren %config_file% vars.bat
 call vars.bat
@@ -209,23 +209,23 @@ ren vars.bat %config_file%
 call :colors 17
 if /i %config_version% == 2 goto ls_backup
 set upgrade_mode=2
-echo �z���G�O�Ĥ@���ϥγo�Ӫ����� database_installer
-echo ���O�ڵo�{�w�˸�Ʈw���]�w�ɤw�g�s�b
-echo �]���ڱN�ݱz�X�Ӱ��D�A�޾ɱz�~��w��
+echo 您似乎是第一次使用這個版本的 database_installer
+echo 但是我發現安裝資料庫的設定檔已經存在
+echo 因此我將問您幾個問題，引導您繼續安裝
 echo.
-echo ��s�]�w�ﶵ�G
+echo 更新設定選項：
 echo.
-echo (1) �ɤJ���~��ϥ��ª��]�w�G�N�ϥέ쥻�ª���ƨåB�i���s�@�~
+echo (1) 導入＆繼續使用舊的設定：將使用原本舊的資料並且進行更新作業
 echo.
-echo (2) �ɤJ���ϥηs���]�w�G�ɤJ�s����ƨåB���s�]�w���
+echo (2) 導入＆使用新的設定：導入新的資料並且重新設定資料
 echo.
-echo (3) �ɤJ���s����ơG�Ҧ��ª���ƱN�|�����åB�ɤJ�s�����
+echo (3) 導入全新的資料：所有舊的資料將會移除並且導入新的資料
 echo.
-echo (4) �d�ݦs�����]�w��
+echo (4) 查看存取的設定值
 echo.
-echo (5) �h�X
+echo (5) 退出
 echo.
-set /P upgrade_mode="��J�Ʀr��A�Ы� Enter�]�w�]�Ȭ��u%upgrade_mode%�v�^: "
+set /P upgrade_mode="輸入數字後，請按 Enter（預設值為「%upgrade_mode%」）: "
 if %upgrade_mode%==1 goto ls_backup
 if %upgrade_mode%==2 goto configure
 if %upgrade_mode%==3 goto configure
@@ -243,7 +243,7 @@ goto :eof
 cls
 call :colors 17
 set stage=0-2
-title �w�� L2JTW DP - �w�ˡ]���q %stage%�^
+title 安裝 L2JTW DP - 安裝（階段 %stage%）
 set config_version=2
 if NOT %upgrade_mode% == 2 (
 set fresh_setup=1
@@ -287,17 +287,17 @@ set backup=.
 set logdir=.
 )
 set mysqlPath=%mysqlBinPath%\mysql.exe
-echo �s���]�w�ȡG
+echo 新的設定值：
 echo.
-echo 1.MySql �{��
+echo 1.MySql 程式
 echo --------------------
-echo �г]�w mysql.exe �M mysqldump.exe ����m
+echo 請設定 mysql.exe 和 mysqldump.exe 的位置
 echo.
 if "%mysqlBinPath%" == "" (
 set mysqlBinPath=use path
-echo �S����� MySQL ����m
+echo 沒有找到 MySQL 的位置
 ) else (
-echo �д��եH�U�ҧ�쪺 MySQL ��m�A�O�_�i�H�i��ɤJ�@�~
+echo 請測試以下所找到的 MySQL 位置，是否可以進行導入作業
 echo.
 echo %mysqlPath%
 )
@@ -305,64 +305,64 @@ if not "%mysqlBinPath%" == "use path" call :binaryfind
 echo.
 path|find "MySQL">NUL
 if %errorlevel% == 0 (
-echo �W���O��쪺 MySQL�A����m�N�|�Q�]���w�]�ȡA�p�G�Q����m�Эק�...
+echo 上面是找到的 MySQL，此位置將會被設為預設值，如果想換位置請修改...
 set mysqlBinPath=use path
 ) else (
-echo �L�k��� MySQL�A�п�J mysql.exe ����m...
+echo 無法找到 MySQL，請輸入 mysql.exe 的位置...
 echo.
-echo �p�G���T�w�o�O����N��M�p��ާ@�A�Ш���������d�ߩΪ̦� L2JTW �x������o�ݩδM�������T
+echo 如果不確定這是什麼意思和如何操作，請到相關網站查詢或者至 L2JTW 官方網站發問或尋找相關資訊
 )
 echo.
-echo �п�J mysql.exe ����m�G
+echo 請輸入 mysql.exe 的位置：
 set /P mysqlBinPath="(default %mysqlBinPath%): "
 cls
 echo.
-echo 2.�u�n�J���A���v�]�w
+echo 2.「登入伺服器」設定
 echo --------------------
-echo ���@�~�N�|�s�u�ܡu�n�J���A���v�� MySQL ���A���A�åB�i��ɤJ�@�~
+echo 此作業將會連線至「登入伺服器」的 MySQL 伺服器，並且進行導入作業
 echo.
-set /P lsuser="�ϥΪ̦W�١]�w�]�ȡu%lsuser%�v�^: "
+set /P lsuser="使用者名稱（預設值「%lsuser%」）: "
 :_lspass
-set /P lspass="�ϥΪ̱K�X�]�w�]�ȡu%lspass%�v�^: "
+set /P lspass="使用者密碼（預設值「%lspass%」）: "
 if "%lspass%"=="" goto _lspass
-set /P lsdb="��Ʈw�]�w�]�ȡu%lsdb%�v�^: "
-set /P lshost="��m�]�w�]�ȡu%lshost%�v�^: "
+set /P lsdb="資料庫（預設值「%lsdb%」）: "
+set /P lshost="位置（預設值「%lshost%」）: "
 echo.
 cls
 echo.
-echo 3-�u�Q�ת����A���v�]�w
+echo 3-「討論版伺服器」設定
 echo --------------------
-echo ���@�~�N�|�s�u�ܡu�Q�ת����A���v�� MySQL ���A���A�åB�i��ɤJ�@�~
+echo 此作業將會連線至「討論版伺服器」的 MySQL 伺服器，並且進行導入作業
 echo.
-set /P cbuser="�ϥΪ̦W�١]�w�]�ȡu%cbuser%�v�^: "
+set /P cbuser="使用者名稱（預設值「%cbuser%」）: "
 :_cbpass
-set /P cbpass="�ϥΪ̱K�X�]�w�]�ȡu%cbpass%�v�^: "
+set /P cbpass="使用者密碼（預設值「%cbpass%」）: "
 if "%cbpass%"=="" goto _cbpass
-set /P cbdb="��Ʈw�]�w�]�ȡu%cbdb%�v�^: "
-set /P cbhost="��m�]�w�]�ȡu%cbhost%�v�^: "
+set /P cbdb="資料庫（預設值「%cbdb%」）: "
+set /P cbhost="位置（預設值「%cbhost%」）: "
 echo.
 cls
 echo.
-echo 4.�u�C�����A���v�]�w
+echo 4.「遊戲伺服器」設定
 echo --------------------
-echo ���@�~�N�|�s�u�ܡu�C�����A���v�� MySQL ���A���A�åB�i��ɤJ�@�~
-set /P gsuser="�ϥΪ̦W�١]�w�]�ȡu%gsuser%�v�^: "
+echo 此作業將會連線至「遊戲伺服器」的 MySQL 伺服器，並且進行導入作業
+set /P gsuser="使用者名稱（預設值「%gsuser%」）: "
 :_gspass
-set /P gspass="�ϥΪ̱K�X�]�w�]�ȡu%gspass%�v�^: "
+set /P gspass="使用者密碼（預設值「%gspass%」）: "
 if "%gspass%"=="" goto _gspass
-set /P gsdb="��Ʈw�]�w�]�ȡu%gsdb%�v�^: "
-set /P gshost="��m�]�w�]�ȡu%gshost%�v�^: "
+set /P gsdb="資料庫（預設值「%gsdb%」）: "
+set /P gshost="位置（預設值「%gshost%」）: "
 echo.
 cls
 echo.
-echo 5.��L�]�w
+echo 5.其他設定
 echo --------------------
-set /P cmode="�C��Ҧ� (c)���C�� �� (n)���L�C��]�w�]�ȡu%cmode%�v�^: "
-set /P backup="�ƥ���m�]�w�]�ȡu%backup%�v�^: "
-set /P logdir="Logs�T����m�]�w�]�ȡu%logdir%�v�^: "
+set /P cmode="顏色模式 (c)為顏色 或 (n)為無顏色（預設值「%cmode%」）: "
+set /P backup="備份位置（預設值「%backup%」）: "
+set /P logdir="Logs訊息位置（預設值「%logdir%」）: "
 :safe1
 set safemode=y
-set /P safemode="Debug �Ҧ��]y/n�A �w�]�ȡu%safemode%�v�^: "
+set /P safemode="Debug 模式（y/n， 預設值「%safemode%」）: "
 if /i %safemode%==y (set safe_mode=1&goto safe2)
 if /i %safemode%==n (set safe_mode=0&goto safe2)
 goto safe1
@@ -400,8 +400,8 @@ echo set gshost=%gshost%>> %config_file%
 echo set logdir=%logdir%>> %config_file%
 echo set backup=%backup%>> %config_file%
 echo.
-echo �]�w���\�I
-echo �A���]�w�ȱN�|�x�s�b�u%config_file%�v�A�Ҧ����b���K�X�N�H�������
+echo 設定成功！
+echo 你的設定值將會儲存在「%config_file%」，所有的帳號密碼將以明文顯示
 echo.
 pause
 goto loadconfig
@@ -411,9 +411,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=1-1
-title �w�� L2JTW DP - �ƥ��u�n�J���A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 備份「登入伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�ƥ��u�n�J���A���v����Ʈw...
+echo 正在備份「登入伺服器」的資料庫...
 set cmdline="%mysqldumpPath%" --add-drop-table -h %lshost% -u %lsuser% --password=%lspass% %lsdb% ^> "%backup%\ls_backup.sql" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto ls_db_ok
@@ -423,23 +423,23 @@ cls
 set lsdbprompt=y
 call :colors 47
 set stage=1-2
-title �w�� L2JTW DP - �u�n�J���A���v����Ʈw�ƥ����ѡI�]���q %stage%�^
+title 安裝 L2JTW DP - 「登入伺服器」的資料庫備份失敗！（階段 %stage%）
 echo.
-echo �ƥ����ѡI
-echo ��]�O�]���u�n�J���A���v����Ʈw���s�b
-echo �{�b�i�H���A�إ� %lsdb%�A�Ϊ��~��䥦�]�w
+echo 備份失敗！
+echo 原因是因為「登入伺服器」的資料庫不存在
+echo 現在可以幫你建立 %lsdb%，或者繼續其它設定
 echo.
-echo �إߡu�n�J���A���v����Ʈw�H
+echo 建立「登入伺服器」的資料庫？
 echo.
-echo (y)�T�w
+echo (y)確定
 echo.
-echo (n)����
+echo (n)取消
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p lsdbprompt=�п�ܡ]�w�]��-�T�w�^:
+set /p lsdbprompt=請選擇（預設值-確定）:
 if /i %lsdbprompt%==y goto ls_db_create
 if /i %lsdbprompt%==n goto cs_backup
 if /i %lsdbprompt%==r goto configure
@@ -451,9 +451,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=2-1
-title �w�� L2JTW DP - �إߡu�n�J���A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 建立「登入伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�إߡu�n�J���A���v����Ʈw...
+echo 正在建立「登入伺服器」的資料庫...
 set cmdline="%mysqlPath%" -h %lshost% -u %lsuser% --password=%lspass% -e "CREATE DATABASE %lsdb%" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto ls_db_ok
@@ -464,24 +464,24 @@ cls
 set omfgprompt=q
 call :colors 47
 set stage=2-2
-title �w�� L2JTW DP - �u�n�J���A���v����Ʈw�إߥ��ѡI�]���q %stage%�^
+title 安裝 L2JTW DP - 「登入伺服器」的資料庫建立失敗！（階段 %stage%）
 echo.
-echo �u�n�J���A���v����Ʈw�إߥ��ѡI
+echo 「登入伺服器」的資料庫建立失敗！
 echo.
-echo �i�઺��]�G
-echo 1.��J����ƿ��~�A�Ҧp�G�ϥΪ̦W��/�ϥΪ̱K�X/��L�������
-echo 2.�ϥΪ̡u%lsuser%�v���v������
-echo 3.��Ʈw�w�s�b
+echo 可能的原因：
+echo 1.輸入的資料錯誤，例如：使用者名稱/使用者密碼/其他相關資料
+echo 2.使用者「%lsuser%」的權限不足
+echo 3.資料庫已存在
 echo.
-echo ���ˬd�]�w�åB�ץ��A�Ϊ̪������s�]�w
+echo 請檢查設定並且修正，或者直接重新設定
 echo.
-echo (c)�~��
+echo (c)繼續
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p omfgprompt=�п�ܡ]�w�]��-�h�X�^:
+set /p omfgprompt=請選擇（預設值-退出）:
 if /i %omfgprompt%==c goto cs_backup
 if /i %omfgprompt%==r goto configure
 if /i %omfgprompt%==q goto end
@@ -492,21 +492,21 @@ cls
 set loginprompt=u
 call :colors 17
 set stage=2-3
-title �w�� L2JTW DP - �u�n�J���A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 「登入伺服器」的資料庫（階段 %stage%）
 echo.
-echo �w�ˡu�n�J���A���v����Ʈw�G
+echo 安裝「登入伺服器」的資料庫：
 echo.
-echo (f) ����G�N�����Ҧ��ª���ơA���s�ɤJ�s�����
+echo (f) 完整：將移除所有舊的資料，重新導入新的資料
 echo.
-echo (u) ��s�G�N�O�d�Ҧ��ª���ơA�åB�i���s�@�~
+echo (u) 更新：將保留所有舊的資料，並且進行更新作業
 echo.
-echo (s) �ٲ��G���L���ﶵ
+echo (s) 省略：跳過此選項
 echo.
-echo (r) ���s�]�w
+echo (r) 重新設定
 echo.
-echo (q) �h�X
+echo (q) 退出
 echo.
-set /p loginprompt=�п�ܡ]�w�]��-��s�^:
+set /p loginprompt=請選擇（預設值-更新）:
 if /i %loginprompt%==f goto ls_cleanup
 if /i %loginprompt%==u goto ls_upgrade
 if /i %loginprompt%==s goto cs_backup
@@ -518,21 +518,21 @@ goto ls_db_ok
 call :colors 17
 set cmdline=
 set stage=2-4
-title �w�� L2JTW DP - ����w�ˡu�n�J���A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 完整安裝「登入伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�����u�n�J���A���v����Ʈw�A�M��ɤJ�s����Ʈw...
+echo 正在移除「登入伺服器」的資料庫，然後導入新的資料庫...
 set cmdline="%mysqlPath%" -h %lshost% -u %lsuser% --password=%lspass% -D %lsdb% ^< ls_cleanup.sql 2^> NUL
 %cmdline%
 if not %ERRORLEVEL% == 0 goto omfg
 set full=1
 echo.
-echo �u�n�J���A���v��Ʈw�w�Q�R��
+echo 「登入伺服器」資料庫已被刪除
 goto ls_install
 
 :ls_upgrade
 cls
 echo.
-echo ��s�u�n�J���A���v��Ʈw���c
+echo 更新「登入伺服器」資料庫結構
 echo.
 echo @echo off> temp.bat
 if exist ls_errors.log del ls_errors.log
@@ -547,21 +547,21 @@ cls
 set cmdline=
 if %full% == 1 (
 set stage=2-5
-title �w�� L2JTW DP - �w�ˡu�n�J���A���v����Ʈw...�]���q %stage%�^
+title 安裝 L2JTW DP - 安裝「登入伺服器」的資料庫...（階段 %stage%）
 echo.
-echo �w�˷s���u�n�J���A���v����Ʈw���e
+echo 安裝新的「登入伺服器」的資料庫內容
 echo.
 ) else (
-title �w�� L2JTW DP - ��s�u�n�J���A���v����Ʈw...�]���q %stage%�^
+title 安裝 L2JTW DP - 更新「登入伺服器」的資料庫...（階段 %stage%）
 echo.
-echo ��s�u�n�J���A���v����Ʈw���e
+echo 更新「登入伺服器」的資料庫內容
 echo.
 )
 if %logging% == 0 set output=NUL
 set dest=ls
 for %%i in (..\sql\login\*.sql) do call :dump %%i
 
-echo ����...
+echo 完成...
 echo.
 goto cs_backup
 
@@ -570,9 +570,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=3-1
-title �w�� L2JTW DP - �ƥ��u�Q�ת����A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 備份「討論版伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�ƥ��u�Q�ת����A���v����Ʈw...
+echo 正在備份「討論版伺服器」的資料庫...
 set cmdline="%mysqldumpPath%" --add-drop-table -h %cbhost% -u %cbuser% --password=%cbpass% %cbdb% ^> "%backup%\cs_backup.sql" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto cs_db_ok
@@ -582,23 +582,23 @@ cls
 set cbdbprompt=y
 call :colors 47
 set stage=3-2
-title �w�� L2JTW DP - �u�Q�ת����A���v����Ʈw�ƥ����ѡI�]���q %stage%�^
+title 安裝 L2JTW DP - 「討論版伺服器」的資料庫備份失敗！（階段 %stage%）
 echo.
-echo �ƥ����ѡI
-echo ��]�O�]���u�Q�ת����A���v����Ʈw���s�b
-echo �{�b�i�H���A�إ� %cbdb%�A�Ϊ��~��䥦�]�w
+echo 備份失敗！
+echo 原因是因為「討論版伺服器」的資料庫不存在
+echo 現在可以幫你建立 %cbdb%，或者繼續其它設定
 echo.
-echo �إߡu�Q�ת����A���v����Ʈw�H
+echo 建立「討論版伺服器」的資料庫？
 echo.
-echo (y)�T�w
+echo (y)確定
 echo.
-echo (n)����
+echo (n)取消
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p cbdbprompt=�п�ܡ]�w�]��-�T�w�^:
+set /p cbdbprompt=請選擇（預設值-確定）:
 if /i %cbdbprompt%==y goto cs_db_create
 if /i %cbdbprompt%==n goto gs_backup
 if /i %cbdbprompt%==r goto configure
@@ -610,9 +610,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=4-1
-title �w�� L2JTW DP - �إߡu�Q�ת����A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 建立「討論版伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�إߡu�Q�ת����A���v����Ʈw...
+echo 正在建立「討論版伺服器」的資料庫...
 set cmdline="%mysqlPath%" -h %cbhost% -u %cbuser% --password=%cbpass% -e "CREATE DATABASE %cbdb%" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto cs_db_ok
@@ -623,24 +623,24 @@ cls
 set omfgprompt=q
 call :colors 47
 set stage=4-2
-title �w�� L2JTW DP - �u�Q�ת����A���v����Ʈw�إߥ��ѡI�]���q %stage%�^
+title 安裝 L2JTW DP - 「討論版伺服器」的資料庫建立失敗！（階段 %stage%）
 echo.
-echo �u�Q�ת����A���v����Ʈw�إߥ��ѡI
+echo 「討論版伺服器」的資料庫建立失敗！
 echo.
-echo �i�઺��]�G
-echo 1.��J����ƿ��~�A�Ҧp�G�ϥΪ̦W��/�ϥΪ̱K�X/��L�������
-echo 2.�ϥΪ̡u%cbuser%�v���v������
-echo 3.��Ʈw�w�s�b
+echo 可能的原因：
+echo 1.輸入的資料錯誤，例如：使用者名稱/使用者密碼/其他相關資料
+echo 2.使用者「%cbuser%」的權限不足
+echo 3.資料庫已存在
 echo.
-echo ���ˬd�]�w�åB�ץ��A�Ϊ̪������s�]�w
+echo 請檢查設定並且修正，或者直接重新設定
 echo.
-echo (c)�~��
+echo (c)繼續
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p omfgprompt=�п�ܡ]�w�]��-�h�X�^:
+set /p omfgprompt=請選擇（預設值-退出）:
 if /i %omfgprompt%==c goto gs_backup
 if /i %omfgprompt%==r goto configure
 if /i %omfgprompt%==q goto end
@@ -651,21 +651,21 @@ cls
 set communityprompt=u
 call :colors 17
 set stage=4-3
-title �w�� L2JTW DP - �u�Q�ת����A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 「討論版伺服器」的資料庫（階段 %stage%）
 echo.
-echo �w�ˡu�Q�ת����A���v����Ʈw�G
+echo 安裝「討論版伺服器」的資料庫：
 echo.
-echo (f)����G�N�����Ҧ��ª���ơA���s�ɤJ�s�����
+echo (f)完整：將移除所有舊的資料，重新導入新的資料
 echo.
-echo (u)��s�G�N�O�d�Ҧ��ª���ơA�åB�i���s�@�~
+echo (u)更新：將保留所有舊的資料，並且進行更新作業
 echo.
-echo (s)�ٲ��G���L���ﶵ
+echo (s)省略：跳過此選項
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p communityprompt=�п�ܡ]�w�]��-��s�^:
+set /p communityprompt=請選擇（預設值-更新）:
 if /i %communityprompt%==f goto cs_cleanup
 if /i %communityprompt%==u goto cs_upgrade
 if /i %communityprompt%==s goto gs_backup
@@ -677,21 +677,21 @@ goto cs_db_ok
 call :colors 17
 set cmdline=
 set stage=4-4
-title �w�� L2JTW DP - ����w�ˡu�Q�ת����A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 完整安裝「討論版伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�����u�Q�ת����A���v����Ʈw�A�M��ɤJ�s����Ʈw...
+echo 正在移除「討論版伺服器」的資料庫，然後導入新的資料庫...
 set cmdline="%mysqlPath%" -h %cbhost% -u %cbuser% --password=%cbpass% -D %cbdb% ^< cs_cleanup.sql 2^> NUL
 %cmdline%
 if not %ERRORLEVEL% == 0 goto omfg
 set full=1
 echo.
-echo �u�Q�ת����A���v����Ʈw�w�Q�R��
+echo 「討論版伺服器」的資料庫已被刪除
 goto cs_install
 
 :cs_upgrade
 cls
 echo.
-echo ��s�u�Q�ת����A���v����Ʈw���c
+echo 更新「討論版伺服器」的資料庫結構
 echo.
 echo @echo off> temp.bat
 if exist cs_errors.log del cs_errors.log
@@ -706,14 +706,14 @@ cls
 set cmdline=
 if %full% == 1 (
 set stage=4-5
-title �w�� L2JTW DP - �w�ˡu�Q�צ��A���v����Ʈw...�]���q %stage%�^
+title 安裝 L2JTW DP - 安裝「討論伺服器」的資料庫...（階段 %stage%）
 echo.
-echo �w�˷s���u�Q�ת����A���v����Ʈw���e...
+echo 安裝新的「討論版伺服器」的資料庫內容...
 echo.
 ) else (
-title �w�� L2JTW DP - ��s�u�Q�צ��A���v����Ʈw..�]���q %stage%�^
+title 安裝 L2JTW DP - 更新「討論伺服器」的資料庫..（階段 %stage%）
 echo.
-echo ��s�u�Q�ת����A���v����Ʈw���e...
+echo 更新「討論版伺服器」的資料庫內容...
 echo.
 )
 if %logging% == 0 set output=NUL
@@ -729,9 +729,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=5-1
-title �w�� L2JTW DP - �ƥ��u�C�����A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 備份「遊戲伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�ƥ��u�C�����A���v����Ʈw...
+echo 正在備份「遊戲伺服器」的資料庫...
 set cmdline="%mysqldumpPath%" --add-drop-table -h %gshost% -u %gsuser% --password=%gspass% %gsdb% ^> "%backup%\gs_backup.sql" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto gs_db_ok
@@ -741,23 +741,23 @@ cls
 set gsdbprompt=y
 call :colors 47
 set stage=5-2
-title �w�� L2JTW DP - �u�C�����A���v����Ʈw�ƥ����ѡI�]���q %stage%�^
+title 安裝 L2JTW DP - 「遊戲伺服器」的資料庫備份失敗！（階段 %stage%）
 echo.
-echo �ƥ����ѡI
-echo ��]�O�]���u�C�����A���v����Ʈw���s�b
-echo �{�b�i�H���A�إ� %gsdb%�A�Ϊ��~��䥦�]�w
+echo 備份失敗！
+echo 原因是因為「遊戲伺服器」的資料庫不存在
+echo 現在可以幫你建立 %gsdb%，或者繼續其它設定
 echo.
-echo �إߡu�C�����A���v����Ʈw�H
+echo 建立「遊戲伺服器」的資料庫？
 echo.
-echo (y)�T�w
+echo (y)確定
 echo.
-echo (n)����
+echo (n)取消
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p gsdbprompt=�п�ܡ]�w�]��-�T�w�^:
+set /p gsdbprompt=請選擇（預設值-確定）:
 if /i %gsdbprompt%==y goto gs_db_create
 if /i %gsdbprompt%==n goto eof
 if /i %gsdbprompt%==r goto configure
@@ -769,9 +769,9 @@ cls
 call :colors 17
 set stage=6-1
 set cmdline=
-title �w�� L2JTW DP - �إߡu�C�����A���v����ơ]���q %stage%�^
+title 安裝 L2JTW DP - 建立「遊戲伺服器」的資料（階段 %stage%）
 echo.
-echo ���b�إߡu�C�����A���v����Ʈw...
+echo 正在建立「遊戲伺服器」的資料庫...
 set cmdline="%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -e "CREATE DATABASE %gsdb%" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto gs_db_ok
@@ -782,22 +782,22 @@ cls
 set omfgprompt=q
 call :colors 47
 set stage=6-2
-title �w�� L2JTW DP - �u�C�����A���v����Ʈw�إߥ��ѡI�]���q %stage%�^
+title 安裝 L2JTW DP - 「遊戲伺服器」的資料庫建立失敗！（階段 %stage%）
 echo.
-echo �u�C�����A���v����Ʈw�إߥ��ѡI
+echo 「遊戲伺服器」的資料庫建立失敗！
 echo.
-echo �i�઺��]�G
-echo 1.��J����ƿ��~�A�Ҧp�G�ϥΪ̦W��/�ϥΪ̱K�X/��L�������
-echo 2.�ϥΪ̡u%gsuser%�v���v������
-echo 3.��Ʈw�w�s�b
+echo 可能的原因：
+echo 1.輸入的資料錯誤，例如：使用者名稱/使用者密碼/其他相關資料
+echo 2.使用者「%gsuser%」的權限不足
+echo 3.資料庫已存在
 echo.
-echo ���ˬd�]�w�åB�ץ��A�Ϊ̪������s�]�w
+echo 請檢查設定並且修正，或者直接重新設定
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p omfgprompt=�п�ܡ]�w�]��-�h�X�^:
+set /p omfgprompt=請選擇（預設值-退出）:
 if /i %omfgprompt%==r goto configure
 if /i %omfgprompt%==q goto end
 goto gs_err2
@@ -807,19 +807,19 @@ cls
 set installtype=u
 call :colors 17
 set stage=6-3
-title �w�� L2JTW DP - �u�C�����A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 「遊戲伺服器」的資料庫（階段 %stage%）
 echo.
-echo �w�ˡu�C�����A���v����Ʈw�G
+echo 安裝「遊戲伺服器」的資料庫：
 echo.
-echo (f)����G�N�����Ҧ��ª���ơA���s�ɤJ�s�����
+echo (f)完整：將移除所有舊的資料，重新導入新的資料
 echo.
-echo (u)��s�G�N�O�d�Ҧ��ª���ơA�åB�i���s�@�~
+echo (u)更新：將保留所有舊的資料，並且進行更新作業
 echo.
-echo (s)�ٲ��G���L���ﶵ
+echo (s)省略：跳過此選項
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p installtype=�п�ܡ]�w�]��-��s�^:
+set /p installtype=請選擇（預設值-更新）:
 if /i %installtype%==f goto gs_cleanup
 if /i %installtype%==u goto gs_upgrade
 if /i %installtype%==s goto custom_ask
@@ -830,21 +830,21 @@ goto gs_db_ok
 call :colors 17
 set cmdline=
 set stage=6-4
-title �w�� L2JTW DP - ����w�ˡu�C�����A���v����Ʈw�]���q %stage%�^
+title 安裝 L2JTW DP - 完整安裝「遊戲伺服器」的資料庫（階段 %stage%）
 echo.
-echo ���b�����u�C�����A���v����Ʈw�A�M��ɤJ�s����Ʈw...
+echo 正在移除「遊戲伺服器」的資料庫，然後導入新的資料庫...
 set cmdline="%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^< gs_cleanup.sql 2^> NUL
 %cmdline%
 if not %ERRORLEVEL% == 0 goto omfg
 set full=1
 echo.
-echo �u�C�����A���v����Ʈw�w�Q�R��
+echo 「遊戲伺服器」的資料庫已被刪除
 goto gs_install
 
 :gs_upgrade
 cls
 echo.
-echo ��s�u�C�����A���v����Ʈw���c
+echo 更新「遊戲伺服器」的資料庫結構
 echo.
 echo @echo off> temp.bat
 if exist gs_errors.log del gs_errors.log
@@ -859,14 +859,14 @@ cls
 set cmdline=
 if %full% == 1 (
 set stage=6-5
-title �w�� L2JTW DP - �w�ˡu�C�����A���v����Ʈw...�]���q %stage%�^
+title 安裝 L2JTW DP - 安裝「遊戲伺服器」的資料庫...（階段 %stage%）
 echo.
-echo �w�˷s���u�C�����A���v����Ʈw���e
+echo 安裝新的「遊戲伺服器」的資料庫內容
 echo.
 ) else (
-title �w�� L2JTW DP - ��s�u�C�����A���v����Ʈw...�]���q %stage%�^
+title 安裝 L2JTW DP - 更新「遊戲伺服器」的資料庫...（階段 %stage%）
 echo.
-echo ��s�u�C�����A���v����Ʈw���e
+echo 更新「遊戲伺服器」的資料庫內容
 echo.
 )
 if %logging% == 0 set output=NUL
@@ -876,22 +876,22 @@ for %%i in (..\sql\game\mods\*.sql) do call :dump %%i
 for %%i in (..\sql\game\custom\*.sql) do call :dump %%i
 for %%i in (..\sql\L2JTW\*.sql) do call :dump %%i
 
-echo ����...
+echo 完成...
 echo.
 set charprompt=y
-set /p charprompt=�w�ˡuNPC/���~/�ޯ൥�W�١v�����: (y) �T�w �� (N) �����H�]�w�]��-�T�w�^:
+set /p charprompt=安裝「NPC/物品/技能等名稱」中文化: (y) 確定 或 (N) 取消？（預設值-確定）:
 if /i %charprompt%==n goto custom_ask
 for %%i in (..\sql\L2JTW_2\*.sql) do call :dump %%i
-echo ����...
+echo 完成...
 echo.
-echo ���`�N�G�����t�Φw�ˤ���Ʒ|���ѡA�ɭP�C�����X�{�ýX
-echo �@�@�@�@�p�G�J��o�ر��ΡA�ЦA��ʾɤJ SQL �̭���
-echo �@�@�@�@skill_tw / item_tw / messagetable �o 3 �� SQL
+echo ☆注意：部分系統安裝中文化會失敗，導致遊戲中出現亂碼
+echo 　　　　如果遇到這種情形，請再手動導入 SQL 裡面的
+echo 　　　　skill_tw / item_tw / messagetable 這 3 個 SQL
 goto custom_ask
 
 :dump
 set cmdline=
-if /i %full% == 1 (set action=�w��) else (set action=��s)
+if /i %full% == 1 (set action=安裝) else (set action=更新)
 echo %action% %1>>"%output%"
 echo %action% %~nx1
 if "%dest%"=="ls" set cmdline="%mysqlPath%" -h %lshost% -u %lsuser% --password=%lspass% -D %lsdb% ^< %1 2^>^>"%output%"
@@ -903,31 +903,31 @@ goto :eof
 
 :omfg2
 REM ------------------------------------------------------
-REM ��Ʈw�w�˹L�{���o�Ϳ��~
+REM 資料庫安裝過程中發生錯誤
 set dp_err=2
-echo ��Ʈw�w�˹L�{���o�Ϳ��~�GErtheia> ..\doc\L2J_DataPack_Ver.txt
+echo 資料庫安裝過程中發生錯誤：Ertheia> ..\doc\L2J_DataPack_Ver.txt
 REM ------------------------------------------------------
 cls
 set ntpebcak=c
 call :colors 47
-title �w�� L2JTW DP - ���q %stage% �o�Ϳ��~
+title 安裝 L2JTW DP - 階段 %stage% 發生錯誤
 echo.
-echo �X�{���~�G
+echo 出現錯誤：
 echo %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb%
 echo.
-echo �ɮ� %~nx1
+echo 檔案 %~nx1
 echo.
-echo �B�z�覡�H
+echo 處理方式？
 echo.
-echo (l)�x�s���~�T���A�H��K�d��
+echo (l)儲存錯誤訊息，以方便查詢
 echo.
-echo (c)�~��
+echo (c)繼續
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p ntpebcak=�п�ܡ]�w�]��-�~��^:
+set /p ntpebcak=請選擇（預設值-繼續）:
 if /i %ntpebcak%==c (call :colors 17 & goto :eof)
 if /i %ntpebcak%==l (call :logginon %1 & goto :eof)
 if /i %ntpebcak%==r set dp_err=0
@@ -938,7 +938,7 @@ goto omfg2
 :logginon
 cls
 call :colors 17
-title �w�� L2JTW DP - �x�s���~�T��
+title 安裝 L2JTW DP - 儲存錯誤訊息
 set logging=1
 if %full% == 1 (
   set output=%logdir%\install-%~nx1.log
@@ -946,18 +946,18 @@ if %full% == 1 (
   set output=%logdir%\upgrade-%~nx1.log
 )
 echo.
-echo �ǳ��x�s���~�T��
+echo 準備儲存錯誤訊息
 echo.
-echo �ɮ׬��u%output%�v
+echo 檔案為「%output%」
 echo.
-echo �p�G���ɮפw�s�b�A�жi��ƥ��A�_�h�N�|�л\�L�h
+echo 如果此檔案已存在，請進行備份，否則將會覆蓋過去
 echo.
 pause
 set cmdline="%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^<..\sql\%1 2^>^>"%output%"
 date /t >"%output%"
 time /t >>"%output%"
 %cmdline%
-echo �x�s���~�T��...
+echo 儲存錯誤訊息...
 call :colors 17
 set logging=0
 set output=NUL
@@ -965,24 +965,24 @@ goto :eof
 
 :custom_ask
 set stage=7
-title �w�� L2JTW DP - custom �ۭq��ƪ��]���q %stage%�^
+title 安裝 L2JTW DP - custom 自訂資料表（階段 %stage%）
 cls
 set cstprompt=y
 echo.
-echo custom �ۭq��ƪ��[�J��Ʈw����
-echo �Ҧ����~�T���N�x�s�b�ucustom_errors.log�v
+echo custom 自訂資料表加入資料庫完成
+echo 所有錯誤訊息將儲存在「custom_errors.log」
 echo.
-echo �Ъ`�N�A�p�G�n�ϳo�Ǧۭq��ƪ�����ҥ�
-echo �A�����ק� config ���ɮ׳]�w
+echo 請注意，如果要使這些自訂資料表能夠啟用
+echo 你必須修改 config 的檔案設定
 echo.
-set /p cstprompt=�w�� custom �ۭq��ƪ�: (y) �T�w �� (N) �����]�w�]��-�T�w�^:
+set /p cstprompt=安裝 custom 自訂資料表: (y) 確定 或 (N) 取消（預設值-確定）:
 if /i %cstprompt%==y goto custom_install
 if /i %cstprompt%==n goto mod_ask
 
 :custom_install
 cls
 echo.
-echo �w�� custom �ۭq���e
+echo 安裝 custom 自訂內容
 echo @echo off> temp.bat
 if exist custom_errors.log del custom_errors.log
 for %%i in (..\sql\game\custom\*.sql) do echo "%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^< %%i 2^>^> custom_errors.log >> temp.bat
@@ -993,25 +993,25 @@ goto mod_ask
 
 :mod_ask
 set stage=8
-title �w�� L2JTW DP - Mod �ۭq��ƪ��]���q %stage%�^
+title 安裝 L2JTW DP - Mod 自訂資料表（階段 %stage%）
 cls
 set cstprompt=y
 echo.
-echo Mod �ۭq��ƪ��[�J��Ʈw����
-echo �Ҧ����~��T�N��J�umod_errors.log�v
+echo Mod 自訂資料表加入資料庫完成
+echo 所有錯誤資訊將放入「mod_errors.log」
 echo.
-echo �Ъ`�N�A�p�G�n�ϳo�Ǧۭq��ƪ�����ҥ�
-echo �A�����ק� config ���ɮ׳]�w
+echo 請注意，如果要使這些自訂資料表能夠啟用
+echo 你必須修改 config 的檔案設定
 echo.
 echo.
-set /p cstprompt=�w�� Mods �ۭq��ƪ�: (y) �T�w �� (N) �����]�w�]��-�T�w�^:
+set /p cstprompt=安裝 Mods 自訂資料表: (y) 確定 或 (N) 取消（預設值-確定）:
 if /i %cstprompt%==y goto mod_install
 if /i %cstprompt%==n goto end
 
 :mod_install
 cls
 echo.
-echo �w�� Mods �ۭq���e
+echo 安裝 Mods 自訂內容
 echo @echo off> temp.bat
 if exist mods_errors.log del mods_errors.log
 for %%i in (..\sql\game\mods\*.sql) do echo "%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^< %%i 2^>^> mods_errors.log >> temp.bat
@@ -1019,27 +1019,27 @@ call temp.bat> nul
 del temp.bat
 move mods_errors.log %workdir%
 REM ------------------------------------------------------
-REM ��Ʈw�w�˧���
+REM 資料庫安裝完成
 if %dp_err% == 0 set dp_err=1
 REM ------------------------------------------------------
 goto end
 
 :omfg
 REM ------------------------------------------------------
-REM ��Ʈw�w�˹L�{���o�Ϳ��~
+REM 資料庫安裝過程中發生錯誤
 set dp_err=2
-echo ��Ʈw�w�˹L�{���o�Ϳ��~�GErtheia> ..\doc\L2J_DataPack_Ver.txt
+echo 資料庫安裝過程中發生錯誤：Ertheia> ..\doc\L2J_DataPack_Ver.txt
 REM ------------------------------------------------------
 set omfgprompt=q
 call :colors 57
 cls
-title �w�� L2JTW DP - ���q %stage% �o�Ϳ��~
+title 安裝 L2JTW DP - 階段 %stage% 發生錯誤
 echo.
-echo ����ɥX�{���~�G
+echo 執行時出現錯誤：
 echo.
 echo "%cmdline%"
 echo.
-echo ��ĳ�ˬd�@�U�]�w����ơA�H�T�O�Ҧ���J���ƭȨS�����~�I
+echo 建議檢查一下設定的資料，以確保所有輸入的數值沒有錯誤！
 echo.
 if %stage% == 1 set label=ls_err1
 if %stage% == 2 set label=ls_err2
@@ -1048,13 +1048,13 @@ if %stage% == 4 set label=cs_err2
 if %stage% == 5 set label=gs_err1
 if %stage% == 6 set label=gs_err2
 echo.
-echo (c)�~��
+echo (c)繼續
 echo.
-echo (r)���s�]�w
+echo (r)重新設定
 echo.
-echo (q)�h�X
+echo (q)退出
 echo.
-set /p omfgprompt=�п�ܡ]�w�]��-�h�X�^:
+set /p omfgprompt=請選擇（預設值-退出）:
 if /i %omfgprompt%==c goto %label%
 if /i %omfgprompt%==r set dp_err=0
 if /i %omfgprompt%==r goto configure
@@ -1062,22 +1062,22 @@ if /i %omfgprompt%==q goto end
 goto omfg
 
 :binaryfind
-if EXIST "%mysqlBinPath%" (echo ��쪺 MySQL) else (echo �S����� MySQL�A�Цb�U����J���T����m...)
+if EXIST "%mysqlBinPath%" (echo 找到的 MySQL) else (echo 沒有找到 MySQL，請在下面輸入正確的位置...)
 goto :eof
 
 :end
 REM ------------------------------------------------------
-REM �x�s DP �䴩��������T
-if %dp_err% == 0 echo ��Ʈw�w�˥������GErtheia> ..\doc\L2J_DataPack_Ver.txt
+REM 儲存 DP 支援的版本資訊
+if %dp_err% == 0 echo 資料庫安裝未完成：Ertheia> ..\doc\L2J_DataPack_Ver.txt
 if %dp_err% == 1 echo Ertheia> ..\doc\L2J_DataPack_Ver.txt
 REM ------------------------------------------------------
 call :colors 17
-title �w�� L2JTW DP - ����
+title 安裝 L2JTW DP - 完成
 cls
 echo.
-echo L2JTW DP �w�˧���
+echo L2JTW DP 安裝完畢
 echo.
-echo �P�¨ϥ� L2JTW ���A��
-echo ������T�i�H�b http://www.l2jtw.com �d�ߨ�
+echo 感謝使用 L2JTW 伺服器
+echo 相關資訊可以在 http://www.l2jtw.com 查詢到
 echo.
 pause
