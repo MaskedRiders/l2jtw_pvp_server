@@ -1,5 +1,5 @@
 @echo off
-REM ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—
+REM ƒNƒŠ[ƒ“ƒAƒbƒv
 if exist ..\game\data\stats\skills\10000-10099.xml del ..\game\data\stats\skills\10000-10099.xml
 if exist ..\game\data\stats\skills\27000-Add.xml del ..\game\data\stats\skills\27000-Add.xml
 if exist ..\game\data\stats\skills\27000-Subclass.xml del ..\game\data\stats\skills\27000-Subclass.xml
@@ -13,120 +13,120 @@ if exist ..\sql\L2JTW_2\item_tw.sql del ..\sql\L2JTW_2\item_tw.sql
 if exist ..\sql\L2JTW_2\npc_tw.sql del ..\sql\L2JTW_2\npc_tw.sql
 if exist ..\sql\L2JTW_2\skill_tw.sql del ..\sql\L2JTW_2\skill_tw.sql
 
-REM GSãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚µãƒãƒ¼ãƒˆæƒ…å ±ã‚’ç¢ºèªã—ã¦ãã ã•ã„
+REM GSƒo[ƒWƒ‡ƒ“ƒTƒ|[ƒgî•ñ‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢
 set dp_err=0
-if not exist ..\doc\L2J_Server_Ver.txt echo GSã¯ã€ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã®ã‚µãƒãƒ¼ãƒˆã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸï¼
-if not exist ..\doc\L2J_Server_Ver.txt echo ã‚‚ã†ä¸€åº¦ã—ã¦ãã ã•ã„ï¼šã‚³ãƒ³ãƒ•ã‚£ã‚°GS â†’ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«â†’ GSè§£å‡GS â†’ã‚»ãƒƒãƒˆã‚’æ›´æ–°
+if not exist ..\doc\L2J_Server_Ver.txt echo GS‚ÍAƒo[ƒWƒ‡ƒ“î•ñ‚ÌƒTƒ|[ƒg‚ðŒ©‚Â‚¯‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½I
+if not exist ..\doc\L2J_Server_Ver.txt echo ‚à‚¤ˆê“x‚µ‚Ä‚­‚¾‚³‚¢FƒRƒ“ƒtƒBƒOGS ¨ƒRƒ“ƒpƒCƒ‹¨ GS‰ð“€GS ¨ƒZƒbƒg‚ðXV
 if not exist ..\doc\L2J_Server_Ver.txt echo.
 if not exist ..\doc\L2J_Server_Ver.txt pause
 if not exist ..\doc\L2J_Server_Ver.txt goto end
-REM GSã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±æ”¯æ´ã‚’å¾—ã‚‹
+REM GS‚Ìƒo[ƒWƒ‡ƒ“î•ñŽx‰‡‚ð“¾‚é
 FOR /F %%g IN (..\doc\L2J_Server_Ver.txt) DO set vgs=%%g
-REM GSãƒã‚§ãƒƒã‚¯ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’ã‚µãƒãƒ¼ãƒˆ
-if not %vgs% == Ertheia echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’ç¶šè¡Œã™ã‚‹ã“ã¨ãŒã§ãã¾ã›ã‚“DP ã€ç†ç”±ï¼š
-if not %vgs% == Ertheia echo ã‚µãƒãƒ¼ãƒˆGSã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã¯æ¬¡ã®ã¨ãŠã‚Šã§ã™ã€‚ï¼š%vgs%
-if not %vgs% == Ertheia echo DP DPç‰ˆãŒã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ã¾ã™ï¼šErtheia
-if not %vgs% == Ertheia echo GSã¨DPã¯åŒã˜ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã—ã€å†åº¦å®Ÿè¡Œã—ã¦ãã ã•ã„
+REM GSƒ`ƒFƒbƒNƒo[ƒWƒ‡ƒ“î•ñ‚ðƒTƒ|[ƒg
+if not %vgs% == Ertheia echo ƒCƒ“ƒXƒg[ƒ‹‚ð‘±s‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñDP A——RF
+if not %vgs% == Ertheia echo ƒTƒ|[ƒgGS‚Ìƒo[ƒWƒ‡ƒ“‚ÍŽŸ‚Ì‚Æ‚¨‚è‚Å‚·BF%vgs%
+if not %vgs% == Ertheia echo DP DP”Å‚ªƒTƒ|[ƒg‚³‚ê‚Ä‚¢‚Ü‚·FErtheia
+if not %vgs% == Ertheia echo GS‚ÆDP‚Í“¯‚¶ƒo[ƒWƒ‡ƒ“‚ðŽg—p‚µ‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚µAÄ“xŽÀs‚µ‚Ä‚­‚¾‚³‚¢
 if not %vgs% == Ertheia echo.
 if not %vgs% == Ertheia pause
 if not %vgs% == Ertheia goto end
 
-REM æ©Ÿèƒ½ï¼šå®šæœŸçš„ã«ã‚¨ãƒ©ãƒ¼GSã‚’é˜²æ­¢ã™ã‚‹ãŸã‚ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚„ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’å‰Šé™¤
-if not exist ..\libs\*.jar echo ã“ã‚Œã‚‰ã¯ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ç¶šè¡Œã™ã‚‹ã«ã¯ã€äº‹å‰ã«ã€ GSã®ã€Œã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã•ã‚ŒãŸã€ - è§£å‡ã‚’å†åº¦ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„
+REM ‹@”\F’èŠú“I‚ÉƒGƒ‰[GS‚ð–hŽ~‚·‚é‚½‚ß‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚âƒLƒƒƒbƒVƒ…‚ðíœ
+if not exist ..\libs\*.jar echo ‚±‚ê‚ç‚ÍƒCƒ“ƒXƒg[ƒ‹ƒf[ƒ^ƒx[ƒX‚ð‘±s‚·‚é‚É‚ÍAŽ–‘O‚ÉA GS‚ÌuƒRƒ“ƒpƒCƒ‹‚³‚ê‚½v - ‰ð“€‚ðÄ“x‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
 if not exist ..\libs\*.jar echo.
 if not exist ..\libs\*.jar pause
 if not exist ..\libs\*.jar exit
 
-REM ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚­ãƒ£ãƒƒã‚·ãƒ¥ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€ã‚µãƒ¼ãƒãŒèµ·å‹•ã—ã¦ã„ãªã„ã¨è¿°ã¹ã€ãã®å¾Œãƒã‚§ãƒƒã‚¯ã‚’ã‚¹ã‚­ãƒƒãƒ—
+REM ƒ‰ƒCƒuƒ‰ƒŠƒLƒƒƒbƒVƒ…‚ª‘¶Ý‚µ‚È‚¢ê‡‚ÍAƒT[ƒo‚ª‹N“®‚µ‚Ä‚¢‚È‚¢‚Æq‚×A‚»‚ÌŒãƒ`ƒFƒbƒN‚ðƒXƒLƒbƒv
 if not exist ..\game\cachedir\ md ..\game\cachedir\
 if not exist ..\game\cachedir\packages\*.pkc goto _lib_update
 
-REM ãƒ­ã‚°ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€ã‚µãƒ¼ãƒãŒèµ·å‹•ã—ã¦ã„ãªã„ã¨è¿°ã¹ã€ãã®å¾Œãƒã‚§ãƒƒã‚¯ã‚’ã‚¹ã‚­ãƒƒãƒ—
+REM ƒƒO‚ª‘¶Ý‚µ‚È‚¢ê‡‚ÍAƒT[ƒo‚ª‹N“®‚µ‚Ä‚¢‚È‚¢‚Æq‚×A‚»‚ÌŒãƒ`ƒFƒbƒN‚ðƒXƒLƒbƒv
 if not exist ..\game\log\*.log goto _lib_update
 
 REM ------------------------------------------------------
-REM _lib_check1ãƒã‚§ãƒƒã‚¯ãŒå§‹ã¾ã‚‹
-REM Windowsã®CMDæƒ…å ±ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒã™ã§ã«å­˜åœ¨ã™ã‚‹å ´åˆã¯ã€ãƒã‚§ãƒƒã‚¯ã‚’ã‚¹ã‚­ãƒƒãƒ—
+REM _lib_check1ƒ`ƒFƒbƒN‚ªŽn‚Ü‚é
+REM Windows‚ÌCMDî•ñ‚Ìƒo[ƒWƒ‡ƒ“‚ª‚·‚Å‚É‘¶Ý‚·‚éê‡‚ÍAƒ`ƒFƒbƒN‚ðƒXƒLƒbƒv
 if exist ..\game\cachedir\check_w_ver.txt goto _lib_check1
 
-REM Windowsã®CMDæƒ…å ±ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€æƒ…å ±ã®ç¢ºç«‹
+REM Windows‚ÌCMDî•ñ‚Ìƒo[ƒWƒ‡ƒ“‚ª‘¶Ý‚µ‚È‚¢ê‡‚ÍAî•ñ‚ÌŠm—§
 ver > ..\game\cachedir\check_w_ver.txt
 goto _lib_del
 
 :_lib_check1
-REM Windowsã®CMDãƒ‹ãƒ¥ãƒ¼ã‚¹ã®ç¾åœ¨ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹
+REM Windows‚ÌCMDƒjƒ…[ƒX‚ÌŒ»Ý‚Ìƒo[ƒWƒ‡ƒ“‚ðŽæ“¾‚·‚é
 ver > %temp%\check.txt
 FOR /F "skip=1 delims=*" %%a IN (%temp%\check.txt) do set aaa=%%a
 
-REM Windowsã®CMDã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ãŒã™ã§ã«å­˜åœ¨ã—å¾—ã‚‹
+REM Windows‚ÌCMD‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ª‚·‚Å‚É‘¶Ý‚µ“¾‚é
 FOR /F "skip=1 delims=*" %%b IN (..\game\cachedir\check_w_ver.txt) do set bbb=%%b
 
-REM Windowsã®CMDãƒ‹ãƒ¥ãƒ¼ã‚¹ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’æ¯”è¼ƒ
+REM Windows‚ÌCMDƒjƒ…[ƒX‚Ìƒo[ƒWƒ‡ƒ“‚ð”äŠr
 if "%aaa%"=="%bbb%" goto _start_lib_check2
-echo Windowsã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒæ›´æ–°ã•ã‚Œã¦ã„ã‚‹ã®ã§ã€ãã®ã‚ˆã†ã«å¤ã„ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚„ã‚¨ãƒ©ãƒ¼ã®GSã‚’é˜²æ­¢ã™ã‚‹ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’å‰Šé™¤ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™
+echo Windows‚Ìƒo[ƒWƒ‡ƒ“‚ªXV‚³‚ê‚Ä‚¢‚é‚Ì‚ÅA‚»‚Ì‚æ‚¤‚ÉŒÃ‚¢ƒ‰ƒCƒuƒ‰ƒŠ‚âƒGƒ‰[‚ÌGS‚ð–hŽ~‚·‚é‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚ðíœ‚·‚é•K—v‚ª‚ ‚è‚Ü‚·
 echo.
 pause
 goto _lib_del
-REM _lib_check1ãƒã‚§ãƒƒã‚¯çµ‚äº†
+REM _lib_check1ƒ`ƒFƒbƒNI—¹
 REM ------------------------------------------------------
 
 REM ------------------------------------------------------
 :_start_lib_check2
-REM _lib_check2ãƒã‚§ãƒƒã‚¯ãŒå§‹ã¾ã‚‹
-REM Javaãƒ‘ã‚¹ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€æ¬¡ã®æ¤œæŸ»ã«ã‚¹ã‚­ãƒƒãƒ—
-REM å­˜åœ¨ã—ãªã„å ´åˆã¯ã€ã“ã®ãƒã‚§ãƒƒã‚¯ã‚’_start_lib_check3ä¸€æ™‚åœæ­¢ "%ProgramFiles%\Java\jdk1.8.*" goto _start_lib_check3
+REM _lib_check2ƒ`ƒFƒbƒN‚ªŽn‚Ü‚é
+REM JavaƒpƒX‚ª‘¶Ý‚µ‚È‚¢ê‡‚ÍAŽŸ‚ÌŒŸ¸‚ÉƒXƒLƒbƒv
+REM ‘¶Ý‚µ‚È‚¢ê‡‚ÍA‚±‚Ìƒ`ƒFƒbƒN‚ð_start_lib_check3ˆêŽž’âŽ~ "%ProgramFiles%\Java\jdk1.8.*" goto _start_lib_check3
 if not exist "%ProgramFiles%\Java\jdk1.8.*" goto _lib_end
 
-REM Javaã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ãŒæ—¢ã«å­˜åœ¨ã™ã‚‹å ´åˆã€äºŒã¤ã®ãƒã‚§ãƒƒã‚¯ã‚¹ã‚­ãƒƒãƒ—
+REM Java‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ªŠù‚É‘¶Ý‚·‚éê‡A“ñ‚Â‚Ìƒ`ƒFƒbƒNƒXƒLƒbƒv
 if exist ..\game\cachedir\check_j_ver.txt goto _lib_check2
 
-REM Javaãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã¯ã€æƒ…å ±ã®è¨­å®šãŒå­˜åœ¨ã—ãªã„å ´åˆ
+REM Javaƒo[ƒWƒ‡ƒ“î•ñ‚ÍAî•ñ‚ÌÝ’è‚ª‘¶Ý‚µ‚È‚¢ê‡
 dir "%ProgramFiles%\Java\jdk1.8.*" /A:D /B /O > ..\game\cachedir\check_j_ver.txt
 goto _lib_del
 
 :_lib_check2
-REM Javaã®ãƒ‹ãƒ¥ãƒ¼ã‚¹ã®ç¾åœ¨ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹
+REM Java‚Ìƒjƒ…[ƒX‚ÌŒ»Ý‚Ìƒo[ƒWƒ‡ƒ“‚ðŽæ“¾‚·‚é
 dir "%ProgramFiles%\Java\jdk1.8.*" /A:D /B /O > %temp%\check.txt
 FOR /F %%j IN (%temp%\check.txt) DO set jjj=%%j
 
-REM æƒ…å ±ãŒã™ã§ã«å­˜åœ¨ã—ã¦ã„ã‚‹Javaã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å–å¾—
+REM î•ñ‚ª‚·‚Å‚É‘¶Ý‚µ‚Ä‚¢‚éJava‚Ìƒo[ƒWƒ‡ƒ“‚ðŽæ“¾
 FOR /F %%k IN (..\game\cachedir\check_j_ver.txt) do set kkk=%%k
 
-REM Javaã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æ¯”è¼ƒ
-REM ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ _start_lib_check3 ã“ã®ãƒã‚§ãƒƒã‚¯ if "%jjj%"=="%kkk%" goto _start_lib_check3
+REM Java‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ð”äŠr
+REM ƒ^ƒCƒ€ƒAƒEƒg _start_lib_check3 ‚±‚Ìƒ`ƒFƒbƒN if "%jjj%"=="%kkk%" goto _start_lib_check3
 if "%jjj%"=="%kkk%" goto _lib_end
-echo ãŠä½¿ã„ã®Javaã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒæ›´æ–°ã•ã‚Œã‚‹ã®ã§ã€ã‚ãªãŸã¯ã‚¨ãƒ©ãƒ¼GSã‚’é˜²ããŸã‚ã«ã€å¤ã„ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¨ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’å‰Šé™¤ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™
+echo ‚¨Žg‚¢‚ÌJava‚Ìƒo[ƒWƒ‡ƒ“‚ªXV‚³‚ê‚é‚Ì‚ÅA‚ ‚È‚½‚ÍƒGƒ‰[GS‚ð–h‚®‚½‚ß‚ÉAŒÃ‚¢ƒ‰ƒCƒuƒ‰ƒŠ‚ÆƒLƒƒƒbƒVƒ…‚ðíœ‚·‚é•K—v‚ª‚ ‚è‚Ü‚·
 echo.
 pause
 goto _lib_del
-REM _lib_check2 çµ‚äº†ã‚’ç¢ºèªã—ã¦ãã ã•ã„
+REM _lib_check2 I—¹‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢
 REM ------------------------------------------------------
 
 REM ------------------------------------------------------
 :_start_lib_check3
-REM _lib_check3ãƒã‚§ãƒƒã‚¯ãŒå§‹ã¾ã‚‹
-REM æ—¥ä»˜ã‚ã‚Œã° - ã™ã§ã«å­˜åœ¨ã—ã¦ã„ã‚‹æƒ…å ±ã®æœˆã¯ã€3ã®ãƒã‚§ãƒƒã‚¯ã‚¹ã‚­ãƒƒãƒ—
+REM _lib_check3ƒ`ƒFƒbƒN‚ªŽn‚Ü‚é
+REM “ú•t‚ ‚ê‚Î - ‚·‚Å‚É‘¶Ý‚µ‚Ä‚¢‚éî•ñ‚ÌŒŽ‚ÍA3‚Ìƒ`ƒFƒbƒNƒXƒLƒbƒv
 if exist ..\game\cachedir\check_d_ver.txt goto _lib_check3
 
-REM æœˆã®æƒ…å ±ãŒå­˜åœ¨ã—ãªã„ã€æƒ…å ±ã®è¨­å®š - æ—¥ä»˜ãŒã‚ã‚Œã°
+REM ŒŽ‚Ìî•ñ‚ª‘¶Ý‚µ‚È‚¢Aî•ñ‚ÌÝ’è - “ú•t‚ª‚ ‚ê‚Î
 date/t > ..\game\cachedir\check_d_ver.txt
 goto _lib_del
 
 :_lib_check3
-REM ç¾åœ¨ã®æ—¥ä»˜ã‚’å–å¾—ã™ã‚‹ - æœˆã®ãƒ‹ãƒ¥ãƒ¼ã‚¹
+REM Œ»Ý‚Ì“ú•t‚ðŽæ“¾‚·‚é - ŒŽ‚Ìƒjƒ…[ƒX
 date/t > %temp%\check.txt
 FOR /F "tokens=2 delims=/" %%d IN (%temp%\check.txt) DO set ddd=%%d
 
-REM ä»Šæœˆã®ãƒ‹ãƒ¥ãƒ¼ã‚¹ - ã™ã§ã«å­˜åœ¨ã—ã¦ã„ã‚‹æ—¥ä»˜ã‚’å–å¾—ã™ã‚‹
+REM ¡ŒŽ‚Ìƒjƒ…[ƒX - ‚·‚Å‚É‘¶Ý‚µ‚Ä‚¢‚é“ú•t‚ðŽæ“¾‚·‚é
 FOR /F "tokens=2 delims=/" %%m IN (..\game\cachedir\check_d_ver.txt) do set mmm=%%m
 
-REM æ—¥ä»˜ã®æ¯”è¼ƒ - æœˆã®ãƒ‹ãƒ¥ãƒ¼ã‚¹
+REM “ú•t‚Ì”äŠr - ŒŽ‚Ìƒjƒ…[ƒX
 if "%ddd%"=="%mmm%" goto _lib_end
-echo ã“ã‚Œã¯ã€æœˆã€å¤ã„ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚„ã‚¨ãƒ©ãƒ¼ã®GSã‚’é˜²æ­¢ã™ã‚‹ãŸã‚ã«ã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã®è‡ªå‹•ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—ã•ã‚Œã¾ã™ã€‚
+echo ‚±‚ê‚ÍAŒŽAŒÃ‚¢ƒ‰ƒCƒuƒ‰ƒŠ‚âƒGƒ‰[‚ÌGS‚ð–hŽ~‚·‚é‚½‚ß‚ÉAƒLƒƒƒbƒVƒ…‚ÌŽ©“®ƒNƒŠ[ƒ“ƒAƒbƒv‚³‚ê‚Ü‚·B
 echo.
 pause
 goto _lib_del
-REM _lib_check3 ãƒã‚§ãƒƒã‚¯çµ‚äº†
+REM _lib_check3 ƒ`ƒFƒbƒNI—¹
 REM ------------------------------------------------------
 
 REM ------------------------------------------------------
@@ -136,11 +136,11 @@ if not exist ..\libs\backup\ md ..\libs\backup\
 copy ..\libs\*.* ..\libs\backup\ /Y > nul
 del ..\libs\*.* /F /Q > nul
 del ..\game\cachedir\packages\*.* /F /Q > nul
-if exist ..\libs\*.jar echo ã‚ãªãŸã¯ã€ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¨ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’å‰Šé™¤ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ï¼ã‚µãƒ¼ãƒãƒ¼ã®é›»æºã‚’ã‚ªãƒ•ã«ã—ãŸã‚Šå†èµ·å‹•ã—ã€å†åº¦å®Ÿè¡Œã—ã¦ãã ã•ã„
+if exist ..\libs\*.jar echo ‚ ‚È‚½‚ÍAƒ‰ƒCƒuƒ‰ƒŠ‚ÆƒLƒƒƒbƒVƒ…‚ðíœ‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñIƒT[ƒo[‚Ì“dŒ¹‚ðƒIƒt‚É‚µ‚½‚èÄ‹N“®‚µAÄ“xŽÀs‚µ‚Ä‚­‚¾‚³‚¢
 if exist ..\libs\*.jar echo.
 if exist ..\libs\*.jar pause
 if exist ..\libs\*.jar exit
-if exist ..\game\cachedir\packages\*.pkc echo ã‚ãªãŸã¯ã€ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¨ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’å‰Šé™¤ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ï¼ã‚µãƒ¼ãƒãƒ¼ã®é›»æºã‚’ã‚ªãƒ•ã«ã—ãŸã‚Šå†èµ·å‹•ã—ã€å†åº¦å®Ÿè¡Œã—ã¦ãã ã•ã„
+if exist ..\game\cachedir\packages\*.pkc echo ‚ ‚È‚½‚ÍAƒ‰ƒCƒuƒ‰ƒŠ‚ÆƒLƒƒƒbƒVƒ…‚ðíœ‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñIƒT[ƒo[‚Ì“dŒ¹‚ðƒIƒt‚É‚µ‚½‚èÄ‹N“®‚µAÄ“xŽÀs‚µ‚Ä‚­‚¾‚³‚¢
 if exist ..\game\cachedir\packages\*.pkc echo.
 if exist ..\game\cachedir\packages\*.pkc pause
 if exist ..\game\cachedir\packages\*.pkc exit
@@ -148,8 +148,8 @@ ver > ..\game\cachedir\check_w_ver.txt
 dir "%ProgramFiles%\Java\jdk1.8.*" /A:D /B /O > ..\game\cachedir\check_j_ver.txt
 date/t > ..\game\cachedir\check_d_ver.txt
 CLS
-echo å¤ã„ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¨ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã¯ã‚¯ãƒªã‚¢ï¼
-echo ã“ã‚Œã‚‰ã¯ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ç¶šè¡Œã™ã‚‹ã«ã¯ã€äº‹å‰ã«ã€GSã®ã€Œã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã•ã‚ŒãŸã€ - è§£å‡ã‚’å†åº¦ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„
+echo ŒÃ‚¢ƒ‰ƒCƒuƒ‰ƒŠ‚ÆƒLƒƒƒbƒVƒ…‚ÍƒNƒŠƒAI
+echo ‚±‚ê‚ç‚ÍƒCƒ“ƒXƒg[ƒ‹ƒf[ƒ^ƒx[ƒX‚ð‘±s‚·‚é‚É‚ÍAŽ–‘O‚ÉAGS‚ÌuƒRƒ“ƒpƒCƒ‹‚³‚ê‚½v - ‰ð“€‚ðÄ“x‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
 echo.
 pause
 exit
@@ -201,7 +201,7 @@ set fresh_setup=0
 
 :loadconfig
 cls
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¦‹ã‚‹...ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - ƒvƒƒtƒ@ƒCƒ‹‚ðŒ©‚é...iƒXƒe[ƒW %stage%j
 if not exist %config_file% goto configure
 ren %config_file% vars.bat
 call vars.bat
@@ -209,23 +209,23 @@ ren vars.bat %config_file%
 call :colors 17
 if /i %config_version% == 2 goto ls_backup
 set upgrade_mode=2
-echo ã‚ãªãŸã¯ã€ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’ä½¿ç”¨ã™ã‚‹æœ€åˆã®ã‚ˆã†ã«è¦‹ãˆã‚‹ database_installer
-echo ã—ã‹ã—ã€ç§ã¯ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒã™ã§ã«å­˜åœ¨ã—ã¦ã„ã‚‹ãŒè¦‹ã¤ã‹ã‚Šã¾ã—ãŸ
-echo ã ã‹ã‚‰ç§ã¯ã‚ãªãŸã«ã„ãã¤ã‹è³ªå•ã‚’ã—ã¦ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’ç¶šè¡Œã—ã¦ã”æ¡ˆå†…è‡´ã—ã¾ã™
+echo ‚ ‚È‚½‚ÍA‚±‚Ìƒo[ƒWƒ‡ƒ“‚ðŽg—p‚·‚éÅ‰‚Ì‚æ‚¤‚ÉŒ©‚¦‚é database_installer
+echo ‚µ‚©‚µAŽ„‚ÍAƒCƒ“ƒXƒg[ƒ‹ƒvƒƒtƒ@ƒCƒ‹ƒf[ƒ^ƒx[ƒX‚ª‚·‚Å‚É‘¶Ý‚µ‚Ä‚¢‚é‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½
+echo ‚¾‚©‚çŽ„‚Í‚ ‚È‚½‚É‚¢‚­‚Â‚©Ž¿–â‚ð‚µ‚ÄAƒCƒ“ƒXƒg[ƒ‹‚ð‘±s‚µ‚Ä‚²ˆÄ“à’v‚µ‚Ü‚·
 echo.
-echo ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆè¨­å®šã‚ªãƒ—ã‚·ãƒ§ãƒ³ï¼š
+echo ƒAƒbƒvƒf[ƒgÝ’èƒIƒvƒVƒ‡ƒ“F
 echo.
-echo (1) ã‚¤ãƒ³ãƒãƒ¼ãƒˆ&å¤ã„è¨­å®šã‚’ç¶™ç¶šã—ã¦ä½¿ç”¨ã™ã‚‹ï¼šå…ƒã®ãƒ‡ãƒ¼ã‚¿ã®ä½¿ç”¨ã¨å¤ã„ä»•äº‹ã‚’æ›´æ–°
+echo (1) ƒCƒ“ƒ|[ƒg&ŒÃ‚¢Ý’è‚ðŒp‘±‚µ‚ÄŽg—p‚·‚éFŒ³‚Ìƒf[ƒ^‚ÌŽg—p‚ÆŒÃ‚¢ŽdŽ–‚ðXV
 echo.
-echo (2) ã‚¤ãƒ³ãƒãƒ¼ãƒˆï¼†æ–°ã—ã„è¨­å®šï¼šæ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã¨å†è¨­å®šã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã—ã¾ã™
+echo (2) ƒCƒ“ƒ|[ƒg•V‚µ‚¢Ý’èFV‚µ‚¢ƒf[ƒ^‚ÆÄÝ’è‚³‚ê‚½ƒf[ƒ^‚ðƒCƒ“ƒ|[ƒg‚µ‚Ü‚·
 echo.
-echo (3) æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆï¼šã™ã¹ã¦ã®å¤ã„ãƒ‡ãƒ¼ã‚¿ã¯å‰Šé™¤ã•ã‚Œã€æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã—ã¾ã™
+echo (3) V‚µ‚¢ƒf[ƒ^‚ðƒCƒ“ƒ|[ƒgF‚·‚×‚Ä‚ÌŒÃ‚¢ƒf[ƒ^‚Ííœ‚³‚êAV‚µ‚¢ƒf[ƒ^‚ðƒCƒ“ƒ|[ƒg‚µ‚Ü‚·
 echo.
-echo (4) è¡¨ç¤ºã‚¢ã‚¯ã‚»ã‚¹è¨­å®šå€¤
+echo (4) •\Ž¦ƒAƒNƒZƒXÝ’è’l
 echo.
-echo (5) é€€å‡º
+echo (5) ‘Þo
 echo.
-set /P upgrade_mode="ç•ªå·ã‚’å…¥åŠ›ã—ãŸå¾Œã€[Enter]ã‚­ãƒ¼ã‚’æŠ¼ã—ã¾ã™ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ã€Œ%upgrade_mode%ã€ï¼‰: "
+set /P upgrade_mode="”Ô†‚ð“ü—Í‚µ‚½ŒãA[Enter]ƒL[‚ð‰Ÿ‚µ‚Ü‚·iƒfƒtƒHƒ‹ƒg‚Íu%upgrade_mode%vj: "
 if %upgrade_mode%==1 goto ls_backup
 if %upgrade_mode%==2 goto configure
 if %upgrade_mode%==3 goto configure
@@ -243,7 +243,7 @@ goto :eof
 cls
 call :colors 17
 set stage=0-2
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - ƒCƒ“ƒXƒg[ƒ‹iƒXƒe[ƒW %stage%j
 set config_version=2
 if NOT %upgrade_mode% == 2 (
 set fresh_setup=1
@@ -287,17 +287,17 @@ set backup=.
 set logdir=.
 )
 set mysqlPath=%mysqlBinPath%\mysql.exe
-echo æ–°ã—ã„ã‚»ãƒƒãƒˆãƒã‚¤ãƒ³ãƒˆï¼š
+echo V‚µ‚¢ƒZƒbƒgƒ|ƒCƒ“ƒgF
 echo.
-echo 1.MySql ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+echo 1.MySql ƒvƒƒOƒ‰ƒ€
 echo --------------------
-echo è¨­å®šã—mysql.exeã¨mysqldump.exeã®å ´æ‰€
+echo Ý’è‚µmysql.exe‚Æmysqldump.exe‚ÌêŠ
 echo.
 if "%mysqlBinPath%" == "" (
 set mysqlBinPath=use path
-echo MySQLã®ã®å ´æ‰€ã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸ
+echo MySQL‚Ì‚ÌêŠ‚ðŒ©‚Â‚¯‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½
 ) else (
-echo ã‚¸ãƒ§ãƒ–ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã‹ã©ã†ã‹ã€ãƒ†ã‚¹ãƒˆã®å ´æ‰€ã‚’ä¸‹è¨˜ã®MySQLãã ã•ã„
+echo ƒWƒ‡ƒu‚ðƒCƒ“ƒ|[ƒg‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚©‚Ç‚¤‚©AƒeƒXƒg‚ÌêŠ‚ð‰º‹L‚ÌMySQL‚­‚¾‚³‚¢
 echo.
 echo %mysqlPath%
 )
@@ -305,64 +305,64 @@ if not "%mysqlBinPath%" == "use path" call :binaryfind
 echo.
 path|find "MySQL">NUL
 if %errorlevel% == 0 (
-echo ä¸Šè¨˜ã®MySQLã§ç™ºè¦‹ã•ã‚Œã€ã“ã®ä½ç½®ã§ã¯ã€å ´æ‰€ã‚’å¤‰æ›´ã—ãŸã„å ´åˆã¯å¤‰æ›´ã—ã¦ãã ã•ã„ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã«è¨­å®šã•ã‚Œã¾ã™...
+echo ã‹L‚ÌMySQL‚Å”­Œ©‚³‚êA‚±‚ÌˆÊ’u‚Å‚ÍAêŠ‚ð•ÏX‚µ‚½‚¢ê‡‚Í•ÏX‚µ‚Ä‚­‚¾‚³‚¢AƒfƒtƒHƒ‹ƒg’l‚ÉÝ’è‚³‚ê‚Ü‚·...
 set mysqlBinPath=use path
 ) else (
-echo MySQLã‚’è¦‹ã¤ã‘ã‚‹ã“ã¨ãŒã§ããªã„ã€mysql.exeä½ç½®ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„...
+echo MySQL‚ðŒ©‚Â‚¯‚é‚±‚Æ‚ª‚Å‚«‚È‚¢Amysql.exeˆÊ’u‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢...
 echo.
-echo ã“ã‚ŒãŒä½•ã‚’æ„å‘³ã™ã‚‹ã‹ã¨æ“ä½œæ–¹æ³•ãŒã‚ã‹ã‚‰ãªã„å ´åˆã¯ã€è³ªå•ã‚’ã—ãŸã‚Šã€é–¢é€£ã™ã‚‹æƒ…å ±ã‚’è¦‹ã¤ã‘ã‚‹ãŸã‚ã«å…¬å¼ã‚µã‚¤ãƒˆã‚’L2JTWãŸã‚ã«ã‚¦ã‚§ãƒ–ã‚µã‚¤ãƒˆã¾ãŸã¯é–¢é€£ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„
+echo ‚±‚ê‚ª‰½‚ðˆÓ–¡‚·‚é‚©‚Æ‘€ì•û–@‚ª‚í‚©‚ç‚È‚¢ê‡‚ÍAŽ¿–â‚ð‚µ‚½‚èAŠÖ˜A‚·‚éî•ñ‚ðŒ©‚Â‚¯‚é‚½‚ß‚ÉŒöŽ®ƒTƒCƒg‚ðL2JTW‚½‚ß‚ÉƒEƒFƒuƒTƒCƒg‚Ü‚½‚ÍŠÖ˜A‚ÉƒAƒNƒZƒX‚µ‚Ä‚­‚¾‚³‚¢
 )
 echo.
-echo mysql.exeå ´æ‰€ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š
+echo mysql.exeêŠ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F
 set /P mysqlBinPath="(default %mysqlBinPath%): "
 cls
 echo.
-echo 2.ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã®è¨­å®š
+echo 2.uƒƒOƒCƒ“ƒT[ƒov‚ÌÝ’è
 echo --------------------
-echo ã“ã®ã‚¸ãƒ§ãƒ–ã¯ã€MySQLã‚µãƒ¼ãƒãŠã‚ˆã³ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ“ä½œã®ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã«æŽ¥ç¶šã—ã¾ã™
+echo ‚±‚ÌƒWƒ‡ƒu‚ÍAMySQLƒT[ƒo‚¨‚æ‚ÑƒCƒ“ƒ|[ƒg‘€ì‚ÌuƒƒOƒCƒ“ƒT[ƒov‚ÉÚ‘±‚µ‚Ü‚·
 echo.
-set /P lsuser="ãƒ¦ãƒ¼ã‚¶ãƒ¼åï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%lsuser%ã€ï¼‰: "
+set /P lsuser="ƒ†[ƒU[–¼iƒfƒtƒHƒ‹ƒgu%lsuser%vj: "
 :_lspass
-set /P lspass="ãƒ¦ãƒ¼ã‚¶ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%lspass%ã€ï¼‰: "
+set /P lspass="ƒ†[ƒUƒpƒXƒ[ƒhiƒfƒtƒHƒ‹ƒgu%lspass%vj: "
 if "%lspass%"=="" goto _lspass
-set /P lsdb="ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%lsdb%ã€ï¼‰: "
-set /P lshost="ãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%lshost%ã€ï¼‰: "
+set /P lsdb="ƒf[ƒ^ƒx[ƒXiƒfƒtƒHƒ‹ƒgu%lsdb%vj: "
+set /P lshost="ƒƒP[ƒVƒ‡ƒ“iƒfƒtƒHƒ‹ƒgu%lshost%vj: "
 echo.
 cls
 echo.
-echo 3-ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€ã®è¨­å®š
+echo 3-uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[v‚ÌÝ’è
 echo --------------------
-echo ã“ã®ã‚¸ãƒ§ãƒ–ã¯ã€ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒã€ã€ãŠã‚ˆã³ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ“ä½œã®MySQLã‚µãƒ¼ãƒãƒ¼ã«æŽ¥ç¶šã—ã¾ã™
+echo ‚±‚ÌƒWƒ‡ƒu‚ÍAuƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒovA‚¨‚æ‚ÑƒCƒ“ƒ|[ƒg‘€ì‚ÌMySQLƒT[ƒo[‚ÉÚ‘±‚µ‚Ü‚·
 echo.
-set /P cbuser="ãƒ¦ãƒ¼ã‚¶ãƒ¼åï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%cbuser%ã€ï¼‰: "
+set /P cbuser="ƒ†[ƒU[–¼iƒfƒtƒHƒ‹ƒgu%cbuser%vj: "
 :_cbpass
-set /P cbpass="ãƒ¦ãƒ¼ã‚¶ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%cbpass%ã€ï¼‰: "
+set /P cbpass="ƒ†[ƒUƒpƒXƒ[ƒhiƒfƒtƒHƒ‹ƒgu%cbpass%vj: "
 if "%cbpass%"=="" goto _cbpass
-set /P cbdb="ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%cbdb%ã€ï¼‰: "
-set /P cbhost="ãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%cbhost%ã€ï¼‰: "
+set /P cbdb="ƒf[ƒ^ƒx[ƒXiƒfƒtƒHƒ‹ƒgu%cbdb%vj: "
+set /P cbhost="ƒƒP[ƒVƒ‡ƒ“iƒfƒtƒHƒ‹ƒgu%cbhost%vj: "
 echo.
 cls
 echo.
-echo 4.ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®è¨­å®š
+echo 4.uƒQ[ƒ€ƒT[ƒov‚ÌÝ’è
 echo --------------------
-echo ã“ã®ã‚¸ãƒ§ãƒ–ã¯ã€MySQLã‚µãƒ¼ãƒã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã«æŽ¥ç¶šã—ã€ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ“ä½œã«ãªã‚‹
-set /P gsuser="ãƒ¦ãƒ¼ã‚¶ãƒ¼åï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%gsuser%ã€ï¼‰: "
+echo ‚±‚ÌƒWƒ‡ƒu‚ÍAMySQLƒT[ƒouƒQ[ƒ€ƒT[ƒov‚ÉÚ‘±‚µAƒCƒ“ƒ|[ƒg‘€ì‚É‚È‚é
+set /P gsuser="ƒ†[ƒU[–¼iƒfƒtƒHƒ‹ƒgu%gsuser%vj: "
 :_gspass
-set /P gspass="ãƒ¦ãƒ¼ã‚¶ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%gspass%ã€ï¼‰: "
+set /P gspass="ƒ†[ƒUƒpƒXƒ[ƒhiƒfƒtƒHƒ‹ƒgu%gspass%vj: "
 if "%gspass%"=="" goto _gspass
-set /P gsdb="ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%gsdb%ã€ï¼‰: "
-set /P gshost="ãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%gshost%ã€ï¼‰: "
+set /P gsdb="ƒf[ƒ^ƒx[ƒXiƒfƒtƒHƒ‹ƒgu%gsdb%vj: "
+set /P gshost="ƒƒP[ƒVƒ‡ƒ“iƒfƒtƒHƒ‹ƒgu%gshost%vj: "
 echo.
 cls
 echo.
-echo 5.ãã®ä»–ã®è¨­å®š
+echo 5.‚»‚Ì‘¼‚ÌÝ’è
 echo --------------------
-set /P cmode="ã‚«ãƒ©ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã‚«ãƒ©ãƒ¼ï¼ˆcï¼‰è‰²ãŒãªã„ï¼ˆnï¼‰ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%cmode%ã€ï¼‰: "
-set /P backup="ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã®å ´æ‰€ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%backup%ã€ï¼‰: "
-set /P logdir="ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å ´æ‰€ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%logdir%ã€ï¼‰: "
+set /P cmode="ƒJƒ‰[ƒ‚[ƒhƒJƒ‰[icjF‚ª‚È‚¢injiƒfƒtƒHƒ‹ƒgu%cmode%vj: "
+set /P backup="ƒoƒbƒNƒAƒbƒv‚ÌêŠiƒfƒtƒHƒ‹ƒgu%backup%vj: "
+set /P logdir="ƒƒOƒƒbƒZ[ƒW‚ÌêŠiƒfƒtƒHƒ‹ƒgu%logdir%vj: "
 :safe1
 set safemode=y
-set /P safemode="ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ï¼ˆY / Nã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€Œ%safemode%ã€ï¼‰: "
+set /P safemode="ƒfƒoƒbƒOƒ‚[ƒhiY / NAƒfƒtƒHƒ‹ƒgu%safemode%vj: "
 if /i %safemode%==y (set safe_mode=1&goto safe2)
 if /i %safemode%==n (set safe_mode=0&goto safe2)
 goto safe1
@@ -400,8 +400,8 @@ echo set gshost=%gshost%>> %config_file%
 echo set logdir=%logdir%>> %config_file%
 echo set backup=%backup%>> %config_file%
 echo.
-echo è¨­å®šæˆåŠŸï¼
-echo ã‚ãªãŸã®è¨­å®šã¯ã€Œ%config_file%ã€ã«ä¿å­˜ã•ã‚Œã¾ã™ï¼Œã‚¯ãƒªã‚¢ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤ºã§ã®ã™ã¹ã¦ã®ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+echo Ý’è¬Œ÷I
+echo ‚ ‚È‚½‚ÌÝ’è‚Íu%config_file%v‚É•Û‘¶‚³‚ê‚Ü‚·CƒNƒŠƒAƒeƒLƒXƒg•\Ž¦‚Å‚Ì‚·‚×‚Ä‚ÌƒAƒJƒEƒ“ƒg‚ÌƒpƒXƒ[ƒh
 echo.
 pause
 goto loadconfig
@@ -411,9 +411,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=1-1
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - ƒoƒbƒNƒAƒbƒvuƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—...
+echo uƒƒOƒCƒ“ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðƒoƒbƒNƒAƒbƒv...
 set cmdline="%mysqldumpPath%" --add-drop-table -h %lshost% -u %lsuser% --password=%lspass% %lsdb% ^> "%backup%\ls_backup.sql" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto ls_db_ok
@@ -423,23 +423,23 @@ cls
 set lsdbprompt=y
 call :colors 47
 set stage=1-2
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãŒå¤±æ•—ã—ã¾ã—ãŸï¼ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - uƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX‚ÌƒoƒbƒNƒAƒbƒv‚ªŽ¸”s‚µ‚Ü‚µ‚½IiƒXƒe[ƒW %stage%j
 echo.
-echo å¤±æ•—ã—ãŸãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ï¼
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒå­˜åœ¨ã—ãªã„ãŸã‚ã§ã‚ã‚‹
-echo æ§‹ç¯‰ã‚’æ”¯æ´ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ %lsdb%ï¼Œã¾ãŸã¯ä»–ã®è¨­å®šã‚’ç¶™ç¶š
+echo Ž¸”s‚µ‚½ƒoƒbƒNƒAƒbƒvI
+echo uƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX‚ª‘¶Ý‚µ‚È‚¢‚½‚ß‚Å‚ ‚é
+echo \’z‚ðŽx‰‡‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚· %lsdb%C‚Ü‚½‚Í‘¼‚ÌÝ’è‚ðŒp‘±
 echo.
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ç¢ºç«‹ã™ã‚‹ï¼Ÿ
+echo uƒƒOƒCƒ“ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðŠm—§‚·‚éH
 echo.
-echo (y)ç¢ºå®š
+echo (y)Šm’è
 echo.
-echo (n)å–æ¶ˆ
+echo (n)ŽæÁ
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p lsdbprompt=ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - OKï¼‰é¸æŠžã—ã¦ãã ã•ã„ï¼š
+set /p lsdbprompt=iƒfƒtƒHƒ‹ƒg - OKj‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢F
 if /i %lsdbprompt%==y goto ls_db_create
 if /i %lsdbprompt%==n goto cs_backup
 if /i %lsdbprompt%==r goto configure
@@ -451,9 +451,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=2-1
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ç¢ºç«‹ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - Šm—§uƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ç¢ºç«‹...
+echo uƒƒOƒCƒ“ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðŠm—§...
 set cmdline="%mysqlPath%" -h %lshost% -u %lsuser% --password=%lspass% -e "CREATE DATABASE %lsdb%" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto ls_db_ok
@@ -464,24 +464,24 @@ cls
 set omfgprompt=q
 call :colors 47
 set stage=2-2
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆãŒå¤±æ•—ã—ã¾ã—ãŸï¼ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - uƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX‚Ìì¬‚ªŽ¸”s‚µ‚Ü‚µ‚½IiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸï¼
+echo uƒƒOƒCƒ“ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚Ìì¬‚ÉŽ¸”s‚µ‚Ü‚µ‚½I
 echo.
-echo è€ƒãˆã‚‰ã‚Œã‚‹åŽŸå› ï¼š
-echo 1.ãƒ¦ãƒ¼ã‚¶ãƒ¼å/ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰/ãã®ä»–ã®é–¢é€£æƒ…å ±ï¼šãªã©ã®ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚¨ãƒ©ãƒ¼ã€
-echo 2.ãƒ¦ãƒ¼ã‚¶ãƒ¼ã€Œ%lsuser%ã€ä¸ååˆ†ãªãƒ¦ãƒ¼ã‚¶æ¨©é™
-echo 3.ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒã™ã§ã«å­˜åœ¨ã—ã¦ã„ã¾ã™
+echo l‚¦‚ç‚ê‚éŒ´ˆöF
+echo 1.ƒ†[ƒU[–¼/ƒ†[ƒU[ƒpƒXƒ[ƒh/‚»‚Ì‘¼‚ÌŠÖ˜Aî•ñF‚È‚Ç‚Ìƒf[ƒ^“ü—ÍƒGƒ‰[A
+echo 2.ƒ†[ƒU[u%lsuser%v•s\•ª‚Èƒ†[ƒUŒ ŒÀ
+echo 3.ƒf[ƒ^ƒx[ƒX‚ª‚·‚Å‚É‘¶Ý‚µ‚Ä‚¢‚Ü‚·
 echo.
-echo è¨­å®šã‚„ä¿®æ­£ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€ã¾ãŸã¯ç›´æŽ¥å†è¨­å®š
+echo Ý’è‚âC³‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢A‚Ü‚½‚Í’¼ÚÄÝ’è
 echo.
-echo (c)ç¶™ç¶š
+echo (c)Œp‘±
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p omfgprompt=ï¼ˆ - å‡ºå£ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼‰ã‚’é¸æŠž:
+set /p omfgprompt=i - oŒûƒfƒtƒHƒ‹ƒgj‚ð‘I‘ð:
 if /i %omfgprompt%==c goto cs_backup
 if /i %omfgprompt%==r goto configure
 if /i %omfgprompt%==q goto end
@@ -492,21 +492,21 @@ cls
 set loginprompt=u
 call :colors 17
 set stage=2-3
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - uƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ï¼š
+echo uƒƒOƒCƒ“ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·F
 echo.
-echo (f) å®Œå…¨ï¼šã™ã¹ã¦ã®å¤ã„ãƒ‡ãƒ¼ã‚¿ã¨å†ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ãŒå‰Šé™¤ã•ã‚Œã¾ã™
+echo (f) Š®‘SF‚·‚×‚Ä‚ÌŒÃ‚¢ƒf[ƒ^‚ÆÄƒCƒ“ƒ|[ƒgV‚µ‚¢ƒf[ƒ^‚ªíœ‚³‚ê‚Ü‚·
 echo.
-echo (u) ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆï¼šã™ã¹ã¦ã®å¤ã„ãƒ‡ãƒ¼ã‚¿ã‚’ä¿æŒã—ã€æ›´æ–°æ“ä½œã«ãªã‚‹
+echo (u) ƒAƒbƒvƒf[ƒgF‚·‚×‚Ä‚ÌŒÃ‚¢ƒf[ƒ^‚ð•ÛŽ‚µAXV‘€ì‚É‚È‚é
 echo.
-echo (s) çœç•¥ï¼šã“ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ã‚¹ã‚­ãƒƒãƒ—
+echo (s) È—ªF‚±‚ÌƒIƒvƒVƒ‡ƒ“‚ðƒXƒLƒbƒv
 echo.
-echo (r) ãƒªã‚»ãƒƒãƒˆ
+echo (r) ƒŠƒZƒbƒg
 echo.
-echo (q) é€€å‡º
+echo (q) ‘Þo
 echo.
-set /p loginprompt=ï¼ˆ - æ›´æ–°ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼‰ã‚’é¸æŠžã—ã¦ãã ã•ã„:
+set /p loginprompt=i - XVƒfƒtƒHƒ‹ƒgj‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢:
 if /i %loginprompt%==f goto ls_cleanup
 if /i %loginprompt%==u goto ls_upgrade
 if /i %loginprompt%==s goto cs_backup
@@ -518,21 +518,21 @@ goto ls_db_ok
 call :colors 17
 set cmdline=
 set stage=2-4
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ãƒ•ãƒ«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«"ãƒ­ã‚°ã‚ªãƒ³ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - ƒtƒ‹ƒCƒ“ƒXƒg[ƒ‹"ƒƒOƒIƒ“ƒT[ƒo["ƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’å‰Šé™¤ã—ã¦ã€æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆ...
+echo uƒƒOƒCƒ“ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðíœ‚µ‚ÄAV‚µ‚¢ƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒ|[ƒg...
 set cmdline="%mysqlPath%" -h %lshost% -u %lsuser% --password=%lspass% -D %lsdb% ^< ls_cleanup.sql 2^> NUL
 %cmdline%
 if not %ERRORLEVEL% == 0 goto omfg
 set full=1
 echo.
-echo ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒå‰Šé™¤ã•ã‚Œã¾ã—ãŸ
+echo uƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX‚ªíœ‚³‚ê‚Ü‚µ‚½
 goto ls_install
 
 :ls_upgrade
 cls
 echo.
-echo ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ§‹é€ 
+echo ƒAƒbƒvƒf[ƒguƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX\‘¢
 echo.
 echo @echo off> temp.bat
 if exist ls_errors.log del ls_errors.log
@@ -547,21 +547,21 @@ cls
 set cmdline=
 if %full% == 1 (
 set stage=2-5
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DPã¯ - "ãƒ­ã‚°ã‚ªãƒ³ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹...ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP‚Í - "ƒƒOƒIƒ“ƒT[ƒo["ƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒXƒg[ƒ‹‚·‚é...iƒXƒe[ƒW %stage%j
 echo.
-echo æ–°ã—ã„ã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å†…å®¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
+echo V‚µ‚¢uƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX‚Ì“à—e‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
 echo.
 ) else (
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹...ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - ƒAƒbƒvƒf[ƒguƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX...iƒXƒe[ƒW %stage%j
 echo.
-echo ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆã€Œãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å†…å®¹
+echo ƒAƒbƒvƒf[ƒguƒƒOƒCƒ“ƒT[ƒovƒf[ƒ^ƒx[ƒX‚Ì“à—e
 echo.
 )
 if %logging% == 0 set output=NUL
 set dest=ls
 for %%i in (..\sql\login\*.sql) do call :dump %%i
 
-echo å®Ÿè¡Œ
+echo ŽÀs
 echo.
 goto cs_backup
 
@@ -570,9 +570,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=3-1
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã€ãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - ƒoƒbƒNƒAƒbƒvvƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo["ƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—...
+echo uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[v‚Ìƒf[ƒ^ƒx[ƒX‚ðƒoƒbƒNƒAƒbƒv...
 set cmdline="%mysqldumpPath%" --add-drop-table -h %cbhost% -u %cbuser% --password=%cbpass% %cbdb% ^> "%backup%\cs_backup.sql" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto cs_db_ok
@@ -582,23 +582,23 @@ cls
 set cbdbprompt=y
 call :colors 47
 set stage=3-2
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - "ãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€Œãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãŒå¤±æ•—ã—ã¾ã—ãŸï¼ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - "ƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[uƒf[ƒ^ƒx[ƒX‚ÌƒoƒbƒNƒAƒbƒv‚ªŽ¸”s‚µ‚Ü‚µ‚½IiƒXƒe[ƒW %stage%j
 echo.
-echo å¤±æ•—ã—ãŸãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ï¼
-echo ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒå­˜åœ¨ã—ãªã„ãŸã‚ã§ã‚ã‚‹
-echo ã“ã‚Œã§ã€æ§‹ç¯‰ã‚’æ”¯æ´ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ %cbdb%ï¼Œã¾ãŸã¯ä»–ã®è¨­å®šã‚’ç¶™ç¶š
+echo Ž¸”s‚µ‚½ƒoƒbƒNƒAƒbƒvI
+echo uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo["ƒf[ƒ^ƒx[ƒX‚ª‘¶Ý‚µ‚È‚¢‚½‚ß‚Å‚ ‚é
+echo ‚±‚ê‚ÅA\’z‚ðŽx‰‡‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚· %cbdb%C‚Ü‚½‚Í‘¼‚ÌÝ’è‚ðŒp‘±
 echo.
-echo ã€Œè­°è«–æŽ²ç¤ºæ¿ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ï¼Ÿ
+echo u‹c˜_ŒfŽ¦”ÂƒT[ƒovƒf[ƒ^ƒx[ƒX‚ðì¬‚µ‚Ü‚·H
 echo.
-echo (y)ç¢ºå®š
+echo (y)Šm’è
 echo.
-echo (n)å–æ¶ˆ
+echo (n)ŽæÁ
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p cbdbprompt=ï¼ˆ - OKãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼‰ã‚’é¸æŠžã—ã¦ãã ã•ã„:
+set /p cbdbprompt=i - OKƒfƒtƒHƒ‹ƒgj‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢:
 if /i %cbdbprompt%==y goto cs_db_create
 if /i %cbdbprompt%==n goto gs_backup
 if /i %cbdbprompt%==r goto configure
@@ -610,9 +610,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=4-1
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - ã€è¨Žè«–æŽ²ç¤ºæ¿ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã™ã‚‹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - v“¢˜_ŒfŽ¦”ÂƒT[ƒovƒf[ƒ^ƒx[ƒX‚ðì¬‚·‚éiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ç¢ºç«‹ã—ã¦ã„ã‚‹...
+echo uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[v‚Ìƒf[ƒ^ƒx[ƒX‚ðŠm—§‚µ‚Ä‚¢‚é...
 set cmdline="%mysqlPath%" -h %cbhost% -u %cbuser% --password=%cbpass% -e "CREATE DATABASE %cbdb%" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto cs_db_ok
@@ -623,24 +623,24 @@ cls
 set omfgprompt=q
 call :colors 47
 set stage=4-2
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«L2JTW DP - "ãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€Œãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆãŒå¤±æ•—ã—ã¾ã—ãŸï¼ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸æ®µ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹L2JTW DP - "ƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[uƒf[ƒ^ƒx[ƒX‚Ìì¬‚ªŽ¸”s‚µ‚Ü‚µ‚½IiƒXƒe[ƒW’i %stage%j
 echo.
-echo ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰Serverã¯ã€ã€Œãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸï¼
+echo uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhServer‚ÍAuƒf[ƒ^ƒx[ƒX‚Ìì¬‚ÉŽ¸”s‚µ‚Ü‚µ‚½I
 echo.
-echo è€ƒãˆã‚‰ã‚Œã‚‹åŽŸå› ï¼š
-echo 1.ãƒ¦ãƒ¼ã‚¶ãƒ¼å/ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰/ãã®ä»–ã®é–¢é€£æƒ…å ±ï¼šãªã©ã®ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚¨ãƒ©ãƒ¼ã€
-echo 2.ãƒ¦ãƒ¼ã‚¶ãƒ¼ã€Œ%cbuser%ã€æ¨©å¨ã®æ¬ å¦‚
-echo 3.ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒã™ã§ã«å­˜åœ¨ã—ã¦ã„ã¾ã™
+echo l‚¦‚ç‚ê‚éŒ´ˆöF
+echo 1.ƒ†[ƒU[–¼/ƒ†[ƒU[ƒpƒXƒ[ƒh/‚»‚Ì‘¼‚ÌŠÖ˜Aî•ñF‚È‚Ç‚Ìƒf[ƒ^“ü—ÍƒGƒ‰[A
+echo 2.ƒ†[ƒU[u%cbuser%vŒ ˆÐ‚ÌŒ‡”@
+echo 3.ƒf[ƒ^ƒx[ƒX‚ª‚·‚Å‚É‘¶Ý‚µ‚Ä‚¢‚Ü‚·
 echo.
-echo è¨­å®šã‚„ä¿®æ­£ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€ã¾ãŸã¯ç›´æŽ¥å†è¨­å®š
+echo Ý’è‚âC³‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢A‚Ü‚½‚Í’¼ÚÄÝ’è
 echo.
-echo (c)ç¶šã‘ã¦ã„ã
+echo (c)‘±‚¯‚Ä‚¢‚­
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p omfgprompt=é¸æŠžã—ã¦ãã ã•ã„ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - å‡ºå£ï¼‰ï¼š
+set /p omfgprompt=‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢iƒfƒtƒHƒ‹ƒg - oŒûjF
 if /i %omfgprompt%==c goto gs_backup
 if /i %omfgprompt%==r goto configure
 if /i %omfgprompt%==q goto end
@@ -651,21 +651,21 @@ cls
 set communityprompt=u
 call :colors 17
 set stage=4-3
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP -ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP -uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[v‚Ìƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œè­°è«–æŽ²ç¤ºæ¿ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
+echo u‹c˜_ŒfŽ¦”ÂƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
 echo.
-echo (f)å®Œå…¨ï¼šã™ã¹ã¦ã®å¤ã„ãƒ‡ãƒ¼ã‚¿ã¨å†ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ãŒå‰Šé™¤ã•ã‚Œã¾ã™
+echo (f)Š®‘SF‚·‚×‚Ä‚ÌŒÃ‚¢ƒf[ƒ^‚ÆÄƒCƒ“ƒ|[ƒgV‚µ‚¢ƒf[ƒ^‚ªíœ‚³‚ê‚Ü‚·
 echo.
-echo (u)ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆï¼šã™ã¹ã¦ã®å¤ã„ãƒ‡ãƒ¼ã‚¿ã‚’ä¿æŒã—ã€æ›´æ–°æ“ä½œã«ãªã‚‹
+echo (u)ƒAƒbƒvƒf[ƒgF‚·‚×‚Ä‚ÌŒÃ‚¢ƒf[ƒ^‚ð•ÛŽ‚µAXV‘€ì‚É‚È‚é
 echo.
-echo (s)çœç•¥ï¼šã“ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ã‚¹ã‚­ãƒƒãƒ—
+echo (s)È—ªF‚±‚ÌƒIƒvƒVƒ‡ƒ“‚ðƒXƒLƒbƒv
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p communityprompt=é¸æŠžã—ã¦ãã ã•ã„ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆï¼‰:
+set /p communityprompt=‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢iƒfƒtƒHƒ‹ƒg - ƒAƒbƒvƒf[ƒgj:
 if /i %communityprompt%==f goto cs_cleanup
 if /i %communityprompt%==u goto cs_upgrade
 if /i %communityprompt%==s goto gs_backup
@@ -677,21 +677,21 @@ goto cs_db_ok
 call :colors 17
 set cmdline=
 set stage=4-4
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP -å®Œå…¨ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«"ãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP -Š®‘SƒCƒ“ƒXƒg[ƒ‹"ƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo["ƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’å‰Šé™¤ã—ã¦ã€æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆ...
+echo uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[v‚Ìƒf[ƒ^ƒx[ƒX‚ðíœ‚µ‚ÄAV‚µ‚¢ƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒ|[ƒg...
 set cmdline="%mysqlPath%" -h %cbhost% -u %cbuser% --password=%cbpass% -D %cbdb% ^< cs_cleanup.sql 2^> NUL
 %cmdline%
 if not %ERRORLEVEL% == 0 goto omfg
 set full=1
 echo.
-echo ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒå‰Šé™¤ã•ã‚Œã¾ã—ãŸ
+echo uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒovƒf[ƒ^ƒx[ƒX‚ªíœ‚³‚ê‚Ü‚µ‚½
 goto cs_install
 
 :cs_upgrade
 cls
 echo.
-echo ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ "ãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³æŽ²ç¤ºæ¿ã‚µãƒ¼ãƒã€Œãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ§‹é€ 
+echo ƒAƒbƒvƒf[ƒg "ƒfƒBƒXƒJƒbƒVƒ‡ƒ“ŒfŽ¦”ÂƒT[ƒouƒf[ƒ^ƒx[ƒX\‘¢
 echo.
 echo @echo off> temp.bat
 if exist cs_errors.log del cs_errors.log
@@ -706,14 +706,14 @@ cls
 set cmdline=
 if %full% == 1 (
 set stage=4-5
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP -ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ã‚µãƒ¼ãƒãƒ¼ã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚...ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP -uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒT[ƒo[v‚Ìƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B...iƒXƒe[ƒW %stage%j
 echo.
-echo æ–°ã—ã„ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ãƒœãƒ¼ãƒ‰ã‚µãƒ¼ãƒãƒ¼ã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å†…å®¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚...
+echo V‚µ‚¢uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒ{[ƒhƒT[ƒo[v‚Ìƒf[ƒ^ƒx[ƒX‚Ì“à—e‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B...
 echo.
 ) else (
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ã€Œãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³ã‚µãƒ¼ãƒãƒ¼ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’æ›´æ–°ã—ã¾ã™..ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - uƒfƒBƒXƒJƒbƒVƒ‡ƒ“ƒT[ƒo[vƒf[ƒ^ƒx[ƒX‚ðXV‚µ‚Ü‚·..iƒXƒe[ƒW %stage%j
 echo.
-echo ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ "ãƒ‡ã‚£ã‚¹ã‚«ãƒƒã‚·ãƒ§ãƒ³æŽ²ç¤ºæ¿ã‚µãƒ¼ãƒã€Œãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å†…å®¹...
+echo ƒAƒbƒvƒf[ƒg "ƒfƒBƒXƒJƒbƒVƒ‡ƒ“ŒfŽ¦”ÂƒT[ƒouƒf[ƒ^ƒx[ƒX‚Ì“à—e...
 echo.
 )
 if %logging% == 0 set output=NUL
@@ -729,9 +729,9 @@ cls
 call :colors 17
 set cmdline=
 set stage=5-1
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - ƒoƒbƒNƒAƒbƒvuƒQ[ƒ€ƒT[ƒo[vƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã•ã‚Œã¦...
+echo uƒQ[ƒ€ƒT[ƒo[vƒf[ƒ^ƒx[ƒX‚ðƒoƒbƒNƒAƒbƒv‚³‚ê‚Ä...
 set cmdline="%mysqldumpPath%" --add-drop-table -h %gshost% -u %gsuser% --password=%gspass% %gsdb% ^> "%backup%\gs_backup.sql" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto gs_db_ok
@@ -741,23 +741,23 @@ cls
 set gsdbprompt=y
 call :colors 47
 set stage=5-2
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã¯ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã«å¤±æ•—ã—ã¾ã—ãŸï¼ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - uƒQ[ƒ€ƒT[ƒov‚ÍAƒf[ƒ^ƒx[ƒX‚ÌƒoƒbƒNƒAƒbƒv‚ÉŽ¸”s‚µ‚Ü‚µ‚½IiƒXƒe[ƒW %stage%j
 echo.
-echo ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãŒå¤±æ•—ã—ã¾ã—ãŸï¼
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒå­˜åœ¨ã—ãªã„ãŸã‚ã§ã‚ã‚‹
-echo ã“ã‚Œã§ã€æ§‹ç¯‰ã‚’æ”¯æ´ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ %gsdb%ï¼Œã¾ãŸã¯ä»–ã®è¨­å®šã‚’ç¶™ç¶š
+echo ƒoƒbƒNƒAƒbƒv‚ªŽ¸”s‚µ‚Ü‚µ‚½I
+echo uƒQ[ƒ€ƒT[ƒo["ƒf[ƒ^ƒx[ƒX‚ª‘¶Ý‚µ‚È‚¢‚½‚ß‚Å‚ ‚é
+echo ‚±‚ê‚ÅA\’z‚ðŽx‰‡‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚· %gsdb%C‚Ü‚½‚Í‘¼‚ÌÝ’è‚ðŒp‘±
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã‹ï¼Ÿ
+echo uƒQ[ƒ€ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðì¬‚µ‚Ü‚·‚©H
 echo.
 echo (y)OK
 echo.
-echo (n)å–æ¶ˆ
+echo (n)ŽæÁ
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p gsdbprompt=é¸æŠžã—ã¦ãã ã•ã„ï¼šï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - OKï¼‰
+set /p gsdbprompt=‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢FiƒfƒtƒHƒ‹ƒg - OKj
 if /i %gsdbprompt%==y goto gs_db_create
 if /i %gsdbprompt%==n goto eof
 if /i %gsdbprompt%==r goto configure
@@ -769,9 +769,9 @@ cls
 call :colors 17
 set stage=6-1
 set cmdline=
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP -ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®æƒ…å ±ã‚’ä½œæˆã—ã¾ã™ã€‚ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP -uƒQ[ƒ€ƒT[ƒov‚Ìî•ñ‚ðì¬‚µ‚Ü‚·BiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ç¢ºç«‹ã—ã¦ã„ã‚‹...
+echo uƒQ[ƒ€ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðŠm—§‚µ‚Ä‚¢‚é...
 set cmdline="%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -e "CREATE DATABASE %gsdb%" 2^> NUL
 %cmdline%
 if %ERRORLEVEL% == 0 goto gs_db_ok
@@ -782,22 +782,22 @@ cls
 set omfgprompt=q
 call :colors 47
 set stage=6-2
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼ã€ã¯ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸï¼ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - uƒQ[ƒ€ƒT[ƒo[v‚ÍAƒf[ƒ^ƒx[ƒX‚Ìì¬‚ÉŽ¸”s‚µ‚Ü‚µ‚½IiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼ã€ã¯ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸï¼
+echo uƒQ[ƒ€ƒT[ƒo[v‚ÍAƒf[ƒ^ƒx[ƒX‚Ìì¬‚ÉŽ¸”s‚µ‚Ü‚µ‚½I
 echo.
-echo è€ƒãˆã‚‰ã‚Œã‚‹åŽŸå› ï¼š
-echo 1.ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚¨ãƒ©ãƒ¼ï¼ŒãŸã¨ãˆã°ã€æ¬¡ã®ã‚ˆã†ã«ãƒ¦ãƒ¼ã‚¶ãƒ¼å/ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰/ãã®ä»–ã®é–¢é€£æƒ…å ±
-echo 2.ãƒ¦ãƒ¼ã‚¶ãƒ¼ã€Œ%gsuser%ã€æ¨©å¨ã®æ¬ å¦‚
-echo 3.ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒã™ã§ã«å­˜åœ¨ã—ã¦ã„ã¾ã™
+echo l‚¦‚ç‚ê‚éŒ´ˆöF
+echo 1.ƒf[ƒ^“ü—ÍƒGƒ‰[C‚½‚Æ‚¦‚ÎAŽŸ‚Ì‚æ‚¤‚Éƒ†[ƒU[–¼/ƒ†[ƒU[ƒpƒXƒ[ƒh/‚»‚Ì‘¼‚ÌŠÖ˜Aî•ñ
+echo 2.ƒ†[ƒU[u%gsuser%vŒ ˆÐ‚ÌŒ‡”@
+echo 3.ƒf[ƒ^ƒx[ƒX‚ª‚·‚Å‚É‘¶Ý‚µ‚Ä‚¢‚Ü‚·
 echo.
-echo è¨­å®šã‚„ä¿®æ­£ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€ã¾ãŸã¯ç›´æŽ¥å†è¨­å®š
+echo Ý’è‚âC³‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢A‚Ü‚½‚Í’¼ÚÄÝ’è
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p omfgprompt=é¸æŠžã—ã¦ãã ã•ã„ï¼šï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - å‡ºå£ï¼‰
+set /p omfgprompt=‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢FiƒfƒtƒHƒ‹ƒg - oŒûj
 if /i %omfgprompt%==r goto configure
 if /i %omfgprompt%==q goto end
 goto gs_err2
@@ -807,19 +807,19 @@ cls
 set installtype=u
 call :colors 17
 set stage=6-3
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - uƒQ[ƒ€ƒT[ƒovƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
+echo uƒQ[ƒ€ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
 echo.
-echo (f)å®Œå…¨ï¼šã™ã¹ã¦ã®å¤ã„ãƒ‡ãƒ¼ã‚¿ã¨å†ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ãŒå‰Šé™¤ã•ã‚Œã¾ã™
+echo (f)Š®‘SF‚·‚×‚Ä‚ÌŒÃ‚¢ƒf[ƒ^‚ÆÄƒCƒ“ƒ|[ƒgV‚µ‚¢ƒf[ƒ^‚ªíœ‚³‚ê‚Ü‚·
 echo.
-echo (u)ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆï¼šã™ã¹ã¦ã®å¤ã„ãƒ‡ãƒ¼ã‚¿ã‚’ä¿æŒã—ã€æ›´æ–°æ“ä½œã«ãªã‚‹
+echo (u)ƒAƒbƒvƒf[ƒgF‚·‚×‚Ä‚ÌŒÃ‚¢ƒf[ƒ^‚ð•ÛŽ‚µAXV‘€ì‚É‚È‚é
 echo.
-echo (s)çœç•¥ï¼šã“ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ã‚¹ã‚­ãƒƒãƒ—
+echo (s)È—ªF‚±‚ÌƒIƒvƒVƒ‡ƒ“‚ðƒXƒLƒbƒv
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p installtype=é¸æŠžã—ã¦ãã ã•ã„ï¼šï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - æ›´æ–°ï¼‰
+set /p installtype=‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢FiƒfƒtƒHƒ‹ƒg - XVj
 if /i %installtype%==f goto gs_cleanup
 if /i %installtype%==u goto gs_upgrade
 if /i %installtype%==s goto custom_ask
@@ -830,21 +830,21 @@ goto gs_db_ok
 call :colors 17
 set cmdline=
 set stage=6-4
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - å®Œå…¨ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«"ã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼ã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - Š®‘SƒCƒ“ƒXƒg[ƒ‹"ƒQ[ƒ€ƒT[ƒo[v‚Ìƒf[ƒ^ƒx[ƒXiƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’å‰Šé™¤ã—ã¦ã€æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆ...
+echo uƒQ[ƒ€ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðíœ‚µ‚ÄAV‚µ‚¢ƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒ|[ƒg...
 set cmdline="%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^< gs_cleanup.sql 2^> NUL
 %cmdline%
 if not %ERRORLEVEL% == 0 goto omfg
 set full=1
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãŒå‰Šé™¤ã•ã‚Œã¾ã—ãŸ
+echo uƒQ[ƒ€ƒT[ƒo["ƒf[ƒ^ƒx[ƒX‚ªíœ‚³‚ê‚Ü‚µ‚½
 goto gs_install
 
 :gs_upgrade
 cls
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ§‹é€ ã‚’æ›´æ–°ã—ã¾ã—ãŸ
+echo uƒQ[ƒ€ƒT[ƒovƒf[ƒ^ƒx[ƒX\‘¢‚ðXV‚µ‚Ü‚µ‚½
 echo.
 echo @echo off> temp.bat
 if exist gs_errors.log del gs_errors.log
@@ -859,14 +859,14 @@ cls
 set cmdline=
 if %full% == 1 (
 set stage=6-5
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP -ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚...ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP -uƒQ[ƒ€ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B...iƒXƒe[ƒW %stage%j
 echo.
-echo æ–°ã—ã„ "ã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å†…å®¹ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+echo V‚µ‚¢ "ƒQ[ƒ€ƒT[ƒo["ƒf[ƒ^ƒx[ƒX‚Ì“à—e‚ðƒCƒ“ƒXƒg[ƒ‹
 echo.
 ) else (
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’æ›´æ–°ã—ã¾ã—ãŸ...ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - uƒQ[ƒ€ƒT[ƒov‚Ìƒf[ƒ^ƒx[ƒX‚ðXV‚µ‚Ü‚µ‚½...iƒXƒe[ƒW %stage%j
 echo.
-echo ã€Œã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å†…å®¹ã‚’æ›´æ–°ã—ã¾ã—ãŸ
+echo uƒQ[ƒ€ƒT[ƒovƒf[ƒ^ƒx[ƒX‚Ì“à—e‚ðXV‚µ‚Ü‚µ‚½
 echo.
 )
 if %logging% == 0 set output=NUL
@@ -876,22 +876,22 @@ for %%i in (..\sql\game\mods\*.sql) do call :dump %%i
 for %%i in (..\sql\game\custom\*.sql) do call :dump %%i
 for %%i in (..\sql\L2JTW\*.sql) do call :dump %%i
 
-echo å®Œæˆ...
+echo Š®¬...
 echo.
 set charprompt=y
-set /p charprompt=ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã€ŒNPC/ã‚¢ã‚¤ãƒ†ãƒ /åå‰ãªã©ã®ã‚¹ã‚­ãƒ«ã€æ–‡åŒ–: (y)OKã¾ãŸã¯ (N) å–æ¶ˆï¼Ÿï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - [OK]ï¼‰:
+set /p charprompt=ƒCƒ“ƒXƒg[ƒ‹uNPC/ƒAƒCƒeƒ€/–¼‘O‚È‚Ç‚ÌƒXƒLƒ‹v•¶‰»: (y)OK‚Ü‚½‚Í (N) ŽæÁHiƒfƒtƒHƒ‹ƒg - [OK]j:
 if /i %charprompt%==n goto custom_ask
 for %%i in (..\sql\L2JTW_2\*.sql) do call :dump %%i
-echo å®Œæˆ...
+echo Š®¬...
 echo.
-echo â˜†æ³¨æ„ï¼šã‚·ã‚¹ãƒ†ãƒ ã®ä¸€éƒ¨ãŒæ–‡å­—åŒ–ã‘ã‚²ãƒ¼ãƒ ã§ã€ãã®çµæžœã€åŸ¹é¤Šæ¶²ä¸­ã§ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã«å¤±æ•—ã—ã¾ã™
-echo ã€€ã€€ã€€ã€€ã“ã‚ŒãŒäº‹å®Ÿã§ã‚ã‚Œã°ã€æ‰‹å‹•ã§å†…éƒ¨ã®SQLã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹
-echo ã€€ã€€ã€€ã€€skill_tw / item_tw / messagetable ã“ã® 3 å€‹ SQL
+echo ™’ˆÓFƒVƒXƒeƒ€‚Ìˆê•”‚ª•¶Žš‰»‚¯ƒQ[ƒ€‚ÅA‚»‚ÌŒ‹‰ÊA”|—{‰t’†‚Å‚ÌƒCƒ“ƒXƒg[ƒ‹‚ÉŽ¸”s‚µ‚Ü‚·
+echo @@@@‚±‚ê‚ªŽ–ŽÀ‚Å‚ ‚ê‚ÎAŽè“®‚Å“à•”‚ÌSQL‚ðƒCƒ“ƒ|[ƒg‚·‚é
+echo @@@@skill_tw / item_tw / messagetable ‚±‚Ì 3 ŒÂ SQL
 goto custom_ask
 
 :dump
 set cmdline=
-if /i %full% == 1 (set action=ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«) else (set action=æ›´æ–°)
+if /i %full% == 1 (set action=ƒCƒ“ƒXƒg[ƒ‹) else (set action=XV)
 echo %action% %1>>"%output%"
 echo %action% %~nx1
 if "%dest%"=="ls" set cmdline="%mysqlPath%" -h %lshost% -u %lsuser% --password=%lspass% -D %lsdb% ^< %1 2^>^>"%output%"
@@ -903,31 +903,31 @@ goto :eof
 
 :omfg2
 REM ------------------------------------------------------
-REM ã‚¨ãƒ©ãƒ¼ãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ä¸­ã«ç™ºç”Ÿã—ãŸ
+REM ƒGƒ‰[‚ªƒCƒ“ƒXƒg[ƒ‹ƒf[ƒ^ƒx[ƒX’†‚É”­¶‚µ‚½
 set dp_err=2
-echo ã‚¨ãƒ©ãƒ¼ãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ä¸­ã«ç™ºç”Ÿã—ãŸï¼šErtheia> ..\doc\L2J_DataPack_Ver.txt
+echo ƒGƒ‰[‚ªƒCƒ“ƒXƒg[ƒ‹ƒf[ƒ^ƒx[ƒX’†‚É”­¶‚µ‚½FErtheia> ..\doc\L2J_DataPack_Ver.txt
 REM ------------------------------------------------------
 cls
 set ntpebcak=c
 call :colors 47
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP -ã‚¹ãƒ†ãƒ¼ã‚¸ %stage% ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP -ƒXƒe[ƒW %stage% ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½
 echo.
-echo ã‚¨ãƒ©ãƒ¼ï¼š
+echo ƒGƒ‰[F
 echo %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb%
 echo.
-echo ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚º %~nx1
+echo ƒA[ƒJƒCƒuƒY %~nx1
 echo.
-echo æ²»ç™‚ï¼Ÿ
+echo Ž¡—ÃH
 echo.
-echo (l)ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸Â·ã‚¨ãƒ©ãƒ¼Â·ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ã€å•ã„åˆã‚ã›ã‚’å®¹æ˜“ã«ã™ã‚‹
+echo (l)ƒXƒgƒŒ[ƒWƒGƒ‰[ƒƒbƒZ[ƒW‚ÍA–â‚¢‡‚í‚¹‚ð—eˆÕ‚É‚·‚é
 echo.
-echo (c)ç¶šã‘ã¦ã„ã
+echo (c)‘±‚¯‚Ä‚¢‚­
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p ntpebcak=ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - ç¶šãï¼‰é¸æŠžã—ã¦ãã ã•ã„ï¼š
+set /p ntpebcak=iƒfƒtƒHƒ‹ƒg - ‘±‚«j‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢F
 if /i %ntpebcak%==c (call :colors 17 & goto :eof)
 if /i %ntpebcak%==l (call :logginon %1 & goto :eof)
 if /i %ntpebcak%==r set dp_err=0
@@ -938,7 +938,7 @@ goto omfg2
 :logginon
 cls
 call :colors 17
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸Â·ã‚¨ãƒ©ãƒ¼Â·ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - ƒXƒgƒŒ[ƒWƒGƒ‰[ƒƒbƒZ[ƒW
 set logging=1
 if %full% == 1 (
   set output=%logdir%\install-%~nx1.log
@@ -946,18 +946,18 @@ if %full% == 1 (
   set output=%logdir%\upgrade-%~nx1.log
 )
 echo.
-echo ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ ¼ç´ã™ã‚‹æº–å‚™ãŒã§ãã¾ã—ãŸ
+echo ƒGƒ‰[ƒƒbƒZ[ƒW‚ðŠi”[‚·‚é€”õ‚ª‚Å‚«‚Ü‚µ‚½
 echo.
-echo ã®ãŸã‚ã®ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã€Œ%output%ã€
+echo ‚Ì‚½‚ß‚ÌƒA[ƒJƒCƒuu%output%v
 echo.
-echo ãƒ•ã‚¡ã‚¤ãƒ«ãŒã™ã§ã«å­˜åœ¨ã™ã‚‹å ´åˆã€ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã¯ã€ãã‚Œä»¥å¤–ã®å ´åˆã¯ã€éŽåŽ»ã«ã‚«ãƒãƒ¼ã•ã‚Œã‚‹
+echo ƒtƒ@ƒCƒ‹‚ª‚·‚Å‚É‘¶Ý‚·‚éê‡AƒoƒbƒNƒAƒbƒv‚ÍA‚»‚êˆÈŠO‚Ìê‡‚ÍA‰ß‹Ž‚ÉƒJƒo[‚³‚ê‚é
 echo.
 pause
 set cmdline="%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^<..\sql\%1 2^>^>"%output%"
 date /t >"%output%"
 time /t >>"%output%"
 %cmdline%
-echo ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸Â·ã‚¨ãƒ©ãƒ¼Â·ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸...
+echo ƒXƒgƒŒ[ƒWƒGƒ‰[ƒƒbƒZ[ƒW...
 call :colors 17
 set logging=0
 set output=NUL
@@ -965,24 +965,24 @@ goto :eof
 
 :custom_ask
 set stage=7
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - custom ã‚«ã‚¹ã‚¿ãƒ ãƒ‡ãƒ¼ã‚¿ã‚·ãƒ¼ãƒˆï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - custom ƒJƒXƒ^ƒ€ƒf[ƒ^ƒV[ƒgiƒXƒe[ƒW %stage%j
 cls
 set cstprompt=y
 echo.
-echo custom ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«è¿½åŠ ã‚«ã‚¹ã‚¿ãƒ ãƒ†ãƒ¼ãƒ–ãƒ«ãŒå®Œæˆã™ã‚‹
-echo ã™ã¹ã¦ã®ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ã€ã€Œcustom_errors.logã€ã«ä¿å­˜ã•ã‚Œã¾ã™
+echo custom ƒf[ƒ^ƒx[ƒX‚É’Ç‰ÁƒJƒXƒ^ƒ€ƒe[ƒuƒ‹‚ªŠ®¬‚·‚é
+echo ‚·‚×‚Ä‚ÌƒGƒ‰[ƒƒbƒZ[ƒW‚ÍAucustom_errors.logv‚É•Û‘¶‚³‚ê‚Ü‚·
 echo.
-echo å¿…è¦ã«å¿œã˜ã¦ã“ã‚Œã‚‰ã®ã‚«ã‚¹ã‚¿ãƒ ãƒ†ãƒ¼ãƒ–ãƒ«ãŒæœ‰åŠ¹ã«ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã®ã§ã”æ³¨æ„ãã ã•ã„
-echo ã‚ãªãŸãŒå¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ config ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®š
+echo •K—v‚É‰ž‚¶‚Ä‚±‚ê‚ç‚ÌƒJƒXƒ^ƒ€ƒe[ƒuƒ‹‚ª—LŒø‚É‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·‚Ì‚Å‚²’ˆÓ‚­‚¾‚³‚¢
+echo ‚ ‚È‚½‚ª•ÏX‚·‚é•K—v‚ª‚ ‚è‚Ü‚· config ƒtƒ@ƒCƒ‹‚ÌÝ’è
 echo.
-set /p cstprompt=ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« custom ã‚«ã‚¹ã‚¿ãƒ ãƒ‡ãƒ¼ã‚¿ã‚·ãƒ¼ãƒˆ: (y) OKã¾ãŸã¯ (N) ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - OKï¼‰ã‚­ãƒ£ãƒ³ã‚»ãƒ«ï¼š
+set /p cstprompt=ƒCƒ“ƒXƒg[ƒ‹ custom ƒJƒXƒ^ƒ€ƒf[ƒ^ƒV[ƒg: (y) OK‚Ü‚½‚Í (N) iƒfƒtƒHƒ‹ƒg - OKjƒLƒƒƒ“ƒZƒ‹F
 if /i %cstprompt%==y goto custom_install
 if /i %cstprompt%==n goto mod_ask
 
 :custom_install
 cls
 echo.
-echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« custom ã‚«ã‚¹ã‚¿ãƒ ã‚³ãƒ³ãƒ†ãƒ³ãƒ„
+echo ƒCƒ“ƒXƒg[ƒ‹ custom ƒJƒXƒ^ƒ€ƒRƒ“ƒeƒ“ƒc
 echo @echo off> temp.bat
 if exist custom_errors.log del custom_errors.log
 for %%i in (..\sql\game\custom\*.sql) do echo "%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^< %%i 2^>^> custom_errors.log >> temp.bat
@@ -993,25 +993,25 @@ goto mod_ask
 
 :mod_ask
 set stage=8
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - Mod ã‚«ã‚¹ã‚¿ãƒ ãƒ‡ãƒ¼ã‚¿ã‚·ãƒ¼ãƒˆï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ %stage%ï¼‰
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - Mod ƒJƒXƒ^ƒ€ƒf[ƒ^ƒV[ƒgiƒXƒe[ƒW %stage%j
 cls
 set cstprompt=y
 echo.
-echo Mod ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«è¿½åŠ ã‚«ã‚¹ã‚¿ãƒ ãƒ†ãƒ¼ãƒ–ãƒ«ãŒå®Œæˆã™ã‚‹
-echo ã™ã¹ã¦ã®æƒ…å ±ã¯é–“é•ã£ã¦é…ç½®ã•ã‚Œã¾ã™ã€Œmod_errors.logã€
+echo Mod ƒf[ƒ^ƒx[ƒX‚É’Ç‰ÁƒJƒXƒ^ƒ€ƒe[ƒuƒ‹‚ªŠ®¬‚·‚é
+echo ‚·‚×‚Ä‚Ìî•ñ‚ÍŠÔˆá‚Á‚Ä”z’u‚³‚ê‚Ü‚·umod_errors.logv
 echo.
-echo å¿…è¦ã«å¿œã˜ã¦ã“ã‚Œã‚‰ã®ã‚«ã‚¹ã‚¿ãƒ ãƒ†ãƒ¼ãƒ–ãƒ«ãŒæœ‰åŠ¹ã«ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã®ã§ã”æ³¨æ„ãã ã•ã„
-echo ã‚ãªãŸãŒå¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ config ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®š
+echo •K—v‚É‰ž‚¶‚Ä‚±‚ê‚ç‚ÌƒJƒXƒ^ƒ€ƒe[ƒuƒ‹‚ª—LŒø‚É‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·‚Ì‚Å‚²’ˆÓ‚­‚¾‚³‚¢
+echo ‚ ‚È‚½‚ª•ÏX‚·‚é•K—v‚ª‚ ‚è‚Ü‚· config ƒtƒ@ƒCƒ‹‚ÌÝ’è
 echo.
 echo.
-set /p cstprompt=ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« Modsã‚«ã‚¹ã‚¿ãƒ ãƒ‡ãƒ¼ã‚¿ã‚·ãƒ¼ãƒˆ: (y)OK  (N)ã‚­ãƒ£ãƒ³ã‚»ãƒ« ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - OKï¼‰ï¼š
+set /p cstprompt=ƒCƒ“ƒXƒg[ƒ‹ ModsƒJƒXƒ^ƒ€ƒf[ƒ^ƒV[ƒg: (y)OK  (N)ƒLƒƒƒ“ƒZƒ‹ iƒfƒtƒHƒ‹ƒg - OKjF
 if /i %cstprompt%==y goto mod_install
 if /i %cstprompt%==n goto end
 
 :mod_install
 cls
 echo.
-echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« Modsã‚«ã‚¹ã‚¿ãƒ ã‚³ãƒ³ãƒ†ãƒ³ãƒ„
+echo ƒCƒ“ƒXƒg[ƒ‹ ModsƒJƒXƒ^ƒ€ƒRƒ“ƒeƒ“ƒc
 echo @echo off> temp.bat
 if exist mods_errors.log del mods_errors.log
 for %%i in (..\sql\game\mods\*.sql) do echo "%mysqlPath%" -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% ^< %%i 2^>^> mods_errors.log >> temp.bat
@@ -1019,27 +1019,27 @@ call temp.bat> nul
 del temp.bat
 move mods_errors.log %workdir%
 REM ------------------------------------------------------
-REM ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒå®Œäº†ã—ã¾ã—ãŸ
+REM ƒf[ƒ^ƒx[ƒX‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½
 if %dp_err% == 0 set dp_err=1
 REM ------------------------------------------------------
 goto end
 
 :omfg
 REM ------------------------------------------------------
-REM ã‚¨ãƒ©ãƒ¼ãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ä¸­ã«ç™ºç”Ÿã—ãŸ
+REM ƒGƒ‰[‚ªƒCƒ“ƒXƒg[ƒ‹ƒf[ƒ^ƒx[ƒX’†‚É”­¶‚µ‚½
 set dp_err=2
-echo ã‚¨ãƒ©ãƒ¼ãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ä¸­ã«ç™ºç”Ÿã—ãŸï¼šErtheia> ..\doc\L2J_DataPack_Ver.txt
+echo ƒGƒ‰[‚ªƒCƒ“ƒXƒg[ƒ‹ƒf[ƒ^ƒx[ƒX’†‚É”­¶‚µ‚½FErtheia> ..\doc\L2J_DataPack_Ver.txt
 REM ------------------------------------------------------
 set omfgprompt=q
 call :colors 57
 cls
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP -ã‚¹ãƒ†ãƒ¼ã‚¸ %stage% ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP -ƒXƒe[ƒW %stage% ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½
 echo.
-echo å®Ÿè¡Œä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸï¼š
+echo ŽÀs’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½F
 echo.
 echo "%cmdline%"
 echo.
-echo ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã¯ã€ã™ã¹ã¦ã®å€¤ãŒé–“é•ã„ã‚’å…¥åŠ›ã•ã‚Œã¦ã„ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãŸã‚ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã“ã¨ã‚’ãŠå‹§ã‚ã—ã¾ã™ï¼
+echo ƒf[ƒ^ƒZƒbƒg‚ÍA‚·‚×‚Ä‚Ì’l‚ªŠÔˆá‚¢‚ð“ü—Í‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ðŠm”F‚·‚é‚½‚ß‚Éƒ`ƒFƒbƒN‚·‚é‚±‚Æ‚ð‚¨Š©‚ß‚µ‚Ü‚·I
 echo.
 if %stage% == 1 set label=ls_err1
 if %stage% == 2 set label=ls_err2
@@ -1048,13 +1048,13 @@ if %stage% == 4 set label=cs_err2
 if %stage% == 5 set label=gs_err1
 if %stage% == 6 set label=gs_err2
 echo.
-echo (c)ç¶šã‘ã¦ã„ã
+echo (c)‘±‚¯‚Ä‚¢‚­
 echo.
-echo (r)ãƒªã‚»ãƒƒãƒˆ
+echo (r)ƒŠƒZƒbƒg
 echo.
-echo (q)é€€å‡º
+echo (q)‘Þo
 echo.
-set /p omfgprompt=é¸æŠžã—ã¦ãã ã•ã„ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ - å‡ºå£ï¼‰:
+set /p omfgprompt=‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢iƒfƒtƒHƒ‹ƒg - oŒûj:
 if /i %omfgprompt%==c goto %label%
 if /i %omfgprompt%==r set dp_err=0
 if /i %omfgprompt%==r goto configure
@@ -1062,22 +1062,22 @@ if /i %omfgprompt%==q goto end
 goto omfg
 
 :binaryfind
-if EXIST "%mysqlBinPath%" (echo è¦‹ã¤ã‹ã£ãŸ MySQL) else (echo è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ MySQLï¼Œæ­£ã—ã„å ´æ‰€ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„...)
+if EXIST "%mysqlBinPath%" (echo Œ©‚Â‚©‚Á‚½ MySQL) else (echo Œ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½ MySQLC³‚µ‚¢êŠ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢...)
 goto :eof
 
 :end
 REM ------------------------------------------------------
-REM DPã¯ã€æ ¼ç´ã•ã‚ŒãŸãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’ã‚µãƒãƒ¼ãƒˆ
-if %dp_err% == 0 echo ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒå®Œäº†ã—ã¦ã„ãªã„ï¼šErtheia> ..\doc\L2J_DataPack_Ver.txt
+REM DP‚ÍAŠi”[‚³‚ê‚½ƒo[ƒWƒ‡ƒ“î•ñ‚ðƒTƒ|[ƒg
+if %dp_err% == 0 echo ƒf[ƒ^ƒx[ƒX‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ä‚¢‚È‚¢FErtheia> ..\doc\L2J_DataPack_Ver.txt
 if %dp_err% == 1 echo Ertheia> ..\doc\L2J_DataPack_Ver.txt
 REM ------------------------------------------------------
 call :colors 17
-title ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ« L2JTW DP - å®Œæˆ
+title ƒCƒ“ƒXƒg[ƒ‹ L2JTW DP - Š®¬
 cls
 echo.
-echo L2JTW DP ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+echo L2JTW DP ƒCƒ“ƒXƒg[ƒ‹
 echo.
-echo L2JTWã‚µãƒ¼ãƒãƒ¼ã‚’ã”åˆ©ç”¨ã„ãŸã ãã‚ã‚ŠãŒã¨ã†ã”ã–ã„ã¾ã™
-echo æƒ…å ±ãŒhttp://www.l2jtw.comã‚’ãƒã‚§ãƒƒã‚¯ã‚¤ãƒ³ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™
+echo L2JTWƒT[ƒo[‚ð‚²—˜—p‚¢‚½‚¾‚«‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚·
+echo î•ñ‚ªhttp://www.l2jtw.com‚ðƒ`ƒFƒbƒNƒCƒ“‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·
 echo.
 pause
