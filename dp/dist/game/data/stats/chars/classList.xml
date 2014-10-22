@@ -1,165 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/classList.xsd">
-	<class classId="0" name="戰士" serverName="戰士" />
-	<class classId="1" name="鬥士" serverName="鬥士" parentClassId="0" />
-	<class classId="2" name="劍鬥士" serverName="劍鬥士" parentClassId="1" />
-	<class classId="3" name="傭兵" serverName="傭兵" parentClassId="1" />
-	<class classId="4" name="騎士" serverName="騎士" parentClassId="0" />
-	<class classId="5" name="聖騎士" serverName="聖騎士" parentClassId="4" />
-	<class classId="6" name="闇騎士" serverName="闇騎士" parentClassId="4" />
-	<class classId="7" name="盜賊" serverName="盜賊" parentClassId="0" />
-	<class classId="8" name="寶藏獵人" serverName="寶藏獵人" parentClassId="7" />
-	<class classId="9" name="鷹眼" serverName="鷹眼" parentClassId="7" />
-	<class classId="10" name="法師" serverName="法師" />
-	<class classId="11" name="巫師" serverName="巫師" parentClassId="10" />
-	<class classId="12" name="術士" serverName="術士" parentClassId="11" />
-	<class classId="13" name="死靈法師" serverName="死靈法師" parentClassId="11" />
-	<class classId="14" name="法魔" serverName="法魔" parentClassId="11" />
-	<class classId="15" name="牧師" serverName="牧師" parentClassId="10" />
-	<class classId="16" name="主教" serverName="主教" parentClassId="15" />
-	<class classId="17" name="先知" serverName="先知" parentClassId="15" />
-	<class classId="18" name="精靈戰士" serverName="精靈戰士" />
-	<class classId="19" name="精靈騎士" serverName="精靈騎士" parentClassId="18" />
-	<class classId="20" name="聖殿騎士" serverName="聖殿騎士" parentClassId="19" />
-	<class classId="21" name="劍術詩人" serverName="劍術詩人" parentClassId="19" />
-	<class classId="22" name="精靈巡守" serverName="精靈巡守" parentClassId="18" />
-	<class classId="23" name="大地行者" serverName="大地行者" parentClassId="22" />
-	<class classId="24" name="銀月遊俠" serverName="銀月遊俠" parentClassId="22" />
-	<class classId="25" name="精靈法師" serverName="精靈法師" />
-	<class classId="26" name="精靈巫師" serverName="精靈巫師" parentClassId="25" />
-	<class classId="27" name="咒術詩人" serverName="咒術詩人" parentClassId="26" />
-	<class classId="28" name="元素使" serverName="元素使" parentClassId="26" />
-	<class classId="29" name="神使" serverName="神使" parentClassId="25" />
-	<class classId="30" name="長老" serverName="長老" parentClassId="29" />
-	<class classId="31" name="黑暗戰士" serverName="黑暗戰士" />
-	<class classId="32" name="沼澤騎士" serverName="沼澤騎士" parentClassId="31" />
-	<class classId="33" name="席琳騎士" serverName="席琳騎士" parentClassId="32" />
-	<class classId="34" name="劍刃舞者" serverName="劍刃舞者" parentClassId="32" />
-	<class classId="35" name="暗殺者" serverName="暗殺者" parentClassId="31" />
-	<class classId="36" name="深淵行者" serverName="深淵行者" parentClassId="35" />
-	<class classId="37" name="闇影遊俠" serverName="闇影遊俠" parentClassId="35" />
-	<class classId="38" name="黑暗法師" serverName="黑暗法師" />
-	<class classId="39" name="黑暗巫師" serverName="黑暗巫師" parentClassId="38" />
-	<class classId="40" name="狂咒術士" serverName="狂咒術士" parentClassId="39" />
-	<class classId="41" name="闇影召喚士" serverName="闇影召喚士" parentClassId="39" />
-	<class classId="42" name="席琳神使" serverName="席琳神使" parentClassId="38" />
-	<class classId="43" name="席琳長老" serverName="席琳長老" parentClassId="42" />
-	<class classId="44" name="半獸人戰士" serverName="半獸人戰士" />
-	<class classId="45" name="半獸人突襲者" serverName="半獸人突襲者" parentClassId="44" />
-	<class classId="46" name="破壞者" serverName="破壞者" parentClassId="45" />
-	<class classId="47" name="半獸人武者" serverName="半獸人武者" parentClassId="44" />
-	<class classId="48" name="暴君" serverName="暴君" parentClassId="47" />
-	<class classId="49" name="半獸人法師" serverName="半獸人法師" />
-	<class classId="50" name="半獸人巫醫" serverName="半獸人巫醫" parentClassId="49" />
-	<class classId="51" name="霸主" serverName="霸主" parentClassId="50" />
-	<class classId="52" name="戰狂" serverName="戰狂" parentClassId="50" />
-	<class classId="53" name="矮人戰士" serverName="矮人戰士" />
-	<class classId="54" name="收集者" serverName="收集者" parentClassId="53" />
-	<class classId="55" name="賞金獵人" serverName="賞金獵人" parentClassId="54" />
-	<class classId="56" name="工匠" serverName="工匠" parentClassId="53" />
-	<class classId="57" name="戰爭工匠" serverName="戰爭工匠" parentClassId="56" />
-	<!-- Third Classes -->
-	<class classId="88" name="決鬥者" serverName="決鬥者" parentClassId="2" />
-	<class classId="89" name="猛將" serverName="猛將" parentClassId="3" />
-	<class classId="90" name="聖凰騎士" serverName="聖凰騎士" parentClassId="5" />
-	<class classId="91" name="煉獄騎士" serverName="煉獄騎士" parentClassId="6" />
-	<class classId="92" name="人馬" serverName="人馬" parentClassId="9" />
-	<class classId="93" name="冒險英豪" serverName="冒險英豪" parentClassId="8" />
-	<class classId="94" name="大魔導士" serverName="大魔導士" parentClassId="12" />
-	<class classId="95" name="魂狩術士" serverName="魂狩術士" parentClassId="13" />
-	<class classId="96" name="祕儀召主" serverName="祕儀召主" parentClassId="14" />
-	<class classId="97" name="樞機主教" serverName="樞機主教" parentClassId="16" />
-	<class classId="98" name="昭聖者" serverName="昭聖者" parentClassId="17" />
-	<class classId="99" name="伊娃神殿騎士" serverName="伊娃神殿騎士" parentClassId="20" />
-	<class classId="100" name="伊娃吟遊詩人" serverName="伊娃吟遊詩人" parentClassId="21" />
-	<class classId="101" name="疾風浪人" serverName="疾風浪人" parentClassId="23" />
-	<class classId="102" name="月光箭靈" serverName="月光箭靈" parentClassId="24" />
-	<class classId="103" name="伊娃祕術詩人" serverName="伊娃祕術詩人" parentClassId="27" />
-	<class classId="104" name="元素支配者" serverName="元素支配者" parentClassId="28" />
-	<class classId="105" name="伊娃聖者" serverName="伊娃聖者" parentClassId="30" />
-	<class classId="106" name="席琳冥殿騎士" serverName="席琳冥殿騎士" parentClassId="33" />
-	<class classId="107" name="幽冥舞者" serverName="幽冥舞者" parentClassId="34" />
-	<class classId="108" name="魅影獵者" serverName="魅影獵者" parentClassId="36" />
-	<class classId="109" name="幽冥箭靈" serverName="幽冥箭靈" parentClassId="37" />
-	<class classId="110" name="暴風狂嘯者" serverName="暴風狂嘯者" parentClassId="40" />
-	<class classId="111" name="闇影支配者" serverName="闇影支配者" parentClassId="41" />
-	<class classId="112" name="席琳聖者" serverName="席琳聖者" parentClassId="43" />
-	<class classId="113" name="泰坦" serverName="泰坦" parentClassId="46" />
-	<class classId="114" name="卡巴塔里宗師" serverName="卡巴塔里宗師" parentClassId="48" />
-	<class classId="115" name="君主" serverName="君主" parentClassId="51" />
-	<class classId="116" name="末日戰狂" serverName="末日戰狂" parentClassId="52" />
-	<class classId="117" name="財富獵人" serverName="財富獵人" parentClassId="55" />
-	<class classId="118" name="巨匠" serverName="巨匠" parentClassId="57" />
+	<class classId="0" name="ファイター" serverName="fighter" />
+	<class classId="1" name="ウォーリア" serverName="warrior" parentClassId="0" />
+	<class classId="2" name="グラディエーター" serverName="gladiator" parentClassId="1" />
+	<class classId="3" name="ウォーロード" serverName="warlord" parentClassId="1" />
+	<class classId="4" name="ナイト" serverName="knight" parentClassId="0" />
+	<class classId="5" name="パラディン" serverName="paladin" parentClassId="4" />
+	<class classId="6" name="ダーク アベンジャー" serverName="dark_avenger" parentClassId="4" />
+	<class classId="7" name="ローグ" serverName="rogue" parentClassId="0" />
+	<class classId="8" name="トレジャー ハンター" serverName="treasure_hunter" parentClassId="7" />
+	<class classId="9" name="ホークアイ" serverName="hawkeye" parentClassId="7" />
+	<class classId="10" name="メイジ" serverName="mage" />
+	<class classId="11" name="ウィザード" serverName="wizard" parentClassId="10" />
+	<class classId="12" name="ソーサラー" serverName="sorcerer" parentClassId="11" />
+	<class classId="13" name="ネクロマンサー" serverName="necromancer" parentClassId="11" />
+	<class classId="14" name="ウォーロック" serverName="warlock" parentClassId="11" />
+	<class classId="15" name="クレリック" serverName="cleric" parentClassId="10" />
+	<class classId="16" name="ビショップ" serverName="bishop" parentClassId="15" />
+	<class classId="17" name="プロフィット" serverName="prophet" parentClassId="15" />
+	<class classId="18" name="エルヴン ファイター" serverName="elven_fighter" />
+	<class classId="19" name="エルヴン ナイト" serverName="elven_knight" parentClassId="18" />
+	<class classId="20" name="テンプル ナイト" serverName="temple_knight" parentClassId="19" />
+	<class classId="21" name="ソード シンガー" serverName="swordsinger" parentClassId="19" />
+	<class classId="22" name="エルヴン スカウト" serverName="elven_scout" parentClassId="18" />
+	<class classId="23" name="プレインズ ウォーカー" serverName="plain_walker" parentClassId="22" />
+	<class classId="24" name="シルバー レンジャー" serverName="silver_ranger" parentClassId="22" />
+	<class classId="25" name="エルヴン メイジ" serverName="elven_mage" />
+	<class classId="26" name="エルヴン ウィザード" serverName="elven_wizard" parentClassId="25" />
+	<class classId="27" name="スペルシンガー" serverName="spellsinger" parentClassId="26" />
+	<class classId="28" name="エレメンタル サマナー" serverName="elemental_summoner" parentClassId="26" />
+	<class classId="29" name="オラクル" serverName="oracle" parentClassId="25" />
+	<class classId="30" name="エルダー" serverName="elder" parentClassId="29" />
+	<class classId="31" name="ダークファイター" serverName="dark_fighter" />
+	<class classId="32" name="パラス ナイト" serverName="palus_knight" parentClassId="31" />
+	<class classId="33" name="シリエン ナイト" serverName="shillien_knight" parentClassId="32" />
+	<class classId="34" name="ブレードダンサー" serverName="bladedancer" parentClassId="33" />
+	<class classId="35" name="アサシン" serverName="assasin" parentClassId="31" />
+	<class classId="36" name="アビス ウォーカー" serverName="abyss_walker" parentClassId="35" />
+	<class classId="37" name="ファントム レンジャー" serverName="phantom_ranger" parentClassId="35" />
+	<class classId="38" name="ダーク メイジ" serverName="dark_mage" />
+	<class classId="39" name="ダーク ウィザード" serverName="dark_wizard" parentClassId="38" />
+	<class classId="40" name="スペルハウラー" serverName="spellhowler" parentClassId="39" />
+	<class classId="41" name="ファントム サマナー" serverName="phantom_summoner" parentClassId="39" />
+	<class classId="42" name="シリエン オラクル" serverName="shillien_oracle" parentClassId="38" />
+	<class classId="43" name="シリエン エルダー" serverName="shillien_elder" parentClassId="42" />
+	<class classId="44" name="オーク ファイター" serverName="orc_fighter" />
+	<class classId="45" name="オーク レイダー" serverName="orc_raider" parentClassId="44" />
+	<class classId="46" name="デストロイヤー" serverName="destroyer" parentClassId="45" />
+	<class classId="47" name="オーク モンク" serverName="orc_monk" parentClassId="44" />
+	<class classId="48" name="タイラント" serverName="tyrant" parentClassId="47" />
+	<class classId="49" name="オーク メイジ" serverName="orc_mage" />
+	<class classId="50" name="オーク シャーマン" serverName="orc_shaman" parentClassId="49" />
+	<class classId="51" name="オーバーロード" serverName="overlord" parentClassId="50" />
+	<class classId="52" name="ウォークライヤー" serverName="warcryer" parentClassId="50" />
+	<class classId="53" name="ドワーヴン ファイター" serverName="dwarven_fighter" />
+	<class classId="54" name="スカベンジャー" serverName="scavenger" parentClassId="53" />
+	<class classId="55" name="バウンティー ハンター" serverName="bounty_hunter" parentClassId="54" />
+	<class classId="56" name="アルティザン" serverName="artisan" parentClassId="53" />
+	<class classId="57" name="ウォースミス" serverName="warsmith" parentClassId="56" />
+	<!-- 3次転職 -->
+	<class classId="88" name="デュエリスト" serverName="duelist" parentClassId="2" />
+	<class classId="89" name="ドレッドノート" serverName="dreadnought" parentClassId="3" />
+	<class classId="90" name="フェニックス ナイト" serverName="phoenix_knight" parentClassId="5" />
+	<class classId="91" name="ヘル ナイト" serverName="hell_knight" parentClassId="6" />
+	<class classId="92" name="サジタリウス" serverName="sagittarius" parentClassId="9" />
+	<class classId="93" name="アドベンチャラー" serverName="adventurer" parentClassId="8" />
+	<class classId="94" name="アークメイジ" serverName="archmage" parentClassId="12" />
+	<class classId="95" name="ソウルテイカー" serverName="soultaker" parentClassId="13" />
+	<class classId="96" name="アルカナ ロード" serverName="arcana_lord" parentClassId="14" />
+	<class classId="97" name="カーディナル" serverName="cardinal" parentClassId="16" />
+	<class classId="98" name="ハイエロファント" serverName="hierophant" parentClassId="17" />
+	<class classId="99" name="エヴァス テンプラー" serverName="evas_templar" parentClassId="20" />
+	<class classId="100" name="ソード ミューズ" serverName="sword_muse" parentClassId="21" />
+	<class classId="101" name="ウィンド ライダー" serverName="wind_rider" parentClassId="23" />
+	<class classId="102" name="ムーンライト センティネル" serverName="moonlight_sentinel" parentClassId="24" />
+	<class classId="103" name="ミスティック ミューズ" serverName="mystic_muse" parentClassId="27" />
+	<class classId="104" name="エレメンタル マスター" serverName="elemental_master" parentClassId="28" />
+	<class classId="105" name="エヴァス セイント" serverName="evas_saint" parentClassId="30" />
+	<class classId="106" name="シリエン テンプラー" serverName="shillien_templar" parentClassId="33" />
+	<class classId="107" name="スペクトラル ダンサー" serverName="spectral_dancer" parentClassId="34" />
+	<class classId="108" name="ゴースト ハンター" serverName="ghost_hunter" parentClassId="36" />
+	<class classId="109" name="ゴースト センティネル" serverName="ghost_sentinel" parentClassId="37" />
+	<class classId="110" name="ストーム スクリーマー" serverName="storm_screamer" parentClassId="40" />
+	<class classId="111" name="スペクトラル マスター" serverName="spectral_master" parentClassId="41" />
+	<class classId="112" name="シリエン セイント" serverName="shillien_saint" parentClassId="43" />
+	<class classId="113" name="タイタン" serverName="titan" parentClassId="46" />
+	<class classId="114" name="グランド カバタリ" serverName="grand_khavatari" parentClassId="48" />
+	<class classId="115" name="ドミネーター" serverName="dominator" parentClassId="51" />
+	<class classId="116" name="ドゥーム クライヤー" serverName="doomcryer" parentClassId="52" />
+	<class classId="117" name="フォーチュン シーカー" serverName="fortune_seeker" parentClassId="55" />
+	<class classId="118" name="マエストロ" serverName="maestro" parentClassId="57" />
 	<!-- NPCs -->
 	<class classId="119" name="World Trap" serverName="world_trap" />
 	<class classId="120" name="Player Trap" serverName="pc_trap" />
 	<class classId="121" name="Double Ghost" serverName="doppelganger" />
 	<class classId="122" name="Siege Attacker" serverName="siege_attacker" />
-	<!-- Third Classes Kamael -->
-	<class classId="123" name="闇天使士兵" serverName="闇天使士兵" />
-	<class classId="124" name="闇天使士兵" serverName="闇天使士兵" />
-	<class classId="125" name="裝甲突襲兵" serverName="裝甲突襲兵" parentClassId="123" />
-	<class classId="126" name="狙擊衛士" serverName="狙擊衛士" parentClassId="124" />
-	<class classId="127" name="狂戰士" serverName="狂戰士" parentClassId="125" />
-	<class classId="128" name="碎魂者" serverName="碎魂者" parentClassId="125" />
-	<class classId="129" name="碎魂者" serverName="碎魂者" parentClassId="126" />
-	<class classId="130" name="弩弓遊俠" serverName="弩弓遊俠" parentClassId="126" />
-	<class classId="131" name="末日使者" serverName="末日使者" parentClassId="127" />
-	<class classId="132" name="追魂使" serverName="追魂使" parentClassId="128" />
-	<class classId="133" name="追魂使" serverName="追魂使" parentClassId="129" />
-	<class classId="134" name="魔彈射手" serverName="魔彈射手" parentClassId="130" />
-	<class classId="135" name="戰鬥巡官" serverName="戰鬥巡官" parentClassId="126" />
-	<class classId="136" name="軍武判官" serverName="軍武判官" parentClassId="135" />
-	<!-- 舊版 覺醒職業 -->
-	<class classId="139" name="席格爾騎士" serverName="席格爾騎士" parentClassId="90" />
-	<class classId="140" name="提爾鬥士" serverName="提爾鬥士" parentClassId="88" />
-	<class classId="141" name="歐瑟遊俠" serverName="歐瑟遊俠" parentClassId="93" />
-	<class classId="142" name="尤爾弓手" serverName="尤爾弓手" parentClassId="92" />
-	<class classId="143" name="菲歐巫師" serverName="菲歐巫師" parentClassId="95" />
-	<class classId="144" name="伊斯法師" serverName="伊斯法師" parentClassId="136" /> <!-- 軍武判官覺醒 -->
-	<class classId="145" name="維因召喚士" serverName="維因召喚士" parentClassId="96" />
-	<class classId="146" name="艾羅牧師" serverName="艾羅牧師" parentClassId="97" />
-	<!-- 新版 覺醒職業 -->
-	<class classId="148" name="席格爾聖凰騎士" serverName="席格爾聖凰騎士" parentClassId="90" />
-	<class classId="149" name="席格爾煉獄騎士" serverName="席格爾煉獄騎士" parentClassId="91" />
-	<class classId="150" name="席格爾伊娃神殿騎士" serverName="席格爾伊娃神殿騎士" parentClassId="99" />
-	<class classId="151" name="席格爾席琳冥殿騎士" serverName="席格爾席琳冥殿騎士" parentClassId="106" />
-	<class classId="152" name="提爾決鬥者" serverName="提爾決鬥者" parentClassId="88" />
-	<class classId="153" name="提爾猛將" serverName="提爾猛將" parentClassId="89" />
-	<class classId="154" name="提爾泰坦" serverName="提爾泰坦" parentClassId="113" />
-	<class classId="155" name="提爾卡巴塔里宗師" serverName="提爾卡巴塔里宗師" parentClassId="114" />
-	<class classId="156" name="提爾巨匠" serverName="提爾巨匠" parentClassId="118" />
-	<class classId="157" name="提爾末日使者" serverName="提爾末日使者" parentClassId="131" />
-	<class classId="158" name="歐瑟冒險英豪" serverName="歐瑟冒險英豪" parentClassId="93" />
-	<class classId="159" name="歐瑟疾風浪人" serverName="歐瑟疾風浪人" parentClassId="101" />
-	<class classId="160" name="歐瑟魅影獵者" serverName="歐瑟魅影獵者" parentClassId="108" />
-	<class classId="161" name="歐瑟財富獵人" serverName="歐瑟財富獵人" parentClassId="117" />
-	<class classId="162" name="尤爾人馬" serverName="尤爾人馬" parentClassId="92" />
-	<class classId="163" name="尤爾月光箭靈" serverName="尤爾月光箭靈" parentClassId="102" />
-	<class classId="164" name="尤爾幽冥箭靈" serverName="尤爾幽冥箭靈" parentClassId="109" />
-	<class classId="165" name="尤爾魔彈射手" serverName="尤爾魔彈射手" parentClassId="134" />
-	<class classId="166" name="菲歐大魔導士" serverName="菲歐大魔導士" parentClassId="94" />
-	<class classId="167" name="菲歐魂狩術士" serverName="菲歐魂狩術士" parentClassId="95" />
-	<class classId="168" name="菲歐伊娃祕術詩人" serverName="菲歐伊娃祕術詩人" parentClassId="103" />
-	<class classId="169" name="菲歐暴風狂嘯者" serverName="菲歐暴風狂嘯者" parentClassId="110" />
-	<class classId="170" name="菲歐追魂使" serverName="菲歐追魂使" parentClassId="132" />
-	<class classId="171" name="伊斯昭聖者" serverName="伊斯昭聖者" parentClassId="98" />
-	<class classId="172" name="伊斯伊娃吟遊詩人" serverName="伊斯伊娃吟遊詩人" parentClassId="100" />
-	<class classId="173" name="伊斯幽冥舞者" serverName="伊斯幽冥舞者" parentClassId="107" />
-	<class classId="174" name="伊斯君主" serverName="伊斯君主" parentClassId="115" />
-	<class classId="175" name="伊斯末日戰狂" serverName="伊斯末日戰狂" parentClassId="116" />
-	<class classId="176" name="維因祕儀召主" serverName="維因祕儀召主" parentClassId="96" />
-	<class classId="177" name="維因元素支配者" serverName="維因元素支配者" parentClassId="104" />
-	<class classId="178" name="維因闇影支配者" serverName="維因闇影支配者" parentClassId="111" />
-	<class classId="179" name="艾羅樞機主教" serverName="艾羅樞機主教" parentClassId="97" />
-	<class classId="180" name="艾羅伊娃聖者" serverName="艾羅伊娃聖者" parentClassId="105" />
-	<class classId="181" name="艾羅席琳聖者" serverName="艾羅席琳聖者" parentClassId="112" />
-	<class classId="182" name="翼人戰士" serverName="翼人戰士" />
-	<class classId="183" name="翼人巫師" serverName="翼人巫師" />
-	<class classId="184" name="掠奪者" serverName="掠奪者" parentClassId="182" />
-	<class classId="185" name="威嚇者" serverName="威嚇者" parentClassId="183" />
-	<class classId="186" name="拳鬥士" serverName="拳鬥士" parentClassId="184" />
-	<class classId="187" name="暴風威嚇者" serverName="暴風威嚇者" parentClassId="185" />
-	<class classId="188" name="重力拳鬥士" serverName="重力拳鬥士" parentClassId="186" />
-	<class classId="189" name="沙哈預知者" serverName="沙哈預知者" parentClassId="187" />
+	<!-- カマエル クラス -->
+	<class classId="123" name="カマエル ソルジャー(男性)" serverName="kamael_m_soldier" />
+	<class classId="124" name="カマエル ソルジャー(女性)" serverName="kamael_f_soldier" />
+	<class classId="125" name="トルーパー" serverName="trooper" parentClassId="123" />
+	<class classId="126" name="ウォーダー" serverName="warder" parentClassId="124" />
+	<class classId="127" name="バーサーカー" serverName="berserker" parentClassId="125" />
+	<class classId="128" name="ソウル ブレーカー(男性)" serverName="m_soul_breaker" parentClassId="125" />
+	<class classId="129" name="ソウル ブレーカー(女性)" serverName="f_soul_breaker" parentClassId="126" />
+	<class classId="130" name="アヴァレスタ" serverName="arbalester" parentClassId="126" />
+	<class classId="131" name="ドゥーム ブリンガー" serverName="doombringer" parentClassId="127" />
+	<class classId="132" name="ソウル ハウンド(男性)" serverName="m_soul_hound" parentClassId="128" />
+	<class classId="133" name="ソウル ハウンド(女性)" serverName="f_soul_hound" parentClassId="129" />
+	<class classId="134" name="トリックスター" serverName="trickster" parentClassId="130" />
+	<class classId="135" name="インスペクター" serverName="inspector" parentClassId="126" />
+	<class classId="136" name="ジュディケーター" serverName="judicator" parentClassId="135" />
+	<!-- 旧覚醒クラス -->
+	<class classId="139" name="シーゲル ナイト" serverName="sigel_knight" parentClassId="90" />
+	<class classId="140" name="ティール ウォーリアー" serverName="tyr_warrior" parentClassId="88" />
+	<class classId="141" name="オーセル ローグ" serverName="othell_rogue" parentClassId="93" />
+	<class classId="142" name="ユール アーチャー" serverName="yr_archer" parentClassId="92" />
+	<class classId="143" name="フェオ ウィザード" serverName="feoh_wizard" parentClassId="95" />
+	<class classId="144" name="イース エンチャンター" serverName="iss_enchanter" parentClassId="136" /> <!-- 軍武判官覺醒 -->
+	<class classId="145" name="ウィン サマナー" serverName="wynn_summoner" parentClassId="96" />
+	<class classId="146" name="エアロ ヒーラー" serverName="eolh_healer" parentClassId="97" />
+	<!-- 覚醒クラス -->
+	<class classId="148" name="シーゲル フェニック スナイト" serverName="sigel_phoenix_knight" parentClassId="90" />
+	<class classId="149" name="シーゲル ヘル ナイト" serverName="sigel_hell_knight" parentClassId="91" />
+	<class classId="150" name="シーゲル エヴァンス テンプラー" serverName="sigel_evas_templar" parentClassId="99" />
+	<class classId="151" name="シーゲル シリエン テンプラー" serverName="sigel_shilen_templar" parentClassId="106" />
+	<class classId="152" name="ティール デュエリスト" serverName="tyr_duelist" parentClassId="88" />
+	<class classId="153" name="ティール ドレッドノート" serverName="tyr_dreadnought" parentClassId="89" />
+	<class classId="154" name="ティール グランド カバタリ" serverName="tyr_titan" parentClassId="113" />
+	<class classId="155" name="ティール タイタン" serverName="tyr_grand_khavatari" parentClassId="114" />
+	<class classId="156" name="ティール マエストロ" serverName="tyr_maestro" parentClassId="118" />
+	<class classId="157" name="ティール ドゥーム ブリンガー" serverName="tyr_doombringer" parentClassId="131" />
+	<class classId="158" name="オーセル アドベンチャラー" serverName="othell_adventurer" parentClassId="93" />
+	<class classId="159" name="オーセル ウィンド ライダー" serverName="othell_wind_rider" parentClassId="101" />
+	<class classId="160" name="オーセル ゴースト ハンター" serverName="othell_ghost_hunter" parentClassId="108" />
+	<class classId="161" name="オーセル フォーチュン シーカー" serverName="othell_fortune_seeker" parentClassId="117" />
+	<class classId="162" name="ユール サジタリウス" serverName="yr_sagittarius" parentClassId="92" />
+	<class classId="163" name="ユール ムーンライト センティネル" serverName="yr_moonlight_sentinel" parentClassId="102" />
+	<class classId="164" name="ユール ゴースト センティネル" serverName="yr_ghost_sentinel" parentClassId="109" />
+	<class classId="165" name="ユール トリックスター" serverName="yr_trickster" parentClassId="134" />
+	<class classId="166" name="フェオ アークメイジ" serverName="feoh_archmage" parentClassId="94" />
+	<class classId="167" name="フェオ ソウル ティカー" serverName="feoh_soultaker" parentClassId="95" />
+	<class classId="168" name="フェオ ミスティック ミューズ" serverName="feoh_mystic_muse" parentClassId="103" />
+	<class classId="169" name="フェオ ストーム スクリーマー" serverName="feoh_storm_screamer" parentClassId="110" />
+	<class classId="170" name="フェオ ソウル ハウンド" serverName="feoh_soul_hound" parentClassId="132" />
+	<class classId="171" name="イース ハイエロファント" serverName="iss_hierophant" parentClassId="98" />
+	<class classId="172" name="イース ソード ミューズ" serverName="iss_sword_muse" parentClassId="100" />
+	<class classId="173" name="イース スペクトラル ダンサー" serverName="iss_spectral_dancer" parentClassId="107" />
+	<class classId="174" name="イース ドミネーター" serverName="iss_dominator" parentClassId="115" />
+	<class classId="175" name="イース ドゥーム クライヤーヤー" serverName="iss_doomcryer" parentClassId="116" />
+	<class classId="176" name="ウィン アルカナ ロード" serverName="wynn_arcana_lord" parentClassId="96" />
+	<class classId="177" name="ウィン エレメンタル マスター" serverName="wynn_elemental_master" parentClassId="104" />
+	<class classId="178" name="ウィン スペクトラル マスター" serverName="wynn_spectral_master" parentClassId="111" />
+	<class classId="179" name="エアロ カーディナル" serverName="eolh_cardinal" parentClassId="97" />
+	<class classId="180" name="エアロ エヴァス セイント" serverName="eolh_evas_saint" parentClassId="105" />
+	<class classId="181" name="エアロ シリエン セイント" serverName="eolh_shillien_saint" parentClassId="112" />
+	<!-- アルティア クラス -->
+	<class classId="182" name="アルティア ファイター" serverName="ertheia_fighter" />
+	<class classId="183" name="アルティア ウィザード" serverName="ertheia_wizard" />
+	<class classId="184" name="モラウド" serverName="marauder" parentClassId="182" />
+	<class classId="185" name="メナス" serverName="cloud_breaker" parentClassId="183" />
+	<class classId="186" name="ランカー" serverName="ripper" parentClassId="184" />
+	<class classId="187" name="ストーム メナス" serverName="stratomancer" parentClassId="185" />
+	<class classId="188" name="グラビティ ランカー" serverName="eviscerator" parentClassId="186" />
+	<class classId="189" name="サイハズ シーアー" serverName="sayha's_seer" parentClassId="187" />
 </list>
