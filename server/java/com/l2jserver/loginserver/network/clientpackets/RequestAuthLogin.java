@@ -50,7 +50,8 @@ public class RequestAuthLogin extends L2LoginClientPacket
 {
 	private static Logger _log = Logger.getLogger(RequestAuthLogin.class.getName());
 	
-	private final byte[] _raw = new byte[128];
+	private final byte[] _raw1 = new byte[128];
+	private final byte[] _raw2 = new byte[128];
 	
 	private String _user;
 	private String _password;
@@ -82,7 +83,8 @@ public class RequestAuthLogin extends L2LoginClientPacket
 	{
 		if (super._buf.remaining() >= 128)
 		{
-			readB(_raw);
+			readB(_raw1);
+			readB(_raw2);
 			return true;
 		}
 		return false;
@@ -91,13 +93,17 @@ public class RequestAuthLogin extends L2LoginClientPacket
 	@Override
 	public void run()
 	{
-		byte[] decrypted = null;
+		byte[] decrypted1 = null;
+		byte[] decrypted2 = null;
 		final L2LoginClient client = getClient();
 		try
 		{
 			final Cipher rsaCipher = Cipher.getInstance("RSA/ECB/nopadding");
 			rsaCipher.init(Cipher.DECRYPT_MODE, client.getRSAPrivateKey());
-			decrypted = rsaCipher.doFinal(_raw, 0x00, 0x80);
+			int rawMaxLength1 = _raw1.length;
+			decrypted1 = rsaCipher.doFinal(_raw1, 0x00, rawMaxLength1);
+			int rawMaxLength2 = _raw2.length;
+			decrypted2 = rsaCipher.doFinal(_raw2, 0x00, rawMaxLength2);
 		}
 		catch (GeneralSecurityException e)
 		{
@@ -107,12 +113,12 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		
 		try
 		{
-			_user = new String(decrypted, 0x5E, 14).trim().toLowerCase();
-			_password = new String(decrypted, 0x6C, 16).trim();
-			_ncotp = decrypted[0x7c];
-			_ncotp |= decrypted[0x7d] << 8;
-			_ncotp |= decrypted[0x7e] << 16;
-			_ncotp |= decrypted[0x7f] << 24;
+			_user = new String(decrypted1, 0x4E, 14).trim().toLowerCase();
+			_password = new String(decrypted2, 0x5C, 16).trim();
+			_ncotp = decrypted1[0x7c];
+			_ncotp |= decrypted1[0x7d] << 8;
+			_ncotp |= decrypted1[0x7e] << 16;
+			_ncotp |= decrypted1[0x7f] << 24;
 		}
 		catch (Exception e)
 		{
