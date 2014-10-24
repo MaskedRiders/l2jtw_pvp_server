@@ -58,4 +58,7 @@
 			<height normal="22.25" />
 		</collision>
 	</npc>
+	<npc id="900150" displayId="33942" level="80" type="L2Npc" name="アリース" title="追加NPC" usingServerSideTitle="true">
+		<skill_list><skill id="4408" level="1" /></skill_list>
+	</npc>
 </list>
