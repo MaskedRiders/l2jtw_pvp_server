@@ -10,7 +10,7 @@
 								<xs:simpleType>
 									<xs:restriction base="xs:positiveInteger">
 										<xs:minInclusive value="1" />
-										<xs:maxInclusive value="99999" /> <!-- l2jtw fix Max_NPC-ID -->
+										<xs:maxInclusive value="999999" /> <!-- l2jtw fix Max_NPC-ID -->
 									</xs:restriction>
 								</xs:simpleType>
 							</xs:element>
