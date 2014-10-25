@@ -2436,7 +2436,7 @@
 			<height normal="24" />
 		</collision>
 	</npc>
-	<npc id="31859" level="70" type="L2Npc" name="Teleportation Cubic">
+	<npc id="31859" level="70" type="L2Teleporter" name="Teleportation Cubic">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="MoveAroundSocial" value="0" />
