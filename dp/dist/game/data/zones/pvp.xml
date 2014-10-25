@@ -48,7 +48,7 @@
 	<zone name="custum_pvp" type="ArenaZone" shape="NPoly" minZ="-5000" maxZ="4000"> <!-- [27_22] -->
 		<node X="-275" Y="8840" />
 		<node X="18624" Y="8840" />
-		<node X="18624" Y="-3288" />
-		<node X="-275" Y="-3288" />
+		<node X="18624" Y="21954" />
+		<node X="-275" Y="21954" />
 	</zone>
 </list>
