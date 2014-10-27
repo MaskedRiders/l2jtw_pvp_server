@@ -357,7 +357,59 @@ public final class L2PcInstance extends L2Playable
 	private static final String DELETE_SKILL_FROM_CHAR = "DELETE FROM character_skills WHERE skill_id=? AND charId=? AND class_index=?";
 	private static final String DELETE_CHAR_SKILLS = "DELETE FROM character_skills WHERE charId=? AND class_index=?";
 	
-	// Character Skill Save SQL String Definitions:
+	/*
+	追加生成されたテーブルのDDL
+	DROP TABLE IF EXISTS `character_customs`;
+	CREATE TABLE `character_customs` (
+	  `charId`　　　　　　　　 int(10)　　unsigned NOT NULL default '0' COMMENT 'キャラクタID',
+	  `battle_score`　　　　　 bigint(20) unsigned NOT NULL default '0' COMMENT '戦闘スコア',
+	  `battle_score_best`　　　text　　　　　　　　　　　　　　　　　　 COMMENT '戦闘スコアベスト',
+	  `battle_score_best_date` datetime　　　　　　　　　　　　　　　　 COMMENT '戦闘スコアベスト時刻',
+	  `battle_log`　　　　　　 mediumtext　　　　　　　　　　　　　　　 COMMENT '戦闘記録(kill,charId,battle_score,date;death,charId,battle_score,date...)',
+	  `tvt_score`　　　　　　　bigint(20) unsigned NOT NULL default '0' COMMENT 'TvTスコア',
+	  `tvt_score_log`　　　　　mediumtext　　　　　　　　　　　　　　　 COMMENT 'TvTスコア記録(battle_score,date;battle_score,date...)',
+	  `trading_point`　　　　　bigint(20) unsigned NOT NULL default '0' COMMENT '交換用ポイント',
+	  PRIMARY KEY　(`charId`),
+	  KEY `idx_chrId_battle_score` (`charId`,`battle_score`) USING BTREE,
+	  KEY `idx_chrId_tvt_score`　　(`charId`,`tvt_score`) USING BTREE
+	) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'キャラクタのカスタムテーブルcharacterテーブルと１：１のテーブル';
+	*/
+    private static final String INSERT_CHARACTER_CUSTOM =
+      "INSERT INTO character_customs (" +
+      "charId, "                 +
+      "battle_score, "           +
+      "battle_score_best, "      +
+      "battle_score_best_date, " +
+      "battle_log, "             +
+      "tvt_score, "              +
+      "tvt_score_log, "          +
+      "trading_point) "          +
+      "values "                  +
+      "(?,?,?,?,?,?,?,?)";
+    private static final String UPDATE_CHARACTER_CUSTOM =
+      "UPDATE character_customs SET " +
+      "battle_score=?, "           +
+      "battle_score_best=?, "      +
+      "battle_score_best_date=?, " +
+      "battle_log=?, "             +
+      "tvt_score=?, "              +
+      "tvt_score_log=?, "          +
+      "trading_point=? "           +
+      "WHERE charId=?";
+    private static final String RESTORE_CHARACTER_CUSTOM=
+      "SELECT " +
+      "charId, "                 +
+      "battle_score, "           +
+      "battle_score_best, "      +
+      "battle_score_best_date, " +
+      "battle_log, "             +
+      "tvt_score, "              +
+      "tvt_score_log, "          +
+      "trading_point "           +
+      "FROM character_customs "  +
+      "WHERE charId=?";
+
+// Character Skill Save SQL String Definitions:
 	private static final String ADD_SKILL_SAVE = "INSERT INTO character_skills_save (charId,skill_id,skill_level,remaining_time,reuse_delay,systime,restore_type,class_index,buff_index) VALUES (?,?,?,?,?,?,?,?,?)";
 	private static final String RESTORE_SKILL_SAVE = "SELECT skill_id,skill_level,remaining_time, reuse_delay, systime, restore_type FROM character_skills_save WHERE charId=? AND class_index=? ORDER BY buff_index ASC";
 	private static final String DELETE_SKILL_SAVE = "DELETE FROM character_skills_save WHERE charId=? AND class_index=?";
@@ -447,6 +499,35 @@ public final class L2PcInstance extends L2Playable
 	
 	private L2GameClient _client;
 	
+	// 戦闘スコア
+	private long _battle_score;
+	public long getBattleScore(){ return _battle_score; }
+	public void setBattleScore(long value){ _battle_score = value;}
+	// 戦闘スコアベスト
+	private long _battle_score_best;
+	public long getBattleScoreBest(){ return _battle_score_best; }
+	public void setBattleScoreBest(long value){ _battle_score_best = value;}
+	// 戦闘スコアベスト時刻
+	private String _battle_score_best_date;
+	public String getBattleScoreBestDate(){ return _battle_score_best_date; }
+	public void setBattleScoreBestDate(String value){ _battle_score_best_date = value;}
+	// 戦闘記録 /* TODO: 他の引数を持つアクセサも増やす */
+	private String _battle_log;
+	public String getBattleLog(){ return _battle_log; }
+	public void setBattleLog(String value){ _battle_log = value;}
+	// TvTスコア
+	private long _tvt_score;
+	public long getTvTScore(){ return _tvt_score; }
+	public void setTvTScore(long value){ _tvt_score = value;}
+	// TvTスコア記録 /* TODO: 他の引数を持つアクセサも増やす */
+	private String _tvt_score_log;
+	public String getTvTScoreLog(){ return _tvt_score_log; }
+	public void setTvTScoreLog(String value){ _tvt_score_log = value;}
+	// 交換用ポイント
+	private long _trading_point;
+	public long getTradingPoint(){ return _trading_point; }
+	public void setTradingPoint(long value){ _trading_point = value;}
+
 	private final String _accountName;
 	private long _deleteTimer;
 	private Calendar _createDate = Calendar.getInstance();
@@ -960,6 +1041,22 @@ public final class L2PcInstance extends L2Playable
 		player.setNewbie(1);
 		// Give 20 recommendations
 		player.setRecomLeft(20);
+		
+		// 戦闘スコア
+		player.setBattleScore(0);
+		// 戦闘スコアベスト
+		player.setBattleScoreBest(0);
+		// 戦闘スコアベスト時刻
+		player.setBattleScoreBestDate("");
+		// 戦闘記録
+		player.setBattleLog("");
+		// TvTスコア
+		player.setTvTScore(0);
+		// TvTスコア記録
+		player.setTvTScoreLog("");
+		// 交換用ポイント
+		player.setTradingPoint(0);
+
 		// Add the player in the characters table of the database
 		return player.createDb() ? player : null;
 	}
@@ -7148,47 +7245,65 @@ public final class L2PcInstance extends L2Playable
 	 */
 	private boolean createDb()
 	{
+		int charId = getObjectId();
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(INSERT_CHARACTER))
+			PreparedStatement statement1 = con.prepareStatement(INSERT_CHARACTER))
 		{
-			statement.setString(1, _accountName);
-			statement.setInt(2, getObjectId());
-			statement.setString(3, getName());
-			statement.setInt(4, getLevel());
-			statement.setInt(5, getMaxHp());
-			statement.setDouble(6, getCurrentHp());
-			statement.setInt(7, getMaxCp());
-			statement.setDouble(8, getCurrentCp());
-			statement.setInt(9, getMaxMp());
-			statement.setDouble(10, getCurrentMp());
-			statement.setInt(11, getAppearance().getFace());
-			statement.setInt(12, getAppearance().getHairStyle());
-			statement.setInt(13, getAppearance().getHairColor());
-			statement.setInt(14, getAppearance().getSex() ? 1 : 0);
-			statement.setLong(15, getExp());
-			statement.setInt(16, getSp());
-			statement.setInt(17, getKarma());
-			statement.setInt(18, getFame());
-			statement.setInt(19, getPvpKills());
-			statement.setInt(20, getPkKills());
-			statement.setInt(21, getClanId());
-			statement.setInt(22, getRace().ordinal());
-			statement.setInt(23, getClassId().getId());
-			statement.setLong(24, getDeleteTimer());
-			statement.setInt(25, hasDwarvenCraft() ? 1 : 0);
-			statement.setString(26, getTitle());
-			statement.setInt(27, getAppearance().getTitleColor());
-			statement.setInt(28, getAccessLevel().getLevel());
-			statement.setInt(29, isOnlineInt());
-			statement.setInt(30, isIn7sDungeon() ? 1 : 0);
-			statement.setInt(31, getClanPrivileges().getBitmask());
-			statement.setInt(32, getWantsPeace());
-			statement.setInt(33, getBaseClass());
-			statement.setInt(34, getNewbie());
-			statement.setInt(35, isNoble() ? 1 : 0);
-			statement.setLong(36, 0);
-			statement.setDate(37, new Date(getCreateDate().getTimeInMillis()));
-			statement.executeUpdate();
+			statement1.setString(1, _accountName);
+			statement1.setInt(2, charId);
+			statement1.setString(3, getName());
+			statement1.setInt(4, getLevel());
+			statement1.setInt(5, getMaxHp());
+			statement1.setDouble(6, getCurrentHp());
+			statement1.setInt(7, getMaxCp());
+			statement1.setDouble(8, getCurrentCp());
+			statement1.setInt(9, getMaxMp());
+			statement1.setDouble(10, getCurrentMp());
+			statement1.setInt(11, getAppearance().getFace());
+			statement1.setInt(12, getAppearance().getHairStyle());
+			statement1.setInt(13, getAppearance().getHairColor());
+			statement1.setInt(14, getAppearance().getSex() ? 1 : 0);
+			statement1.setLong(15, getExp());
+			statement1.setInt(16, getSp());
+			statement1.setInt(17, getKarma());
+			statement1.setInt(18, getFame());
+			statement1.setInt(19, getPvpKills());
+			statement1.setInt(20, getPkKills());
+			statement1.setInt(21, getClanId());
+			statement1.setInt(22, getRace().ordinal());
+			statement1.setInt(23, getClassId().getId());
+			statement1.setLong(24, getDeleteTimer());
+			statement1.setInt(25, hasDwarvenCraft() ? 1 : 0);
+			statement1.setString(26, getTitle());
+			statement1.setInt(27, getAppearance().getTitleColor());
+			statement1.setInt(28, getAccessLevel().getLevel());
+			statement1.setInt(29, isOnlineInt());
+			statement1.setInt(30, isIn7sDungeon() ? 1 : 0);
+			statement1.setInt(31, getClanPrivileges().getBitmask());
+			statement1.setInt(32, getWantsPeace());
+			statement1.setInt(33, getBaseClass());
+			statement1.setInt(34, getNewbie());
+			statement1.setInt(35, isNoble() ? 1 : 0);
+			statement1.setLong(36, 0);
+			statement1.setDate(37, new Date(getCreateDate().getTimeInMillis()));
+			statement1.executeUpdate();
+			
+			try(PreparedStatement statement2 = con.prepareStatement(INSERT_CHARACTER_CUSTOM)){
+				statement2.setInt(1, charId);
+				statement2.setLong(2, getBattleScore()); // 戦闘スコア
+				statement2.setLong(3, getBattleScoreBest()); //戦闘スコアベスト
+				statement2.setString(4, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
+				statement2.setString(5, getBattleLog()); // 戦闘記録
+				statement2.setLong(6, getTvTScore()); // TvTスコア
+				statement2.setString(7, getTvTScoreLog()); // TvTスコア記録
+				statement2.setLong(8, getTradingPoint()); // 交換用ポイント
+				statement2.executeUpdate();
+			}
+			catch (Exception e)
+			{
+				_log.log(Level.SEVERE, "Could not insert char_customs data: " + e.getMessage(), e);
+				return false;
+			}
 		}
 		catch (Exception e)
 		{
@@ -7455,6 +7570,31 @@ public final class L2PcInstance extends L2Playable
 			{
 				final long masks = player.getVariables().getLong(COND_OVERRIDE_KEY, PcCondOverride.getAllExceptionsMask());
 				player.setOverrideCond(masks);
+			}
+			try (PreparedStatement statement2 = con.prepareStatement(RESTORE_CHARACTER_CUSTOM)){
+				try (ResultSet rset = statement2.executeQuery()){
+					if (rset.next())
+					{
+						// 戦闘スコア
+						player.setBattleScore(rset.getLong("battle_score"));
+						// 戦闘スコアベスト
+						player.setBattleScoreBest(rset.getLong("battle_score_best"));
+						// 戦闘スコアベスト時刻
+						player.setBattleScoreBestDate(rset.getString("battle_score_best_date"));
+						// 戦闘記録
+						player.setBattleLog(rset.getString("battle_log"));
+						// TvTスコア
+						player.setTvTScore(rset.getLong("tvt_score"));
+						// TvTスコア記録
+						player.setTvTScoreLog(rset.getString("tvt_score_log"));
+						// 交換用ポイント
+						player.setTradingPoint(rset.getLong("trading_point"));
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				_log.log(Level.SEVERE, "Failed loading character_customs.", e);
 			}
 		}
 		catch (Exception e)
@@ -7758,42 +7898,42 @@ public final class L2PcInstance extends L2Playable
 		int level = getStat().getBaseLevel();
 		int sp = getStat().getBaseSp();
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(UPDATE_CHARACTER))
+			PreparedStatement statement1 = con.prepareStatement(UPDATE_CHARACTER))
 		{
-			statement.setInt(1, level);
-			statement.setInt(2, getMaxHp());
-			statement.setDouble(3, getCurrentHp());
-			statement.setInt(4, getMaxCp());
-			statement.setDouble(5, getCurrentCp());
-			statement.setInt(6, getMaxMp());
-			statement.setDouble(7, getCurrentMp());
-			statement.setInt(8, getAppearance().getFace());
-			statement.setInt(9, getAppearance().getHairStyle());
-			statement.setInt(10, getAppearance().getHairColor());
-			statement.setInt(11, getAppearance().getSex() ? 1 : 0);
-			statement.setInt(12, getHeading());
-			statement.setInt(13, _observerMode ? _lastLoc.getX() : getX());
-			statement.setInt(14, _observerMode ? _lastLoc.getY() : getY());
-			statement.setInt(15, _observerMode ? _lastLoc.getZ() : getZ());
-			statement.setLong(16, exp);
-			statement.setLong(17, getExpBeforeDeath());
-			statement.setInt(18, sp);
-			statement.setInt(19, getKarma());
-			statement.setInt(20, getFame());
-			statement.setInt(21, getPvpKills());
-			statement.setInt(22, getPkKills());
-			statement.setInt(23, getClanId());
-			statement.setInt(24, getRace().ordinal());
-			statement.setInt(25, getClassId().getId());
-			statement.setLong(26, getDeleteTimer());
-			statement.setString(27, getTitle());
-			statement.setInt(28, getAppearance().getTitleColor());
-			statement.setInt(29, getAccessLevel().getLevel());
-			statement.setInt(30, isOnlineInt());
-			statement.setInt(31, isIn7sDungeon() ? 1 : 0);
-			statement.setInt(32, getClanPrivileges().getBitmask());
-			statement.setInt(33, getWantsPeace());
-			statement.setInt(34, getBaseClass());
+			statement1.setInt(1, level);
+			statement1.setInt(2, getMaxHp());
+			statement1.setDouble(3, getCurrentHp());
+			statement1.setInt(4, getMaxCp());
+			statement1.setDouble(5, getCurrentCp());
+			statement1.setInt(6, getMaxMp());
+			statement1.setDouble(7, getCurrentMp());
+			statement1.setInt(8, getAppearance().getFace());
+			statement1.setInt(9, getAppearance().getHairStyle());
+			statement1.setInt(10, getAppearance().getHairColor());
+			statement1.setInt(11, getAppearance().getSex() ? 1 : 0);
+			statement1.setInt(12, getHeading());
+			statement1.setInt(13, _observerMode ? _lastLoc.getX() : getX());
+			statement1.setInt(14, _observerMode ? _lastLoc.getY() : getY());
+			statement1.setInt(15, _observerMode ? _lastLoc.getZ() : getZ());
+			statement1.setLong(16, exp);
+			statement1.setLong(17, getExpBeforeDeath());
+			statement1.setInt(18, sp);
+			statement1.setInt(19, getKarma());
+			statement1.setInt(20, getFame());
+			statement1.setInt(21, getPvpKills());
+			statement1.setInt(22, getPkKills());
+			statement1.setInt(23, getClanId());
+			statement1.setInt(24, getRace().ordinal());
+			statement1.setInt(25, getClassId().getId());
+			statement1.setLong(26, getDeleteTimer());
+			statement1.setString(27, getTitle());
+			statement1.setInt(28, getAppearance().getTitleColor());
+			statement1.setInt(29, getAccessLevel().getLevel());
+			statement1.setInt(30, isOnlineInt());
+			statement1.setInt(31, isIn7sDungeon() ? 1 : 0);
+			statement1.setInt(32, getClanPrivileges().getBitmask());
+			statement1.setInt(33, getWantsPeace());
+			statement1.setInt(34, getBaseClass());
 			
 			long totalOnlineTime = _onlineTime;
 			if (_onlineBeginTime > 0)
@@ -7801,24 +7941,35 @@ public final class L2PcInstance extends L2Playable
 				totalOnlineTime += (System.currentTimeMillis() - _onlineBeginTime) / 1000;
 			}
 			
-			statement.setLong(35, totalOnlineTime);
-			statement.setInt(36, getNewbie());
-			statement.setInt(37, isNoble() ? 1 : 0);
-			statement.setInt(38, getPowerGrade());
-			statement.setInt(39, getPledgeType());
-			statement.setInt(40, getLvlJoinedAcademy());
-			statement.setLong(41, getApprentice());
-			statement.setLong(42, getSponsor());
-			statement.setLong(43, getClanJoinExpiryTime());
-			statement.setLong(44, getClanCreateExpiryTime());
-			statement.setString(45, getName());
-			statement.setLong(46, getDeathPenaltyBuffLevel());
-			statement.setInt(47, getBookMarkSlot());
-			statement.setInt(48, getVitalityPoints());
-			statement.setString(49, getLang());
-			statement.setInt(50, getObjectId());
+			statement1.setLong(35, totalOnlineTime);
+			statement1.setInt(36, getNewbie());
+			statement1.setInt(37, isNoble() ? 1 : 0);
+			statement1.setInt(38, getPowerGrade());
+			statement1.setInt(39, getPledgeType());
+			statement1.setInt(40, getLvlJoinedAcademy());
+			statement1.setLong(41, getApprentice());
+			statement1.setLong(42, getSponsor());
+			statement1.setLong(43, getClanJoinExpiryTime());
+			statement1.setLong(44, getClanCreateExpiryTime());
+			statement1.setString(45, getName());
+			statement1.setLong(46, getDeathPenaltyBuffLevel());
+			statement1.setInt(47, getBookMarkSlot());
+			statement1.setInt(48, getVitalityPoints());
+			statement1.setString(49, getLang());
+			statement1.setInt(50, getObjectId());
 			
-			statement.execute();
+			statement1.execute();
+			
+			PreparedStatement statement2 = con.prepareStatement(UPDATE_CHARACTER_CUSTOM);
+			statement2.setLong(1, getBattleScore()); // 戦闘スコア
+			statement2.setLong(2, getBattleScoreBest()); //戦闘スコアベスト
+			statement2.setString(3, getBattleScoreBestDate().toString()); // 戦闘スコアベスト時刻
+			statement2.setString(4, getBattleLog()); // 戦闘記録
+			statement2.setLong(5, getTvTScore()); // TvTスコア
+			statement2.setString(6, getTvTScoreLog()); // TvTスコア記録
+			statement2.setLong(7, getTradingPoint()); // 交換用ポイント
+			statement2.setInt(8, getObjectId());
+			statement2.executeUpdate();
 		}
 		catch (Exception e)
 		{
