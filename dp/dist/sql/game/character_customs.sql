@@ -1,15 +1,15 @@
 DROP TABLE IF EXISTS `character_customs`;
 CREATE TABLE `character_customs` (
-  `charId`                 int(10)    unsigned NOT NULL default '0' COMMENT 'ƒLƒƒƒ‰ƒNƒ^ID',
-  `battle_score`           bigint(20) unsigned          default '0' COMMENT 'í“¬ƒXƒRƒA',
-  `battle_score_best`      text                                     COMMENT 'í“¬ƒXƒRƒAƒxƒXƒg',
-  `battle_score_best_date` varchar(19)                              COMMENT 'í“¬ƒXƒRƒAƒxƒXƒg(YYYY/MM/DD hh:nn:ss)',
-  `battle_log`             mediumtext                               COMMENT 'í“¬‹L˜^
+  `charId`                 int(10)    unsigned NOT NULL default '0' COMMENT 'ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ID',
+  `battle_score`           bigint(20) unsigned          default '0' COMMENT 'æˆ¦é—˜ã‚¹ã‚³ã‚¢',
+  `battle_score_best`      text                                     COMMENT 'æˆ¦é—˜ã‚¹ã‚³ã‚¢ãƒ™ã‚¹ãƒˆ',
+  `battle_score_best_date` varchar(19)                              COMMENT 'æˆ¦é—˜ã‚¹ã‚³ã‚¢ãƒ™ã‚¹ãƒˆæ™‚åˆ»(YYYY/MM/DD hh:nn:ss)',
+  `battle_log`             mediumtext                               COMMENT 'æˆ¦é—˜è¨˜éŒ²
 (kill,charId,battle_score,date;death,charId,battle_score,date...)',
-  `tvt_score`              bigint(20) unsigned           default '0' COMMENT 'TvTƒXƒRƒA',
-  `tvt_score_log`          mediumtext                               COMMENT 'TvTƒXƒRƒA‹L˜^(battle_score,date;battle_score,date...)',
-  `	trading_point`          bigint(20) unsigned          default '0' COMMENT 'ŒğŠ·—pƒ|ƒCƒ“ƒg',
+  `tvt_score`              bigint(20) unsigned           default '0' COMMENT 'TvTã‚¹ã‚³ã‚¢',
+  `tvt_score_log`          mediumtext                               COMMENT 'TvTã‚¹ã‚³ã‚¢è¨˜éŒ²(battle_score,date;battle_score,date...)',
+  `	trading_point`          bigint(20) unsigned          default '0' COMMENT 'äº¤æ›ç”¨ãƒã‚¤ãƒ³ãƒˆ',
   PRIMARY KEY  (`charId`),
   KEY `idx_chrId_battle_score` (`charId`,`battle_score`) USING BTREE,
   KEY `idx_chrId_tvt_score`    (`charId`,`tvt_score`) USING BTREE
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'ƒLƒƒƒ‰ƒNƒ^‚ÌƒJƒXƒ^ƒ€ƒe[ƒuƒ‹characterƒe[ƒuƒ‹‚Æ‚PF‚P‚Ìƒe[ƒuƒ‹';
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã®ã‚«ã‚¹ã‚¿ãƒ ãƒ†ãƒ¼ãƒ–ãƒ«characterãƒ†ãƒ¼ãƒ–ãƒ«ã¨ï¼‘ï¼šï¼‘ã®ãƒ†ãƒ¼ãƒ–ãƒ«';
