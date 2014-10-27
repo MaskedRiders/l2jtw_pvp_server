@@ -60,7 +60,7 @@
 	</target>
 
 	<target name="compile" depends="dist" description="Compile the source.">
-		<javac srcdir="${src}" classpathref="classpath" destdir="${build.bin}" compiler="javac1.8" debug="true" debuglevel="lines,vars,source" includeantruntime="false" source="1.8" target="1.8" />
+		<javac srcdir="${src}" classpathref="classpath" destdir="${build.bin}" compiler="javac1.8" debug="true" debuglevel="lines,vars,source" includeantruntime="false" source="1.8" target="1.8" encoding="utf-8"/>
 	</target>
 
 	<target name="jar" depends="compile" description="Create the jar files.">
