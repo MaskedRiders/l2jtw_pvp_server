@@ -5621,7 +5621,7 @@ public final class L2PcInstance extends L2Playable
 							Announcements.getInstance().announceToAll(msg);
 						}
 					}
-					else if (getPvpFlag() != 0)
+					else if (getPvpFlag() != 0 || (isInsideZone(ZoneId.PVP) && pk.isInsideZone(ZoneId.PVP)))
 					{
 						msg = Config.ANNOUNCE_PVP_MSG.replace("$killer", pk.getName()).replace("$target", getName());
 						if (Config.ANNOUNCE_PK_PVP_NORMAL_MESSAGE)
@@ -5636,7 +5636,28 @@ public final class L2PcInstance extends L2Playable
 						}
 					}
 				}
-				
+				// pvp状態
+				long lastAttackReward = 1000; //ラストアタック報酬
+				long partyReward      = 300;  //パーティ報酬
+				long partyDistance    = 900; //パーティ距離報酬
+				long x  = this.getX();
+				long x2 = this.getX();
+				long y  = this.getY();
+				long y2 = this.getY();
+				if(isPvP(pk)){
+					long battleScore = this.getBattleScore();
+					long ptGetBattleScore = (long)(battleScore / pk.getParty().getMembers().size()) ;
+					pk.setBattleScore(pk.getBattleScore() + lastAttackReward);
+					for (L2PcInstance pkPartyMember : pk.getParty().getMembers())
+					{
+						pkPartyMember.setBattleScore(pkPartyMember.getBattleScore() + partyReward);
+						x2 = pkPartyMember.getX();
+						y2 = pkPartyMember.getY();
+						if(Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)) <= partyDistance ){
+							pkPartyMember.setBattleScore(pkPartyMember.getBattleScore() + ptGetBattleScore);
+						}
+					}
+				}
 			}
 			
 			broadcastStatusUpdate();
@@ -14985,4 +15006,15 @@ public final class L2PcInstance extends L2Playable
 		return countOfSubClassAwaking;
 	}
 	// 603-End
+
+	// pvpであればtrue
+	private boolean isPvP(L2PcInstance killer){
+		if(
+				getPvpFlag() != 0 || (isInsideZone(ZoneId.PVP) && killer.isInsideZone(ZoneId.PVP)) && // PvPフラグまたはPvPフィールド
+				(killer.getClient().getConnection().getInetAddress().getHostAddress() != getClient().getConnection().getInetAddress().getHostAddress()) // 同一IPではない
+				){
+			return true;
+		}
+		return false;
+	}
 }
