@@ -7572,6 +7572,7 @@ public final class L2PcInstance extends L2Playable
 				player.setOverrideCond(masks);
 			}
 			try (PreparedStatement statement2 = con.prepareStatement(RESTORE_CHARACTER_CUSTOM)){
+				statement2.setInt(1, objectId);
 				try (ResultSet rset = statement2.executeQuery()){
 					if (rset.next())
 					{
@@ -7963,7 +7964,7 @@ public final class L2PcInstance extends L2Playable
 			PreparedStatement statement2 = con.prepareStatement(UPDATE_CHARACTER_CUSTOM);
 			statement2.setLong(1, getBattleScore()); // 戦闘スコア
 			statement2.setLong(2, getBattleScoreBest()); //戦闘スコアベスト
-			statement2.setString(3, getBattleScoreBestDate().toString()); // 戦闘スコアベスト時刻
+			statement2.setString(3, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
 			statement2.setString(4, getBattleLog()); // 戦闘記録
 			statement2.setLong(5, getTvTScore()); // TvTスコア
 			statement2.setString(6, getTvTScoreLog()); // TvTスコア記録
