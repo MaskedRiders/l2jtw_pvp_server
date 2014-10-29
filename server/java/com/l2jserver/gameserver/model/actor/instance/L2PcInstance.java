@@ -5637,25 +5637,23 @@ public final class L2PcInstance extends L2Playable
 					}
 				}
 				// pvp状態
-				long lastAttackReward = 1000; //ラストアタック報酬
-				long partyReward      = 300;  //パーティ報酬
-				long partyDistance    = 900; //パーティ距離報酬
-				long x  = this.getX();
-				long x2 = this.getX();
-				long y  = this.getY();
-				long y2 = this.getY();
 				if(isPvP(pk)){
-					long battleScore = this.getBattleScore();
-					long ptGetBattleScore = (long)(battleScore / pk.getParty().getMembers().size()) ;
-					pk.setBattleScore(pk.getBattleScore() + lastAttackReward);
-					for (L2PcInstance pkPartyMember : pk.getParty().getMembers())
-					{
-						pkPartyMember.setBattleScore(pkPartyMember.getBattleScore() + partyReward);
-						x2 = pkPartyMember.getX();
-						y2 = pkPartyMember.getY();
-						if(Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)) <= partyDistance ){
-							pkPartyMember.setBattleScore(pkPartyMember.getBattleScore() + ptGetBattleScore);
-						}
+					long lastAttackReward       = 1000; //ラストアタック報酬
+					long partyReward            = 300;  //パーティ報酬
+					long diePlayerDistanceLimit = 900; //死者から報酬が貰えるＰＴメンバの限界距離
+
+					long drainBattleScore = getBattleScore();
+					// 死者のバトルスコアを０に
+					setBattleScore(0);
+
+					// ラストアタックを行った人に報酬を付与
+					doLastAttackerReward(pk, lastAttackReward);
+
+					// ラストアタックを行った人のいるパーティに報酬を付与
+					if(pk.getParty() != null){
+						doPkPartyReward(pk.getParty(), (partyReward * pk.getParty().getMemberCount() + drainBattleScore), diePlayerDistanceLimit);
+					} else {
+						doLastAttackerReward(pk, drainBattleScore);
 					}
 				}
 			}
@@ -15007,14 +15005,66 @@ public final class L2PcInstance extends L2Playable
 	}
 	// 603-End
 
-	// pvpであればtrue
+	/**
+	 * PvP判定 正しいPvPならばtrue
+	 * @param killer
+	 */
 	private boolean isPvP(L2PcInstance killer){
 		if(
-				getPvpFlag() != 0 || (isInsideZone(ZoneId.PVP) && killer.isInsideZone(ZoneId.PVP)) && // PvPフラグまたはPvPフィールド
-				(killer.getClient().getConnection().getInetAddress().getHostAddress() != getClient().getConnection().getInetAddress().getHostAddress()) // 同一IPではない
+				getPvpFlag() != 0 || (isInsideZone(ZoneId.PVP) && killer.isInsideZone(ZoneId.PVP)) // PvPフラグまたはPvPフィールド
+				&& (killer.getClient().getConnection().getInetAddress().getHostAddress() != getClient().getConnection().getInetAddress().getHostAddress()) // 同一IPではない
 				){
 			return true;
 		}
 		return false;
 	}
+	
+	/**
+	 * PvPのラストアタッカーへの報酬付与
+	 * @param lastAttacker 
+	 * @param reward
+	 */
+	private void doLastAttackerReward(L2PcInstance lastAttacker,long reward){
+		lastAttacker.addBattleScore(reward);
+	}
+	
+	/**
+	 * PvPパーティへの報酬付与
+	 * @param killer 
+	 * @param partyReward
+	 * @param dropDistance
+	 */
+	private void doPkPartyReward(L2Party party,long partyAllReward,long dropDistance){
+		long x1 = this.getX();
+		long x2 = this.getX();
+		long y1 = this.getY();
+		long y2 = this.getY();
+		long partyReward = (long)(partyAllReward / party.getMemberCount()) ;
+		for (L2PcInstance pkPartyMember : party.getMembers())
+		{
+			x2 = pkPartyMember.getX();
+			y2 = pkPartyMember.getY();
+			if(Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) <= dropDistance ){
+				// 報酬付与
+				pkPartyMember.addBattleScore(partyReward);
+			}
+		}
+	}
+	
+	private long addBattleScore(long battleScore){
+		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
+		sm.addString("バトルスコア取得：" + battleScore);
+		// バトルスコアを更新
+		setBattleScore(getBattleScore() + battleScore);
+		sendPacket(sm);
+		// バトルスコアが最高バトルスコアを上回ったか
+		if(getBattleScore() > getBattleScoreBest()){
+			SystemMessage sm2 = SystemMessage.getSystemMessage(SystemMessageId.S1);
+			sm2.addString("最高バトルスコアを更新：" + getBattleScoreBest() + " → " + getBattleScore());
+			// 最高バトルスコアを更新
+			setBattleScoreBest(getBattleScore());
+			sendPacket(sm2);
+		}
+		return getBattleScore();
+	}	
 }
