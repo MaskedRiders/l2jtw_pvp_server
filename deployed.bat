@@ -2,7 +2,7 @@
 set GS_DEPLOYED=
 set DP_DEPLOYED=
 set EXIT_F=
-set DEPLOY_DIR=..\staging
+set DEPLOY_DIR=..\..\staging
 
 :deployed_start
 echo デプロイを開始します。

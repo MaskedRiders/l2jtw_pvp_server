@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="L2JTW_Server_Ertheia" default="build" basedir=".">
+<project name="L2JTW_PvP_Server_Ertheia" default="build" basedir=".">
 	<description>
 		This script will build the L2JTW server.
 
