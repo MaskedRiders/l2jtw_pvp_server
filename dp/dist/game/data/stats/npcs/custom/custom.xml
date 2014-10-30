@@ -58,7 +58,7 @@
 			<height normal="22.25" />
 		</collision>
 	</npc>
-	<npc id="900150" displayId="33942" level="80" type="L2Npc" name="アリース" title="追加NPC" usingServerSideTitle="true">
+	<npc id="900150" displayId="33942" level="80" type="L2PvpSupport" name="アリース" title="PvPサポート" usingServerSideTitle="true">
 		<skill_list><skill id="4408" level="1" /></skill_list>
 	</npc>
 	<npc id="900151" displayId="33991" level="80" type="L2Merchant" name="マジック オウル" title="追加ショップNPC" usingServerSideTitle="true">

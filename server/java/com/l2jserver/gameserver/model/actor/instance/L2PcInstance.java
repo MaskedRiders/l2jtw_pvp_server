@@ -15051,7 +15051,7 @@ public final class L2PcInstance extends L2Playable
 		}
 	}
 	
-	private long addBattleScore(long battleScore){
+	public long addBattleScore(long battleScore){
 		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
 		sm.addString("バトルスコア取得：" + battleScore);
 		// バトルスコアを更新
@@ -15067,4 +15067,23 @@ public final class L2PcInstance extends L2Playable
 		}
 		return getBattleScore();
 	}	
+
+	public long addTradingPoint(long tradingPoint){
+		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
+		sm.addString("トレーディングポイントを取得：" + tradingPoint);
+		// バトルスコアを更新
+		setTradingPoint(getTradingPoint() + tradingPoint);
+		sendPacket(sm);
+		return getTradingPoint();
+	}
+
+	public long subtractTradingPoint(long tradingPoint){
+		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
+		sm.addString("トレーディングポイントを消費：" + tradingPoint);
+		// バトルスコアを更新
+		setTradingPoint(getTradingPoint() - tradingPoint);
+		sendPacket(sm);
+		return getTradingPoint();
+	}
+
 }
