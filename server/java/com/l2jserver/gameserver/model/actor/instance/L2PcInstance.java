@@ -527,6 +527,16 @@ public final class L2PcInstance extends L2Playable
 	private long _trading_point;
 	public long getTradingPoint(){ return _trading_point; }
 	public void setTradingPoint(long value){ _trading_point = value;}
+	// PvP死亡時刻
+	private long _pvpDeathDate;
+	public long getPvPDeathDate(){ return _pvpDeathDate; }
+	public void setPvPDeathDate(long value){ _pvpDeathDate = value;}
+	// ゾンビ
+	private boolean _pvpZombie;
+	public boolean isZombie(){ return _pvpZombie; }
+	public void setPvpZombie(boolean value){ _pvpZombie = value;}
+	public void PollutionPvpZombie(){ _pvpZombie = true;}
+	public void purificationPvpZombie(){ _pvpZombie = false;}
 
 	private final String _accountName;
 	private long _deleteTimer;
@@ -1056,6 +1066,10 @@ public final class L2PcInstance extends L2Playable
 		player.setTvTScoreLog("");
 		// 交換用ポイント
 		player.setTradingPoint(0);
+		// PvP死亡時刻
+		player.setPvPDeathDate(0);
+		// ゾンビ
+		player.setPvpZombie(false);
 
 		// Add the player in the characters table of the database
 		return player.createDb() ? player : null;
@@ -7607,6 +7621,10 @@ public final class L2PcInstance extends L2Playable
 						player.setTvTScore(rset.getLong("tvt_score"));
 						// TvTスコア記録
 						player.setTvTScoreLog(rset.getString("tvt_score_log"));
+						// PvP死亡時刻
+						player.setPvPDeathDate(rset.getLong("pvp_death_date"));
+						// ゾンビ
+						player.setPvpZombie(rset.getBoolean("pvp_zombie"));
 						// 交換用ポイント
 						player.setTradingPoint(rset.getLong("trading_point"));
 					}

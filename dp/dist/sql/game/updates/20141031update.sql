@@ -1,6 +1,6 @@
 ALTER TABLE `character_customs`
 DROP COLUMN `battle_score_best`,
-ADD COLUMN `battle_score_best`  int(10) NULL DEFAULT NULL COMMENT 'êÌì¨ÉXÉRÉAÉxÉXÉg' AFTER `battle_score`,
-ADD COLUMN `pvp_death_date`  int(10) NULL COMMENT 'PvPéÄñSéûçè' AFTER `tvt_score_log`,
-ADD COLUMN `pvp_zombie`  tinyint(1) NULL COMMENT 'É]ÉìÉr' AFTER `pvp_death_date`;
+ADD COLUMN `battle_score_best`  int(10) NULL DEFAULT NULL COMMENT 'Êà¶Èóò„Çπ„Ç≥„Ç¢„Éô„Çπ„Éà' AFTER `battle_score`,
+ADD COLUMN `pvp_death_date`  int(10) NULL COMMENT 'PvPÊ≠ª‰∫°ÊôÇÂàª' AFTER `tvt_score_log`,
+ADD COLUMN `pvp_zombie`  tinyint(1) NULL COMMENT '„Çæ„É≥„Éì' AFTER `pvp_death_date`;
 
