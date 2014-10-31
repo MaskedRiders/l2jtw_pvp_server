@@ -342,6 +342,8 @@ import com.l2jserver.util.EnumIntBitmask;
 import com.l2jserver.util.Rnd;
 import com.l2jserver.gameserver.model.L2CoreMessage;
 import com.l2jserver.gameserver.datatables.MessageTable;
+import com.l2jserver.gameserver.model.entity.PvPZombieOperator;
+import com.l2jserver.gameserver.model.skills.AbnormalVisualEffect;
 
 /**
  * This class represents all player characters in the world.<br>
@@ -359,20 +361,21 @@ public final class L2PcInstance extends L2Playable
 	
 	/*
 	追加生成されたテーブルのDDL
-	DROP TABLE IF EXISTS `character_customs`;
 	CREATE TABLE `character_customs` (
-	  `charId`　　　　　　　　 int(10)　　unsigned NOT NULL default '0' COMMENT 'キャラクタID',
-	  `battle_score`　　　　　 bigint(20) unsigned NOT NULL default '0' COMMENT '戦闘スコア',
-	  `battle_score_best`　　　text　　　　　　　　　　　　　　　　　　 COMMENT '戦闘スコアベスト',
-	  `battle_score_best_date` datetime　　　　　　　　　　　　　　　　 COMMENT '戦闘スコアベスト時刻',
-	  `battle_log`　　　　　　 mediumtext　　　　　　　　　　　　　　　 COMMENT '戦闘記録(kill,charId,battle_score,date;death,charId,battle_score,date...)',
-	  `tvt_score`　　　　　　　bigint(20) unsigned NOT NULL default '0' COMMENT 'TvTスコア',
-	  `tvt_score_log`　　　　　mediumtext　　　　　　　　　　　　　　　 COMMENT 'TvTスコア記録(battle_score,date;battle_score,date...)',
-	  `trading_point`　　　　　bigint(20) unsigned NOT NULL default '0' COMMENT '交換用ポイント',
-	  PRIMARY KEY　(`charId`),
+	  `charId`                 int(10)    unsigned NOT NULL default '0' COMMENT 'キャラクタID',
+	  `battle_score`           bigint(20) unsigned          default '0' COMMENT '戦闘スコア',
+	  `battle_score_best`      int(10)    unsigned          default '0' COMMENT '戦闘スコアベスト',
+	  `battle_score_best_date` int(10)    unsigned          default '0' COMMENT '戦闘スコアベスト時刻',
+	  `battle_log`             mediumtext                               COMMENT '戦闘記録(kill,charId,battle_score,date;death,charId,battle_score,date...)',
+	  `tvt_score`              bigint(20) unsigned          default '0' COMMENT 'TvTスコア',
+	  `tvt_score_log`          mediumtext                               COMMENT 'TvTスコア記録(battle_score,date;battle_score,date...)',
+	  `pvp_death_date`         int(10)    unsigned          default '0' COMMENT 'PvP死亡時刻',
+	  `pvp_zombie`             tinyint(1) unsigned          default '0' COMMENT 'ゾンビ',
+	  `trading_point`          bigint(20) unsigned          default '0' COMMENT '交換用ポイント',
+	  PRIMARY KEY  (`charId`),
 	  KEY `idx_chrId_battle_score` (`charId`,`battle_score`) USING BTREE,
-	  KEY `idx_chrId_tvt_score`　　(`charId`,`tvt_score`) USING BTREE
-	) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'キャラクタのカスタムテーブルcharacterテーブルと１：１のテーブル';
+	  KEY `idx_chrId_tvt_score`    (`charId`,`tvt_score`) USING BTREE
+	) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'キャラクタのカスタムテーブルcharacterテーブルと１：１のテーブル';	
 	*/
     private static final String INSERT_CHARACTER_CUSTOM =
       "INSERT INTO character_customs (" +
@@ -383,9 +386,11 @@ public final class L2PcInstance extends L2Playable
       "battle_log, "             +
       "tvt_score, "              +
       "tvt_score_log, "          +
+      "pvp_death_date, "         +
+      "pvp_zombie, "             +
       "trading_point) "          +
       "values "                  +
-      "(?,?,?,?,?,?,?,?)";
+      "(?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_CHARACTER_CUSTOM =
       "UPDATE character_customs SET " +
       "battle_score=?, "           +
@@ -394,6 +399,8 @@ public final class L2PcInstance extends L2Playable
       "battle_log=?, "             +
       "tvt_score=?, "              +
       "tvt_score_log=?, "          +
+      "pvp_death_date=?, "         +
+      "pvp_zombie=?, "             +
       "trading_point=? "           +
       "WHERE charId=?";
     private static final String RESTORE_CHARACTER_CUSTOM=
@@ -405,6 +412,8 @@ public final class L2PcInstance extends L2Playable
       "battle_log, "             +
       "tvt_score, "              +
       "tvt_score_log, "          +
+      "pvp_death_date, "         +
+      "pvp_zombie, "             +
       "trading_point "           +
       "FROM character_customs "  +
       "WHERE charId=?";
@@ -533,10 +542,17 @@ public final class L2PcInstance extends L2Playable
 	public void setPvPDeathDate(long value){ _pvpDeathDate = value;}
 	// ゾンビ
 	private boolean _pvpZombie;
-	public boolean isZombie(){ return _pvpZombie; }
-	public void setPvpZombie(boolean value){ _pvpZombie = value;}
-	public void PollutionPvpZombie(){ _pvpZombie = true;}
-	public void purificationPvpZombie(){ _pvpZombie = false;}
+	public boolean getPvPZombie(){ return _pvpZombie; }
+	public void setPvpZombie(boolean value){ 
+		_pvpZombie = value;
+		if(value == true){
+			PollutionPvpZombie();
+			new PvPZombieOperator(this, PvPZombieOperator.MODE_purificationPvpZombie);
+		} else{
+			purificationPvpZombie();
+		}
+	}
+	public boolean isPvPZombie(){ return _pvpZombie; }
 
 	private final String _accountName;
 	private long _deleteTimer;
@@ -5659,6 +5675,8 @@ public final class L2PcInstance extends L2Playable
 					long drainBattleScore = getBattleScore();
 					// 死者のバトルスコアを０に
 					setBattleScore(0);
+					setPvPDeathDate(Calendar.getInstance().getTimeInMillis());
+					setPvpZombie(true);
 
 					// ラストアタックを行った人に報酬を付与
 					doLastAttackerReward(pk, lastAttackReward);
@@ -7329,7 +7347,9 @@ public final class L2PcInstance extends L2Playable
 				statement2.setString(5, getBattleLog()); // 戦闘記録
 				statement2.setLong(6, getTvTScore()); // TvTスコア
 				statement2.setString(7, getTvTScoreLog()); // TvTスコア記録
-				statement2.setLong(8, getTradingPoint()); // 交換用ポイント
+				statement2.setLong(8, getPvPDeathDate()); // PvP死亡時刻
+				statement2.setBoolean(9, getPvPZombie()); // ゾンビ
+				statement2.setLong(10, getTradingPoint()); // 交換用ポイント
 				statement2.executeUpdate();
 			}
 			catch (Exception e)
@@ -8005,8 +8025,10 @@ public final class L2PcInstance extends L2Playable
 			statement2.setString(4, getBattleLog()); // 戦闘記録
 			statement2.setLong(5, getTvTScore()); // TvTスコア
 			statement2.setString(6, getTvTScoreLog()); // TvTスコア記録
-			statement2.setLong(7, getTradingPoint()); // 交換用ポイント
-			statement2.setInt(8, getObjectId());
+			statement2.setLong(7, getPvPDeathDate()); // PvP死亡時刻
+			statement2.setBoolean(8, getPvPZombie()); // ゾンビ
+			statement2.setLong(9, getTradingPoint()); // 交換用ポイント
+			statement2.setInt(10, getObjectId());
 			statement2.executeUpdate();
 		}
 		catch (Exception e)
@@ -15105,4 +15127,18 @@ public final class L2PcInstance extends L2Playable
 		return getTradingPoint();
 	}
 
+	public void PollutionPvpZombie(){
+		startAbnormalVisualEffect(false, AbnormalVisualEffect.VP_UP);
+		startAbnormalVisualEffect(false, AbnormalVisualEffect.DEATH_MARK);
+		updateAbnormalEffect();
+
+		_pvpZombie = true;
+	}
+	public void purificationPvpZombie(){
+		stopAbnormalVisualEffect(false, AbnormalVisualEffect.VP_UP);
+		stopAbnormalVisualEffect(false, AbnormalVisualEffect.DEATH_MARK);
+		updateAbnormalEffect();
+
+		_pvpZombie = false;
+	}
 }
