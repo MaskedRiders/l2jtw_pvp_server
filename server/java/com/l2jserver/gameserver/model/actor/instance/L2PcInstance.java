@@ -508,9 +508,9 @@ public final class L2PcInstance extends L2Playable
 	public long getBattleScoreBest(){ return _battle_score_best; }
 	public void setBattleScoreBest(long value){ _battle_score_best = value;}
 	// 戦闘スコアベスト時刻
-	private String _battle_score_best_date;
-	public String getBattleScoreBestDate(){ return _battle_score_best_date; }
-	public void setBattleScoreBestDate(String value){ _battle_score_best_date = value;}
+	private long _battle_score_best_date;
+	public long getBattleScoreBestDate(){ return _battle_score_best_date; }
+	public void setBattleScoreBestDate(long value){ _battle_score_best_date = value;}
 	// 戦闘記録 /* TODO: 他の引数を持つアクセサも増やす */
 	private String _battle_log;
 	public String getBattleLog(){ return _battle_log; }
@@ -1047,7 +1047,7 @@ public final class L2PcInstance extends L2Playable
 		// 戦闘スコアベスト
 		player.setBattleScoreBest(0);
 		// 戦闘スコアベスト時刻
-		player.setBattleScoreBestDate("");
+		player.setBattleScoreBestDate(0);
 		// 戦闘記録
 		player.setBattleLog("");
 		// TvTスコア
@@ -7311,7 +7311,7 @@ public final class L2PcInstance extends L2Playable
 				statement2.setInt(1, charId);
 				statement2.setLong(2, getBattleScore()); // 戦闘スコア
 				statement2.setLong(3, getBattleScoreBest()); //戦闘スコアベスト
-				statement2.setString(4, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
+				statement2.setLong(4, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
 				statement2.setString(5, getBattleLog()); // 戦闘記録
 				statement2.setLong(6, getTvTScore()); // TvTスコア
 				statement2.setString(7, getTvTScoreLog()); // TvTスコア記録
@@ -7600,7 +7600,7 @@ public final class L2PcInstance extends L2Playable
 						// 戦闘スコアベスト
 						player.setBattleScoreBest(rset.getLong("battle_score_best"));
 						// 戦闘スコアベスト時刻
-						player.setBattleScoreBestDate(rset.getString("battle_score_best_date"));
+						player.setBattleScoreBestDate(rset.getLong("battle_score_best_date"));
 						// 戦闘記録
 						player.setBattleLog(rset.getString("battle_log"));
 						// TvTスコア
@@ -7983,7 +7983,7 @@ public final class L2PcInstance extends L2Playable
 			PreparedStatement statement2 = con.prepareStatement(UPDATE_CHARACTER_CUSTOM);
 			statement2.setLong(1, getBattleScore()); // 戦闘スコア
 			statement2.setLong(2, getBattleScoreBest()); //戦闘スコアベスト
-			statement2.setString(3, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
+			statement2.setLong(3, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
 			statement2.setString(4, getBattleLog()); // 戦闘記録
 			statement2.setLong(5, getTvTScore()); // TvTスコア
 			statement2.setString(6, getTvTScoreLog()); // TvTスコア記録
@@ -15063,6 +15063,7 @@ public final class L2PcInstance extends L2Playable
 			sm2.addString("最高バトルスコアを更新：" + getBattleScoreBest() + " → " + getBattleScore());
 			// 最高バトルスコアを更新
 			setBattleScoreBest(getBattleScore());
+			setBattleScoreBestDate(Calendar.getInstance().getTimeInMillis());
 			sendPacket(sm2);
 		}
 		return getBattleScore();

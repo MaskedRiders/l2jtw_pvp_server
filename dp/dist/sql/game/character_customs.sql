@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `character_customs`;
 CREATE TABLE `character_customs` (
   `charId`                 int(10)    unsigned NOT NULL default '0' COMMENT 'キャラクタID',
   `battle_score`           bigint(20) unsigned          default '0' COMMENT '戦闘スコア',
-  `battle_score_best`      text                                     COMMENT '戦闘スコアベスト',
+  `battle_score_best`      int(10)    unsigned          default '0' COMMENT '戦闘スコアベスト',
   `battle_score_best_date` varchar(19)                              COMMENT '戦闘スコアベスト時刻(YYYY/MM/DD hh:nn:ss)',
   `battle_log`             mediumtext                               COMMENT '戦闘記録
 (kill,charId,battle_score,date;death,charId,battle_score,date...)',
