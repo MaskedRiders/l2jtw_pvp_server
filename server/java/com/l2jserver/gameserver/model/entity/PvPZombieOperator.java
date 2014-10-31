@@ -28,19 +28,6 @@ public final class PvPZombieOperator implements Runnable
 				case MODE_purificationPvpZombie:
 					long pvPDeathDate = Calendar.getInstance().getTimeInMillis() - playerInstance.getPvPDeathDate();
 					long delay = _purificationPvpZombieDelaySec - pvPDeathDate;
-					_log.log(Level.WARNING, "Calendar.getInstance().getTimeInMillis()   "+ Calendar.getInstance().getTimeInMillis());
-					_log.log(Level.WARNING, "playerInstance.getPvPDeathDate()  "+ playerInstance.getPvPDeathDate());
-					_log.log(Level.WARNING, "_purificationPvpZombieDelaySec   "+ _purificationPvpZombieDelaySec);
-					_log.log(Level.WARNING, "pvPDeathDate   "+ pvPDeathDate);
-					_log.log(Level.WARNING, "delay   "+ delay);
-/*
-[01/11 04:01:35] Calendar.getInstance().getTimeInMillis()   1414782095526
-[01/11 04:01:35] playerInstance.getPvPDeathDate()  14147802610000
-[01/11 04:01:35] _purificationPvpZombieDelaySec   180000
-[01/11 04:01:35] pvPDeathDate   -12733020514474
-[01/11 04:01:35] delay   12733020694474
-*/					
-
 					if(delay < 1){
 						this.run();
 					}
