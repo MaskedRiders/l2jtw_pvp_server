@@ -25,8 +25,10 @@ import java.util.logging.Logger;
 import com.l2jserver.Config;
 import com.l2jserver.gameserver.SevenSigns;
 import com.l2jserver.gameserver.SevenSignsFestival;
+import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.datatables.HitConditionBonus;
 import com.l2jserver.gameserver.datatables.KarmaData;
+import com.l2jserver.gameserver.datatables.SkillData;
 import com.l2jserver.gameserver.instancemanager.CastleManager;
 import com.l2jserver.gameserver.instancemanager.ClanHallManager;
 import com.l2jserver.gameserver.instancemanager.FortManager;
@@ -64,10 +66,8 @@ import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMAtkCritical;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMAtkMod;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMAtkSpeed;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMDefMod;
-import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMaxCpMul;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMaxHpMul;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMaxMpMul;
-import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncMoveSpeed;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncPAtkMod;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncPAtkSpeed;
 import com.l2jserver.gameserver.model.skills.funcs.formulas.FuncPDefMod;
@@ -79,6 +79,7 @@ import com.l2jserver.gameserver.model.zone.type.L2MotherTreeZone;
 import com.l2jserver.gameserver.network.Debug;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
+import com.l2jserver.gameserver.taskmanager.AttackStanceTaskManager;
 import com.l2jserver.gameserver.util.Util;
 import com.l2jserver.util.Rnd;
 
@@ -908,8 +909,33 @@ public final class Formulas
 				}
 			}
 		}
+//		_log.warning("calcPhysDam");
+		if (pvpZombieAddStoneSkill(attacker, target)) return 0;
 		return damage;
 	}
+	
+	private static boolean pvpZombieAddStoneSkill(L2Character attacker, L2Character target){
+//		_log.warning("pvpZombieAddStoneSkill");
+		Skill skill;
+		if (attacker instanceof L2PcInstance && target instanceof L2PcInstance){
+//			_log.warning("1 attacker instanceof L2PcInstance && target instanceof L2PcInstance");
+			if(((L2PcInstance)attacker).isPvPZombie()){
+//				_log.warning("2 ((L2PcInstance)attacker).isPvPZombie()");			
+				if(!AttackStanceTaskManager.getInstance().hasAttackStanceTask(target)){
+//					_log.warning("3 !AttackStanceTaskManager.getInstance().hasAttackStanceTask(target)");
+					skill = SkillData.getInstance().getSkill(4578, 1);
+					skill.applyEffects(target, attacker);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+//[08/11 03:04:22] attacker instanceof L2PcInstance && target instanceof L2PcInstance
+//[08/11 03:04:22] ((L2PcInstance)attacker).isPvPZombie()
+//[08/11 03:04:22] AttackStanceTaskManager.getInstance().hasAttackStanceTask(target)
+
 	
 	public static final double calcMagicDam(L2Character attacker, L2Character target, Skill skill, byte shld, boolean sps, boolean bss, boolean mcrit)
 	{
@@ -1017,6 +1043,8 @@ public final class Formulas
 				}
 			}
 		}
+//		_log.warning("calcMagicDam2");
+		if (pvpZombieAddStoneSkill(attacker, target)) return 0;
 		return damage;
 	}
 	
@@ -1103,6 +1131,8 @@ public final class Formulas
 				}
 			}
 		}
+//		_log.warning("calcMagicDam");
+		if (pvpZombieAddStoneSkill(owner, target)) return 0;
 		return damage;
 	}
 	

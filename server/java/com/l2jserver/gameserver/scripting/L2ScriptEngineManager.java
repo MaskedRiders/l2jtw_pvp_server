@@ -184,6 +184,21 @@ public final class L2ScriptEngineManager
 			}
 		}
 		
+		/*
+		file = new File(SCRIPT_FOLDER, "handlers/HandlerResourcees.java");
+
+		try
+		{
+			executeScript(file);
+			_log.info("HandlerResourcees");
+			return;
+		}
+		catch (ScriptException se)
+		{
+			_log.log(Level.WARNING, "", se);
+		}
+		*/
+		
 		if (Config.ALT_DEV_NO_QUESTS)
 		{
 			return;
@@ -358,7 +373,7 @@ public final class L2ScriptEngineManager
 		
 		final String relativeName = file.getAbsolutePath().substring(SCRIPT_FOLDER.getAbsolutePath().length() + 1).replace('\\', '/');
 		try (FileInputStream fis = new FileInputStream(file);
-			InputStreamReader isr = new InputStreamReader(fis);
+			InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
 			BufferedReader reader = new BufferedReader(isr))
 		{
 			if ((engine instanceof Compilable) && ATTEMPT_COMPILATION)

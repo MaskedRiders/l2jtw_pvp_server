@@ -268,9 +268,11 @@ import handlers.voicedcommandhandlers.Banking;
 import handlers.voicedcommandhandlers.ChangePassword;
 import handlers.voicedcommandhandlers.ChatAdmin;
 import handlers.voicedcommandhandlers.Debug;
+import handlers.voicedcommandhandlers.GoTown;
 import handlers.voicedcommandhandlers.Lang;
 import handlers.voicedcommandhandlers.StatsVCmd;
 import handlers.voicedcommandhandlers.Wedding;
+import java.util.Collections;
 
 /**
  * Master handler.
@@ -278,8 +280,15 @@ import handlers.voicedcommandhandlers.Wedding;
  */
 public class MasterHandler
 {
-	private static final Logger _log = Logger.getLogger(MasterHandler.class.getName());
+	public static final Map<String, String> GO_TOWN_RESOURCEES;
+	static {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("PvPZombieForTarget", "あなたはまだゾンビなので、ギランに戻されます。あと%s秒後に参戦してください。");
+		map.put("PostPvPZombieForActor", "ゾンビをふっ飛ばしました。");
+		GO_TOWN_RESOURCEES = Collections.unmodifiableMap(map);
+	}
 	
+	private static final Logger _log = Logger.getLogger(MasterHandler.class.getName());
 	private static final IHandler<?, ?>[] _loadInstances =
 	{
 		ActionHandler.getInstance(),
@@ -517,6 +526,7 @@ public class MasterHandler
 			(Config.L2JMOD_MULTILANG_ENABLE && Config.L2JMOD_MULTILANG_VOICED_ALLOW ? Lang.class : null),
 			(Config.L2JMOD_DEBUG_VOICE_COMMAND ? Debug.class : null),
 			(Config.L2JMOD_ALLOW_CHANGE_PASSWORD ? ChangePassword.class : null),
+			GoTown.class,
 		},
 		{
 			// Target Handlers
@@ -572,7 +582,7 @@ public class MasterHandler
 	 */
 	public static void main(String[] args)
 	{
-		_log.log(Level.INFO, "Loading Handlers...");
+		_log.log(Level.INFO, "ハンドラーを読み込みます...");
 		
 		Map<IHandler<?, ?>, Method> registerHandlerMethods = new HashMap<>();
 		for (IHandler<?, ?> loadInstance : _loadInstances)
@@ -606,6 +616,7 @@ public class MasterHandler
 					Object handler = c.newInstance();
 					for (Entry<IHandler<?, ?>, Method> entry : registerHandlerMethods.entrySet())
 					{
+//						_log.log(Level.WARNING, handler.getClass().getName());
 						if ((entry.getValue() != null) && entry.getValue().getParameterTypes()[0].isInstance(handler))
 						{
 							entry.getValue().invoke(entry.getKey(), handler);

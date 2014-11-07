@@ -1005,6 +1005,7 @@ public final class Config
 	public static String DATAPACK_VERSION;
 	public static int PVP_NORMAL_TIME;
 	public static int PVP_PVP_TIME;
+	public static long PURIFICATION_PVP_ZOMBIE_DELAY;
 	
 	public static enum IdFactoryType
 	{
@@ -2647,6 +2648,7 @@ public final class Config
 			
 			PVP_NORMAL_TIME = PVPSettings.getInt("PvPVsNormalTime", 120000);
 			PVP_PVP_TIME = PVPSettings.getInt("PvPVsPvPTime", 60000);
+			PURIFICATION_PVP_ZOMBIE_DELAY = PVPSettings.getLong("PurificationPvPZombieDelay", 180000);
 			
 			// Load Olympiad L2Properties file (if exists)
 			final PropertiesParser Olympiad = new PropertiesParser(OLYMPIAD_CONFIG_FILE);

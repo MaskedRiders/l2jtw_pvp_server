@@ -35,6 +35,8 @@ import com.l2jserver.gameserver.model.entity.ClanHall;
 import com.l2jserver.gameserver.model.entity.Fort;
 import com.l2jserver.gameserver.model.entity.clanhall.SiegableHall;
 import com.l2jserver.gameserver.datatables.MessageTable;
+import com.l2jserver.gameserver.model.entity.PvPZombieOperator;
+import static com.l2jserver.gameserver.model.entity.PvPZombieOperator.MODE_pollutionPvpZombie;
 
 /**
  * This class ...
@@ -276,7 +278,6 @@ public final class RequestRestartPoint extends L2GameClientPacket
 				break;
 			}
 		}
-		
 		// Teleport and revive
 		if (loc != null)
 		{
@@ -284,6 +285,7 @@ public final class RequestRestartPoint extends L2GameClientPacket
 			activeChar.setIsIn7sDungeon(false);
 			activeChar.setIsPendingRevive(true);
 			activeChar.teleToLocation(loc, true);
+			new PvPZombieOperator(activeChar, MODE_pollutionPvpZombie);
 		}
 	}
 	

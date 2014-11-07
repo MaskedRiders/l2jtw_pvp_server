@@ -344,6 +344,9 @@ import com.l2jserver.gameserver.model.L2CoreMessage;
 import com.l2jserver.gameserver.datatables.MessageTable;
 import com.l2jserver.gameserver.model.entity.PvPZombieOperator;
 import com.l2jserver.gameserver.model.skills.AbnormalVisualEffect;
+import static com.l2jserver.gameserver.model.entity.PvPZombieOperator.MODE_purificationPvpZombie;
+import com.l2jserver.gameserver.network.clientpackets.L2GameClientPacket;
+import java.util.logging.Logger;
 
 /**
  * This class represents all player characters in the world.<br>
@@ -543,15 +546,6 @@ public final class L2PcInstance extends L2Playable
 	// ゾンビ
 	private boolean _pvpZombie;
 	public boolean getPvPZombie(){ return _pvpZombie; }
-	public void setPvpZombie(boolean value){ 
-		_pvpZombie = value;
-		if(value == true){
-			PollutionPvpZombie();
-			new PvPZombieOperator(this, PvPZombieOperator.MODE_purificationPvpZombie);
-		} else{
-			purificationPvpZombie();
-		}
-	}
 	public boolean isPvPZombie(){ return _pvpZombie; }
 
 	private final String _accountName;
@@ -5676,7 +5670,6 @@ public final class L2PcInstance extends L2Playable
 					// 死者のバトルスコアを０に
 					setBattleScore(0);
 					setPvPDeathDate(Calendar.getInstance().getTimeInMillis());
-					setPvpZombie(true);
 
 					// ラストアタックを行った人に報酬を付与
 					doLastAttackerReward(pk, lastAttackReward);
@@ -5693,7 +5686,6 @@ public final class L2PcInstance extends L2Playable
 			broadcastStatusUpdate();
 			// Clear resurrect xp calculation
 			setExpBeforeDeath(0);
-			
 			// Issues drop of Cursed Weapon.
 			if (isCursedWeaponEquipped())
 			{
@@ -15052,7 +15044,7 @@ public final class L2PcInstance extends L2Playable
 	private boolean isPvP(L2PcInstance killer){
 		if(
 				getPvpFlag() != 0 || (isInsideZone(ZoneId.PVP) && killer.isInsideZone(ZoneId.PVP)) // PvPフラグまたはPvPフィールド
-				&& (killer.getClient().getConnection().getInetAddress().getHostAddress() != getClient().getConnection().getInetAddress().getHostAddress()) // 同一IPではない
+				&& (getClient().getConnection().getInetAddress().getHostAddress() != killer.getClient().getConnection().getInetAddress().getHostAddress()) // 同一IPではない
 				){
 			return true;
 		}
@@ -15061,7 +15053,7 @@ public final class L2PcInstance extends L2Playable
 	
 	/**
 	 * PvPのラストアタッカーへの報酬付与
-	 * @param lastAttacker 
+	 * @param lastAttacker s
 	 * @param reward
 	 */
 	private void doLastAttackerReward(L2PcInstance lastAttacker,long reward){
@@ -15075,22 +15067,25 @@ public final class L2PcInstance extends L2Playable
 	 * @param dropDistance
 	 */
 	private void doPkPartyReward(L2Party party,long partyAllReward,long dropDistance){
-		long x1 = this.getX();
-		long x2 = this.getX();
-		long y1 = this.getY();
-		long y2 = this.getY();
+		long x = this.getX();
+		long y = this.getY();
 		long partyReward = (long)(partyAllReward / party.getMemberCount()) ;
 		for (L2PcInstance pkPartyMember : party.getMembers())
 		{
-			x2 = pkPartyMember.getX();
-			y2 = pkPartyMember.getY();
-			if(Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) <= dropDistance ){
+			long pkPartyMemberX = pkPartyMember.getX();
+			long pkPartyMemberY = pkPartyMember.getY();
+			if(Math.sqrt((pkPartyMemberX - x) * (pkPartyMemberX - x) + (pkPartyMemberY - y) * (pkPartyMemberY - y)) <= dropDistance ){
 				// 報酬付与
 				pkPartyMember.addBattleScore(partyReward);
 			}
 		}
 	}
 	
+	/**
+	 * バトルスコアを追加付与
+	 * @param battleScore
+	 * @return
+	 */
 	public long addBattleScore(long battleScore){
 		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
 		sm.addString("バトルスコア取得：" + battleScore);
@@ -15109,6 +15104,11 @@ public final class L2PcInstance extends L2Playable
 		return getBattleScore();
 	}	
 
+	/**
+	 * トレーディングポイントを加算
+	 * @param tradingPoint
+	 * @return
+	 */
 	public long addTradingPoint(long tradingPoint){
 		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
 		sm.addString("トレーディングポイントを取得：" + tradingPoint);
@@ -15118,6 +15118,11 @@ public final class L2PcInstance extends L2Playable
 		return getTradingPoint();
 	}
 
+	/**
+	 * トレーディングポイントを減算
+	 * @param tradingPoint
+	 * @return
+	 */
 	public long subtractTradingPoint(long tradingPoint){
 		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
 		sm.addString("トレーディングポイントを消費：" + tradingPoint);
@@ -15127,18 +15132,40 @@ public final class L2PcInstance extends L2Playable
 		return getTradingPoint();
 	}
 
-	public void PollutionPvpZombie(){
+	/**
+	 * PvPゾンビ状態を設定する
+	 * @param zombieFlag
+	 */
+	public void setPvpZombie(boolean zombieFlag){ 
+		// ゾンビフラグを設定
+		_pvpZombie = zombieFlag;
+		if(zombieFlag == true){
+//			Logger.getLogger(L2GameClientPacket.class.getName()).warning("ゾンビエフェクトを付与");
+			// ゾンビエフェクトを付与
+			pollutionPvpZombie();
+			// ゾンビ解除のためのスケジュールをセット
+			new PvPZombieOperator(this, MODE_purificationPvpZombie);
+		} else{
+			// ゾンビエフェクトを解除
+			purificationPvpZombie();
+		}
+	}
+
+	/**
+	 * PvPゾンビ状態のエフェクトを付与
+	 */
+	private void pollutionPvpZombie(){
 		startAbnormalVisualEffect(false, AbnormalVisualEffect.VP_UP);
 		startAbnormalVisualEffect(false, AbnormalVisualEffect.DEATH_MARK);
 		updateAbnormalEffect();
-
-		_pvpZombie = true;
 	}
-	public void purificationPvpZombie(){
+	
+	/**
+	 * PvPゾンビのエフェクトを削除
+	 */
+	private void purificationPvpZombie(){
 		stopAbnormalVisualEffect(false, AbnormalVisualEffect.VP_UP);
 		stopAbnormalVisualEffect(false, AbnormalVisualEffect.DEATH_MARK);
 		updateAbnormalEffect();
-
-		_pvpZombie = false;
 	}
 }
