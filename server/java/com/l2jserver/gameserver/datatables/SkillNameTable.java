@@ -63,7 +63,7 @@ public class SkillNameTable
 	{
 		int count = 0;
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] {"skill_id","level","name"}) + " FROM zzz_skill_name");
+			PreparedStatement statement = con.prepareStatement("SELECT " + L2DatabaseFactory.getInstance().safetyString(new String[] {"skill_id","level","name"}) + " FROM skillname_j");
 			ResultSet skill_name = statement.executeQuery())
 		{
 			Nametable data;
