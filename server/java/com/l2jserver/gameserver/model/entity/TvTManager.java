@@ -111,27 +111,25 @@ public class TvTManager
 	 */
 	public void startReg()
 	{
-		if (!TvTEvent.startParticipation())
+		// TvTEvent.startParticipation() は参加受付NPCをSpawnさせTvTEventsetState(EventState.PARTICIPATING)する。falseは例外が流れたとき。
+		boolean participationLegalFlag = TvTEvent.startParticipation();
+		if (participationLegalFlag == false)
 		{
-			/* MessageTable
-			Announcements.getInstance().announceToAll("TvT Event: Event was cancelled.");
-			 */
+			// TVTイベント：イベントがキャンセルされた。
+			// TvT Event: Event was cancelled.
 			Announcements.getInstance().announceToAll(MessageTable.Messages[464].getMessage());
 			_log.warning("TvTEventEngine[TvTManager.run()]: Error spawning event npc for participation.");
 			
 			scheduleEventStart();
+			return;
 		}
-		else
-		{
-			/* MessageTable
-			Announcements.getInstance().announceToAll("TvT Event: Registration opened for " + Config.TVT_EVENT_PARTICIPATION_TIME + " minute(s).");
-			 */
-			Announcements.getInstance().announceToAll(MessageTable.Messages[465].getExtra(1) + Config.TVT_EVENT_PARTICIPATION_TIME + MessageTable.Messages[465].getExtra(2));
-			
-			// schedule registration end
-			_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_PARTICIPATION_TIME));
-			ThreadPoolManager.getInstance().executeGeneral(_task);
-		}
+		// TVTイベント：登録はのためにオープン;分
+		// TvT Event: Registration opened for ; minute(s).
+		Announcements.getInstance().announceToAll(MessageTable.Messages[465].getExtra(1) + Config.TVT_EVENT_PARTICIPATION_TIME + MessageTable.Messages[465].getExtra(2));
+
+		// schedule registration end
+		_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_PARTICIPATION_TIME));
+		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
 	/**
@@ -139,25 +137,31 @@ public class TvTManager
 	 */
 	public void startEvent()
 	{
-		if (!TvTEvent.startFight())
+		// TvTEvent.startFight() は
+		// * 1. stateをEventState.STARTINGにする<br>
+		// * 2. チームのバランスを調整する<br>
+		// * 3. 参加者が十分いない時はfalseを返し<br>
+		// * 4. 参加費を徴収<br>
+		// * 5. インスタントダンジョン（ID）をコンフィグに応じて生成<br>
+		// * 6. ドアをコンフィグに応じて閉じる<br>
+		// * 7. stateをEventState.STARTEDにする<br>
+		// * 8. プレイヤーをテレポーターにセット。<br>
+		// する。(汗) falseは参加の不足があったとき。
+		boolean fightLegalFlag = TvTEvent.startFight();
+		if (fightLegalFlag == false)
 		{
-			/* MessageTable
-			Announcements.getInstance().announceToAll("TvT Event: Event cancelled due to lack of Participation.");
-			 */
+			// TVTイベント：イベントによる参加の不足のためキャンセル。
+			// TvT Event: Event cancelled due to lack of Participation.
 			Announcements.getInstance().announceToAll(MessageTable.Messages[466].getMessage());
 			_log.info("TvTEventEngine[TvTManager.run()]: Lack of registration, abort event.");
 			
 			scheduleEventStart();
 		}
-		else
-		{
-			/* MessageTable
-			TvTEvent.sysMsgToAllParticipants("TvT Event: Teleporting participants to an arena in " + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + " second(s).");
-			 */
-			TvTEvent.sysMsgToAllParticipants(MessageTable.Messages[467].getExtra(1) + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + MessageTable.Messages[467].getExtra(2));
-			_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_RUNNING_TIME));
-			ThreadPoolManager.getInstance().executeGeneral(_task);
-		}
+		// TvT Event: Teleporting participants to an arena in ; second(s).
+		// TVTイベント：アリーナ内に参加者をテレポート;秒
+		TvTEvent.sysMsgToAllParticipants(MessageTable.Messages[467].getExtra(1) + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + MessageTable.Messages[467].getExtra(2));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_RUNNING_TIME));
+		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
 	/**
@@ -165,13 +169,13 @@ public class TvTManager
 	 */
 	public void endEvent()
 	{
-		Announcements.getInstance().announceToAll(TvTEvent.calculateRewards());
-		/* MessageTable
-		TvTEvent.sysMsgToAllParticipants("TvT Event: Teleporting back to the registration npc in " + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + " second(s).");
-		 */
+		// TvTEvent.calculateRewardsは、報酬を付与します。
+		TvTEvent.calculateRewards();
+		Announcements.getInstance().announceToAll(TvTEvent.getResultMessage());
+		// TvT Event: Teleporting back to the registration npc in ; second(s).
+		// TVTイベント：バック登録全人代でのテレポート;秒
 		TvTEvent.sysMsgToAllParticipants(MessageTable.Messages[468].getExtra(1) + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + MessageTable.Messages[468].getExtra(2));
 		TvTEvent.stopFight();
-		
 		scheduleEventStart();
 	}
 	
