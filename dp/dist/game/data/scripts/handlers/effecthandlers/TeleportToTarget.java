@@ -83,7 +83,7 @@ public final class TeleportToTarget extends AbstractEffect
 		Location loc = new Location(x, y, z);
 		if (Config.GEODATA > 0)
 		{
-			loc = GeoData.getInstance().moveCheck(activeChar.getX(), activeChar.getY(), activeChar.getZ(), x, y, z, activeChar.getInstanceId());
+			loc = GeoData.getInstance().moveCheck(activeChar.getX(), activeChar.getY(), activeChar.getZ(), x, y, z, activeChar.getInstantWorldId());
 		}
 		
 		activeChar.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);

@@ -31,7 +31,7 @@ import org.w3c.dom.Node;
 
 import com.l2jserver.gameserver.engines.DocumentParser;
 import com.l2jserver.gameserver.idfactory.IdFactory;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.MapRegionManager;
 import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
@@ -196,9 +196,9 @@ public class DoorTable extends DocumentParser
 	public boolean checkIfDoorsBetween(int x, int y, int z, int tx, int ty, int tz, int instanceId, boolean doubleFaceCheck)
 	{
 		Collection<L2DoorInstance> allDoors;
-		if ((instanceId > 0) && (InstanceManager.getInstance().getInstance(instanceId) != null))
+		if ((instanceId > 0) && (InstantWorldManager.getInstance().getInstantWorld(instanceId) != null))
 		{
-			allDoors = InstanceManager.getInstance().getInstance(instanceId).getDoors();
+			allDoors = InstantWorldManager.getInstance().getInstantWorld(instanceId).getDoors();
 		}
 		else
 		{

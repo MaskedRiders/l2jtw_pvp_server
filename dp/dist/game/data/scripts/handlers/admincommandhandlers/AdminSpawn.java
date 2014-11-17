@@ -32,7 +32,7 @@ import com.l2jserver.gameserver.datatables.NpcData;
 import com.l2jserver.gameserver.datatables.SpawnTable;
 import com.l2jserver.gameserver.handler.IAdminCommandHandler;
 import com.l2jserver.gameserver.instancemanager.DayNightSpawnManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.instancemanager.RaidBossSpawnManager;
 import com.l2jserver.gameserver.model.AutoSpawnHandler;
@@ -42,7 +42,7 @@ import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
@@ -176,7 +176,7 @@ public class AdminSpawn implements IAdminCommandHandler
 					final StringBuilder html = StringUtil.startAppend(500 + 1000, "<html><table width=\"100%\"><tr><td width=45><button value=\"Main\" action=\"bypass -h admin_admin\" width=45 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td width=180><center>", "<font color=\"LEVEL\">Spawns for " + String.valueOf(instance) + "</font>", "</td><td width=45><button value=\"Back\" action=\"bypass -h admin_current_player\" width=45 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr></table><br>", "<table width=\"100%\"><tr><td width=200>NpcName</td><td width=70>Action</td></tr>");
 					int counter = 0;
 					int skiped = 0;
-					Instance inst = InstanceManager.getInstance().getInstance(instance);
+					InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(instance);
 					if (inst != null)
 					{
 						for (L2Npc npc : inst.getNpcs())
@@ -432,14 +432,14 @@ public class AdminSpawn implements IAdminCommandHandler
 			spawn.setAmount(mobCount);
 			spawn.setHeading(activeChar.getHeading());
 			spawn.setRespawnDelay(respawnTime);
-			if (activeChar.getInstanceId() > 0)
+			if (activeChar.getInstantWorldId() > 0)
 			{
-				spawn.setInstanceId(activeChar.getInstanceId());
+				spawn.setInstantWorldId(activeChar.getInstantWorldId());
 				permanent = false;
 			}
 			else
 			{
-				spawn.setInstanceId(0);
+				spawn.setInstantWorldId(0);
 			}
 			// TODO add checks for GrandBossSpawnManager
 			if (RaidBossSpawnManager.getInstance().isDefined(spawn.getId()))

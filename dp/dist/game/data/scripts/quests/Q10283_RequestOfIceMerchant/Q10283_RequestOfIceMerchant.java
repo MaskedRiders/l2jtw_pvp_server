@@ -107,7 +107,7 @@ public class Q10283_RequestOfIceMerchant extends Quest
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player)
 	{
-		if (npc.getInstanceId() > 0)
+		if (npc.getInstantWorldId() > 0)
 		{
 			return "32760-10.html";
 		}

@@ -38,7 +38,7 @@ import com.l2jserver.gameserver.instancemanager.CursedWeaponsManager;
 import com.l2jserver.gameserver.instancemanager.DimensionalRiftManager;
 import com.l2jserver.gameserver.instancemanager.FortManager;
 import com.l2jserver.gameserver.instancemanager.FortSiegeManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.MailManager;
 import com.l2jserver.gameserver.instancemanager.PetitionManager;
 import com.l2jserver.gameserver.instancemanager.SiegeManager;
@@ -178,14 +178,14 @@ public class EnterWorld extends L2GameClientPacket
 		// Restore to instanced area if enabled
 		if (Config.RESTORE_PLAYER_INSTANCE)
 		{
-			activeChar.setInstanceId(InstanceManager.getInstance().getPlayerInstance(activeChar.getObjectId()));
+			activeChar.setInstantWorldId(InstantWorldManager.getInstance().getPlayerInstantWorld(activeChar.getObjectId()));
 		}
 		else
 		{
-			int instanceId = InstanceManager.getInstance().getPlayerInstance(activeChar.getObjectId());
+			int instanceId = InstantWorldManager.getInstance().getPlayerInstantWorld(activeChar.getObjectId());
 			if (instanceId > 0)
 			{
-				InstanceManager.getInstance().getInstance(instanceId).removePlayer(activeChar.getObjectId());
+				InstantWorldManager.getInstance().getInstantWorld(instanceId).removePlayer(activeChar.getObjectId());
 			}
 		}
 		
@@ -357,12 +357,12 @@ public class EnterWorld extends L2GameClientPacket
 		
 		// Updating Seal of Strife Buff/Debuff
 		/* 603
-		if (SevenSigns.getInstance().isSealValidationPeriod() && (SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE) != SevenSigns.CABAL_NULL))
+		if (SevenSigns.getInstantWorld().isSealValidationPeriod() && (SevenSigns.getInstantWorld().getSealOwner(SevenSigns.SEAL_STRIFE) != SevenSigns.CABAL_NULL))
 		{
-			int cabal = SevenSigns.getInstance().getPlayerCabal(activeChar.getObjectId());
+			int cabal = SevenSigns.getInstantWorld().getPlayerCabal(activeChar.getObjectId());
 			if (cabal != SevenSigns.CABAL_NULL)
 			{
-				if (cabal == SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE))
+				if (cabal == SevenSigns.getInstantWorld().getSealOwner(SevenSigns.SEAL_STRIFE))
 				{
 					activeChar.addSkill(CommonSkill.THE_VICTOR_OF_WAR.getSkill());
 				}

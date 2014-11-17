@@ -19,10 +19,10 @@
 package quests.Q00128_PailakaSongOfIceAndFire;
 
 import com.l2jserver.gameserver.enums.QuestSound;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -158,7 +158,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest
 			{
 				st.exitQuest(false, true);
 				
-				Instance inst = InstanceManager.getInstance().getInstance(npc.getInstanceId());
+				InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(npc.getInstantWorldId());
 				inst.setDuration(EXIT_TIME * 60000);
 				inst.setEmptyDestroyTime(0);
 				
@@ -320,7 +320,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest
 						giveItems(player, BOOK2, 1);
 						giveItems(player, WATER_ESSENCE, 1);
 					}
-					addSpawn(PAPION, -53903, 181484, -4555, 30456, false, 0, false, npc.getInstanceId());
+					addSpawn(PAPION, -53903, 181484, -4555, 30456, false, 0, false, npc.getInstantWorldId());
 					break;
 				}
 				case PAPION:
@@ -332,7 +332,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest
 						giveItems(player, BOOK4, 1);
 						playSound(player, QuestSound.ITEMSOUND_QUEST_ITEMGET);
 					}
-					addSpawn(KINSUS, -61415, 181418, -4818, 63852, false, 0, false, npc.getInstanceId());
+					addSpawn(KINSUS, -61415, 181418, -4818, 63852, false, 0, false, npc.getInstantWorldId());
 					break;
 				}
 				case KINSUS:
@@ -345,7 +345,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest
 						giveItems(player, BOOK5, 1);
 						giveItems(player, FIRE_ESSENCE, 1);
 					}
-					addSpawn(GARGOS, -61354, 183624, -4821, 63613, false, 0, false, npc.getInstanceId());
+					addSpawn(GARGOS, -61354, 183624, -4821, 63613, false, 0, false, npc.getInstantWorldId());
 					break;
 				}
 				case GARGOS:
@@ -357,7 +357,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest
 						takeItems(player, BOOK6, -1);
 						giveItems(player, BOOK7, 1);
 					}
-					addSpawn(ADIANTUM, -53297, 185027, -4617, 1512, false, 0, false, npc.getInstanceId());
+					addSpawn(ADIANTUM, -53297, 185027, -4617, 1512, false, 0, false, npc.getInstantWorldId());
 					break;
 				}
 				case ADIANTUM:
@@ -367,7 +367,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest
 						st.setCond(9);
 						playSound(player, QuestSound.ITEMSOUND_QUEST_MIDDLE);
 						takeItems(player, BOOK7, -1);
-						addSpawn(ADLER2, -53297, 185027, -4617, 33486, false, 0, false, npc.getInstanceId());
+						addSpawn(ADLER2, -53297, 185027, -4617, 33486, false, 0, false, npc.getInstantWorldId());
 					}
 					break;
 				}

@@ -20,8 +20,8 @@ package com.l2jserver.gameserver.model.conditions;
 
 import java.util.ArrayList;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.stats.Env;
 
 /**
@@ -48,13 +48,13 @@ public class ConditionPlayerInstanceId extends Condition
 			return false;
 		}
 		
-		final int instanceId = env.getCharacter().getInstanceId();
+		final int instanceId = env.getCharacter().getInstantWorldId();
 		if (instanceId <= 0)
 		{
 			return false; // player not in instance
 		}
 		
-		final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(env.getPlayer());
+		final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(env.getPlayer());
 		if ((world == null) || (world.getInstanceId() != instanceId))
 		{
 			return false; // player in the different instance

@@ -16,16 +16,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.gameserver.model.instancezone;
+package com.l2jserver.gameserver.model.instantzone;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javolution.util.FastList;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.actor.L2Character;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
@@ -33,9 +33,9 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
  * Basic instance zone data transfer object.
  * @author Zoey76
  */
-public class InstanceWorld
+public class InstantZone
 {
-	private int _instanceId;
+	private int _instantZoneId;
 	private int _templateId = -1;
 	private final List<Integer> _allowed = new FastList<>();
 	private final AtomicInteger _status = new AtomicInteger();
@@ -66,7 +66,7 @@ public class InstanceWorld
 	 */
 	public int getInstanceId()
 	{
-		return _instanceId;
+		return _instantZoneId;
 	}
 	
 	/**
@@ -75,7 +75,7 @@ public class InstanceWorld
 	 */
 	public void setInstanceId(int instanceId)
 	{
-		_instanceId = instanceId;
+		_instantZoneId = instanceId;
 	}
 	
 	/**
@@ -124,7 +124,7 @@ public class InstanceWorld
 	{
 		if ((victim != null) && victim.isPlayer())
 		{
-			final Instance instance = InstanceManager.getInstance().getInstance(getInstanceId());
+			final InstantWorld instance = InstantWorldManager.getInstance().getInstantWorld(getInstanceId());
 			if (instance != null)
 			{
 				final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.YOU_WILL_BE_EXPELLED_IN_S1);

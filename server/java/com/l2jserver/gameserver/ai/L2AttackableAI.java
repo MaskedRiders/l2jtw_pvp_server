@@ -693,7 +693,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 			
 			// _log.debug("Current pos ("+getX()+", "+getY()+"), moving to ("+x1+", "+y1+").");
 			// Move the actor to Location (x,y,z) server side AND client side by sending Server->Client packet CharMoveToLocation (broadcast)
-			final Location moveLoc = GeoData.getInstance().moveCheck(npc.getX(), npc.getY(), npc.getZ(), x1, y1, z1, npc.getInstanceId());
+			final Location moveLoc = GeoData.getInstance().moveCheck(npc.getX(), npc.getY(), npc.getZ(), x1, y1, z1, npc.getInstantWorldId());
 			
 			moveTo(moveLoc.getX(), moveLoc.getY(), moveLoc.getZ());
 		}
@@ -770,7 +770,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 						// Check if the L2Object is inside the Faction Range of the actor
 						if (npc.isInsideRadius(called, factionRange, true, false) && called.hasAI())
 						{
-							if ((Math.abs(originalAttackTarget.getZ() - called.getZ()) < 600) && npc.getAttackByList().contains(originalAttackTarget) && ((called.getAI()._intention == CtrlIntention.AI_INTENTION_IDLE) || (called.getAI()._intention == CtrlIntention.AI_INTENTION_ACTIVE)) && (called.getInstanceId() == npc.getInstanceId()))
+							if ((Math.abs(originalAttackTarget.getZ() - called.getZ()) < 600) && npc.getAttackByList().contains(originalAttackTarget) && ((called.getAI()._intention == CtrlIntention.AI_INTENTION_IDLE) || (called.getAI()._intention == CtrlIntention.AI_INTENTION_ACTIVE)) && (called.getInstantWorldId() == npc.getInstantWorldId()))
 							{
 								if (originalAttackTarget.isPlayable())
 								{
@@ -879,7 +879,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 					if (!npc.isInsideRadius(newX, newY, 0, collision, false, false))
 					{
 						int newZ = npc.getZ() + 30;
-						if ((Config.GEODATA == 0) || GeoData.getInstance().canMove(npc.getX(), npc.getY(), npc.getZ(), newX, newY, newZ, npc.getInstanceId()))
+						if ((Config.GEODATA == 0) || GeoData.getInstance().canMove(npc.getX(), npc.getY(), npc.getZ(), newX, newY, newZ, npc.getInstantWorldId()))
 						{
 							moveTo(newX, newY, newZ);
 						}
@@ -919,7 +919,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 						posY = posY - 300;
 					}
 					
-					if ((Config.GEODATA == 0) || GeoData.getInstance().canMove(npc.getX(), npc.getY(), npc.getZ(), posX, posY, posZ, npc.getInstanceId()))
+					if ((Config.GEODATA == 0) || GeoData.getInstance().canMove(npc.getX(), npc.getY(), npc.getZ(), posX, posY, posZ, npc.getInstantWorldId()))
 					{
 						setIntention(CtrlIntention.AI_INTENTION_MOVE_TO, new Location(posX, posY, posZ, 0));
 					}

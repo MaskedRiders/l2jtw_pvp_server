@@ -528,7 +528,7 @@ public class L2Spawn implements IPositionable, IIdentifiable, INamable
 			
 			// Call the constructor of the L2Npc
 			L2Npc npc = _constructor.newInstance(IdFactory.getInstance().getNextId(), _template);
-			npc.setInstanceId(getInstanceId()); // Must be done before object is spawned into visible world
+			npc.setInstantWorldId(getInstantWorldId()); // Must be done before object is spawned into visible world
 			if (isSummonSpawn)
 			{
 				npc.setShowSummonAnimation(isSummonSpawn);
@@ -629,7 +629,7 @@ public class L2Spawn implements IPositionable, IIdentifiable, INamable
 		if (Config.L2JMOD_CHAMPION_ENABLE)
 		{
 			// Set champion on next spawn
-			if (mob.isMonster() && !getTemplate().isUndying() && !mob.isRaid() && !mob.isRaidMinion() && (Config.L2JMOD_CHAMPION_FREQUENCY > 0) && (mob.getLevel() >= Config.L2JMOD_CHAMP_MIN_LVL) && (mob.getLevel() <= Config.L2JMOD_CHAMP_MAX_LVL) && (Config.L2JMOD_CHAMPION_ENABLE_IN_INSTANCES || (getInstanceId() == 0)))
+			if (mob.isMonster() && !getTemplate().isUndying() && !mob.isRaid() && !mob.isRaidMinion() && (Config.L2JMOD_CHAMPION_FREQUENCY > 0) && (mob.getLevel() >= Config.L2JMOD_CHAMP_MIN_LVL) && (mob.getLevel() <= Config.L2JMOD_CHAMP_MAX_LVL) && (Config.L2JMOD_CHAMPION_ENABLE_IN_INSTANCES || (getInstantWorldId() == 0)))
 			{
 				if (Rnd.get(100) < Config.L2JMOD_CHAMPION_FREQUENCY)
 				{
@@ -794,15 +794,15 @@ public class L2Spawn implements IPositionable, IIdentifiable, INamable
 	}
 	
 	@Override
-	public int getInstanceId()
+	public int getInstantWorldId()
 	{
-		return _location.getInstanceId();
+		return _location.getInstantWorldId();
 	}
 	
 	@Override
-	public void setInstanceId(int instanceId)
+	public void setInstantWorldId(int instanceId)
 	{
-		_location.setInstanceId(instanceId);
+		_location.setInstantWorldId(instanceId);
 	}
 	
 	@Override

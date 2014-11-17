@@ -68,7 +68,7 @@ public interface IPositionable extends ILocational
 	 * Changes the instance zone ID of this object.
 	 * @param instanceId the ID of the instance zone to put this object in (0 - not in any instance)
 	 */
-	public void setInstanceId(int instanceId);
+	public void setInstantWorldId(int instanceId);
 	
 	/**
 	 * Changes the location of this object.

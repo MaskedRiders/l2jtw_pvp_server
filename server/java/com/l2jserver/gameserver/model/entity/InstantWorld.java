@@ -45,7 +45,7 @@ import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.datatables.DoorTable;
 import com.l2jserver.gameserver.datatables.NpcData;
 import com.l2jserver.gameserver.idfactory.IdFactory;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Spawn;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.L2WorldRegion;
@@ -59,7 +59,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.templates.L2DoorTemplate;
 import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.CreatureSay;
@@ -67,12 +67,12 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.datatables.MessageTable;
 
 /**
- * Main class for game instances.
+ * Main class for game instantWorld.
  * @author evill33t, GodKratos
  */
-public final class Instance
+public final class InstantWorld
 {
-	private static final Logger _log = Logger.getLogger(Instance.class.getName());
+	private static final Logger _log = Logger.getLogger(InstantWorld.class.getName());
 	
 	private final int _id;
 	private String _name;
@@ -87,8 +87,8 @@ public final class Instance
 	private boolean _allowSummon = true;
 	private long _emptyDestroyTime = -1;
 	private long _lastLeft = -1;
-	private long _instanceStartTime = -1;
-	private long _instanceEndTime = -1;
+	private long _instantWorldStartTime = -1;
+	private long _instantWorldEndTime = -1;
 	private boolean _isPvPInstance = false;
 	private boolean _showTimer = false;
 	private boolean _isTimerIncrease = true;
@@ -97,17 +97,17 @@ public final class Instance
 	protected ScheduledFuture<?> _checkTimeUpTask = null;
 	protected final Map<Integer, ScheduledFuture<?>> _ejectDeadTasks = new FastMap<>();
 	
-	public Instance(int id)
+	public InstantWorld(int id)
 	{
 		_id = id;
-		_instanceStartTime = System.currentTimeMillis();
+		_instantWorldStartTime = System.currentTimeMillis();
 	}
 	
-	public Instance(int id, String name)
+	public InstantWorld(int id, String name)
 	{
 		_id = id;
 		_name = name;
-		_instanceStartTime = System.currentTimeMillis();
+		_instantWorldStartTime = System.currentTimeMillis();
 	}
 	
 	/**
@@ -194,7 +194,7 @@ public final class Instance
 		}
 		
 		_checkTimeUpTask = ThreadPoolManager.getInstance().scheduleGeneral(new CheckTimeUp(duration), 500);
-		_instanceEndTime = System.currentTimeMillis() + duration + 500;
+		_instantWorldEndTime = System.currentTimeMillis() + duration + 500;
 	}
 	
 	/**
@@ -235,7 +235,7 @@ public final class Instance
 		if (_players.isEmpty() && (_emptyDestroyTime >= 0))
 		{
 			_lastLeft = System.currentTimeMillis();
-			setDuration((int) (_instanceEndTime - System.currentTimeMillis() - 500));
+			setDuration((int) (_instantWorldEndTime - System.currentTimeMillis() - 500));
 		}
 	}
 	
@@ -267,7 +267,7 @@ public final class Instance
 		}
 		
 		final L2DoorInstance newdoor = new L2DoorInstance(IdFactory.getInstance().getNextId(), new L2DoorTemplate(set));
-		newdoor.setInstanceId(getId());
+		newdoor.setInstantWorldId(getId());
 		newdoor.setCurrentHp(newdoor.getMaxHp());
 		newdoor.spawnMe(newdoor.getTemplate().getX(), newdoor.getTemplate().getY(), newdoor.getTemplate().getZ());
 		_doors.put(doorId, newdoor);
@@ -295,12 +295,12 @@ public final class Instance
 	
 	public long getInstanceEndTime()
 	{
-		return _instanceEndTime;
+		return _instantWorldEndTime;
 	}
 	
 	public long getInstanceStartTime()
 	{
-		return _instanceStartTime;
+		return _instantWorldStartTime;
 	}
 	
 	public boolean isShowTimer()
@@ -340,9 +340,9 @@ public final class Instance
 		for (Integer objectId : _players)
 		{
 			final L2PcInstance player = L2World.getInstance().getPlayer(objectId);
-			if ((player != null) && (player.getInstanceId() == getId()))
+			if ((player != null) && (player.getInstantWorldId() == getId()))
 			{
-				player.setInstanceId(0);
+				player.setInstantWorldId(0);
 				if (getSpawnLoc() != null)
 				{
 					player.teleToLocation(getSpawnLoc(), true);
@@ -474,7 +474,7 @@ public final class Instance
 				if (a != null)
 				{
 					_checkTimeUpTask = ThreadPoolManager.getInstance().scheduleGeneral(new CheckTimeUp(Integer.parseInt(a.getNodeValue()) * 60000), 15000);
-					_instanceEndTime = System.currentTimeMillis() + (Long.parseLong(a.getNodeValue()) * 60000) + 15000;
+					_instantWorldEndTime = System.currentTimeMillis() + (Long.parseLong(a.getNodeValue()) * 60000) + 15000;
 				}
 			}
 			// @formatter:off
@@ -606,7 +606,7 @@ public final class Instance
 									{
 										spawnDat.startRespawn();
 									}
-									spawnDat.setInstanceId(getId());
+									spawnDat.setInstantWorldId(getId());
 									if (allowRandomWalk == null)
 									{
 										spawnDat.setIsNoRndWalk(!_allowRandomWalk);
@@ -743,7 +743,7 @@ public final class Instance
 			for (Integer objectId : _players)
 			{
 				final L2PcInstance player = L2World.getInstance().getPlayer(objectId);
-				if ((player != null) && (player.getInstanceId() == getId()))
+				if ((player != null) && (player.getInstantWorldId() == getId()))
 				{
 					player.sendPacket(cs);
 				}
@@ -786,9 +786,9 @@ public final class Instance
 		{
 			_ejectDeadTasks.put(player.getObjectId(), ThreadPoolManager.getInstance().scheduleGeneral(() ->
 			{
-				if (player.isDead() && (player.getInstanceId() == getId()))
+				if (player.isDead() && (player.getInstantWorldId() == getId()))
 				{
-					player.setInstanceId(0);
+					player.setInstantWorldId(0);
 					if (getSpawnLoc() != null)
 					{
 						player.teleToLocation(getSpawnLoc(), true);
@@ -808,7 +808,7 @@ public final class Instance
 	 */
 	public final void notifyDeath(L2Character killer, L2Character victim)
 	{
-		final InstanceWorld instance = InstanceManager.getInstance().getPlayerWorld(victim.getActingPlayer());
+		final InstantZone instance = InstantWorldManager.getInstance().getPlayerInstantWorld(victim.getActingPlayer());
 		if (instance != null)
 		{
 			instance.onDeath(killer, victim);
@@ -836,7 +836,7 @@ public final class Instance
 		@Override
 		public void run()
 		{
-			InstanceManager.getInstance().destroyInstance(getId());
+			InstantWorldManager.getInstance().destroyInstantWorld(getId());
 		}
 	}
 }

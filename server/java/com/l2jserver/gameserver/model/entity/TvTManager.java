@@ -33,6 +33,7 @@ import com.l2jserver.gameserver.datatables.MessageTable;
 public class TvTManager
 {
 	protected static final Logger _log = Logger.getLogger(TvTManager.class.getName());
+	private static TvTConfigStringParser.TvTPattern _pattern = TvTConfigStringParser._patterns.get(TvTConfigStringParser._currentId);
 	
 	/** Task for event cycles<br> */
 	private TvTStartTask _task;
@@ -106,6 +107,18 @@ public class TvTManager
 		}
 	}
 	
+	public void teamReInit()
+	{
+		// TvTEvent.setTvTPattern() はXML読み込み、実行したいTvTPatternIdを選択、チームを再定義します。falseは例外が流れたとき。
+		boolean setTvTPatternLegalFlag = TvTEvent.setTvTPattern();
+		if (setTvTPatternLegalFlag == false)
+		{
+			_log.warning("TvTEventEngine[TvTManager.run()]: Error setTvTPattern");
+			
+			scheduleEventStart();
+			return;
+		}
+	}
 	/**
 	 * Method to start participation
 	 */
@@ -125,17 +138,17 @@ public class TvTManager
 		}
 		// TVTイベント：登録はのためにオープン;分
 		// TvT Event: Registration opened for ; minute(s).
-		Announcements.getInstance().announceToAll(MessageTable.Messages[465].getExtra(1) + Config.TVT_EVENT_PARTICIPATION_TIME + MessageTable.Messages[465].getExtra(2));
+		Announcements.getInstance().announceToAll(MessageTable.Messages[465].getExtra(1) + _pattern.TvTEventParticipationTime + MessageTable.Messages[465].getExtra(2));
 
 		// schedule registration end
-		_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_PARTICIPATION_TIME));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * _pattern.TvTEventParticipationTime));
 		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
 	/**
-	 * Method to start the fight
+	 * Method to pre start the fight
 	 */
-	public void startEvent()
+	public void startPreEvent()
 	{
 		// TvTEvent.startFight() は
 		// * 1. stateをEventState.STARTINGにする<br>
@@ -147,8 +160,8 @@ public class TvTManager
 		// * 7. stateをEventState.STARTEDにする<br>
 		// * 8. プレイヤーをテレポーターにセット。<br>
 		// する。(汗) falseは参加の不足があったとき。
-		boolean fightLegalFlag = TvTEvent.startFight();
-		if (fightLegalFlag == false)
+		boolean preFightLegalFlag = TvTEvent.startPreFight();
+		if (preFightLegalFlag == false)
 		{
 			// TVTイベント：イベントによる参加の不足のためキャンセル。
 			// TvT Event: Event cancelled due to lack of Participation.
@@ -160,7 +173,18 @@ public class TvTManager
 		// TvT Event: Teleporting participants to an arena in ; second(s).
 		// TVTイベント：アリーナ内に参加者をテレポート;秒
 		TvTEvent.sysMsgToAllParticipants(MessageTable.Messages[467].getExtra(1) + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + MessageTable.Messages[467].getExtra(2));
-		_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_RUNNING_TIME));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * _pattern.TvTEventMeetingTime));
+		ThreadPoolManager.getInstance().executeGeneral(_task);
+	}
+	
+	/**
+	 * Method to start the fight
+	 */
+	public void startEvent()
+	{
+		// TvTEvent.startFight() は 特に何もしないがチャットの制限等が掛かるようにする
+		TvTEvent.startFight();
+		_task.setStartTime(System.currentTimeMillis() + (60000L * _pattern.TvTEventRunningTime));
 		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
@@ -254,9 +278,14 @@ public class TvTManager
 				// start
 				if (TvTEvent.isInactive())
 				{
+					teamReInit();
 					startReg();
 				}
 				else if (TvTEvent.isParticipating())
+				{
+					startPreEvent();
+				}
+				else if (TvTEvent.isMeeting())
 				{
 					startEvent();
 				}
@@ -283,6 +312,10 @@ public class TvTManager
 					 */
 					Announcements.getInstance().announceToAll(MessageTable.Messages[469].getMessage() + (time / 60 / 60) + MessageTable.Messages[470].getMessage());
 				}
+				else if (TvTEvent.isMeeting())
+				{
+					TvTEvent.sysMsgToAllParticipants("TvT Event:" + (time / 60 / 60) + " hour(s) until meeting is finished!");
+				}
 				else if (TvTEvent.isStarted())
 				{
 					/* MessageTable
@@ -300,6 +333,10 @@ public class TvTManager
 					 */
 					Announcements.getInstance().announceToAll(MessageTable.Messages[469].getMessage() + (time / 60) + MessageTable.Messages[472].getMessage());
 				}
+				else if (TvTEvent.isMeeting())
+				{
+					TvTEvent.sysMsgToAllParticipants("TvT Event:" + (time / 60) + " minute(s) until meeting is finished!");
+				}
 				else if (TvTEvent.isStarted())
 				{
 					/* MessageTable
@@ -316,6 +353,10 @@ public class TvTManager
 					Announcements.getInstance().announceToAll("TvT Event: " + time + " second(s) until registration is closed!");
 					 */
 					Announcements.getInstance().announceToAll(MessageTable.Messages[469].getMessage() + time + MessageTable.Messages[474].getMessage());
+				}
+				else if (TvTEvent.isMeeting())
+				{
+					TvTEvent.sysMsgToAllParticipants("TvT Event:" + time + " second(s) until meeting is finished!");
 				}
 				else if (TvTEvent.isStarted())
 				{

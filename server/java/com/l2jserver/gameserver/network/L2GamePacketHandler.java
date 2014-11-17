@@ -61,6 +61,8 @@ public final class L2GamePacketHandler implements IPacketHandler<L2GameClient>, 
 		ReceivablePacket<L2GameClient> msg = null;
 		GameClientState state = client.getState();
 		
+Logger.getLogger(L2GameClientPacket.class.getName()).warning("state==>"+state.toString());
+Logger.getLogger(L2GameClientPacket.class.getName()).warning("opcode==>"+opcode);
 		switch (state)
 		{
 			case CONNECTED:

@@ -20,11 +20,11 @@ package instances.JiniaGuildHideout4;
 
 import quests.Q10287_StoryOfThoseLeft.Q10287_StoryOfThoseLeft;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -35,7 +35,7 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  */
 public final class JiniaGuildHideout4 extends Quest
 {
-	protected class JGH2World extends InstanceWorld
+	protected class JGH2World extends InstantZone
 	{
 		long storeTime = 0;
 	}
@@ -68,7 +68,7 @@ public final class JiniaGuildHideout4 extends Quest
 	protected int enterInstance(L2PcInstance player, String template, Location loc)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -82,11 +82,11 @@ public final class JiniaGuildHideout4 extends Quest
 		}
 		// New instance
 		world = new JGH2World();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
 		world.setStatus(0);
 		((JGH2World) world).storeTime = System.currentTimeMillis();
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Jinia Guild Hideout started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 		// teleport players
 		teleportPlayer(player, loc, world.getInstanceId(), false);

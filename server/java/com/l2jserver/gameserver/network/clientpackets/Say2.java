@@ -29,6 +29,7 @@ import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
+import com.l2jserver.gameserver.model.entity.TvTEvent;
 import com.l2jserver.gameserver.model.events.EventDispatcher;
 import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerChat;
 import com.l2jserver.gameserver.model.events.returns.ChatFilterReturn;
@@ -294,6 +295,13 @@ public final class Say2 extends L2GameClientPacket
 		if (Config.USE_SAY_FILTER)
 		{
 			checkText();
+		}
+		
+		// TvT用の変則的チームにのみ聞こえるチャットの使用許可
+		if (TvTEvent.onTeamOnlyChat(activeChar.getObjectId()))
+		{
+			// PTチャットとALL以外は揮発する
+			if(!(_type==PARTY || _type==ALL)) return;
 		}
 		
 		final IChatHandler handler = ChatHandler.getInstance().getHandler(_type);

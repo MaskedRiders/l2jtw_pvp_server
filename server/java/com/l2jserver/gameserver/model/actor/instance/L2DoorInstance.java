@@ -34,7 +34,7 @@ import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.instancemanager.CastleManager;
 import com.l2jserver.gameserver.instancemanager.ClanHallManager;
 import com.l2jserver.gameserver.instancemanager.FortManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.TerritoryWarManager;
 import com.l2jserver.gameserver.model.L2Clan;
 import com.l2jserver.gameserver.model.L2Object;
@@ -48,7 +48,7 @@ import com.l2jserver.gameserver.model.actor.templates.L2DoorTemplate;
 import com.l2jserver.gameserver.model.entity.Castle;
 import com.l2jserver.gameserver.model.entity.ClanHall;
 import com.l2jserver.gameserver.model.entity.Fort;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.entity.clanhall.SiegableHall;
 import com.l2jserver.gameserver.model.items.L2Weapon;
 import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
@@ -665,7 +665,7 @@ public class L2DoorInstance extends L2Character
 	@Override
 	public void reduceCurrentHp(double damage, L2Character attacker, boolean awake, boolean isDOT, Skill skill)
 	{
-		if (isWall() && (getInstanceId() == 0))
+		if (isWall() && (getInstantWorldId() == 0))
 		{
 			if (!attacker.isServitor())
 			{
@@ -745,12 +745,12 @@ public class L2DoorInstance extends L2Character
 	 */
 	private L2DoorInstance getSiblingDoor(int doorId)
 	{
-		if (getInstanceId() == 0)
+		if (getInstantWorldId() == 0)
 		{
 			return DoorTable.getInstance().getDoor(doorId);
 		}
 		
-		Instance inst = InstanceManager.getInstance().getInstance(getInstanceId());
+		InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId());
 		if (inst != null)
 		{
 			return inst.getDoor(doorId);

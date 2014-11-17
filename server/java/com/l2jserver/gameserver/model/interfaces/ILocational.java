@@ -52,7 +52,7 @@ public interface ILocational
 	 * Gets the instance zone ID of this object.
 	 * @return the ID of the instance zone this object is currently in (0 - not in any instance)
 	 */
-	public int getInstanceId();
+	public int getInstantWorldId();
 	
 	/**
 	 * Gets this object's location.

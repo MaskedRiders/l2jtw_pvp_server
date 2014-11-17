@@ -95,7 +95,7 @@ public final class RequestRefundItem extends L2GameClientPacket
 		}
 		
 		L2Object target = player.getTarget();
-		if (!player.isGM() && ((target == null) || !(target instanceof L2MerchantInstance) || (player.getInstanceId() != target.getInstanceId()) || !player.isInsideRadius(target, INTERACTION_DISTANCE, true, false)))
+		if (!player.isGM() && ((target == null) || !(target instanceof L2MerchantInstance) || (player.getInstantWorldId() != target.getInstantWorldId()) || !player.isInsideRadius(target, INTERACTION_DISTANCE, true, false)))
 		{
 			sendPacket(ActionFailed.STATIC_PACKET);
 			return;

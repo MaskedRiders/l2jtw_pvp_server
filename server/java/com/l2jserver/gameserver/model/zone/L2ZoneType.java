@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 import javolution.util.FastMap;
 
 import com.l2jserver.gameserver.enums.InstanceType;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -53,8 +53,8 @@ public abstract class L2ZoneType extends ListenersContainer
 	/** Parameters to affect specific characters */
 	private boolean _checkAffected = false;
 	private String _name = null;
-	private int _instanceId = -1;
-	private String _instanceTemplate = "";
+	private int _instantWorldId = -1;
+	private String _instanceWorldId = "";
 	private int _minLvl;
 	private int _maxLvl;
 	private int[] _race;
@@ -106,12 +106,12 @@ public abstract class L2ZoneType extends ListenersContainer
 		}
 		else if (name.equals("instanceId"))
 		{
-			_instanceId = Integer.parseInt(value);
+			_instantWorldId = Integer.parseInt(value);
 		}
 		else if (name.equals("instanceTemplate"))
 		{
-			_instanceTemplate = value;
-			_instanceId = InstanceManager.getInstance().createDynamicInstance(value);
+			_instanceWorldId = value;
+			_instantWorldId = InstantWorldManager.getInstance().createInstantWorld(value);
 		}
 		// Minimum level
 		else if (name.equals("affectedLvlMin"))
@@ -321,21 +321,21 @@ public abstract class L2ZoneType extends ListenersContainer
 	}
 	
 	/**
-	 * Set the zone instanceId.
+	 * Set the zone instantWorldId
 	 * @param instanceId
 	 */
-	public void setInstanceId(int instanceId)
+	public void setInstantWorldId(int instanceId)
 	{
-		_instanceId = instanceId;
+		_instantWorldId = instanceId;
 	}
 	
 	/**
-	 * Returns zone instanceId
+	 * Returns zone instantWorldId
 	 * @return
 	 */
-	public int getInstanceId()
+	public int getInstantWorldId()
 	{
-		return _instanceId;
+		return _instantWorldId;
 	}
 	
 	/**
@@ -344,7 +344,7 @@ public abstract class L2ZoneType extends ListenersContainer
 	 */
 	public String getInstanceTemplate()
 	{
-		return _instanceTemplate;
+		return _instanceWorldId;
 	}
 	
 	/**
@@ -391,8 +391,8 @@ public abstract class L2ZoneType extends ListenersContainer
 	public boolean isInsideZone(int x, int y, int z, int instanceId)
 	{
 		// It will check if coords are within the zone if the given instanceId or
-		// the zone's _instanceId are in the multiverse or they match
-		if ((_instanceId == -1) || (instanceId == -1) || (_instanceId == instanceId))
+		// the zone's _instantWorldId are in the multiverse or they match
+		if ((_instantWorldId == -1) || (instanceId == -1) || (_instantWorldId == instanceId))
 		{
 			return _zone.isInsideZone(x, y, z);
 		}
@@ -407,7 +407,7 @@ public abstract class L2ZoneType extends ListenersContainer
 	 */
 	public boolean isInsideZone(L2Object object)
 	{
-		return isInsideZone(object.getX(), object.getY(), object.getZ(), object.getInstanceId());
+		return isInsideZone(object.getX(), object.getY(), object.getZ(), object.getInstantWorldId());
 	}
 	
 	public double getDistanceToZone(int x, int y)

@@ -20,9 +20,9 @@ package com.l2jserver.gameserver.network.clientpackets;
 
 import java.util.Map;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.network.serverpackets.ExInzoneWaitingInfo;
 
 /**
@@ -58,10 +58,10 @@ public final class RequestInzoneWaitingTime extends L2GameClientPacket
 			return;
 		}
 		
-		final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(activeChar);
+		final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(activeChar);
 		ExInzoneWaitingInfo eiwi = new ExInzoneWaitingInfo((world != null) && (world.getTemplateId() >= 0) ? world.getTemplateId() : 0);
 		
-		Map<Integer, Long> instanceTimes = InstanceManager.getInstance().getAllInstanceTimes(activeChar.getObjectId());
+		Map<Integer, Long> instanceTimes = InstantWorldManager.getInstance().getAllPlayerInstantWorldTimes(activeChar.getObjectId());
 		if (instanceTimes != null)
 		{
 			for (int instanceId : instanceTimes.keySet())
@@ -73,7 +73,7 @@ public final class RequestInzoneWaitingTime extends L2GameClientPacket
 				}
 				else
 				{
-					InstanceManager.getInstance().deleteInstanceTime(activeChar.getObjectId(), instanceId);
+					InstantWorldManager.getInstance().deletePlayerInstantWorldTime(activeChar.getObjectId(), instanceId);
 				}
 			}
 		}

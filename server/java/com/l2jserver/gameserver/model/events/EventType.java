@@ -87,6 +87,7 @@ import com.l2jserver.gameserver.model.events.impl.clan.OnClanWarFinish;
 import com.l2jserver.gameserver.model.events.impl.clan.OnClanWarStart;
 import com.l2jserver.gameserver.model.events.impl.events.OnTvTEventFinish;
 import com.l2jserver.gameserver.model.events.impl.events.OnTvTEventKill;
+import com.l2jserver.gameserver.model.events.impl.events.OnTvTEventMeeting;
 import com.l2jserver.gameserver.model.events.impl.events.OnTvTEventRegistrationStart;
 import com.l2jserver.gameserver.model.events.impl.events.OnTvTEventStart;
 import com.l2jserver.gameserver.model.events.impl.item.OnItemBypassEvent;
@@ -215,6 +216,7 @@ public enum EventType
 	ON_TVT_EVENT_FINISH(OnTvTEventFinish.class, void.class),
 	ON_TVT_EVENT_KILL(OnTvTEventKill.class, void.class),
 	ON_TVT_EVENT_REGISTRATION_START(OnTvTEventRegistrationStart.class, void.class),
+	ON_TVT_EVENT_MEETING(OnTvTEventMeeting.class, void.class),
 	ON_TVT_EVENT_START(OnTvTEventStart.class, void.class);
 	
 	private final Class<? extends IBaseEvent> _eventClass;

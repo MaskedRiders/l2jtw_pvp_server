@@ -20,12 +20,12 @@ package handlers.effecthandlers;
 
 import com.l2jserver.Config;
 import com.l2jserver.gameserver.SevenSigns;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.entity.TvTEvent;
 import com.l2jserver.gameserver.model.holders.SummonRequestHolder;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
@@ -153,9 +153,9 @@ public final class CallPc extends AbstractEffect
 			return false;
 		}
 		
-		if (activeChar.getInstanceId() > 0)
+		if (activeChar.getInstantWorldId() > 0)
 		{
-			Instance summonerInstance = InstanceManager.getInstance().getInstance(activeChar.getInstanceId());
+			InstantWorld summonerInstance = InstantWorldManager.getInstance().getInstantWorld(activeChar.getInstantWorldId());
 			if (!Config.ALLOW_SUMMON_TO_INSTANCE || !summonerInstance.isSummonAllowed())
 			{
 				activeChar.sendPacket(SystemMessageId.YOU_MAY_NOT_SUMMON_FROM_YOUR_CURRENT_LOCATION);

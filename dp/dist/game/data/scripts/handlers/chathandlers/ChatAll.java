@@ -28,6 +28,7 @@ import com.l2jserver.gameserver.handler.IVoicedCommandHandler;
 import com.l2jserver.gameserver.handler.VoicedCommandHandler;
 import com.l2jserver.gameserver.model.BlockList;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.entity.TvTEvent;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.CreatureSay;
 import com.l2jserver.gameserver.util.Util;
@@ -51,7 +52,6 @@ public class ChatAll implements IChatHandler
 	@Override
 	public void handleChat(int type, L2PcInstance activeChar, String params, String text)
 	{
-		boolean vcd_used = false;
 		if (text.startsWith("."))
 		{
 			StringTokenizer st = new StringTokenizer(text);
@@ -76,7 +76,7 @@ public class ChatAll implements IChatHandler
 			if (vch != null)
 			{
 				vch.useVoicedCommand(command, activeChar, params);
-				vcd_used = true;
+				return;
 			}
 			else
 			{
@@ -84,39 +84,42 @@ public class ChatAll implements IChatHandler
 				{
 					_log.warning("No handler registered for bypass '" + command + "'");
 				}
-				vcd_used = false;
 			}
 		}
-		if (!vcd_used)
+		
+		if (activeChar.isChatBanned() && Util.contains(Config.BAN_CHAT_CHANNELS, type))
 		{
-			if (activeChar.isChatBanned() && Util.contains(Config.BAN_CHAT_CHANNELS, type))
+			activeChar.sendPacket(SystemMessageId.CHATTING_IS_CURRENTLY_PROHIBITED);
+			return;
+		}
+
+		/**
+		 * Match the character "." literally (Exactly 1 time) Match any character that is NOT a . character. Between one and unlimited times as possible, giving back as needed (greedy)
+		 */
+		if (text.matches("\\.{1}[^\\.]+"))
+		{
+			activeChar.sendPacket(SystemMessageId.INCORRECT_SYNTAX);
+			return;
+		}
+
+		CreatureSay cs = new CreatureSay(activeChar.getObjectId(), type, activeChar.getAppearance().getVisibleName(), text);
+		if(TvTEvent.onTeamOnlyChat(activeChar.getObjectId()))
+		{
+			// TvT参加者はチームにのみ伝わるようにする
+			TvTEvent.doTeamOnlyChat(activeChar, cs);
+			return;
+		}
+		
+		Collection<L2PcInstance> plrs = activeChar.getKnownList().getKnownPlayers().values();
+		for (L2PcInstance player : plrs)
+		{
+			if ((player != null) && activeChar.isInsideRadius(player, 1250, false, true) && !BlockList.isBlocked(player, activeChar))
 			{
-				activeChar.sendPacket(SystemMessageId.CHATTING_IS_CURRENTLY_PROHIBITED);
-				return;
-			}
-			
-			/**
-			 * Match the character "." literally (Exactly 1 time) Match any character that is NOT a . character. Between one and unlimited times as possible, giving back as needed (greedy)
-			 */
-			if (text.matches("\\.{1}[^\\.]+"))
-			{
-				activeChar.sendPacket(SystemMessageId.INCORRECT_SYNTAX);
-			}
-			else
-			{
-				CreatureSay cs = new CreatureSay(activeChar.getObjectId(), type, activeChar.getAppearance().getVisibleName(), text);
-				Collection<L2PcInstance> plrs = activeChar.getKnownList().getKnownPlayers().values();
-				for (L2PcInstance player : plrs)
-				{
-					if ((player != null) && activeChar.isInsideRadius(player, 1250, false, true) && !BlockList.isBlocked(player, activeChar))
-					{
-						player.sendPacket(cs);
-					}
-				}
-				
-				activeChar.sendPacket(cs);
+				player.sendPacket(cs);
 			}
 		}
+
+		activeChar.sendPacket(cs);
 	}
 	
 	/**

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/tvtPatterns.xsd">
+	<pattern id="1" name="normal">
+		<tvtEvent>
+			<TvTEventInstanceFile value="coliseum.xml"/>
+			<TvTEventParticipationNpcId value="70010"/>
+			<TvTEventParticipationFee value="0,0"/>
+			<TvTEventParticipationNpcCoordinates value="83425,148585,-3406"/>
+			<TvTEventReward value="57,100000"/>
+			<TvTDoorsToOpen value=""/>
+			<TvTDoorsToClose value=""/>
+		</tvtEvent>
+		<tvtEventTeam>
+			<TvTEventTeam1Name value="Team1"/>
+			<TvTEventTeam1Coordinates value="148695,46725,-3414"/>
+			<TvTEventTeam2Name value="Team2"/>
+			<TvTEventTeam2Coordinates value="149999,46728,-3414"/>
+		</tvtEventTeam>
+		<tvtManager>
+			<TvTEventParticipationTime value="1"/>
+			<TvTEventMeetingTime value="1"/>
+			<TvTEventRunningTime value="1"/>
+		</tvtManager>
+	</pattern>
+	<pattern id="2" name="hard">
+		<tvtEvent>
+			<TvTEventInstanceFile value="coliseum.xml"/>
+			<TvTEventParticipationNpcId value="70010"/>
+			<TvTEventParticipationFee value="0,0"/>
+			<TvTEventParticipationNpcCoordinates value="83425,148585,-3406"/>
+			<TvTEventReward value="57,100000"/>
+			<TvTDoorsToOpen value=""/>
+			<TvTDoorsToClose value=""/>
+		</tvtEvent>
+		<tvtEventTeam>
+			<TvTEventTeam1Name value="Team1"/>
+			<TvTEventTeam1Coordinates value="148695,46725,-3414"/>
+			<TvTEventTeam2Name value="Team2"/>
+			<TvTEventTeam2Coordinates value="149999,46728,-3414"/>
+		</tvtEventTeam>
+		<tvtManager>
+			<TvTEventParticipationTime value="1"/>
+			<TvTEventMeetingTime value="1"/>
+			<TvTEventRunningTime value="1"/>
+		</tvtManager>
+	</pattern>
+</list>

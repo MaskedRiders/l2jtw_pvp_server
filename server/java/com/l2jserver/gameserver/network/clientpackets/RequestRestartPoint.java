@@ -126,7 +126,7 @@ public final class RequestRestartPoint extends L2GameClientPacket
 		Fort fort = null;
 		SiegableHall hall = null;
 		boolean isInDefense = false;
-		int instanceId = 0;
+		int instantWorldId = 0;
 		
 		// force jail
 		if (activeChar.isJailed())
@@ -254,7 +254,7 @@ public final class RequestRestartPoint extends L2GameClientPacket
 				else
 				// Festival Participant
 				{
-					instanceId = activeChar.getInstanceId();
+					instantWorldId = activeChar.getInstantWorldId();
 					loc = new Location(activeChar);
 				}
 				break;
@@ -281,7 +281,7 @@ public final class RequestRestartPoint extends L2GameClientPacket
 		// Teleport and revive
 		if (loc != null)
 		{
-			activeChar.setInstanceId(instanceId);
+			activeChar.setInstantWorldId(instantWorldId);
 			activeChar.setIsIn7sDungeon(false);
 			activeChar.setIsPendingRevive(true);
 			activeChar.teleToLocation(loc, true);

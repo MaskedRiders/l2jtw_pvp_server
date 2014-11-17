@@ -29,7 +29,7 @@ import ai.npc.AbstractNpcAI;
 
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.enums.MountType;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2CommandChannel;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.Location;
@@ -43,7 +43,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2QuestGuardInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2RaidBossInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -64,7 +64,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 {
-	protected class IQCNBWorld extends InstanceWorld
+	protected class IQCNBWorld extends InstantZone
 	{
 		List<L2PcInstance> playersInside = new ArrayList<>();
 		List<L2Npc> knightStatues = new ArrayList<>();
@@ -186,7 +186,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 		}
 		else
 		{
-			final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+			final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 			
 			if ((tmpworld != null) && (tmpworld instanceof IQCNBWorld))
 			{
@@ -210,7 +210,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 							}
 							for (L2PcInstance players : world.playersInside)
 							{
-								if ((players != null) && !players.isDead() && (players.getInstanceId() == world.getInstanceId()))
+								if ((players != null) && !players.isDead() && (players.getInstantWorldId() == world.getInstanceId()))
 								{
 									final QuestState qs = player.getQuestState(Q10286_ReunionWithSirra.class.getSimpleName());
 									if ((qs != null) && (qs.getState() == State.STARTED) && qs.isCond(5))
@@ -374,7 +374,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 					{
 						for (L2PcInstance players : world.playersInside)
 						{
-							if ((players != null) && (players.getInstanceId() == world.getInstanceId()))
+							if ((players != null) && (players.getInstantWorldId() == world.getInstanceId()))
 							{
 								players.setIsInvul(false);
 							}
@@ -579,7 +579,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 								players.broadcastPacket(ExChangeClientEffectInfo.STATIC_FREYA_DEFAULT);
 							}
 						}
-						InstanceManager.getInstance().destroyInstance(world.getInstanceId());
+						InstantWorldManager.getInstance().destroyInstantWorld(world.getInstanceId());
 						break;
 					}
 					case "LEADER_RANGEBUFF":
@@ -687,7 +687,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if (tmpworld instanceof IQCNBWorld)
 		{
@@ -715,7 +715,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if (tmpworld instanceof IQCNBWorld)
 		{
@@ -1012,7 +1012,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	@Override
 	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if (tmpworld instanceof IQCNBWorld)
 		{
@@ -1060,7 +1060,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if (tmpworld instanceof IQCNBWorld)
 		{
@@ -1078,7 +1078,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 				{
 					for (L2PcInstance player : world.playersInside)
 					{
-						if ((player != null) && (player.getInstanceId() == world.getInstanceId()))
+						if ((player != null) && (player.getInstantWorldId() == world.getInstanceId()))
 						{
 							Calendar reenter = Calendar.getInstance();
 							Calendar.getInstance().set(Calendar.MINUTE, RESET_MIN);
@@ -1102,7 +1102,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 									reenter.add(Calendar.DAY_OF_MONTH, 1);
 								}
 							}
-							InstanceManager.getInstance().setInstanceTime(player.getObjectId(), TEMPLATE_ID, reenter.getTimeInMillis());
+							InstantWorldManager.getInstance().getPlayerInstantWorldTime(player.getObjectId(), TEMPLATE_ID, reenter.getTimeInMillis());
 							final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.INSTANT_ZONE_S1_RESTRICTED);
 							sm.addInstanceName(TEMPLATE_ID);
 							player.sendPacket(sm);
@@ -1171,7 +1171,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -1200,10 +1200,10 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 		if (checkConditions(player))
 		{
 			world = new IQCNBWorld();
-			world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+			world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 			world.setTemplateId(TEMPLATE_ID);
 			world.setStatus(0);
-			InstanceManager.getInstance().addWorld(world);
+			InstantWorldManager.getInstance().addWorld(world);
 			_log.info("Ice Queen Castle started (Normal Battle)" + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 			
 			if (!player.isInParty())
@@ -1285,7 +1285,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 				party.broadcastPacket(sm);
 				return false;
 			}
-			else if (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(channelMember.getObjectId(), TEMPLATE_ID))
+			else if (System.currentTimeMillis() < InstantWorldManager.getInstance().getPlayerInstantWorldTime(channelMember.getObjectId(), TEMPLATE_ID))
 			{
 				SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.C1_MAY_NOT_REENTER_YET);
 				sm.addPcName(channelMember);
@@ -1301,7 +1301,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 		final List<L2PcInstance> players = new ArrayList<>();
 		for (L2PcInstance player : world.playersInside)
 		{
-			if ((player != null) && !player.isDead() && (player.getInstanceId() == world.getInstanceId()) && !player.isInvisible())
+			if ((player != null) && !player.isDead() && (player.getInstantWorldId() == world.getInstanceId()) && !player.isInvisible())
 			{
 				players.add(player);
 			}
@@ -1337,7 +1337,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	{
 		for (L2PcInstance players : world.playersInside)
 		{
-			if ((players != null) && (players.getInstanceId() == world.getInstanceId()))
+			if ((players != null) && (players.getInstantWorldId() == world.getInstanceId()))
 			{
 				players.sendPacket(new ExSendUIEvent(players, false, false, time, 0, "Time remaining until next battle"));
 			}
@@ -1348,7 +1348,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	{
 		for (L2PcInstance players : world.playersInside)
 		{
-			if ((players != null) && (players.getInstanceId() == world.getInstanceId()))
+			if ((players != null) && (players.getInstantWorldId() == world.getInstanceId()))
 			{
 				showOnScreenMsg(players, stringId, 2, 6000);
 			}
@@ -1359,7 +1359,7 @@ public final class IceQueensCastleNormalBattle extends AbstractNpcAI
 	{
 		for (L2PcInstance players : world.playersInside)
 		{
-			if ((players != null) && (players.getInstanceId() == world.getInstanceId()))
+			if ((players != null) && (players.getInstantWorldId() == world.getInstanceId()))
 			{
 				players.showQuestMovie(movie);
 			}

@@ -184,7 +184,7 @@ public abstract class AbstractOlympiadGame
 			player.setIsOlympiadStart(false);
 			player.setOlympiadSide(par.getSide());
 			player.setOlympiadBuffCount(Config.ALT_OLY_MAX_BUFFS);
-			loc.setInstanceId(OlympiadGameManager.getInstance().getOlympiadTask(id).getZone().getInstanceId());
+			loc.setInstantWorldId(OlympiadGameManager.getInstance().getOlympiadTask(id).getZone().getInstantWorldId());
 			player.teleToLocation(loc, false);
 			player.sendPacket(new ExOlympiadMode(2));
 		}
@@ -399,7 +399,7 @@ public abstract class AbstractOlympiadGame
 			return;
 		}
 		
-		player.setInstanceId(0);
+		player.setInstantWorldId(0);
 		player.teleToLocation(loc);
 		player.unsetLastLocation();
 	}

@@ -27,7 +27,7 @@ import java.util.function.Function;
 import java.util.logging.Level;
 
 import com.l2jserver.gameserver.datatables.SkillData;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.L2Spawn;
 import com.l2jserver.gameserver.model.L2World;
@@ -36,8 +36,8 @@ import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -1166,7 +1166,7 @@ public final class Kamaloka extends Quest
 		31340
 	};
 	
-	protected class KamaWorld extends InstanceWorld
+	protected class KamaWorld extends InstantZone
 	{
 		public int index; // 0-18 index of the kama type in arrays
 		public int shaman = 0; // objectId of the shaman
@@ -1251,7 +1251,7 @@ public final class Kamaloka extends Quest
 		// get level of the instance
 		final int level = LEVEL[index];
 		// and client name
-		final String instanceName = InstanceManager.getInstance().getInstanceIdName(TEMPLATE_IDS[index]);
+		final String instanceName = InstantWorldManager.getInstance().getInstantWorldIdName(TEMPLATE_IDS[index]);
 		
 		Map<Integer, Long> instanceTimes;
 		// for each party member
@@ -1274,14 +1274,14 @@ public final class Kamaloka extends Quest
 				return false;
 			}
 			// get instances reenter times for player
-			instanceTimes = InstanceManager.getInstance().getAllInstanceTimes(partyMember.getObjectId());
+			instanceTimes = InstantWorldManager.getInstance().getAllPlayerInstantWorldTimes(partyMember.getObjectId());
 			if (instanceTimes != null)
 			{
 				for (int id : instanceTimes.keySet())
 				{
 					// find instance with same name (kamaloka or labyrinth)
 					// TODO: Zoey76: Don't use instance name, use other system.
-					if (!instanceName.equals(InstanceManager.getInstance().getInstanceIdName(id)))
+					if (!instanceName.equals(InstantWorldManager.getInstance().getInstantWorldIdName(id)))
 					{
 						continue;
 					}
@@ -1340,7 +1340,7 @@ public final class Kamaloka extends Quest
 		}
 		
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// player already in the instance
 		if (world != null)
 		{
@@ -1359,7 +1359,7 @@ public final class Kamaloka extends Quest
 				return;
 			}
 			// check what instance still exist
-			Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+			InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 			if (inst != null)
 			{
 				removeBuffs(player);
@@ -1374,10 +1374,10 @@ public final class Kamaloka extends Quest
 		}
 		
 		// Creating dynamic instance without template
-		final int instanceId = InstanceManager.getInstance().createDynamicInstance(null);
-		final Instance inst = InstanceManager.getInstance().getInstance(instanceId);
+		final int instanceId = InstantWorldManager.getInstance().createInstantWorld(null);
+		final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 		// set name for the kamaloka
-		inst.setName(InstanceManager.getInstance().getInstanceIdName(templateId));
+		inst.setName(InstantWorldManager.getInstance().getInstantWorldIdName(templateId));
 		// set return location
 		inst.setSpawnLoc(new Location(player));
 		// disable summon friend into instance
@@ -1392,7 +1392,7 @@ public final class Kamaloka extends Quest
 		world.setTemplateId(templateId);
 		// set index for easy access to the arrays
 		((KamaWorld) world).index = index;
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		world.setStatus(0);
 		// spawn npcs
 		spawnKama((KamaWorld) world);
@@ -1412,7 +1412,7 @@ public final class Kamaloka extends Quest
 	 * Called on instance finish and handles reenter time for instance
 	 * @param world instanceWorld
 	 */
-	private static final void finishInstance(InstanceWorld world)
+	private static final void finishInstance(InstantZone world)
 	{
 		if (world instanceof KamaWorld)
 		{
@@ -1434,13 +1434,13 @@ public final class Kamaloka extends Quest
 				L2PcInstance obj = L2World.getInstance().getPlayer(objectId);
 				if ((obj != null) && obj.isOnline())
 				{
-					InstanceManager.getInstance().setInstanceTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
+					InstantWorldManager.getInstance().getPlayerInstantWorldTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
 					obj.sendPacket(sm);
 				}
 			}
 			
 			// destroy instance after EXIT_TIME
-			Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+			InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 			inst.setDuration(EXIT_TIME * 60000);
 			inst.setEmptyDestroyTime(0);
 		}
@@ -1558,18 +1558,18 @@ public final class Kamaloka extends Quest
 			// only party leader can talk with escape teleporter
 			if ((party != null) && party.isLeader(player))
 			{
-				final InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+				final InstantZone world = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 				if (world instanceof KamaWorld)
 				{
 					// party members must be in the instance
 					if (world.isAllowed(player.getObjectId()))
 					{
-						Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+						InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 						
 						// teleports entire party away
 						for (L2PcInstance partyMember : party.getMembers())
 						{
-							if ((partyMember != null) && (partyMember.getInstanceId() == world.getInstanceId()))
+							if ((partyMember != null) && (partyMember.getInstantWorldId() == world.getInstanceId()))
 							{
 								teleportPlayer(partyMember, inst.getSpawnLoc(), 0);
 							}
@@ -1606,7 +1606,7 @@ public final class Kamaloka extends Quest
 	@Override
 	public final String onKill(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		final InstanceWorld tmpWorld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpWorld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (tmpWorld instanceof KamaWorld)
 		{
 			final KamaWorld world = (KamaWorld) tmpWorld;

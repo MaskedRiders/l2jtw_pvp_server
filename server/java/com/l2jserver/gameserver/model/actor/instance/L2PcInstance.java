@@ -113,7 +113,7 @@ import com.l2jserver.gameserver.instancemanager.FortManager;
 import com.l2jserver.gameserver.instancemanager.FortSiegeManager;
 import com.l2jserver.gameserver.instancemanager.GrandBossManager;
 import com.l2jserver.gameserver.instancemanager.HandysBlockCheckerManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.ItemsOnGroundManager;
 import com.l2jserver.gameserver.instancemanager.PunishmentManager;
 import com.l2jserver.gameserver.instancemanager.QuestManager;
@@ -198,7 +198,7 @@ import com.l2jserver.gameserver.model.entity.Castle;
 import com.l2jserver.gameserver.model.entity.Duel;
 import com.l2jserver.gameserver.model.entity.Fort;
 import com.l2jserver.gameserver.model.entity.Hero;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.entity.L2Event;
 import com.l2jserver.gameserver.model.entity.Siege;
 import com.l2jserver.gameserver.model.entity.TvTEvent;
@@ -10229,7 +10229,7 @@ public final class L2PcInstance extends L2Playable
 		_observerMode = false;
 		setTarget(null);
 		sendPacket(new ExOlympiadMode(0));
-		setInstanceId(0);
+		setInstantWorldId(0);
 		teleToLocation(_lastLoc, true);
 		if (!isGM())
 		{
@@ -11043,7 +11043,7 @@ public final class L2PcInstance extends L2Playable
 		if (_taskWarnUserTakeBreak == null)
 		{
 			/* Update by rocknow
-			_taskWarnUserTakeBreak = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new WarnUserTakeBreakTask(this), 7200000, 7200000);
+			_taskWarnUserTakeBreak = ThreadPoolManager.getInstantWorld().scheduleGeneralAtFixedRate(new WarnUserTakeBreakTask(this), 7200000, 7200000);
 			 */
 			_taskWarnUserTakeBreak = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new WarnUserTakeBreakTask(this), 3600000, 3600000);
 		}
@@ -11238,9 +11238,9 @@ public final class L2PcInstance extends L2Playable
 				getParty().getDimensionalRift().memberRessurected(this);
 			}
 		}
-		if (getInstanceId() > 0)
+		if (getInstantWorldId() > 0)
 		{
-			final Instance instance = InstanceManager.getInstance().getInstance(getInstanceId());
+			final InstantWorld instance = InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId());
 			if (instance != null)
 			{
 				instance.cancelEjectDeadPlayer(this);
@@ -11418,7 +11418,7 @@ public final class L2PcInstance extends L2Playable
 		
 		if (isFlyingMounted() && (loc.getZ() < -1005))
 		{
-			super.teleToLocation(loc.getX(), loc.getY(), -1005, loc.getHeading(), loc.getInstanceId());
+			super.teleToLocation(loc.getX(), loc.getY(), -1005, loc.getHeading(), loc.getInstantWorldId());
 		}
 		
 		super.teleToLocation(loc, allowRandomOffset);
@@ -12112,10 +12112,10 @@ public final class L2PcInstance extends L2Playable
 		// remove player from instance and set spawn location if any
 		try
 		{
-			final int instanceId = getInstanceId();
+			final int instanceId = getInstantWorldId();
 			if ((instanceId != 0) && !Config.RESTORE_PLAYER_INSTANCE)
 			{
-				final Instance inst = InstanceManager.getInstance().getInstance(instanceId);
+				final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 				if (inst != null)
 				{
 					inst.removePlayer(getObjectId());
@@ -12128,7 +12128,7 @@ public final class L2PcInstance extends L2Playable
 						if (hasSummon()) // dead pet
 						{
 							getSummon().teleToLocation(loc, true);
-							getSummon().setInstanceId(0);
+							getSummon().setInstantWorldId(0);
 						}
 					}
 				}
@@ -12216,7 +12216,7 @@ public final class L2PcInstance extends L2Playable
 		if (getClanId() > 0)
 		{
 			getClan().broadcastToOtherOnlineMembers(new PledgeShowMemberListUpdate(this), this);
-			// ClanTable.getInstance().getClan(getClanId()).broadcastToOnlineMembers(new PledgeShowMemberListAdd(this));
+			// ClanTable.getInstantWorld().getClan(getClanId()).broadcastToOnlineMembers(new PledgeShowMemberListAdd(this));
 		}
 		
 		for (L2PcInstance player : _snoopedPlayer)

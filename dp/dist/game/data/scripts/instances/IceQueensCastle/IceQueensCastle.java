@@ -22,14 +22,14 @@ import quests.Q10285_MeetingSirra.Q10285_MeetingSirra;
 import ai.npc.AbstractNpcAI;
 
 import com.l2jserver.gameserver.ai.CtrlIntention;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -42,7 +42,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  */
 public final class IceQueensCastle extends AbstractNpcAI
 {
-	protected class IQCWorld extends InstanceWorld
+	protected class IQCWorld extends InstantZone
 	{
 		L2PcInstance player = null;
 	}
@@ -127,9 +127,9 @@ public final class IceQueensCastle extends AbstractNpcAI
 				{
 					qs.setMemoState(3);
 					qs.setCond(10, true);
-					final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+					final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 					world.removeAllowed(player.getObjectId());
-					player.setInstanceId(0);
+					player.setInstantWorldId(0);
 					player.teleToLocation(EXIT_LOC, 0);
 				}
 				break;
@@ -170,7 +170,7 @@ public final class IceQueensCastle extends AbstractNpcAI
 	@Override
 	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if ((tmpworld != null) && (tmpworld instanceof IQCWorld))
 		{
@@ -193,7 +193,7 @@ public final class IceQueensCastle extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -209,10 +209,10 @@ public final class IceQueensCastle extends AbstractNpcAI
 		if (checkConditions(player))
 		{
 			world = new IQCWorld();
-			world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+			world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 			world.setTemplateId(TEMPLATE_ID);
 			world.setStatus(0);
-			InstanceManager.getInstance().addWorld(world);
+			InstantWorldManager.getInstance().addWorld(world);
 			_log.info("Ice Queen's Castle started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 			teleportPlayer(player, START_LOC, world.getInstanceId(), false);
 			world.addAllowed(player.getObjectId());

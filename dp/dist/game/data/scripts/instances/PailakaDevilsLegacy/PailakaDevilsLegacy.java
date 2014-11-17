@@ -25,14 +25,14 @@ import quests.Q00129_PailakaDevilsLegacy.Q00129_PailakaDevilsLegacy;
 import ai.npc.AbstractNpcAI;
 
 import com.l2jserver.gameserver.ai.CtrlIntention;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.zone.L2ZoneType;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -43,7 +43,7 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  */
 public final class PailakaDevilsLegacy extends AbstractNpcAI
 {
-	protected class DIWorld extends InstanceWorld
+	protected class DIWorld extends InstantZone
 	{
 		L2Attackable _lematanNpc = null;
 		List<L2Attackable> _followerslist = new CopyOnWriteArrayList<>();
@@ -102,7 +102,7 @@ public final class PailakaDevilsLegacy extends AbstractNpcAI
 	@Override
 	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		String htmltext = null;
 		
 		if (event.equals("enter"))
@@ -173,7 +173,7 @@ public final class PailakaDevilsLegacy extends AbstractNpcAI
 	@Override
 	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if ((tmpworld != null) && (tmpworld instanceof DIWorld))
 		{
@@ -261,7 +261,7 @@ public final class PailakaDevilsLegacy extends AbstractNpcAI
 	@Override
 	public final String onKill(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if ((tmpworld != null) && (tmpworld instanceof DIWorld))
 		{
@@ -275,7 +275,7 @@ public final class PailakaDevilsLegacy extends AbstractNpcAI
 				}
 				world._followerslist.clear();
 			}
-			addSpawn(ADVENTURER2, ADVENTURER_LOC, false, 0, false, npc.getInstanceId());
+			addSpawn(ADVENTURER2, ADVENTURER_LOC, false, 0, false, npc.getInstantWorldId());
 		}
 		return super.onKill(npc, player, isSummon);
 	}
@@ -285,7 +285,7 @@ public final class PailakaDevilsLegacy extends AbstractNpcAI
 	{
 		if ((character.isPlayer()) && !character.isDead() && !character.isTeleporting() && ((L2PcInstance) character).isOnline())
 		{
-			final InstanceWorld world = InstanceManager.getInstance().getWorld(character.getInstanceId());
+			final InstantZone world = InstantWorldManager.getInstance().getWorld(character.getInstantWorldId());
 			if ((world != null) && (world.getTemplateId() == TEMPLATE_ID))
 			{
 				startQuestTimer("TELEPORT", 1000, ((DIWorld) world)._lematanNpc, (L2PcInstance) character);
@@ -306,7 +306,7 @@ public final class PailakaDevilsLegacy extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -319,9 +319,9 @@ public final class PailakaDevilsLegacy extends AbstractNpcAI
 			return;
 		}
 		world = new DIWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		world.addAllowed(player.getObjectId());
 		teleportPlayer(player, TELEPORT, world.getInstanceId());
 		((DIWorld) world)._lematanNpc = (L2Attackable) addSpawn(LEMATAN, LEMATAN_SPAWN, false, 0, false, world.getInstanceId());

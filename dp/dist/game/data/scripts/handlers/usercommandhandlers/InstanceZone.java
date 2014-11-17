@@ -21,9 +21,9 @@ package handlers.usercommandhandlers;
 import java.util.Map;
 
 import com.l2jserver.gameserver.handler.IUserCommandHandler;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
@@ -52,7 +52,7 @@ public class InstanceZone implements IUserCommandHandler
 			return false;
 		}
 		
-		final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(activeChar);
+		final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(activeChar);
 		if ((world != null) && (world.getTemplateId() >= 0))
 		{
 			SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.INSTANT_ZONE_CURRENTLY_INUSE_S1);
@@ -60,7 +60,7 @@ public class InstanceZone implements IUserCommandHandler
 			activeChar.sendPacket(sm);
 		}
 		
-		final Map<Integer, Long> instanceTimes = InstanceManager.getInstance().getAllInstanceTimes(activeChar.getObjectId());
+		final Map<Integer, Long> instanceTimes = InstantWorldManager.getInstance().getAllPlayerInstantWorldTimes(activeChar.getObjectId());
 		boolean firstMessage = true;
 		if (instanceTimes != null)
 		{
@@ -84,7 +84,7 @@ public class InstanceZone implements IUserCommandHandler
 				}
 				else
 				{
-					InstanceManager.getInstance().deleteInstanceTime(activeChar.getObjectId(), instanceId);
+					InstantWorldManager.getInstance().deletePlayerInstantWorldTime(activeChar.getObjectId(), instanceId);
 				}
 			}
 		}

@@ -24,7 +24,7 @@ import java.util.List;
 
 import ai.npc.AbstractNpcAI;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.Location;
@@ -32,8 +32,8 @@ import com.l2jserver.gameserver.model.PcCondOverride;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
@@ -44,7 +44,7 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
  */
 public class CavernOfThePirateCaptain extends AbstractNpcAI
 {
-	protected class CavernOfThePirateCaptainWorld extends InstanceWorld
+	protected class CavernOfThePirateCaptainWorld extends InstantZone
 	{
 		ArrayList<L2PcInstance> playersInside = new ArrayList<>();
 		L2Attackable _zaken;
@@ -171,7 +171,7 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template, boolean is83)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -187,10 +187,10 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 		if (checkConditions(player, is83))
 		{
 			world = new CavernOfThePirateCaptainWorld();
-			world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+			world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 			world.setTemplateId(is83 ? TEMPLATE_ID_83 : TEMPLATE_ID_60);
 			world.setStatus(0);
-			InstanceManager.getInstance().addWorld(world);
+			InstantWorldManager.getInstance().addWorld(world);
 			final CavernOfThePirateCaptainWorld curworld = (CavernOfThePirateCaptainWorld) world;
 			curworld._is83 = is83;
 			curworld.storeTime = System.currentTimeMillis();
@@ -276,7 +276,7 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 				return false;
 			}
 			
-			final Long reentertime = InstanceManager.getInstance().getInstanceTime(groupMembers.getObjectId(), (is83 ? TEMPLATE_ID_83 : TEMPLATE_ID_60));
+			final Long reentertime = InstantWorldManager.getInstance().getPlayerInstantWorldTime(groupMembers.getObjectId(), (is83 ? TEMPLATE_ID_83 : TEMPLATE_ID_60));
 			if (System.currentTimeMillis() < reentertime)
 			{
 				broadcastSystemMessage(player, groupMembers, SystemMessageId.C1_MAY_NOT_REENTER_YET, true);
@@ -322,7 +322,7 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 		}
 		else
 		{
-			final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+			final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 			
 			if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld))
 			{
@@ -396,18 +396,18 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld))
 		{
 			final CavernOfThePirateCaptainWorld world = (CavernOfThePirateCaptainWorld) tmpworld;
-			final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+			final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 			
 			if (npc.getId() == ZAKEN_83)
 			{
 				for (L2PcInstance playersInside : world.playersInside)
 				{
-					if ((playersInside != null) && ((playersInside.getInstanceId() == world.getInstanceId()) && playersInside.isInsideRadius(npc, 1500, true, true)))
+					if ((playersInside != null) && ((playersInside.getInstantWorldId() == world.getInstanceId()) && playersInside.isInsideRadius(npc, 1500, true, true)))
 					{
 						final long time = System.currentTimeMillis() - world.storeTime;
 						if (time <= 300000) // 5 minutes
@@ -444,7 +444,7 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld))
 		{
@@ -499,7 +499,7 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 	{
 		for (L2PcInstance players : world.playersInside)
 		{
-			if ((players != null) && (players.getInstanceId() == world.getInstanceId()))
+			if ((players != null) && (players.getInstantWorldId() == world.getInstanceId()))
 			{
 				showOnScreenMsg(players, stringId, 2, 6000);
 			}
@@ -538,7 +538,7 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 		world._zaken.setIsParalyzed(true);
 	}
 	
-	private void saveReenterForPlayers(InstanceWorld world)
+	private void saveReenterForPlayers(InstantZone world)
 	{
 		final Calendar reenter = Calendar.getInstance();
 		reenter.set(Calendar.MINUTE, MINUTES);
@@ -572,12 +572,12 @@ public class CavernOfThePirateCaptain extends AbstractNpcAI
 		}
 		
 		final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.INSTANT_ZONE_S1_RESTRICTED);
-		sm.addString(InstanceManager.getInstance().getInstanceIdName(world.getTemplateId()));
+		sm.addString(InstantWorldManager.getInstance().getInstantWorldIdName(world.getTemplateId()));
 		
 		for (int objectId : world.getAllowed())
 		{
 			final L2PcInstance player = L2World.getInstance().getPlayer(objectId);
-			InstanceManager.getInstance().setInstanceTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
+			InstantWorldManager.getInstance().getPlayerInstantWorldTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
 			if ((player != null) && player.isOnline())
 			{
 				player.sendPacket(sm);

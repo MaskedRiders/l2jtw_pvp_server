@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.l2jserver.gameserver.ThreadPoolManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.ZoneManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.PcCondOverride;
@@ -99,7 +99,7 @@ public class L2OlympiadStadiumZone extends L2ZoneRespawn
 	
 	public final void openDoors()
 	{
-		for (L2DoorInstance door : InstanceManager.getInstance().getInstance(getInstanceId()).getDoors())
+		for (L2DoorInstance door : InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId()).getDoors())
 		{
 			if ((door != null) && !door.getOpen())
 			{
@@ -110,7 +110,7 @@ public class L2OlympiadStadiumZone extends L2ZoneRespawn
 	
 	public final void closeDoors()
 	{
-		for (L2DoorInstance door : InstanceManager.getInstance().getInstance(getInstanceId()).getDoors())
+		for (L2DoorInstance door : InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId()).getDoors())
 		{
 			if ((door != null) && door.getOpen())
 			{
@@ -121,7 +121,7 @@ public class L2OlympiadStadiumZone extends L2ZoneRespawn
 	
 	public final void spawnBuffers()
 	{
-		for (L2Npc buffer : InstanceManager.getInstance().getInstance(getInstanceId()).getNpcs())
+		for (L2Npc buffer : InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId()).getNpcs())
 		{
 			if ((buffer instanceof L2OlympiadManagerInstance) && !buffer.isVisible())
 			{
@@ -132,7 +132,7 @@ public class L2OlympiadStadiumZone extends L2ZoneRespawn
 	
 	public final void deleteBuffers()
 	{
-		for (L2Npc buffer : InstanceManager.getInstance().getInstance(getInstanceId()).getNpcs())
+		for (L2Npc buffer : InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId()).getNpcs())
 		{
 			if ((buffer instanceof L2OlympiadManagerInstance) && buffer.isVisible())
 			{
@@ -284,7 +284,7 @@ public class L2OlympiadStadiumZone extends L2ZoneRespawn
 				}
 				
 				_player.teleToLocation(TeleportWhereType.TOWN);
-				_player.setInstanceId(0);
+				_player.setInstantWorldId(0);
 				_player = null;
 			}
 		}

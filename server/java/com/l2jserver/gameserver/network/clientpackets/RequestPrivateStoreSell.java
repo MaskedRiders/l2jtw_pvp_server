@@ -110,7 +110,7 @@ public final class RequestPrivateStoreSell extends L2GameClientPacket
 			return;
 		}
 		
-		if ((player.getInstanceId() != storePlayer.getInstanceId()) && (player.getInstanceId() != -1))
+		if ((player.getInstantWorldId() != storePlayer.getInstantWorldId()) && (player.getInstantWorldId() != -1))
 		{
 			return;
 		}

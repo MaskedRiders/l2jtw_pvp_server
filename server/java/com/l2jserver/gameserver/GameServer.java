@@ -108,7 +108,7 @@ import com.l2jserver.gameserver.instancemanager.FourSepulchersManager;
 import com.l2jserver.gameserver.instancemanager.GlobalVariablesManager;
 import com.l2jserver.gameserver.instancemanager.GraciaSeedsManager;
 import com.l2jserver.gameserver.instancemanager.GrandBossManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.ItemAuctionManager;
 import com.l2jserver.gameserver.instancemanager.ItemsOnGroundManager;
 import com.l2jserver.gameserver.instancemanager.MailManager;
@@ -220,7 +220,7 @@ public class GameServer
 		printSection("World");
 		// start game time control early
 		GameTimeController.init();
-		InstanceManager.getInstance();
+		InstantWorldManager.getInstance();
 		L2World.getInstance();
 		MapRegionManager.getInstance();
 		Announcements.getInstance();

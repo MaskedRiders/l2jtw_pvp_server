@@ -153,7 +153,7 @@ public class Q00131_BirdInACage extends Quest
 				{
 					st.giveItems(PARMES_LETTER, 1);
 					st.setCond(4, true);
-					player.setInstanceId(0);
+					player.setInstantWorldId(0);
 					player.teleToLocation(INSTANCE_EXIT, true);
 					htmltext = event;
 				}

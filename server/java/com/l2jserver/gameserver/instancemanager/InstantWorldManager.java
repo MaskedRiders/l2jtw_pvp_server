@@ -32,32 +32,32 @@ import org.w3c.dom.Node;
 import com.l2jserver.L2DatabaseFactory;
 import com.l2jserver.gameserver.engines.DocumentParser;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 
 /**
  * @author evill33t, GodKratos
  */
-public final class InstanceManager extends DocumentParser
+public final class InstantWorldManager extends DocumentParser
 {
-	private static final Map<Integer, Instance> _instanceList = new FastMap<>();
-	private final Map<Integer, InstanceWorld> _instanceWorlds = new FastMap<>();
-	private int _dynamic = 300000;
+	private static final Map<Integer, InstantWorld> _instantWorldList = new FastMap<>();
+	private final Map<Integer, InstantZone> _instantZones = new FastMap<>();
+	private int _dynamicId = 300000;
 	// InstanceId Names
-	private static final Map<Integer, String> _instanceIdNames = new HashMap<>();
-	private final Map<Integer, Map<Integer, Long>> _playerInstanceTimes = new FastMap<>();
+	private static final Map<Integer, String> _instantWorldIdNames = new HashMap<>();
+	private final Map<Integer, Map<Integer, Long>> _playerInstantWorldTimes = new FastMap<>();
 	// SQL Queries
 	private static final String ADD_INSTANCE_TIME = "INSERT INTO character_instance_time (charId,instanceId,time) values (?,?,?) ON DUPLICATE KEY UPDATE time=?";
 	private static final String RESTORE_INSTANCE_TIMES = "SELECT instanceId,time FROM character_instance_time WHERE charId=?";
 	private static final String DELETE_INSTANCE_TIME = "DELETE FROM character_instance_time WHERE charId=? AND instanceId=?";
 	
-	protected InstanceManager()
+	protected InstantWorldManager()
 	{
 		// Creates the multiverse.
-		_instanceList.put(-1, new Instance(-1, "multiverse"));
+		_instantWorldList.put(-1, new InstantWorld(-1, "multiverse"));
 		_log.info(getClass().getSimpleName() + ": Multiverse Instance created.");
 		// Creates the universe.
-		_instanceList.put(0, new Instance(0, "universe"));
+		_instantWorldList.put(0, new InstantWorld(0, "universe"));
 		_log.info(getClass().getSimpleName() + ": Universe Instance created.");
 		load();
 	}
@@ -65,9 +65,9 @@ public final class InstanceManager extends DocumentParser
 	@Override
 	public void load()
 	{
-		_instanceIdNames.clear();
+		_instantWorldIdNames.clear();
 		parseDatapackFile("data/instancenames.xml");
-		_log.info(getClass().getSimpleName() + ": Loaded " + _instanceIdNames.size() + " instance names.");
+		_log.info(getClass().getSimpleName() + ": Loaded " + _instantWorldIdNames.size() + " instance names.");
 	}
 	
 	/**
@@ -75,15 +75,15 @@ public final class InstanceManager extends DocumentParser
 	 * @param id
 	 * @return
 	 */
-	public long getInstanceTime(int playerObjId, int id)
+	public long getPlayerInstantWorldTime(int playerObjId, int id)
 	{
-		if (!_playerInstanceTimes.containsKey(playerObjId))
+		if (!_playerInstantWorldTimes.containsKey(playerObjId))
 		{
-			restoreInstanceTimes(playerObjId);
+			restorePlayerInstantWorldTimes(playerObjId);
 		}
-		if (_playerInstanceTimes.get(playerObjId).containsKey(id))
+		if (_playerInstantWorldTimes.get(playerObjId).containsKey(id))
 		{
-			return _playerInstanceTimes.get(playerObjId).get(id);
+			return _playerInstantWorldTimes.get(playerObjId).get(id);
 		}
 		return -1;
 	}
@@ -92,13 +92,13 @@ public final class InstanceManager extends DocumentParser
 	 * @param playerObjId
 	 * @return
 	 */
-	public Map<Integer, Long> getAllInstanceTimes(int playerObjId)
+	public Map<Integer, Long> getAllPlayerInstantWorldTimes(int playerObjId)
 	{
-		if (!_playerInstanceTimes.containsKey(playerObjId))
+		if (!_playerInstantWorldTimes.containsKey(playerObjId))
 		{
-			restoreInstanceTimes(playerObjId);
+			restorePlayerInstantWorldTimes(playerObjId);
 		}
-		return _playerInstanceTimes.get(playerObjId);
+		return _playerInstantWorldTimes.get(playerObjId);
 	}
 	
 	/**
@@ -106,11 +106,11 @@ public final class InstanceManager extends DocumentParser
 	 * @param id
 	 * @param time
 	 */
-	public void setInstanceTime(int playerObjId, int id, long time)
+	public void getPlayerInstantWorldTime(int playerObjId, int id, long time)
 	{
-		if (!_playerInstanceTimes.containsKey(playerObjId))
+		if (!_playerInstantWorldTimes.containsKey(playerObjId))
 		{
-			restoreInstanceTimes(playerObjId);
+			restorePlayerInstantWorldTimes(playerObjId);
 		}
 		
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
@@ -121,7 +121,7 @@ public final class InstanceManager extends DocumentParser
 			ps.setLong(3, time);
 			ps.setLong(4, time);
 			ps.execute();
-			_playerInstanceTimes.get(playerObjId).put(id, time);
+			_playerInstantWorldTimes.get(playerObjId).put(id, time);
 		}
 		catch (Exception e)
 		{
@@ -133,7 +133,7 @@ public final class InstanceManager extends DocumentParser
 	 * @param playerObjId
 	 * @param id
 	 */
-	public void deleteInstanceTime(int playerObjId, int id)
+	public void deletePlayerInstantWorldTime(int playerObjId, int id)
 	{
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement ps = con.prepareStatement(DELETE_INSTANCE_TIME))
@@ -141,7 +141,7 @@ public final class InstanceManager extends DocumentParser
 			ps.setInt(1, playerObjId);
 			ps.setInt(2, id);
 			ps.execute();
-			_playerInstanceTimes.get(playerObjId).remove(id);
+			_playerInstantWorldTimes.get(playerObjId).remove(id);
 		}
 		catch (Exception e)
 		{
@@ -152,13 +152,13 @@ public final class InstanceManager extends DocumentParser
 	/**
 	 * @param playerObjId
 	 */
-	public void restoreInstanceTimes(int playerObjId)
+	public void restorePlayerInstantWorldTimes(int playerObjId)
 	{
-		if (_playerInstanceTimes.containsKey(playerObjId))
+		if (_playerInstantWorldTimes.containsKey(playerObjId))
 		{
 			return; // already restored
 		}
-		_playerInstanceTimes.put(playerObjId, new FastMap<Integer, Long>());
+		_playerInstantWorldTimes.put(playerObjId, new FastMap<Integer, Long>());
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement ps = con.prepareStatement(RESTORE_INSTANCE_TIMES))
 		{
@@ -171,11 +171,11 @@ public final class InstanceManager extends DocumentParser
 					long time = rs.getLong("time");
 					if (time < System.currentTimeMillis())
 					{
-						deleteInstanceTime(playerObjId, id);
+						deletePlayerInstantWorldTime(playerObjId, id);
 					}
 					else
 					{
-						_playerInstanceTimes.get(playerObjId).put(id, time);
+						_playerInstantWorldTimes.get(playerObjId).put(id, time);
 					}
 				}
 			}
@@ -190,11 +190,11 @@ public final class InstanceManager extends DocumentParser
 	 * @param id
 	 * @return
 	 */
-	public String getInstanceIdName(int id)
+	public String getInstantWorldIdName(int id)
 	{
-		if (_instanceIdNames.containsKey(id))
+		if (_instantWorldIdNames.containsKey(id))
 		{
-			return _instanceIdNames.get(id);
+			return _instantWorldIdNames.get(id);
 		}
 		return ("UnknownInstance");
 	}
@@ -212,28 +212,28 @@ public final class InstanceManager extends DocumentParser
 					if ("instance".equals(d.getNodeName()))
 					{
 						attrs = d.getAttributes();
-						_instanceIdNames.put(parseInteger(attrs, "id"), attrs.getNamedItem("name").getNodeValue());
+						_instantWorldIdNames.put(parseInteger(attrs, "id"), attrs.getNamedItem("name").getNodeValue());
 					}
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * @param world
 	 */
-	public void addWorld(InstanceWorld world)
+	public void addWorld(InstantZone world)
 	{
-		_instanceWorlds.put(world.getInstanceId(), world);
+		_instantZones.put(world.getInstanceId(), world);
 	}
 	
 	/**
 	 * @param instanceId
 	 * @return
 	 */
-	public InstanceWorld getWorld(int instanceId)
+	public InstantZone getWorld(int instanceId)
 	{
-		return _instanceWorlds.get(instanceId);
+		return _instantZones.get(instanceId);
 	}
 	
 	/**
@@ -241,9 +241,9 @@ public final class InstanceManager extends DocumentParser
 	 * @param player the player to check
 	 * @return the instance world
 	 */
-	public InstanceWorld getPlayerWorld(L2PcInstance player)
+	public InstantZone getPlayerInstantWorld(L2PcInstance player)
 	{
-		for (InstanceWorld temp : _instanceWorlds.values())
+		for (InstantZone temp : _instantZones.values())
 		{
 			if ((temp != null) && (temp.isAllowed(player.getObjectId())))
 			{
@@ -254,25 +254,25 @@ public final class InstanceManager extends DocumentParser
 	}
 	
 	/**
-	 * @param instanceid
+	 * @param instantWorldid
 	 */
-	public void destroyInstance(int instanceid)
+	public void destroyInstantWorld(int instantWorldid)
 	{
-		if (instanceid <= 0)
+		if (instantWorldid <= 0)
 		{
 			return;
 		}
-		final Instance temp = _instanceList.get(instanceid);
+		final InstantWorld temp = _instantWorldList.get(instantWorldid);
 		if (temp != null)
 		{
 			temp.removeNpcs();
 			temp.removePlayers();
 			temp.removeDoors();
 			temp.cancelTimer();
-			_instanceList.remove(instanceid);
-			if (_instanceWorlds.containsKey(instanceid))
+			_instantWorldList.remove(instantWorldid);
+			if (_instantZones.containsKey(instantWorldid))
 			{
-				_instanceWorlds.remove(instanceid);
+				_instantZones.remove(instantWorldid);
 			}
 		}
 	}
@@ -281,26 +281,26 @@ public final class InstanceManager extends DocumentParser
 	 * @param instanceid
 	 * @return
 	 */
-	public Instance getInstance(int instanceid)
+	public InstantWorld getInstantWorld(int instanceid)
 	{
-		return _instanceList.get(instanceid);
+		return _instantWorldList.get(instanceid);
 	}
 	
 	/**
 	 * @return
 	 */
-	public Map<Integer, Instance> getInstances()
+	public Map<Integer, InstantWorld> getInstantWorlds()
 	{
-		return _instanceList;
+		return _instantWorldList;
 	}
 	
 	/**
 	 * @param objectId
 	 * @return
 	 */
-	public int getPlayerInstance(int objectId)
+	public int getPlayerInstantWorld(int objectId)
 	{
-		for (Instance temp : _instanceList.values())
+		for (InstantWorld temp : _instantWorldList.values())
 		{
 			if (temp == null)
 			{
@@ -320,15 +320,15 @@ public final class InstanceManager extends DocumentParser
 	 * @param id
 	 * @return
 	 */
-	public boolean createInstance(int id)
+	public boolean createInstantWorld(int id)
 	{
-		if (getInstance(id) != null)
+		if (getInstantWorld(id) != null)
 		{
 			return false;
 		}
 		
-		final Instance instance = new Instance(id);
-		_instanceList.put(id, instance);
+		final InstantWorld InstantWorld = new InstantWorld(id);
+		_instantWorldList.put(id, InstantWorld);
 		return true;
 	}
 	
@@ -337,15 +337,15 @@ public final class InstanceManager extends DocumentParser
 	 * @param template
 	 * @return
 	 */
-	public boolean createInstanceFromTemplate(int id, String template)
+	public boolean createInstantWorldFromTemplate(int id, String template)
 	{
-		if (getInstance(id) != null)
+		if (getInstantWorld(id) != null)
 		{
 			return false;
 		}
 		
-		final Instance instance = new Instance(id);
-		_instanceList.put(id, instance);
+		final InstantWorld instance = new InstantWorld(id);
+		_instantWorldList.put(id, instance);
 		instance.loadInstanceTemplate(template);
 		return true;
 	}
@@ -355,37 +355,37 @@ public final class InstanceManager extends DocumentParser
 	 * @param template xml file
 	 * @return
 	 */
-	public int createDynamicInstance(String template)
+	public int createInstantWorld(String template)
 	{
-		while (getInstance(_dynamic) != null)
+		while (getInstantWorld(_dynamicId) != null)
 		{
-			_dynamic++;
-			if (_dynamic == Integer.MAX_VALUE)
+			_dynamicId++;
+			if (_dynamicId == Integer.MAX_VALUE)
 			{
 				_log.warning(getClass().getSimpleName() + ": More then " + (Integer.MAX_VALUE - 300000) + " instances created");
-				_dynamic = 300000;
+				_dynamicId = 300000;
 			}
 		}
-		final Instance instance = new Instance(_dynamic);
-		_instanceList.put(_dynamic, instance);
+		final InstantWorld instance = new InstantWorld(_dynamicId);
+		_instantWorldList.put(_dynamicId, instance);
 		if (template != null)
 		{
 			instance.loadInstanceTemplate(template);
 		}
-		return _dynamic;
+		return _dynamicId;
 	}
 	
 	/**
-	 * Gets the single instance of {@code InstanceManager}.
-	 * @return single instance of {@code InstanceManager}
+	 * Gets the single instance of {@code InstantWorldManager}.
+	 * @return single instance of {@code InstantWorldManager}
 	 */
-	public static final InstanceManager getInstance()
+	public static final InstantWorldManager getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 	
 	private static class SingletonHolder
 	{
-		protected static final InstanceManager _instance = new InstanceManager();
+		protected static final InstantWorldManager _instance = new InstantWorldManager();
 	}
 }

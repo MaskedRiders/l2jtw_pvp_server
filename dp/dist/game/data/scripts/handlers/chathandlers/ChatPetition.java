@@ -54,7 +54,7 @@ public class ChatPetition implements IChatHandler
 			activeChar.sendPacket(SystemMessageId.YOU_ARE_NOT_IN_PETITION_CHAT);
 			return;
 		}
-		
+
 		PetitionManager.getInstance().sendActivePetitionMessage(activeChar, text);
 	}
 	

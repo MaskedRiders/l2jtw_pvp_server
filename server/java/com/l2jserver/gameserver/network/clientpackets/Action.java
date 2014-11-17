@@ -129,7 +129,7 @@ public final class Action extends L2GameClientPacket
 		}
 		
 		// Players can't interact with objects in the other instances, except from multiverse
-		if ((obj.getInstanceId() != activeChar.getInstanceId()) && (activeChar.getInstanceId() != -1))
+		if ((obj.getInstantWorldId() != activeChar.getInstantWorldId()) && (activeChar.getInstantWorldId() != -1))
 		{
 			sendPacket(ActionFailed.STATIC_PACKET);
 			return;

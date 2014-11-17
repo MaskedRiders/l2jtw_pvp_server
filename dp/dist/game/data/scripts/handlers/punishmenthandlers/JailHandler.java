@@ -159,7 +159,7 @@ public class JailHandler implements IPunishmentHandler
 	 */
 	private static void applyToPlayer(PunishmentTask task, L2PcInstance player)
 	{
-		player.setInstanceId(0);
+		player.setInstantWorldId(0);
 		player.setIsIn7sDungeon(false);
 		
 		if (!TvTEvent.isInactive() && TvTEvent.isPlayerParticipant(player.getObjectId()))

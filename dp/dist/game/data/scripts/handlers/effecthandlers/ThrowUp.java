@@ -100,7 +100,7 @@ public final class ThrowUp extends AbstractEffect
 		
 		if (Config.GEODATA > 0)
 		{
-			Location destiny = GeoData.getInstance().moveCheck(info.getEffected().getX(), info.getEffected().getY(), info.getEffected().getZ(), x, y, z, info.getEffected().getInstanceId());
+			Location destiny = GeoData.getInstance().moveCheck(info.getEffected().getX(), info.getEffected().getY(), info.getEffected().getZ(), x, y, z, info.getEffected().getInstantWorldId());
 			x = destiny.getX();
 			y = destiny.getY();
 		}

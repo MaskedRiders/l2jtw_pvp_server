@@ -34,6 +34,7 @@ import com.l2jserver.gameserver.network.serverpackets.MagicSkillUse;
 import com.l2jserver.gameserver.network.serverpackets.SetupGauge;
 import com.l2jserver.gameserver.util.Broadcast;
 import com.l2jserver.gameserver.datatables.MessageTable;
+import java.util.logging.Logger;
 
 /**
  * Unstuck user command.
@@ -49,7 +50,7 @@ public class Unstuck implements IUserCommandHandler
 	public boolean useUserCommand(int id, L2PcInstance activeChar)
 	{
 		// Thanks nbd
-		if (!TvTEvent.onEscapeUse(activeChar.getObjectId()))
+		if (TvTEvent.onEscapeUse(activeChar.getObjectId()))
 		{
 			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 			return false;
@@ -148,7 +149,7 @@ public class Unstuck implements IUserCommandHandler
 			_activeChar.setIsIn7sDungeon(false);
 			_activeChar.enableAllSkills();
 			_activeChar.setIsCastingNow(false);
-			_activeChar.setInstanceId(0);
+			_activeChar.setInstantWorldId(0);
 			_activeChar.teleToLocation(TeleportWhereType.TOWN);
 		}
 	}

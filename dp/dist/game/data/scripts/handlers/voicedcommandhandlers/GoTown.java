@@ -12,7 +12,7 @@ import org.python.modules.math;
  */
 public class GoTown implements IVoicedCommandHandler
 {
-	private static final String[] COMMAND_IDS =
+	private static final String[] VOICED_COMMANDS =
 	{
 		"go_town"
 	};
@@ -21,6 +21,7 @@ public class GoTown implements IVoicedCommandHandler
 	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String params)
 	{
 		L2PcInstance target = (L2PcInstance) activeChar.getTarget();
+		if(target == null) return false;
 		if(target.isPvPZombie()){
 			long pvPDeathDate = Calendar.getInstance().getTimeInMillis() - target.getPvPDeathDate();
 			long delay = (long) math.floor((PURIFICATION_PVP_ZOMBIE_DELAY - pvPDeathDate) / 1000);
@@ -34,6 +35,6 @@ public class GoTown implements IVoicedCommandHandler
 	@Override
 	public String[] getVoicedCommandList()
 	{
-		return COMMAND_IDS;
+		return VOICED_COMMANDS;
 	}
 }

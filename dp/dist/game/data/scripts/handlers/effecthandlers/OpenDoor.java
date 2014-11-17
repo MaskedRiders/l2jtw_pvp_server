@@ -18,13 +18,13 @@
  */
 package handlers.effecthandlers;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.util.Rnd;
@@ -63,10 +63,10 @@ public final class OpenDoor extends AbstractEffect
 		final L2Character effector = info.getEffector();
 		L2DoorInstance door = (L2DoorInstance) info.getEffected();
 		// Check if door in the different instance
-		if (effector.getInstanceId() != door.getInstanceId())
+		if (effector.getInstantWorldId() != door.getInstantWorldId())
 		{
 			// Search for the instance
-			final Instance inst = InstanceManager.getInstance().getInstance(effector.getInstanceId());
+			final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(effector.getInstantWorldId());
 			if (inst == null)
 			{
 				// Instance not found
@@ -80,7 +80,7 @@ public final class OpenDoor extends AbstractEffect
 			}
 			
 			// Checking instance again
-			if (effector.getInstanceId() != door.getInstanceId())
+			if (effector.getInstantWorldId() != door.getInstantWorldId())
 			{
 				return;
 			}

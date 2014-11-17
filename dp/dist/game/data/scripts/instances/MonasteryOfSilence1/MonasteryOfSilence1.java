@@ -20,13 +20,13 @@ package instances.MonasteryOfSilence1;
 
 import ai.npc.AbstractNpcAI;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -37,7 +37,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  */
 public final class MonasteryOfSilence1 extends AbstractNpcAI
 {
-	protected static final class MoSWorld extends InstanceWorld
+	protected static final class MoSWorld extends InstantZone
 	{
 		protected L2Npc elcadia = null;
 	}
@@ -90,7 +90,7 @@ public final class MonasteryOfSilence1 extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (world != null)
 		{
 			if (!(world instanceof MoSWorld))
@@ -109,10 +109,10 @@ public final class MonasteryOfSilence1 extends AbstractNpcAI
 		{
 			// New instance.
 			world = new MoSWorld();
-			world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+			world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 			world.setTemplateId(TEMPLATE_ID);
 			world.setStatus(0);
-			InstanceManager.getInstance().addWorld(world);
+			InstantWorldManager.getInstance().addWorld(world);
 			_log.info("Monastery of Silence started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 			// Teleport players.
 			teleportPlayer(player, START_LOC, world.getInstanceId(), false);
@@ -125,7 +125,7 @@ public final class MonasteryOfSilence1 extends AbstractNpcAI
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone tmpworld = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (!(tmpworld instanceof MoSWorld))
 		{
 			return null;
@@ -231,7 +231,7 @@ public final class MonasteryOfSilence1 extends AbstractNpcAI
 	
 	protected void spawnNPC(L2PcInstance player, MoSWorld world)
 	{
-		final L2Npc npc = addSpawn(ELCADIA_INSTANCE, player.getX(), player.getY(), player.getZ(), 0, false, 0, false, player.getInstanceId());
+		final L2Npc npc = addSpawn(ELCADIA_INSTANCE, player.getX(), player.getY(), player.getZ(), 0, false, 0, false, player.getInstantWorldId());
 		world.elcadia = npc;
 		startQuestTimer("FOLLOW", 3000, npc, player);
 	}

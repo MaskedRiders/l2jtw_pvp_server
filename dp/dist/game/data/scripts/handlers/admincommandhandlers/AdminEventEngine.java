@@ -254,7 +254,7 @@ public class AdminEventEngine implements IAdminCommandHandler
 					{
 						player.setTitle(L2Event._teamNames.get(teamId));
 						player.teleToLocation(activeChar.getLocation(), true);
-						player.setInstanceId(activeChar.getInstanceId());
+						player.setInstantWorldId(activeChar.getInstantWorldId());
 					}
 				}
 				showEventControl(activeChar);

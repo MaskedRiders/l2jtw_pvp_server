@@ -21,13 +21,13 @@ package instances.DarkCloudMansion;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -476,7 +476,7 @@ public final class DarkCloudMansion extends Quest
 		public int[] Order;
 	}
 	
-	protected class DMCWorld extends InstanceWorld
+	protected class DMCWorld extends InstantZone
 	{
 		public FastMap<String, DMCRoom> rooms = new FastMap<>();
 	}
@@ -527,7 +527,7 @@ public final class DarkCloudMansion extends Quest
 	
 	protected void enterInstance(L2PcInstance player, String template, Location loc)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (world != null)
 		{
 			if (!(world instanceof DMCWorld))
@@ -544,11 +544,11 @@ public final class DarkCloudMansion extends Quest
 			return;
 		}
 		L2Party party = player.getParty();
-		final int instanceId = InstanceManager.getInstance().createDynamicInstance(template);
+		final int instanceId = InstantWorldManager.getInstance().createInstantWorld(template);
 		world = new DMCWorld();
 		world.setInstanceId(instanceId);
 		world.setTemplateId(TEMPLATE_ID);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("DarkCloudMansion: started " + template + " Instance: " + instanceId + " created by player: " + player.getName());
 		runStartRoom((DMCWorld) world);
 		// teleport players
@@ -1204,7 +1204,7 @@ public final class DarkCloudMansion extends Quest
 			return "";
 		}
 		
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		DMCWorld world;
 		if (tmpworld instanceof DMCWorld)
 		{
@@ -1266,7 +1266,7 @@ public final class DarkCloudMansion extends Quest
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		DMCWorld world;
 		if (tmpworld instanceof DMCWorld)
 		{
@@ -1347,7 +1347,7 @@ public final class DarkCloudMansion extends Quest
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon, Skill skill)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		DMCWorld world;
 		if (tmpworld instanceof DMCWorld)
 		{
@@ -1382,7 +1382,7 @@ public final class DarkCloudMansion extends Quest
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		DMCWorld world;
 		if (tmpworld instanceof DMCWorld)
 		{
@@ -1434,7 +1434,7 @@ public final class DarkCloudMansion extends Quest
 		}
 		else
 		{
-			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+			InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 			DMCWorld world;
 			if (tmpworld instanceof DMCWorld)
 			{
@@ -1456,11 +1456,11 @@ public final class DarkCloudMansion extends Quest
 					world.removeAllowed(player.getObjectId());
 				}
 				teleportPlayer(player, new Location(139968, 150367, -3111), 0);
-				int instanceId = npc.getInstanceId();
-				Instance instance = InstanceManager.getInstance().getInstance(instanceId);
+				int instanceId = npc.getInstantWorldId();
+				InstantWorld instance = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 				if (instance.getPlayers().isEmpty())
 				{
-					InstanceManager.getInstance().destroyInstance(instanceId);
+					InstantWorldManager.getInstance().destroyInstantWorld(instanceId);
 				}
 				return "";
 			}

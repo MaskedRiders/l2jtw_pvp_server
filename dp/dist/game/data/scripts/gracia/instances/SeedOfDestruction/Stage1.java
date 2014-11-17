@@ -40,7 +40,7 @@ import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.enums.InstanceType;
 import com.l2jserver.gameserver.enums.TrapAction;
 import com.l2jserver.gameserver.instancemanager.GraciaSeedsManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2CommandChannel;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.L2Territory;
@@ -54,7 +54,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2TrapInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -77,7 +77,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public final class Stage1 extends Quest
 {
-	protected class SOD1World extends InstanceWorld
+	protected class SOD1World extends InstantZone
 	{
 		public Map<L2Npc, Boolean> npcList = new HashMap<>();
 		public int deviceSpawnedMobCount = 0;
@@ -508,7 +508,7 @@ public final class Stage1 extends Quest
 				party.broadcastPacket(sm);
 				return false;
 			}
-			Long reentertime = InstanceManager.getInstance().getInstanceTime(partyMember.getObjectId(), INSTANCEID);
+			Long reentertime = InstantWorldManager.getInstance().getPlayerInstantWorldTime(partyMember.getObjectId(), INSTANCEID);
 			if (System.currentTimeMillis() < reentertime)
 			{
 				SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.C1_MAY_NOT_REENTER_YET);
@@ -524,7 +524,7 @@ public final class Stage1 extends Quest
 	{
 		int instanceId = 0;
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -541,14 +541,14 @@ public final class Stage1 extends Quest
 		{
 			return 0;
 		}
-		instanceId = InstanceManager.getInstance().createDynamicInstance(template);
+		instanceId = InstantWorldManager.getInstance().createInstantWorld(template);
 		world = new SOD1World();
 		world.setTemplateId(INSTANCEID);
 		world.setInstanceId(instanceId);
 		world.setStatus(0);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		spawnState((SOD1World) world);
-		for (L2DoorInstance door : InstanceManager.getInstance().getInstance(instanceId).getDoors())
+		for (L2DoorInstance door : InstantWorldManager.getInstance().getInstantWorld(instanceId).getDoors())
 		{
 			if (Util.contains(ATTACKABLE_DOORS, door.getId()))
 			{
@@ -776,7 +776,7 @@ public final class Stage1 extends Quest
 		for (int objectId : world.getAllowed())
 		{
 			L2PcInstance player = L2World.getInstance().getPlayer(objectId);
-			InstanceManager.getInstance().setInstanceTime(objectId, INSTANCEID, reenter.getTimeInMillis());
+			InstantWorldManager.getInstance().getPlayerInstantWorldTime(objectId, INSTANCEID, reenter.getTimeInMillis());
 			if ((player != null) && player.isOnline())
 			{
 				player.sendPacket(sm);
@@ -815,7 +815,7 @@ public final class Stage1 extends Quest
 	{
 		if ((isSummon == false) && (player != null))
 		{
-			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(player.getInstanceId());
+			InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(player.getInstantWorldId());
 			if (tmpworld instanceof SOD1World)
 			{
 				SOD1World world = (SOD1World) tmpworld;
@@ -842,7 +842,7 @@ public final class Stage1 extends Quest
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (tmpworld instanceof SOD1World)
 		{
 			SOD1World world = (SOD1World) tmpworld;
@@ -874,14 +874,14 @@ public final class Stage1 extends Quest
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (tmpworld instanceof SOD1World)
 		{
 			SOD1World world = (SOD1World) tmpworld;
 			if (event.equalsIgnoreCase("Spawn"))
 			{
 				L2PcInstance target = L2World.getInstance().getPlayer(world.getAllowed().get(getRandom(world.getAllowed().size())));
-				if ((world.deviceSpawnedMobCount < MAX_DEVICESPAWNEDMOBCOUNT) && (target != null) && (target.getInstanceId() == npc.getInstanceId()) && !target.isDead())
+				if ((world.deviceSpawnedMobCount < MAX_DEVICESPAWNEDMOBCOUNT) && (target != null) && (target.getInstantWorldId() == npc.getInstantWorldId()) && !target.isDead())
 				{
 					L2Attackable mob = (L2Attackable) addSpawn(SPAWN_MOB_IDS[getRandom(SPAWN_MOB_IDS.length)], npc.getSpawn().getLocation(), false, 0, false, world.getInstanceId());
 					world.deviceSpawnedMobCount++;
@@ -899,7 +899,7 @@ public final class Stage1 extends Quest
 			}
 			else if (event.equalsIgnoreCase("DoorCheck"))
 			{
-				L2DoorInstance tmp = getDoor(FORTRESS_DOOR, npc.getInstanceId());
+				L2DoorInstance tmp = getDoor(FORTRESS_DOOR, npc.getInstantWorldId());
 				if (tmp.getCurrentHp() < tmp.getMaxHp())
 				{
 					world.deviceSpawnedMobCount = 0;
@@ -948,7 +948,7 @@ public final class Stage1 extends Quest
 			cancelQuestTimer("Spawn", npc, null);
 			return "";
 		}
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (tmpworld instanceof SOD1World)
 		{
 			SOD1World world = (SOD1World) tmpworld;
@@ -997,7 +997,7 @@ public final class Stage1 extends Quest
 							pl.showQuestMovie(6);
 						}
 					}
-					for (L2Npc mob : InstanceManager.getInstance().getInstance(world.getInstanceId()).getNpcs())
+					for (L2Npc mob : InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId()).getNpcs())
 					{
 						mob.deleteMe();
 					}
@@ -1024,7 +1024,7 @@ public final class Stage1 extends Quest
 		}
 		if (npcId == ALENOS)
 		{
-			InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+			InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 			if ((GraciaSeedsManager.getInstance().getSoDState() == 1) || ((world != null) && (world instanceof SOD1World)))
 			{
 				enterInstance(player, "SeedOfDestructionStage1.xml", ENTER_TELEPORT_1);
@@ -1036,7 +1036,7 @@ public final class Stage1 extends Quest
 		}
 		else if (npcId == TELEPORT)
 		{
-			teleportPlayer(player, CENTER_TELEPORT, player.getInstanceId(), false);
+			teleportPlayer(player, CENTER_TELEPORT, player.getInstantWorldId(), false);
 		}
 		return "";
 	}
@@ -1044,7 +1044,7 @@ public final class Stage1 extends Quest
 	@Override
 	public String onTrapAction(L2TrapInstance trap, L2Character trigger, TrapAction action)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(trap.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(trap.getInstantWorldId());
 		if (tmpworld instanceof SOD1World)
 		{
 			SOD1World world = (SOD1World) tmpworld;

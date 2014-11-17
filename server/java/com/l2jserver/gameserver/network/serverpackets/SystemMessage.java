@@ -28,7 +28,7 @@ import com.l2jserver.gameserver.datatables.ItemTable;
 import com.l2jserver.gameserver.datatables.NpcData;
 import com.l2jserver.gameserver.datatables.SkillData;
 import com.l2jserver.gameserver.instancemanager.CastleManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.ZoneManager;
 import com.l2jserver.gameserver.model.Elementals;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -488,7 +488,7 @@ public final class SystemMessage extends L2GameServerPacket
 				
 				case TYPE_INSTANCE_NAME:
 				{
-					final String instanceName = InstanceManager.getInstance().getInstanceIdName(param.getIntValue());
+					final String instanceName = InstantWorldManager.getInstance().getInstantWorldIdName(param.getIntValue());
 					params[i] = instanceName == null ? "Unknown" : instanceName;
 					break;
 				}

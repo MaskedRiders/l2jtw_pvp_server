@@ -77,7 +77,7 @@ public final class FleeMonsters extends AbstractNpcAI
 		final Location destination;
 		if (Config.GEODATA > 0)
 		{
-			destination = GeoData.getInstance().moveCheck(npc.getX(), npc.getY(), npc.getZ(), posX, posY, posZ, attacker.getInstanceId());
+			destination = GeoData.getInstance().moveCheck(npc.getX(), npc.getY(), npc.getZ(), posX, posY, posZ, attacker.getInstantWorldId());
 		}
 		else
 		{

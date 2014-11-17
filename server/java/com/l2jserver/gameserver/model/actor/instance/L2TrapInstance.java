@@ -68,7 +68,7 @@ public final class L2TrapInstance extends L2Npc
 	{
 		super(objectId, template);
 		setInstanceType(InstanceType.L2TrapInstance);
-		setInstanceId(instanceId);
+		setInstantWorldId(instanceId);
 		setName(template.getName());
 		setIsInvul(false);
 		
@@ -86,7 +86,7 @@ public final class L2TrapInstance extends L2Npc
 	
 	public L2TrapInstance(int objectId, L2NpcTemplate template, L2PcInstance owner, int lifeTime)
 	{
-		this(objectId, template, owner.getInstanceId(), lifeTime);
+		this(objectId, template, owner.getInstantWorldId(), lifeTime);
 		_owner = owner;
 	}
 	
