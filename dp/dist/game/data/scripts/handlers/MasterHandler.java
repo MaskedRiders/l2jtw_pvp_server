@@ -280,14 +280,6 @@ import java.util.Collections;
  */
 public class MasterHandler
 {
-	public static final Map<String, String> GO_TOWN_RESOURCEES;
-	static {
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("PvPZombieForTarget", "あなたはまだゾンビなので、ギランに戻されます。あと%s秒後に参戦してください。");
-		map.put("PostPvPZombieForActor", "ゾンビをふっ飛ばしました。");
-		GO_TOWN_RESOURCEES = Collections.unmodifiableMap(map);
-	}
-	
 	private static final Logger _log = Logger.getLogger(MasterHandler.class.getName());
 	private static final IHandler<?, ?>[] _loadInstances =
 	{

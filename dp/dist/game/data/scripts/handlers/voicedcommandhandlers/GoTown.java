@@ -1,9 +1,9 @@
 package handlers.voicedcommandhandlers;
 
 import static com.l2jserver.Config.PURIFICATION_PVP_ZOMBIE_DELAY;
+import com.l2jserver.gameserver.datatables.MessageTable;
 import com.l2jserver.gameserver.handler.IVoicedCommandHandler;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import static handlers.MasterHandler.GO_TOWN_RESOURCEES;
 import java.util.Calendar;
 import org.python.modules.math;
 
@@ -25,9 +25,11 @@ public class GoTown implements IVoicedCommandHandler
 		if(target.isPvPZombie()){
 			long pvPDeathDate = Calendar.getInstance().getTimeInMillis() - target.getPvPDeathDate();
 			long delay = (long) math.floor((PURIFICATION_PVP_ZOMBIE_DELAY - pvPDeathDate) / 1000);
-			target.sendMessage(String.format(GO_TOWN_RESOURCEES.get("PvPZombieForTarget"), delay));
+			// あなたはまだゾンビなので、ギランに戻されます。あと;秒後に参戦してください。
+			target.sendMessage(String.format(MessageTable.Messages[4000].getExtra(1) + delay + MessageTable.Messages[4000].getExtra(2)));
 			target.teleToLocation(83368, 147986, -3405);
-			activeChar.sendMessage(GO_TOWN_RESOURCEES.get("PostPvPZombieForActor"));
+			// ゾンビをふっ飛ばしました。
+			activeChar.sendMessage(MessageTable.Messages[4001].getMessage()); 
 		}
 		return true;
 	}
