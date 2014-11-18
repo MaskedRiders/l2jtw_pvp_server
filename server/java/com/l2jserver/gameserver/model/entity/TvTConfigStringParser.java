@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 /**
@@ -36,36 +37,48 @@ public class TvTConfigStringParser
 	private static int                     _TvTEventMeetingTime;
 	private static int                     _TvTEventRunningTime;
 	
+	
+	public static TvTPattern getCurrentPattern(){
+		return _patterns.get(_currentId);
+	}
 	public static void parseXMLNodes(Node rootNode)
 	{
-		for (Node n = rootNode.getFirstChild(); n != null; n = n.getNextSibling())
+		_patterns = new HashMap<Integer,TvTPattern>();
+		for (Node listNode = rootNode.getFirstChild(); listNode != null; listNode = listNode.getNextSibling())
 		{
-			if ("pattern".equalsIgnoreCase(n.getNodeName()))
+			if (listNode.getNodeName().equals("list"))
 			{
-				_currentId = _id = Integer.parseInt(n.getAttributes().getNamedItem("id").getNodeValue());
-				_name      = n.getAttributes().getNamedItem("name").getNodeValue();
-				parseTvTPatterns(n);
-				
-				_patterns.put(_currentId, new TvTPattern(
-						_id,
-						_name,
-						_TvTEventInstanceFile,
-						_TvTEventParticipationNpcId,
-						_TvTEventParticipationFee,
-						_TvTEventParticipationNpcCoordinates,
-						_TvTEventReward,
-						_TvTDoorsToOpen,
-						_TvTDoorsToClose,
-						_TvTEventTeam1Name,
-						_TvTEventTeam1Coordinates,
-						_TvTEventTeam2Name,
-						_TvTEventTeam2Coordinates,
-						_TvTEventParticipationTime,
-						_TvTEventMeetingTime,
-						_TvTEventRunningTime)
-				);
-				
-}
+				for (Node n = listNode.getFirstChild(); n != null; n = n.getNextSibling())
+				{
+					if ("pattern".equalsIgnoreCase(n.getNodeName()))
+					{
+						_log.warning("pattern");
+						_currentId = _id = Integer.parseInt(n.getAttributes().getNamedItem("id").getNodeValue());
+						_name      = n.getAttributes().getNamedItem("name").getNodeValue();
+						parseTvTPatterns(n);
+						TvTPattern hogehoge = new TvTPattern(
+								_id,
+								_name,
+								_TvTEventInstanceFile,
+								_TvTEventParticipationNpcId,
+								_TvTEventParticipationFee,
+								_TvTEventParticipationNpcCoordinates,
+								_TvTEventReward,
+								_TvTDoorsToOpen,
+								_TvTDoorsToClose,
+								_TvTEventTeam1Name,
+								_TvTEventTeam1Coordinates,
+								_TvTEventTeam2Name,
+								_TvTEventTeam2Coordinates,
+								_TvTEventParticipationTime,
+								_TvTEventMeetingTime,
+								_TvTEventRunningTime
+						);
+						_patterns.put(_currentId, hogehoge);
+
+					}
+				}
+			}
 		}
 	}
 
@@ -73,15 +86,15 @@ public class TvTConfigStringParser
 	{
 		for (Node n = rootNode.getFirstChild(); n != null; n = n.getNextSibling())
 		{
-			if ("tvt_event".equalsIgnoreCase(n.getNodeName()))
+			if ("tvtEvent".equalsIgnoreCase(n.getNodeName()))
 			{
 				parseTvTEvents(n);
 			}
-			else if ("tvt_event_team".equalsIgnoreCase(n.getNodeName()))
+			else if ("tvtEventTeam".equalsIgnoreCase(n.getNodeName()))
 			{
 				parseTvTEventTeams(n);
 			}
-			else if ("tvt_manager".equalsIgnoreCase(n.getNodeName()))
+			else if ("tvtManager".equalsIgnoreCase(n.getNodeName()))
 			{
 				parseTvTManagers(n);
 			}
@@ -92,13 +105,50 @@ public class TvTConfigStringParser
 	{
 		for (Node n = rootNode.getFirstChild(); n != null; n = n.getNextSibling())
 		{
-			if ("TvTEventInstanceFile".equalsIgnoreCase(n.getNodeName())) _TvTEventInstanceFile = n.getAttributes().getNamedItem("value").getNodeValue();
-			if ("TvTEventParticipationNpcId".equalsIgnoreCase(n.getNodeName())) _TvTEventParticipationNpcId = Integer.getInteger(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTEventParticipationFee".equalsIgnoreCase(n.getNodeName())) _TvTEventParticipationFee = split2Item(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTEventParticipationNpcCoordinates".equalsIgnoreCase(n.getNodeName())) _TvTEventParticipationNpcCoordinates = splitCordinate(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTEventReward".equalsIgnoreCase(n.getNodeName())) _TvTEventReward = splitItemList(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTDoorsToOpen".equalsIgnoreCase(n.getNodeName())) _TvTDoorsToOpen = splitIdList(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTDoorsToClose".equalsIgnoreCase(n.getNodeName())) _TvTDoorsToClose = splitIdList(n.getAttributes().getNamedItem("value").getNodeValue());
+			if ("TvTEventInstanceFile".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue();
+				_TvTEventInstanceFile = n.getAttributes().getNamedItem("value").getNodeValue();
+			}
+			if ("TvTEventParticipationNpcId".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue();
+				_TvTEventParticipationNpcId = Integer.parseInt(r);
+				
+			}
+			if ("TvTEventParticipationFee".equalsIgnoreCase(n.getNodeName())){
+				_log.warning("==TvTEventParticipationFee Start==");
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue();
+				_TvTEventParticipationFee = split2Item(n.getAttributes().getNamedItem("value").getNodeValue());
+			}
+			if ("TvTEventParticipationNpcCoordinates".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventParticipationNpcCoordinates = splitCordinate(n.getAttributes().getNamedItem("value").getNodeValue());
+			}
+			if ("TvTEventReward".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventReward = splitItemList(n.getAttributes().getNamedItem("value").getNodeValue());
+			}
+			if ("TvTDoorsToOpen".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTDoorsToOpen = splitIdList(n.getAttributes().getNamedItem("value").getNodeValue());
+			}
+			if ("TvTDoorsToClose".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTDoorsToClose = splitIdList(n.getAttributes().getNamedItem("value").getNodeValue());
+			}
 		}
 	}
 	
@@ -106,10 +156,30 @@ public class TvTConfigStringParser
 	{
 		for (Node n = rootNode.getFirstChild(); n != null; n = n.getNextSibling())
 		{
-			if ("TvTEventTeam1Name".equalsIgnoreCase(n.getNodeName()))_TvTEventTeam1Name = n.getAttributes().getNamedItem("value").getNodeValue();
-			if ("TvTEventTeam1Coordinates".equalsIgnoreCase(n.getNodeName()))_TvTEventTeam1Coordinates = splitCordinate(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTEventTeam2Name".equalsIgnoreCase(n.getNodeName()))_TvTEventTeam2Name = n.getAttributes().getNamedItem("value").getNodeValue();
-			if ("TvTEventTeam2Coordinates".equalsIgnoreCase(n.getNodeName()))_TvTEventTeam2Coordinates = splitCordinate(n.getAttributes().getNamedItem("value").getNodeValue());
+			if ("TvTEventTeam1Name".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventTeam1Name = n.getAttributes().getNamedItem("value").getNodeValue();
+			}
+			if ("TvTEventTeam1Coordinates".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventTeam1Coordinates = splitCordinate(n.getAttributes().getNamedItem("value").getNodeValue());
+			}
+			if ("TvTEventTeam2Name".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventTeam2Name = n.getAttributes().getNamedItem("value").getNodeValue();
+			}
+			if ("TvTEventTeam2Coordinates".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventTeam2Coordinates = splitCordinate(n.getAttributes().getNamedItem("value").getNodeValue());
+			}
 		}
 	}
 	
@@ -117,9 +187,24 @@ public class TvTConfigStringParser
 	{
 		for (Node n = rootNode.getFirstChild(); n != null; n = n.getNextSibling())
 		{
-			if ("TvTEventParticipationTime".equalsIgnoreCase(n.getNodeName()))_TvTEventParticipationTime = Integer.parseInt(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTEventMeetingTime".equalsIgnoreCase(n.getNodeName()))_TvTEventMeetingTime = Integer.parseInt(n.getAttributes().getNamedItem("value").getNodeValue());
-			if ("TvTEventRunningTime".equalsIgnoreCase(n.getNodeName()))_currentId = Integer.parseInt(n.getAttributes().getNamedItem("value").getNodeValue());
+			if ("TvTEventParticipationTime".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventParticipationTime = Integer.parseInt(r);
+			}
+			if ("TvTEventMeetingTime".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventMeetingTime = Integer.parseInt(r);
+			}
+			if ("TvTEventRunningTime".equalsIgnoreCase(n.getNodeName())){
+				NamedNodeMap attr = n.getAttributes();
+				Node item = attr.getNamedItem("value");
+				String r = item.getNodeValue()	;
+				_TvTEventRunningTime = Integer.parseInt(r);
+			}
 		}
 	}
 	
@@ -276,6 +361,8 @@ public class TvTConfigStringParser
 			TvTEventTeam2Name                         = inputTvTEventTeam2Name;
 			TvTEventTeam2Coordinates                  = inputTvTEventTeam2Coordinates;
 			TvTEventParticipationTime                 = inputTvTEventParticipationTime;
+			TvTEventMeetingTime                       =inputTvTEventMeetingTime;
+			TvTEventRunningTime                       = inputTvTEventRunningTime;
 		}
 	}
 

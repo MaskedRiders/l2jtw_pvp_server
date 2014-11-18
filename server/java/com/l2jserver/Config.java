@@ -2361,7 +2361,6 @@ public final class Config
 				TVT_EVENT_FIGHTER_BUFFS = TvTConfigStringParser.splitBuffHash(L2JModSettings.getString("TvTEventFighterBuffs", ""));
 				TVT_EVENT_MAGE_BUFFS = TvTConfigStringParser.splitBuffHash(L2JModSettings.getString("TvTEventMageBuffs", ""));
 			}
-			TvTEvent.setTvTPattern();
 			/*				
 				String[] tvtNpcCoords = L2JModSettings.getString("TvTEventParticipationNpcCoordinates", "0,0,0").split(",");
 				if (tvtNpcCoords.length < 3)

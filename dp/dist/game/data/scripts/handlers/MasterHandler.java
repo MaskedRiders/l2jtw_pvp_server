@@ -272,7 +272,6 @@ import handlers.voicedcommandhandlers.GoTown;
 import handlers.voicedcommandhandlers.Lang;
 import handlers.voicedcommandhandlers.StatsVCmd;
 import handlers.voicedcommandhandlers.Wedding;
-import java.util.Collections;
 
 /**
  * Master handler.

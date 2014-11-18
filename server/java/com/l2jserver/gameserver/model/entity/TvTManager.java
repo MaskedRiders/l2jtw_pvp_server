@@ -33,7 +33,6 @@ import com.l2jserver.gameserver.datatables.MessageTable;
 public class TvTManager
 {
 	protected static final Logger _log = Logger.getLogger(TvTManager.class.getName());
-	private static TvTConfigStringParser.TvTPattern _pattern = TvTConfigStringParser._patterns.get(TvTConfigStringParser._currentId);
 	
 	/** Task for event cycles<br> */
 	private TvTStartTask _task;
@@ -136,12 +135,13 @@ public class TvTManager
 			scheduleEventStart();
 			return;
 		}
+		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
 		// TVTイベント：登録はのためにオープン;分
 		// TvT Event: Registration opened for ; minute(s).
-		Announcements.getInstance().announceToAll(MessageTable.Messages[465].getExtra(1) + _pattern.TvTEventParticipationTime + MessageTable.Messages[465].getExtra(2));
+		Announcements.getInstance().announceToAll(MessageTable.Messages[465].getExtra(1) + pattern.TvTEventParticipationTime + MessageTable.Messages[465].getExtra(2));
 
 		// schedule registration end
-		_task.setStartTime(System.currentTimeMillis() + (60000L * _pattern.TvTEventParticipationTime));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * pattern.TvTEventParticipationTime));
 		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
@@ -173,7 +173,7 @@ public class TvTManager
 		// TvT Event: Teleporting participants to an arena in ; second(s).
 		// TVTイベント：アリーナ内に参加者をテレポート;秒
 		TvTEvent.sysMsgToAllParticipants(MessageTable.Messages[467].getExtra(1) + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + MessageTable.Messages[467].getExtra(2));
-		_task.setStartTime(System.currentTimeMillis() + (60000L * _pattern.TvTEventMeetingTime));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * TvTConfigStringParser.getCurrentPattern().TvTEventMeetingTime));
 		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
@@ -184,7 +184,7 @@ public class TvTManager
 	{
 		// TvTEvent.startFight() は 特に何もしないがチャットの制限等が掛かるようにする
 		TvTEvent.startFight();
-		_task.setStartTime(System.currentTimeMillis() + (60000L * _pattern.TvTEventRunningTime));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * TvTConfigStringParser.getCurrentPattern().TvTEventRunningTime));
 		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
