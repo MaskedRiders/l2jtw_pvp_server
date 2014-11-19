@@ -33,10 +33,10 @@ public class TvTPatternContainer
 			}
 			factory.setValidating(false); // バリデーション無視
 			factory.setIgnoringComments(true); // コメント無視
-		// コンテアナの全パターンを初期化
-			_patterns.clear();
+			// コンテアナの全パターンを初期化
 			_patterns = new HashMap<Integer, TvTPattern>();
 			_patterns = TvTConfigParser.parseXMLNodes(factory.newDocumentBuilder().parse(xml));
+			_currentId = getFirstId();
 		}
 		catch (IOException e)
 		{
@@ -46,6 +46,7 @@ public class TvTPatternContainer
 		{
 			_log.log(Level.WARNING, "Instance: error while loading " + xml.getAbsolutePath() + " ! " + e.getMessage(), e);
 		}
+		
 	}
 	
 	/**
@@ -63,6 +64,14 @@ public class TvTPatternContainer
 		Random rnd = new Random();
 		Integer[] keys = _patterns.keySet().toArray(new Integer[_patterns.size()]);
 		_currentId = keys[rnd.nextInt(keys.length)];
+	}
+
+	/**
+	 * 最初のIDを取得
+	 */
+	public static Integer getFirstId(){
+		Integer[] keys = _patterns.keySet().toArray(new Integer[_patterns.size()]);
+		return keys[0];
 	}
 
 }

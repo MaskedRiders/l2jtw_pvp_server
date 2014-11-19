@@ -147,6 +147,7 @@ import com.l2jserver.gameserver.datatables.MessageTable;
 import com.l2jserver.gameserver.datatables.SkillNameTable;
 import com.l2jserver.gameserver.datatables.ItemNameTable;
 import com.l2jserver.gameserver.datatables.NpcNameTable;
+import com.l2jserver.gameserver.model.entity.TvTPatternContainer;
 
 public class GameServer
 {
@@ -404,7 +405,8 @@ public class GameServer
 		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
 		
 		_log.info("IdFactory: Free ObjectID's remaining: " + IdFactory.getInstance().size());
-		
+		TvTPatternContainer.init();
+		_log.info("TvTパターン数: " + TvTPatternContainer._patterns.size());
 		TvTManager.getInstance();
 		KnownListUpdateTaskManager.getInstance();
 		

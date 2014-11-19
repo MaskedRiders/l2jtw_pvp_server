@@ -109,11 +109,7 @@ public class TvTEvent
 	public static void init()
 	{
 		AntiFeedManager.getInstance().registerEvent(AntiFeedManager.TVT_ID);
-
-		TvTPatternContainer.init();
-		TvTPatternContainer.doCurrentIdShuffle();
 		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
-		
 		_teams[0] = new TvTEventTeam(pattern.TvTEventTeam1Name, pattern.TvTEventTeam1Coordinates);
 		_teams[1] = new TvTEventTeam(pattern.TvTEventTeam2Name, pattern.TvTEventTeam2Coordinates);
 	}

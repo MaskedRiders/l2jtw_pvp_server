@@ -7,7 +7,7 @@
     				<complexType>
     					<attribute name="ident" type="ID" use="required"/>
     					<attribute name="id" type="positiveInteger" use="required"/>
-    					<attribute name="amount" type="positiveInteger" use="required"/>
+    					<attribute name="amount" type="nonNegativeInteger" use="required"/>
     				</complexType>
                 </element>
             </sequence>
