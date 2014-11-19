@@ -135,7 +135,7 @@ public class TvTManager
 			scheduleEventStart();
 			return;
 		}
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		// TVTイベント：登録はのためにオープン;分
 		// TvT Event: Registration opened for ; minute(s).
 		Announcements.getInstance().announceToAll(MessageTable.Messages[465].getExtra(1) + pattern.TvTEventParticipationTime + MessageTable.Messages[465].getExtra(2));
@@ -173,7 +173,7 @@ public class TvTManager
 		// TvT Event: Teleporting participants to an arena in ; second(s).
 		// TVTイベント：アリーナ内に参加者をテレポート;秒
 		TvTEvent.sysMsgToAllParticipants(MessageTable.Messages[467].getExtra(1) + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + MessageTable.Messages[467].getExtra(2));
-		_task.setStartTime(System.currentTimeMillis() + (60000L * TvTConfigStringParser.getCurrentPattern().TvTEventMeetingTime));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * TvTPatternContainer.getCurrentPattern().TvTEventMeetingTime));
 		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	
@@ -184,7 +184,7 @@ public class TvTManager
 	{
 		// TvTEvent.startFight() は 特に何もしないがチャットの制限等が掛かるようにする
 		TvTEvent.startFight();
-		_task.setStartTime(System.currentTimeMillis() + (60000L * TvTConfigStringParser.getCurrentPattern().TvTEventRunningTime));
+		_task.setStartTime(System.currentTimeMillis() + (60000L * TvTPatternContainer.getCurrentPattern().TvTEventRunningTime));
 		ThreadPoolManager.getInstance().executeGeneral(_task);
 	}
 	

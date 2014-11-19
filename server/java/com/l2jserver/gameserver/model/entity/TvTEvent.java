@@ -64,11 +64,6 @@ import com.l2jserver.util.Rnd;
 import com.l2jserver.util.StringUtil;
 import com.l2jserver.gameserver.datatables.MessageTable;
 import com.l2jserver.gameserver.model.events.impl.events.OnTvTEventMeeting;
-import java.io.File;
-import java.io.IOException;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.util.Random;
-import java.util.Set;
 
 /**
  * @author FBIagent
@@ -114,33 +109,10 @@ public class TvTEvent
 	public static void init()
 	{
 		AntiFeedManager.getInstance().registerEvent(AntiFeedManager.TVT_ID);
-		// TvTのパターンを読み込む
-		File xml = new File(Config.DATAPACK_ROOT, "/data/tvtPatterns.xml");
-		try
-		{
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			if (!xml.exists())
-			{
-				_log.severe("[setTvTPattern] Missing tvtPattern.xml.");
-				return;
-			}
-			factory.setValidating(false); // バリデーション無視
-			factory.setIgnoringComments(true); // コメント無視
-			TvTConfigStringParser.parseXMLNodes(factory.newDocumentBuilder().parse(xml));
-		}
-		catch (IOException e)
-		{
-			_log.log(Level.WARNING, "Instance: can not find " + xml.getAbsolutePath() + " ! " + e.getMessage(), e);
-		}
-		catch (Exception e)
-		{
-			_log.log(Level.WARNING, "Instance: error while loading " + xml.getAbsolutePath() + " ! " + e.getMessage(), e);
-		}
 
-		Random rnd = new Random();
-		Integer[] keys = TvTConfigStringParser._patterns.keySet().toArray(new Integer[TvTConfigStringParser._patterns.size()]);
-		TvTConfigStringParser._currentId = keys[rnd.nextInt(keys.length)];
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPatternContainer.init();
+		TvTPatternContainer.doCurrentIdShuffle();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		
 		_teams[0] = new TvTEventTeam(pattern.TvTEventTeam1Name, pattern.TvTEventTeam1Coordinates);
 		_teams[1] = new TvTEventTeam(pattern.TvTEventTeam2Name, pattern.TvTEventTeam2Coordinates);
@@ -156,10 +128,8 @@ public class TvTEvent
 	 */
 	public static boolean setTvTPattern() {
 
-		Random rnd = new Random();
-		Integer[] keys = TvTConfigStringParser._patterns.keySet().toArray(new Integer[TvTConfigStringParser._patterns.size()]);
-		TvTConfigStringParser._currentId = keys[rnd.nextInt(keys.length)];
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPatternContainer.doCurrentIdShuffle();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		_teams[0] = new TvTEventTeam(pattern.TvTEventTeam1Name, pattern.TvTEventTeam1Coordinates);
 		_teams[1] = new TvTEventTeam(pattern.TvTEventTeam2Name, pattern.TvTEventTeam2Coordinates);
 
@@ -175,7 +145,7 @@ public class TvTEvent
 	 */
 	public static boolean startParticipation()
 	{	
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		L2NpcTemplate tmpl = NpcData.getInstance().getTemplate(pattern.TvTEventParticipationNpcId);
 		
 		if (tmpl == null)
@@ -245,7 +215,7 @@ public class TvTEvent
 	 */
 	public static boolean startPreFight()
 	{
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		// Set state to STARTING
 		setState(EventState.STARTING);
 		
@@ -449,7 +419,7 @@ public class TvTEvent
 	 * 報酬付与
 	 */
 	private static void giveReward(TvTEventTeam team){
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		// Iterate over all participated player instances of the winning team
 		for (L2PcInstance player : team.getParticipatedPlayers().values())
 		{
@@ -518,7 +488,7 @@ public class TvTEvent
 	 */
 	public static void stopFight()
 	{
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		// Set state INACTIVATING
 		setState(EventState.INACTIVATING);
 		// Unspawn event npc
@@ -615,25 +585,25 @@ public class TvTEvent
 	
 	public static boolean needParticipationFee()
 	{
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		return (pattern.TvTEventParticipationFee[0] != 0) && (pattern.TvTEventParticipationFee[1] != 0);
 	}
 	
 	public static boolean hasParticipationFee(L2PcInstance playerInstance)
 	{
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		return playerInstance.getInventory().getInventoryItemCount(pattern.TvTEventParticipationFee[0], -1) >= pattern.TvTEventParticipationFee[1];
 	}
 	
 	public static boolean payParticipationFee(L2PcInstance playerInstance)
 	{
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		return playerInstance.destroyItemByItemId("TvT Participation Fee", pattern.TvTEventParticipationFee[0], pattern.TvTEventParticipationFee[1], _lastNpcSpawn, true);
 	}
 	
 	public static String getParticipationFee()
 	{
-		TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+		TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 		int itemId = pattern.TvTEventParticipationFee[0];
 		int itemNum = pattern.TvTEventParticipationFee[1];
 		
@@ -769,7 +739,7 @@ public class TvTEvent
 		{
 			if (removeParticipant(playerInstance.getObjectId()))
 			{
-				TvTConfigStringParser.TvTPattern pattern = TvTConfigStringParser.getCurrentPattern();
+				TvTPattern pattern = TvTPatternContainer.getCurrentPattern();
 				playerInstance.setXYZ((pattern.TvTEventParticipationNpcCoordinates[0] + Rnd.get(101)) - 50, (pattern.TvTEventParticipationNpcCoordinates[1] + Rnd.get(101)) - 50, pattern.TvTEventParticipationNpcCoordinates[2]);
 			}
 		}

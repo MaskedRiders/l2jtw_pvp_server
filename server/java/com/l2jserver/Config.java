@@ -54,7 +54,7 @@ import org.w3c.dom.Node;
 
 import com.l2jserver.gameserver.engines.DocumentParser;
 import com.l2jserver.gameserver.enums.IllegalActionPunishmentType;
-import com.l2jserver.gameserver.model.entity.TvTConfigStringParser;
+import com.l2jserver.gameserver.model.entity.TvTConfigParser;
 import com.l2jserver.gameserver.model.entity.TvTEvent;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
@@ -2316,9 +2316,9 @@ public final class Config
 			TVT_EVENT_RUNNING_TIME = L2JModSettings.getInt("TvTEventRunningTime", 20);
 			TVT_EVENT_PARTICIPATION_NPC_ID = L2JModSettings.getInt("TvTEventParticipationNpcId", 0);
 			
-			TVT_EVENT_PARTICIPATION_NPC_COORDINATES = TvTConfigStringParser.splitCordinate(L2JModSettings.getString("TvTEventParticipationNpcCoordinates", "0,0,0"));
-			TVT_EVENT_TEAM_1_COORDINATES = TvTConfigStringParser.splitCordinate(L2JModSettings.getString("TvTEventTeam1Coordinates", "0,0,0"));
-			TVT_EVENT_TEAM_2_COORDINATES = TvTConfigStringParser.splitCordinate(L2JModSettings.getString("TvTEventTeam2Coordinates", "0,0,0"));
+			TVT_EVENT_PARTICIPATION_NPC_COORDINATES = TvTConfigParser.splitCordinate(L2JModSettings.getString("TvTEventParticipationNpcCoordinates", "0,0,0"));
+			TVT_EVENT_TEAM_1_COORDINATES = TvTConfigParser.splitCordinate(L2JModSettings.getString("TvTEventTeam1Coordinates", "0,0,0"));
+			TVT_EVENT_TEAM_2_COORDINATES = TvTConfigParser.splitCordinate(L2JModSettings.getString("TvTEventTeam2Coordinates", "0,0,0"));
 			if (TVT_EVENT_PARTICIPATION_NPC_ID == 0){
 				_log.warning("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationNpcId or ");
 				TVT_EVENT_ENABLED = false;
@@ -2348,18 +2348,18 @@ public final class Config
 				TVT_ALLOW_VOICED_COMMAND = L2JModSettings.getBoolean("TvTAllowVoicedInfoCommand", false);
 				TVT_EVENT_TEAM_1_NAME = L2JModSettings.getString("TvTEventTeam1Name", "Team1");
 				TVT_EVENT_TEAM_2_NAME = L2JModSettings.getString("TvTEventTeam2Name", "Team2");
-				TVT_EVENT_PARTICIPATION_FEE = TvTConfigStringParser.split2Item(L2JModSettings.getString("TvTEventParticipationFee", "0,0"));
-				TVT_EVENT_REWARDS = TvTConfigStringParser.splitItemList(L2JModSettings.getString("TvTEventReward", "57,100000"));
+				TVT_EVENT_PARTICIPATION_FEE = TvTConfigParser.split2Item(L2JModSettings.getString("TvTEventParticipationFee", "0,0"));
+				TVT_EVENT_REWARDS = TvTConfigParser.splitItemList(L2JModSettings.getString("TvTEventReward", "57,100000"));
 				TVT_EVENT_TARGET_TEAM_MEMBERS_ALLOWED = L2JModSettings.getBoolean("TvTEventTargetTeamMembersAllowed", true);
 				TVT_EVENT_SCROLL_ALLOWED = L2JModSettings.getBoolean("TvTEventScrollsAllowed", false);
 				TVT_EVENT_POTIONS_ALLOWED = L2JModSettings.getBoolean("TvTEventPotionsAllowed", false);
 				TVT_EVENT_SUMMON_BY_ITEM_ALLOWED = L2JModSettings.getBoolean("TvTEventSummonByItemAllowed", false);
 				TVT_REWARD_TEAM_TIE = L2JModSettings.getBoolean("TvTRewardTeamTie", false);
-				TVT_DOORS_IDS_TO_OPEN = TvTConfigStringParser.splitIdList( L2JModSettings.getString("TvTDoorsToOpen", ""));
+				TVT_DOORS_IDS_TO_OPEN = TvTConfigParser.splitIdList( L2JModSettings.getString("TvTDoorsToOpen", ""));
 				
-				TVT_DOORS_IDS_TO_CLOSE = TvTConfigStringParser.splitIdList(L2JModSettings.getString("TvTDoorsToClose", ""));
-				TVT_EVENT_FIGHTER_BUFFS = TvTConfigStringParser.splitBuffHash(L2JModSettings.getString("TvTEventFighterBuffs", ""));
-				TVT_EVENT_MAGE_BUFFS = TvTConfigStringParser.splitBuffHash(L2JModSettings.getString("TvTEventMageBuffs", ""));
+				TVT_DOORS_IDS_TO_CLOSE = TvTConfigParser.splitIdList(L2JModSettings.getString("TvTDoorsToClose", ""));
+				TVT_EVENT_FIGHTER_BUFFS = TvTConfigParser.splitBuffHash(L2JModSettings.getString("TvTEventFighterBuffs", ""));
+				TVT_EVENT_MAGE_BUFFS = TvTConfigParser.splitBuffHash(L2JModSettings.getString("TvTEventMageBuffs", ""));
 			}
 			/*				
 				String[] tvtNpcCoords = L2JModSettings.getString("TvTEventParticipationNpcCoordinates", "0,0,0").split(",");
