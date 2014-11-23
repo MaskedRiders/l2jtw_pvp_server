@@ -271,6 +271,7 @@ import handlers.voicedcommandhandlers.Debug;
 import handlers.voicedcommandhandlers.GoTown;
 import handlers.voicedcommandhandlers.Lang;
 import handlers.voicedcommandhandlers.StatsVCmd;
+import handlers.voicedcommandhandlers.Status;
 import handlers.voicedcommandhandlers.Wedding;
 
 /**
@@ -518,6 +519,7 @@ public class MasterHandler
 			(Config.L2JMOD_DEBUG_VOICE_COMMAND ? Debug.class : null),
 			(Config.L2JMOD_ALLOW_CHANGE_PASSWORD ? ChangePassword.class : null),
 			GoTown.class,
+			Status.class,
 		},
 		{
 			// Target Handlers
