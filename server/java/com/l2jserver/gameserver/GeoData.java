@@ -204,7 +204,7 @@ public class GeoData implements IGeoDriver
 			return true;
 		}
 		
-		return canSeeTarget(cha.getX(), cha.getY(), cha.getZ(), cha.getInstanceId(), target.getX(), target.getY(), target.getZ(), target.getInstanceId());
+		return canSeeTarget(cha.getX(), cha.getY(), cha.getZ(), cha.getInstantWorldId(), target.getX(), target.getY(), target.getZ(), target.getInstantWorldId());
 	}
 	
 	/**
@@ -215,7 +215,7 @@ public class GeoData implements IGeoDriver
 	 */
 	public boolean canSeeTarget(L2Object cha, ILocational worldPosition)
 	{
-		return canSeeTarget(cha.getX(), cha.getY(), cha.getZ(), cha.getInstanceId(), worldPosition.getX(), worldPosition.getY(), worldPosition.getZ());
+		return canSeeTarget(cha.getX(), cha.getY(), cha.getZ(), cha.getInstantWorldId(), worldPosition.getX(), worldPosition.getY(), worldPosition.getZ());
 	}
 	
 	/**
@@ -640,7 +640,7 @@ public class GeoData implements IGeoDriver
 	 */
 	public boolean canMove(ILocational from, int toX, int toY, int toZ)
 	{
-		return canMove(from.getX(), from.getY(), from.getZ(), toX, toY, toZ, from.getInstanceId());
+		return canMove(from.getX(), from.getY(), from.getZ(), toX, toY, toZ, from.getInstantWorldId());
 	}
 	
 	/**

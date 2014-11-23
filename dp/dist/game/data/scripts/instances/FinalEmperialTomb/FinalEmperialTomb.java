@@ -42,7 +42,7 @@ import com.l2jserver.gameserver.GeoData;
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.enums.InstanceType;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2CommandChannel;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.L2Territory;
@@ -57,7 +57,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -83,7 +83,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public final class FinalEmperialTomb extends Quest
 {
-	private class FETWorld extends InstanceWorld
+	private class FETWorld extends InstantZone
 	{
 		public Lock lock = new ReentrantLock();
 		public FastList<L2Npc> npcList = new FastList<>();
@@ -583,7 +583,7 @@ public final class FinalEmperialTomb extends Quest
 				party.broadcastPacket(sm);
 				return false;
 			}
-			Long reentertime = InstanceManager.getInstance().getInstanceTime(channelMember.getObjectId(), TEMPLATE_ID);
+			Long reentertime = InstantWorldManager.getInstance().getPlayerInstantWorldTime(channelMember.getObjectId(), TEMPLATE_ID);
 			if (System.currentTimeMillis() < reentertime)
 			{
 				SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.C1_MAY_NOT_REENTER_YET);
@@ -598,7 +598,7 @@ public final class FinalEmperialTomb extends Quest
 	protected int enterInstance(L2PcInstance player, String template, Location loc)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -620,14 +620,14 @@ public final class FinalEmperialTomb extends Quest
 		{
 			return 0;
 		}
-		final int instanceId = InstanceManager.getInstance().createDynamicInstance(template);
-		// Instance ins = InstanceManager.getInstance().getInstance(instanceId);
+		final int instanceId = InstantWorldManager.getInstance().createInstantWorld(template);
+		// Instance ins = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 		// ins.setSpawnLoc(new int[]{player.getX(),player.getY(),player.getZ()});
 		world = new FETWorld();
 		world.setTemplateId(TEMPLATE_ID);
 		world.setInstanceId(instanceId);
 		world.setStatus(0);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		controlStatus((FETWorld) world);
 		_log.info("Final Emperial Tomb started " + template + " Instance: " + instanceId + " created by player: " + player.getName());
 		// teleport players
@@ -766,7 +766,7 @@ public final class FinalEmperialTomb extends Quest
 						ThreadPoolManager.getInstance().scheduleGeneral(new IntroTask(world, 33), 500);
 						break;
 					case 6: // open doors
-						InstanceManager.getInstance().getInstance(world.getInstanceId()).setDuration(300000);
+						InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId()).setDuration(300000);
 						for (int doorId : FIRST_ROOM_DOORS)
 						{
 							openDoor(doorId, world.getInstanceId());
@@ -830,7 +830,7 @@ public final class FinalEmperialTomb extends Quest
 		@Override
 		public void run()
 		{
-			if ((InstanceManager.getInstance().getWorld(_world.getInstanceId()) != _world) || _world.portraits.isEmpty())
+			if ((InstantWorldManager.getInstance().getWorld(_world.getInstanceId()) != _world) || _world.portraits.isEmpty())
 			{
 				if (debug)
 				{
@@ -882,7 +882,7 @@ public final class FinalEmperialTomb extends Quest
 		@Override
 		public void run()
 		{
-			if (InstanceManager.getInstance().getWorld(_world.getInstanceId()) != _world)
+			if (InstantWorldManager.getInstance().getWorld(_world.getInstanceId()) != _world)
 			{
 				return;
 			}
@@ -933,7 +933,7 @@ public final class FinalEmperialTomb extends Quest
 							for (int objId : _world.getAllowed())
 							{
 								L2PcInstance player = L2World.getInstance().getPlayer(objId);
-								if ((player != null) && player.isOnline() && (player.getInstanceId() == _world.getInstanceId()))
+								if ((player != null) && player.isOnline() && (player.getInstantWorldId() == _world.getInstanceId()))
 								{
 									if (!player.isDead())
 									{
@@ -1280,7 +1280,7 @@ public final class FinalEmperialTomb extends Quest
 			for (int objId : _world.getAllowed())
 			{
 				L2PcInstance player = L2World.getInstance().getPlayer(objId);
-				if ((player != null) && player.isOnline() && (player.getInstanceId() == _world.getInstanceId()))
+				if ((player != null) && player.isOnline() && (player.getInstantWorldId() == _world.getInstanceId()))
 				{
 					player.abortAttack();
 					player.abortCast();
@@ -1298,7 +1298,7 @@ public final class FinalEmperialTomb extends Quest
 			for (int objId : _world.getAllowed())
 			{
 				L2PcInstance player = L2World.getInstance().getPlayer(objId);
-				if ((player != null) && player.isOnline() && (player.getInstanceId() == _world.getInstanceId()))
+				if ((player != null) && player.isOnline() && (player.getInstantWorldId() == _world.getInstanceId()))
 				{
 					player.enableAllSkills();
 					player.setIsImmobilized(false);
@@ -1311,7 +1311,7 @@ public final class FinalEmperialTomb extends Quest
 			for (int objId : _world.getAllowed())
 			{
 				L2PcInstance player = L2World.getInstance().getPlayer(objId);
-				if ((player != null) && player.isOnline() && (player.getInstanceId() == _world.getInstanceId()))
+				if ((player != null) && player.isOnline() && (player.getInstantWorldId() == _world.getInstanceId()))
 				{
 					if (player.getX() < x)
 					{
@@ -1340,7 +1340,7 @@ public final class FinalEmperialTomb extends Quest
 		@Override
 		public void run()
 		{
-			if (InstanceManager.getInstance().getWorld(_world.getInstanceId()) != _world)
+			if (InstantWorldManager.getInstance().getWorld(_world.getInstanceId()) != _world)
 			{
 				return;
 			}
@@ -1375,12 +1375,12 @@ public final class FinalEmperialTomb extends Quest
 		private void addAggroToMobs()
 		{
 			L2PcInstance target = L2World.getInstance().getPlayer(_world.getAllowed().get(getRandom(_world.getAllowed().size())));
-			if ((target == null) || (target.getInstanceId() != _world.getInstanceId()) || target.isDead() || target.isFakeDeath())
+			if ((target == null) || (target.getInstantWorldId() != _world.getInstanceId()) || target.isDead() || target.isFakeDeath())
 			{
 				for (int objId : _world.getAllowed())
 				{
 					target = L2World.getInstance().getPlayer(objId);
-					if ((target != null) && (target.getInstanceId() == _world.getInstanceId()) && !target.isDead() && !target.isFakeDeath())
+					if ((target != null) && (target.getInstantWorldId() == _world.getInstanceId()) && !target.isDead() && !target.isFakeDeath())
 					{
 						break;
 					}
@@ -1435,7 +1435,7 @@ public final class FinalEmperialTomb extends Quest
 		for (int objectId : world.getAllowed())
 		{
 			L2PcInstance player = L2World.getInstance().getPlayer(objectId);
-			InstanceManager.getInstance().setInstanceTime(objectId, TEMPLATE_ID, reenter.getTimeInMillis());
+			InstantWorldManager.getInstance().getPlayerInstantWorldTime(objectId, TEMPLATE_ID, reenter.getTimeInMillis());
 			if ((player != null) && player.isOnline())
 			{
 				player.sendPacket(sm);
@@ -1448,7 +1448,7 @@ public final class FinalEmperialTomb extends Quest
 		for (int objId : world.getAllowed())
 		{
 			L2PcInstance player = L2World.getInstance().getPlayer(objId);
-			if ((player != null) && player.isOnline() && (player.getInstanceId() == world.getInstanceId()))
+			if ((player != null) && player.isOnline() && (player.getInstantWorldId() == world.getInstanceId()))
 			{
 				player.sendPacket(packet);
 			}
@@ -1461,7 +1461,7 @@ public final class FinalEmperialTomb extends Quest
 		for (int objId : world.getAllowed())
 		{
 			L2PcInstance player = L2World.getInstance().getPlayer(objId);
-			if ((player != null) && player.isOnline() && (player.getInstanceId() == world.getInstanceId()))
+			if ((player != null) && player.isOnline() && (player.getInstantWorldId() == world.getInstanceId()))
 			{
 				npcKnownPlayers.put(player.getObjectId(), player);
 			}
@@ -1471,7 +1471,7 @@ public final class FinalEmperialTomb extends Quest
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (tmpworld instanceof FETWorld)
 		{
 			final FETWorld world = (FETWorld) tmpworld;
@@ -1514,7 +1514,7 @@ public final class FinalEmperialTomb extends Quest
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (tmpworld instanceof FETWorld)
 		{
 			FETWorld world = (FETWorld) tmpworld;

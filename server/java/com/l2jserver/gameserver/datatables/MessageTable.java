@@ -37,7 +37,7 @@ public class MessageTable
 	private static Logger _log = Logger.getLogger(MessageTable.class.getName());
 	private static MessageTable _instance;
 	
-	public static L2CoreMessage Messages[] = new L2CoreMessage[3000];
+	public static L2CoreMessage Messages[] = new L2CoreMessage[5000];
 	public static String spilter;
 	public static String filler[] = new String[10];
 	public static String extrafiller[] = new String[10];

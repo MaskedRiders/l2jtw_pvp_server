@@ -95,7 +95,7 @@ public class OlympiadObservation implements IBypassHandler
 				if (nextArena != null)
 				{
 					activeChar.enterOlympiadObserverMode(nextArena.getZone().getSpectatorSpawns().get(0), arenaId);
-					activeChar.setInstanceId(OlympiadGameManager.getInstance().getOlympiadTask(arenaId).getZone().getInstanceId());
+					activeChar.setInstantWorldId(OlympiadGameManager.getInstance().getOlympiadTask(arenaId).getZone().getInstantWorldId());
 				}
 			}
 			return true;

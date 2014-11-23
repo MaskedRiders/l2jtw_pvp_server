@@ -36,7 +36,7 @@ public class L2EffectPointInstance extends L2Npc
 		_owner = owner == null ? null : owner.getActingPlayer();
 		if (owner != null)
 		{
-			setInstanceId(owner.getInstanceId());
+			setInstantWorldId(owner.getInstantWorldId());
 		}
 	}
 	

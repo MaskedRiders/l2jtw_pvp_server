@@ -20,11 +20,11 @@ package quests.Q10286_ReunionWithSirra;
 
 import quests.Q10285_MeetingSirra.Q10285_MeetingSirra;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -92,7 +92,7 @@ public final class Q10286_ReunionWithSirra extends Quest
 			{
 				if (st.isMemoState(1))
 				{
-					final L2Npc sirra = addSpawn(SIRRA, -23905, -8790, -5384, 56238, false, 0, false, npc.getInstanceId());
+					final L2Npc sirra = addSpawn(SIRRA, -23905, -8790, -5384, 56238, false, 0, false, npc.getInstantWorldId());
 					sirra.broadcastPacket(new NpcSay(sirra.getObjectId(), Say2.NPC_ALL, sirra.getId(), NpcStringId.YOU_ADVANCED_BRAVELY_BUT_GOT_SUCH_A_TINY_RESULT_HOHOHO));
 					st.set("ex", 1);
 					st.setCond(3, true);
@@ -106,9 +106,9 @@ public final class Q10286_ReunionWithSirra extends Quest
 				{
 					st.unset("ex");
 					st.setMemoState(2);
-					final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+					final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 					world.removeAllowed(player.getObjectId());
-					player.setInstanceId(0);
+					player.setInstantWorldId(0);
 					htmltext = event;
 				}
 				break;

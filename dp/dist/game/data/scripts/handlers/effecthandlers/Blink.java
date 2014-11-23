@@ -75,7 +75,7 @@ public final class Blink extends AbstractEffect
 		Location loc = new Location(x, y, z);
 		if (Config.GEODATA > 0)
 		{
-			loc = GeoData.getInstance().moveCheck(effected.getX(), effected.getY(), effected.getZ(), x, y, z, effected.getInstanceId());
+			loc = GeoData.getInstance().moveCheck(effected.getX(), effected.getY(), effected.getZ(), x, y, z, effected.getInstantWorldId());
 		}
 		
 		effected.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);

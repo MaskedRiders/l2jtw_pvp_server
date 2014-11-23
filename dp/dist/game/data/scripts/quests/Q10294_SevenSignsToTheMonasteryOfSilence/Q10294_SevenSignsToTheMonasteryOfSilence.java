@@ -236,7 +236,7 @@ public final class Q10294_SevenSignsToTheMonasteryOfSilence extends Quest
 			{
 				qs.set("good3", "1");
 				npc.setDisplayEffect(1);
-				final L2Npc jude = addSpawn(JUDE_VAN_ETINA, 85783, -253471, -8320, 65, false, 0, false, player.getInstanceId());
+				final L2Npc jude = addSpawn(JUDE_VAN_ETINA, 85783, -253471, -8320, 65, false, 0, false, player.getInstantWorldId());
 				jude.setTarget(player);
 				jude.doCast(RESIST_HOLY.getSkill());
 				htmltext = "32821-02.html";
@@ -250,7 +250,7 @@ public final class Q10294_SevenSignsToTheMonasteryOfSilence extends Quest
 			{
 				qs.set("good4", "1");
 				npc.setDisplayEffect(1);
-				final L2Npc solina = addSpawn(SOLINAS_EVIL_THOUGHTS, 85793, -247581, -8320, 0, false, 0, false, player.getInstanceId());
+				final L2Npc solina = addSpawn(SOLINAS_EVIL_THOUGHTS, 85793, -247581, -8320, 0, false, 0, false, player.getInstantWorldId());
 				solina.setTarget(player);
 				solina.doCast(RESIST_HOLY.getSkill());
 				htmltext = "32821-02.html";
@@ -282,10 +282,10 @@ public final class Q10294_SevenSignsToTheMonasteryOfSilence extends Quest
 			}
 			case "SPAWN_MOBS":
 			{
-				addSpawn(JUDE_EVIL_THOUGHTS, 88655, -250591, -8320, 144, false, 0, false, player.getInstanceId());
-				addSpawn(GUIDE_SOLINA, 88655, -250591, -8320, 144, false, 0, false, player.getInstanceId());
-				addSpawn(SOLINA_LAY_BROTHER, 88655, -250591, -8320, 144, false, 0, false, player.getInstanceId());
-				addSpawn(SOLINA_LAY_BROTHER, 88655, -250591, -8320, 144, false, 0, false, player.getInstanceId());
+				addSpawn(JUDE_EVIL_THOUGHTS, 88655, -250591, -8320, 144, false, 0, false, player.getInstantWorldId());
+				addSpawn(GUIDE_SOLINA, 88655, -250591, -8320, 144, false, 0, false, player.getInstantWorldId());
+				addSpawn(SOLINA_LAY_BROTHER, 88655, -250591, -8320, 144, false, 0, false, player.getInstantWorldId());
+				addSpawn(SOLINA_LAY_BROTHER, 88655, -250591, -8320, 144, false, 0, false, player.getInstantWorldId());
 				break;
 			}
 		}

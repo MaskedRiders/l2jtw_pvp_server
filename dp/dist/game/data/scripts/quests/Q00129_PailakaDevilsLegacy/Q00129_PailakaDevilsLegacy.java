@@ -19,10 +19,10 @@
 package quests.Q00129_PailakaDevilsLegacy;
 
 import com.l2jserver.gameserver.enums.QuestSound;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -252,7 +252,7 @@ public final class Q00129_PailakaDevilsLegacy extends Quest
 				}
 				else
 				{
-					final Instance inst = InstanceManager.getInstance().getInstance(npc.getInstanceId());
+					final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(npc.getInstantWorldId());
 					qs.exitQuest(false, true);
 					inst.setDuration(EXIT_TIME * 60000);
 					inst.setEmptyDestroyTime(0);

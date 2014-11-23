@@ -57,7 +57,7 @@ import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.ShotType;
 import com.l2jserver.gameserver.enums.Team;
 import com.l2jserver.gameserver.instancemanager.DimensionalRiftManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.MapRegionManager;
 import com.l2jserver.gameserver.instancemanager.TerritoryWarManager;
 import com.l2jserver.gameserver.instancemanager.TownManager;
@@ -89,7 +89,7 @@ import com.l2jserver.gameserver.model.actor.transform.Transform;
 import com.l2jserver.gameserver.model.actor.transform.TransformTemplate;
 import com.l2jserver.gameserver.model.effects.EffectFlag;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.events.Containers;
 import com.l2jserver.gameserver.model.events.EventDispatcher;
 import com.l2jserver.gameserver.model.events.EventType;
@@ -362,7 +362,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 	@Override
 	public final boolean isInsideZone(ZoneId zone)
 	{
-		Instance instance = InstanceManager.getInstance().getInstance(getInstanceId());
+		InstantWorld instance = InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId());
 		switch (zone)
 		{
 			case PVP:
@@ -791,12 +791,12 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 	 * @param y
 	 * @param z
 	 * @param heading
-	 * @param instanceId
+	 * @param instantWorldId
 	 * @param randomOffset
 	 */
-	public void teleToLocation(int x, int y, int z, int heading, int instanceId, int randomOffset)
+	public void teleToLocation(int x, int y, int z, int heading, int instantWorldId, int randomOffset)
 	{
-		setInstanceId(instanceId);
+		setInstantWorldId(instantWorldId);
 		
 		if (isPlayer() && DimensionalRiftManager.getInstance().checkIfInRiftZone(getX(), getY(), getZ(), false)) // true -> ignore waiting room :)
 		{
@@ -894,17 +894,17 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 	
 	public void teleToLocation(ILocational loc, int randomOffset)
 	{
-		teleToLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getHeading(), loc.getInstanceId(), randomOffset);
+		teleToLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getHeading(), loc.getInstantWorldId(), randomOffset);
 	}
 	
 	public void teleToLocation(ILocational loc, boolean randomOffset)
 	{
-		teleToLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getHeading(), loc.getInstanceId(), (randomOffset) ? Config.MAX_OFFSET_ON_TELEPORT : 0);
+		teleToLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getHeading(), loc.getInstantWorldId(), (randomOffset) ? Config.MAX_OFFSET_ON_TELEPORT : 0);
 	}
 	
 	public void teleToLocation(ILocational loc)
 	{
-		teleToLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getHeading(), loc.getInstanceId(), 0);
+		teleToLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getHeading(), loc.getInstantWorldId(), 0);
 	}
 	
 	public void teleToLocation(TeleportWhereType teleportWhere)
@@ -2126,7 +2126,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 		{
 			ThreadPoolManager.getInstance().scheduleEffect(new FlyToLocationTask(this, target, skill), 50);
 		}
-		
+		// ここでスキルを発動タスクにセット
 		MagicUseTask mut = new MagicUseTask(this, targets, skill, skillTime, simultaneously);
 		
 		// launch the magic in skillTime milliseconds
@@ -4692,7 +4692,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 					}
 					return;
 				}
-				Location destiny = GeoData.getInstance().moveCheck(curX, curY, curZ, x, y, z, getInstanceId());
+				Location destiny = GeoData.getInstance().moveCheck(curX, curY, curZ, x, y, z, getInstantWorldId());
 				// location different if destination wasn't reached (or just z coord is different)
 				x = destiny.getX();
 				y = destiny.getY();
@@ -4711,7 +4711,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 				// Overrides previous movement check
 				if ((isPlayable() && !isInVehicle) || isMinion() || isInCombat())
 				{
-					m.geoPath = PathFinding.getInstance().findPath(curX, curY, curZ, originalX, originalY, originalZ, getInstanceId(), isPlayable());
+					m.geoPath = PathFinding.getInstance().findPath(curX, curY, curZ, originalX, originalY, originalZ, getInstantWorldId(), isPlayable());
 					if ((m.geoPath == null) || (m.geoPath.size() < 2)) // No path found
 					{
 						// * Even though there's no path found (remember geonodes aren't perfect),
@@ -4747,7 +4747,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 						z = m.geoPath.get(m.onGeodataPathIndex).getZ();
 						
 						// check for doors in the route
-						if (DoorTable.getInstance().checkIfDoorsBetween(curX, curY, curZ, x, y, z, getInstanceId()))
+						if (DoorTable.getInstance().checkIfDoorsBetween(curX, curY, curZ, x, y, z, getInstantWorldId()))
 						{
 							m.geoPath = null;
 							getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
@@ -4755,7 +4755,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 						}
 						for (int i = 0; i < (m.geoPath.size() - 1); i++)
 						{
-							if (DoorTable.getInstance().checkIfDoorsBetween(m.geoPath.get(i), m.geoPath.get(i + 1), getInstanceId()))
+							if (DoorTable.getInstance().checkIfDoorsBetween(m.geoPath.get(i), m.geoPath.get(i + 1), getInstantWorldId()))
 							{
 								m.geoPath = null;
 								getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
@@ -5375,7 +5375,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder, IDe
 		{
 			return false;
 		}
-		if (InstanceManager.getInstance().getInstance(getInstanceId()).isPvPInstance())
+		if (InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId()).isPvPInstance())
 		{
 			return false;
 		}

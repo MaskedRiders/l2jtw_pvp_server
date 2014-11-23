@@ -18,11 +18,11 @@
  */
 package gracia.instances.SecretArea;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.network.SystemMessageId;
 
@@ -32,7 +32,7 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  */
 public final class SecretArea extends Quest
 {
-	protected class SAWorld extends InstanceWorld
+	protected class SAWorld extends InstantZone
 	{
 		
 	}
@@ -58,7 +58,7 @@ public final class SecretArea extends Quest
 	
 	protected void enterInstance(L2PcInstance player)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -72,11 +72,11 @@ public final class SecretArea extends Quest
 		}
 		
 		world = new SAWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance("SecretArea.xml"));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld("SecretArea.xml"));
 		world.setTemplateId(TEMPLATE_ID);
 		world.addAllowed(player.getObjectId());
 		world.setStatus(0);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		teleportPlayer(player, TELEPORTS[ENTER], world.getInstanceId());
 	}
 	

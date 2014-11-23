@@ -255,7 +255,7 @@ public class EnergySeeds extends AbstractNpcAI
 	@Override
 	public String onEnterZone(L2Character character, L2ZoneType zone)
 	{
-		if (character.getInstanceId() != 0)
+		if (character.getInstantWorldId() != 0)
 		{
 			return super.onEnterZone(character, zone);
 		}
@@ -379,7 +379,7 @@ public class EnergySeeds extends AbstractNpcAI
 		L2MonsterInstance monster = new L2MonsterInstance(IdFactory.getInstance().getNextId(), supriseMobTemplate);
 		monster.setCurrentHpMp(monster.getMaxHp(), monster.getMaxMp());
 		monster.setHeading(energy.getHeading());
-		monster.setInstanceId(energy.getInstanceId());
+		monster.setInstantWorldId(energy.getInstantWorldId());
 		monster.setShowSummonAnimation(true);
 		monster.spawnMe(energy.getX(), energy.getY(), energy.getZ());
 		startQuestTimer("DeSpawnTask", 30000, monster, null);

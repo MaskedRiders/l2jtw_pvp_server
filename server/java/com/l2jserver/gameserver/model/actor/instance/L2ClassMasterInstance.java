@@ -315,6 +315,7 @@ public final class L2ClassMasterInstance extends L2MerchantInstance
 			/* 603 start
 			if (currentClassId.level() >= level)
 			 */
+			if(level == 0) level = currentClassId.level() + 1;
 			if (currentClassId.level() + e_level >= level)
 			{
 				html.setFile(player.getHtmlPrefix(), "data/html/classmaster/nomore.htm");
@@ -336,7 +337,13 @@ public final class L2ClassMasterInstance extends L2MerchantInstance
 						}
 						if (validateClassId(currentClassId, cid) && (cid.level() == level))
 						{
-							StringUtil.append(menu, "<a action=\"bypass -h npc_%objectId%_change_class ", String.valueOf(cid.getId()), "\">", ClassListData.getInstance().getClass(cid).getClientCode(), "</a><br>");
+							StringUtil.append(menu,
+									"<a action=\"bypass -h npc_%objectId%_change_class ",
+									String.valueOf(cid.getId()),
+									"\">",
+									ClassListData.getInstance().getJPClassNameById(cid.getId()),
+									"</a><br>"
+							);
 						}
 					}
 					

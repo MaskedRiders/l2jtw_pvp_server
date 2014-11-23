@@ -172,7 +172,7 @@ public class AdminMenu implements IAdminCommandHandler
 			{
 				String targetName = command.substring(21);
 				L2PcInstance player = L2World.getInstance().getPlayer(targetName);
-				activeChar.setInstanceId(player.getInstanceId());
+				activeChar.setInstantWorldId(player.getInstantWorldId());
 				teleportToCharacter(activeChar, player);
 			}
 			catch (StringIndexOutOfBoundsException e)
@@ -333,7 +333,7 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 		else
 		{
-			activeChar.setInstanceId(player.getInstanceId());
+			activeChar.setInstantWorldId(player.getInstantWorldId());
 			activeChar.teleToLocation(player.getLocation(), true);
 			/* MessageTable
 			activeChar.sendMessage("You're teleporting yourself to character " + player.getName());

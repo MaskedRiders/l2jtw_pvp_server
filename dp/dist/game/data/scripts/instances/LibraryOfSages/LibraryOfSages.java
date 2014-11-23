@@ -20,11 +20,11 @@ package instances.LibraryOfSages;
 
 import ai.npc.AbstractNpcAI;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -35,7 +35,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  */
 public final class LibraryOfSages extends AbstractNpcAI
 {
-	protected class LoSWorld extends InstanceWorld
+	protected class LoSWorld extends InstantZone
 	{
 		protected L2Npc elcadia = null;
 		protected long storeTime = 0;
@@ -76,7 +76,7 @@ public final class LibraryOfSages extends AbstractNpcAI
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone tmpworld = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (!(tmpworld instanceof LoSWorld))
 		{
 			return null;
@@ -127,7 +127,7 @@ public final class LibraryOfSages extends AbstractNpcAI
 	protected int enterInstance(L2PcInstance player, String template)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -142,11 +142,11 @@ public final class LibraryOfSages extends AbstractNpcAI
 		}
 		// New instance
 		world = new LoSWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
 		world.setStatus(0);
 		((LoSWorld) world).storeTime = System.currentTimeMillis();
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Library of Sages started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 		// teleport players
 		teleportPlayer(player, START_LOC, world.getInstanceId(), false);
@@ -157,7 +157,7 @@ public final class LibraryOfSages extends AbstractNpcAI
 	
 	protected void spawnNPC(L2PcInstance player, LoSWorld world)
 	{
-		final L2Npc npc = addSpawn(ELCADIA_INSTANCE, player.getX(), player.getY(), player.getZ(), 0, false, 0, false, player.getInstanceId());
+		final L2Npc npc = addSpawn(ELCADIA_INSTANCE, player.getX(), player.getY(), player.getZ(), 0, false, 0, false, player.getInstantWorldId());
 		world.elcadia = npc;
 		startQuestTimer("FOLLOW", 3000, npc, player);
 	}

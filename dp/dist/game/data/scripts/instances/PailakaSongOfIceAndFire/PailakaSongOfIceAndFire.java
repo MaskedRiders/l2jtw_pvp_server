@@ -20,12 +20,12 @@ package instances.PailakaSongOfIceAndFire;
 
 import ai.npc.AbstractNpcAI;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.zone.L2ZoneType;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -37,7 +37,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  */
 public final class PailakaSongOfIceAndFire extends AbstractNpcAI
 {
-	protected class PSoIWorld extends InstanceWorld
+	protected class PSoIWorld extends InstantZone
 	{
 		
 	}
@@ -73,7 +73,7 @@ public final class PailakaSongOfIceAndFire extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -86,9 +86,9 @@ public final class PailakaSongOfIceAndFire extends AbstractNpcAI
 			return;
 		}
 		world = new PSoIWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		world.addAllowed(player.getObjectId());
 		teleportPlayer(player, TELEPORT, world.getInstanceId());
 		_log.info("Pailaka Song of Ice and Fire" + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
@@ -111,7 +111,7 @@ public final class PailakaSongOfIceAndFire extends AbstractNpcAI
 			}
 			case "TELEPORT":
 			{
-				teleportPlayer(player, TELEPORT, player.getInstanceId());
+				teleportPlayer(player, TELEPORT, player.getInstantWorldId());
 				break;
 			}
 			case "DELETE":
@@ -191,7 +191,7 @@ public final class PailakaSongOfIceAndFire extends AbstractNpcAI
 	{
 		if ((character.isPlayer()) && !character.isDead() && !character.isTeleporting() && ((L2PcInstance) character).isOnline())
 		{
-			final InstanceWorld world = InstanceManager.getInstance().getWorld(character.getInstanceId());
+			final InstantZone world = InstantWorldManager.getInstance().getWorld(character.getInstantWorldId());
 			if ((world != null) && (world.getTemplateId() == TEMPLATE_ID))
 			{
 				startQuestTimer("TELEPORT", 1000, null, (L2PcInstance) character);

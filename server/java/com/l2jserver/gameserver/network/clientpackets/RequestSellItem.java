@@ -116,7 +116,7 @@ public final class RequestSellItem extends L2GameClientPacket
 		L2Character merchant = null;
 		if (!player.isGM())
 		{
-			if ((target == null) || (!player.isInsideRadius(target, INTERACTION_DISTANCE, true, false)) || (player.getInstanceId() != target.getInstanceId()))
+			if ((target == null) || (!player.isInsideRadius(target, INTERACTION_DISTANCE, true, false)) || (player.getInstantWorldId() != target.getInstantWorldId()))
 			{
 				sendPacket(ActionFailed.STATIC_PACKET);
 				return;

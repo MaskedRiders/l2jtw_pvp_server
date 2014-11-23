@@ -23,16 +23,16 @@ import java.util.concurrent.ScheduledFuture;
 import ai.npc.AbstractNpcAI;
 
 import com.l2jserver.gameserver.ThreadPoolManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2QuestGuardInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -49,7 +49,7 @@ import hellbound.HellboundEngine;
  */
 public final class UrbanArea extends AbstractNpcAI
 {
-	protected class UrbanAreaWorld extends InstanceWorld
+	protected class UrbanAreaWorld extends InstantZone
 	{
 		protected L2MonsterInstance spawnedAmaskari;
 		protected ScheduledFuture<?> activeAmaskariCall = null;
@@ -127,7 +127,7 @@ public final class UrbanArea extends AbstractNpcAI
 		}
 		else if (npc.getId() == TOMBSTONE)
 		{
-			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+			InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 			if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld))
 			{
 				final UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
@@ -156,7 +156,7 @@ public final class UrbanArea extends AbstractNpcAI
 					{
 						npc.setBusy(true);
 						// destroy instance after 5 min
-						Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+						InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 						inst.setDuration(5 * 60000);
 						inst.setEmptyDestroyTime(0);
 						ThreadPoolManager.getInstance().scheduleGeneral(new ExitInstance(party, world), 285000);
@@ -175,7 +175,7 @@ public final class UrbanArea extends AbstractNpcAI
 	@Override
 	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld))
 		{
 			UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
@@ -244,7 +244,7 @@ public final class UrbanArea extends AbstractNpcAI
 	@Override
 	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld))
 		{
 			UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
@@ -271,7 +271,7 @@ public final class UrbanArea extends AbstractNpcAI
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld))
 		{
 			UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
@@ -318,7 +318,7 @@ public final class UrbanArea extends AbstractNpcAI
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld))
 		{
 			UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
@@ -374,7 +374,7 @@ public final class UrbanArea extends AbstractNpcAI
 				return false;
 			}
 			
-			if (InstanceManager.getInstance().getPlayerWorld(player) != null)
+			if (InstantWorldManager.getInstance().getPlayerInstantWorld(player) != null)
 			{
 				final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.ALREADY_ENTERED_ANOTHER_INSTANCE_CANT_ENTER);
 				sm.addPcName(partyMember);
@@ -387,7 +387,7 @@ public final class UrbanArea extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -406,11 +406,11 @@ public final class UrbanArea extends AbstractNpcAI
 		}
 		
 		world = new UrbanAreaWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
 		world.addAllowed(player.getObjectId());
 		world.setStatus(0);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		teleportPlayer(player, ENTRY_POINT, world.getInstanceId());
 		
 		_log.info("Hellbound Town started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
@@ -438,7 +438,7 @@ public final class UrbanArea extends AbstractNpcAI
 		{
 			if ((_caller != null) && !_caller.isDead())
 			{
-				InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(_caller.getInstanceId());
+				InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(_caller.getInstantWorldId());
 				if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld))
 				{
 					UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;

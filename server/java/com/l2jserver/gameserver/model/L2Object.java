@@ -30,13 +30,13 @@ import com.l2jserver.gameserver.handler.ActionShiftHandler;
 import com.l2jserver.gameserver.handler.IActionHandler;
 import com.l2jserver.gameserver.handler.IActionShiftHandler;
 import com.l2jserver.gameserver.idfactory.IdFactory;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.knownlist.ObjectKnownList;
 import com.l2jserver.gameserver.model.actor.poly.ObjectPoly;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.events.ListenersContainer;
 import com.l2jserver.gameserver.model.interfaces.IDecayable;
 import com.l2jserver.gameserver.model.interfaces.IIdentifiable;
@@ -704,7 +704,7 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 	 * @return the instance ID
 	 */
 	@Override
-	public int getInstanceId()
+	public int getInstantWorldId()
 	{
 		return _instanceId.get();
 	}
@@ -716,7 +716,7 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 	@Override
 	public Location getLocation()
 	{
-		return new Location(getX(), getY(), getZ(), getHeading(), getInstanceId());
+		return new Location(getX(), getY(), getZ(), getHeading(), getInstantWorldId());
 	}
 	
 	/**
@@ -801,18 +801,18 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 	 * Sets the instance ID of object.<br>
 	 * 0 - Global<br>
 	 * TODO: Add listener here.
-	 * @param instanceId the ID of the instance
+	 * @param instantWorldId the ID of the instance
 	 */
 	@Override
-	public void setInstanceId(int instanceId)
+	public void setInstantWorldId(int instantWorldId)
 	{
-		if ((instanceId < 0) || (getInstanceId() == instanceId))
+		if ((instantWorldId < 0) || (getInstantWorldId() == instantWorldId))
 		{
 			return;
 		}
 		
-		Instance oldI = InstanceManager.getInstance().getInstance(getInstanceId());
-		Instance newI = InstanceManager.getInstance().getInstance(instanceId);
+		InstantWorld oldI = InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId());
+		InstantWorld newI = InstantWorldManager.getInstance().getInstantWorld(instantWorldId);
 		if (newI == null)
 		{
 			return;
@@ -821,7 +821,7 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 		if (isPlayer())
 		{
 			final L2PcInstance player = getActingPlayer();
-			if ((getInstanceId() > 0) && (oldI != null))
+			if ((getInstantWorldId() > 0) && (oldI != null))
 			{
 				oldI.removePlayer(getObjectId());
 				if (oldI.isShowTimer())
@@ -829,7 +829,7 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 					sendInstanceUpdate(oldI, true);
 				}
 			}
-			if (instanceId > 0)
+			if (instantWorldId > 0)
 			{
 				newI.addPlayer(getObjectId());
 				if (newI.isShowTimer())
@@ -839,23 +839,23 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 			}
 			if (player.hasSummon())
 			{
-				player.getSummon().setInstanceId(instanceId);
+				player.getSummon().setInstantWorldId(instantWorldId);
 			}
 		}
 		else if (isNpc())
 		{
 			final L2Npc npc = (L2Npc) this;
-			if ((getInstanceId() > 0) && (oldI != null))
+			if ((getInstantWorldId() > 0) && (oldI != null))
 			{
 				oldI.removeNpc(npc);
 			}
-			if (instanceId > 0)
+			if (instantWorldId > 0)
 			{
 				newI.addNpc(npc);
 			}
 		}
 		
-		_instanceId.set(instanceId);
+		_instanceId.set(instantWorldId);
 		if (_isVisible && (_knownList != null))
 		{
 			// We don't want some ugly looking disappear/appear effects, so don't update
@@ -880,7 +880,7 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 		_y.set(loc.getY());
 		_z.set(loc.getZ());
 		_heading.set(loc.getHeading());
-		_instanceId.set(loc.getInstanceId());
+		_instanceId.set(loc.getInstantWorldId());
 	}
 	
 	/**
@@ -932,7 +932,7 @@ public abstract class L2Object extends ListenersContainer implements IIdentifiab
 	 * @param instance the instance to update
 	 * @param hide if {@code true} hide the player
 	 */
-	private final void sendInstanceUpdate(Instance instance, boolean hide)
+	private final void sendInstanceUpdate(InstantWorld instance, boolean hide)
 	{
 		final int startTime = (int) ((System.currentTimeMillis() - instance.getInstanceStartTime()) / 1000);
 		final int endTime = (int) ((instance.getInstanceEndTime() - instance.getInstanceStartTime()) / 1000);

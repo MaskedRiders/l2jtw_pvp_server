@@ -46,8 +46,8 @@ public class TvTEventTeleporter implements Runnable
 		_playerInstance = playerInstance;
 		_coordinates = coordinates;
 		_adminRemove = adminRemove;
-		
-		long delay = (TvTEvent.isStarted() ? Config.TVT_EVENT_RESPAWN_TELEPORT_DELAY : Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY) * 1000;
+		// ステータスがMeetingかStartedだったらディレイをTVT_EVENT_RESPAWN_TELEPORT_DELAYに設定。それ以外はTVT_EVENT_START_LEAVE_TELEPORT_DELAYに設定する
+		long delay = (TvTEvent.isMeeting()||TvTEvent.isStarted() ? Config.TVT_EVENT_RESPAWN_TELEPORT_DELAY : Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY) * 1000;
 		
 		ThreadPoolManager.getInstance().scheduleGeneral(this, fastSchedule ? 0 : delay);
 	}
@@ -75,38 +75,43 @@ public class TvTEventTeleporter implements Runnable
 			summon.unSummon(_playerInstance);
 		}
 		
-		if ((Config.TVT_EVENT_EFFECTS_REMOVAL == 0) || ((Config.TVT_EVENT_EFFECTS_REMOVAL == 1) && ((_playerInstance.getTeam() == Team.NONE) || (_playerInstance.isInDuel() && (_playerInstance.getDuelState() != Duel.DUELSTATE_INTERRUPTED)))))
+		if (Config.TVT_EVENT_EFFECTS_REMOVAL != 2 
+				&& (
+					_playerInstance.getTeam() == Team.NONE || (_playerInstance.isInDuel() && (_playerInstance.getDuelState() != Duel.DUELSTATE_INTERRUPTED))
+				)
+			)
 		{
 			_playerInstance.stopAllEffectsExceptThoseThatLastThroughDeath();
 		}
 		
 		if (_playerInstance.isInDuel())
 		{
+			// 割り込み状態にする
 			_playerInstance.setDuelState(Duel.DUELSTATE_INTERRUPTED);
 		}
 		
-		int TvTInstance = TvTEvent.getTvTEventInstance();
-		if (TvTInstance != 0)
+		int TvTEventInstantWorldId = TvTEvent.getTvTEventInstantWorldId();
+		if (TvTEventInstantWorldId != 0)
 		{
-			if (TvTEvent.isStarted() && !_adminRemove)
+			if ((TvTEvent.isStarted() || TvTEvent.isMeeting()) && !_adminRemove)
 			{
-				_playerInstance.setInstanceId(TvTInstance);
+				_playerInstance.setInstantWorldId(TvTEventInstantWorldId);
 			}
 			else
 			{
-				_playerInstance.setInstanceId(0);
+				_playerInstance.setInstantWorldId(0);
 			}
 		}
 		else
 		{
-			_playerInstance.setInstanceId(0);
+			_playerInstance.setInstantWorldId(0);
 		}
 		
 		_playerInstance.doRevive();
 		
 		_playerInstance.teleToLocation((_coordinates[0] + Rnd.get(101)) - 50, (_coordinates[1] + Rnd.get(101)) - 50, _coordinates[2], false);
 		
-		if (TvTEvent.isStarted() && !_adminRemove)
+		if ((TvTEvent.isStarted() || TvTEvent.isMeeting()) && !_adminRemove)
 		{
 			int teamId = TvTEvent.getParticipantTeamId(_playerInstance.getObjectId()) + 1;
 			switch (teamId)

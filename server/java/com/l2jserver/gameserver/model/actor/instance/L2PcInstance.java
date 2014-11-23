@@ -113,7 +113,7 @@ import com.l2jserver.gameserver.instancemanager.FortManager;
 import com.l2jserver.gameserver.instancemanager.FortSiegeManager;
 import com.l2jserver.gameserver.instancemanager.GrandBossManager;
 import com.l2jserver.gameserver.instancemanager.HandysBlockCheckerManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.ItemsOnGroundManager;
 import com.l2jserver.gameserver.instancemanager.PunishmentManager;
 import com.l2jserver.gameserver.instancemanager.QuestManager;
@@ -198,7 +198,7 @@ import com.l2jserver.gameserver.model.entity.Castle;
 import com.l2jserver.gameserver.model.entity.Duel;
 import com.l2jserver.gameserver.model.entity.Fort;
 import com.l2jserver.gameserver.model.entity.Hero;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.entity.L2Event;
 import com.l2jserver.gameserver.model.entity.Siege;
 import com.l2jserver.gameserver.model.entity.TvTEvent;
@@ -342,6 +342,11 @@ import com.l2jserver.util.EnumIntBitmask;
 import com.l2jserver.util.Rnd;
 import com.l2jserver.gameserver.model.L2CoreMessage;
 import com.l2jserver.gameserver.datatables.MessageTable;
+import com.l2jserver.gameserver.model.entity.PvPZombieOperator;
+import com.l2jserver.gameserver.model.skills.AbnormalVisualEffect;
+import static com.l2jserver.gameserver.model.entity.PvPZombieOperator.MODE_purificationPvpZombie;
+import com.l2jserver.gameserver.network.clientpackets.L2GameClientPacket;
+import java.util.logging.Logger;
 
 /**
  * This class represents all player characters in the world.<br>
@@ -359,20 +364,21 @@ public final class L2PcInstance extends L2Playable
 	
 	/*
 	追加生成されたテーブルのDDL
-	DROP TABLE IF EXISTS `character_customs`;
 	CREATE TABLE `character_customs` (
-	  `charId`　　　　　　　　 int(10)　　unsigned NOT NULL default '0' COMMENT 'キャラクタID',
-	  `battle_score`　　　　　 bigint(20) unsigned NOT NULL default '0' COMMENT '戦闘スコア',
-	  `battle_score_best`　　　text　　　　　　　　　　　　　　　　　　 COMMENT '戦闘スコアベスト',
-	  `battle_score_best_date` datetime　　　　　　　　　　　　　　　　 COMMENT '戦闘スコアベスト時刻',
-	  `battle_log`　　　　　　 mediumtext　　　　　　　　　　　　　　　 COMMENT '戦闘記録(kill,charId,battle_score,date;death,charId,battle_score,date...)',
-	  `tvt_score`　　　　　　　bigint(20) unsigned NOT NULL default '0' COMMENT 'TvTスコア',
-	  `tvt_score_log`　　　　　mediumtext　　　　　　　　　　　　　　　 COMMENT 'TvTスコア記録(battle_score,date;battle_score,date...)',
-	  `trading_point`　　　　　bigint(20) unsigned NOT NULL default '0' COMMENT '交換用ポイント',
-	  PRIMARY KEY　(`charId`),
+	  `charId`                 int(10)    unsigned NOT NULL default '0' COMMENT 'キャラクタID',
+	  `battle_score`           bigint(20) unsigned          default '0' COMMENT '戦闘スコア',
+	  `battle_score_best`      int(10)    unsigned          default '0' COMMENT '戦闘スコアベスト',
+	  `battle_score_best_date` int(10)    unsigned          default '0' COMMENT '戦闘スコアベスト時刻',
+	  `battle_log`             mediumtext                               COMMENT '戦闘記録(kill,charId,battle_score,date;death,charId,battle_score,date...)',
+	  `tvt_score`              bigint(20) unsigned          default '0' COMMENT 'TvTスコア',
+	  `tvt_score_log`          mediumtext                               COMMENT 'TvTスコア記録(battle_score,date;battle_score,date...)',
+	  `pvp_death_date`         int(10)    unsigned          default '0' COMMENT 'PvP死亡時刻',
+	  `pvp_zombie`             tinyint(1) unsigned          default '0' COMMENT 'ゾンビ',
+	  `trading_point`          bigint(20) unsigned          default '0' COMMENT '交換用ポイント',
+	  PRIMARY KEY  (`charId`),
 	  KEY `idx_chrId_battle_score` (`charId`,`battle_score`) USING BTREE,
-	  KEY `idx_chrId_tvt_score`　　(`charId`,`tvt_score`) USING BTREE
-	) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'キャラクタのカスタムテーブルcharacterテーブルと１：１のテーブル';
+	  KEY `idx_chrId_tvt_score`    (`charId`,`tvt_score`) USING BTREE
+	) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'キャラクタのカスタムテーブルcharacterテーブルと１：１のテーブル';	
 	*/
     private static final String INSERT_CHARACTER_CUSTOM =
       "INSERT INTO character_customs (" +
@@ -383,9 +389,11 @@ public final class L2PcInstance extends L2Playable
       "battle_log, "             +
       "tvt_score, "              +
       "tvt_score_log, "          +
+      "pvp_death_date, "         +
+      "pvp_zombie, "             +
       "trading_point) "          +
       "values "                  +
-      "(?,?,?,?,?,?,?,?)";
+      "(?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_CHARACTER_CUSTOM =
       "UPDATE character_customs SET " +
       "battle_score=?, "           +
@@ -394,6 +402,8 @@ public final class L2PcInstance extends L2Playable
       "battle_log=?, "             +
       "tvt_score=?, "              +
       "tvt_score_log=?, "          +
+      "pvp_death_date=?, "         +
+      "pvp_zombie=?, "             +
       "trading_point=? "           +
       "WHERE charId=?";
     private static final String RESTORE_CHARACTER_CUSTOM=
@@ -405,6 +415,8 @@ public final class L2PcInstance extends L2Playable
       "battle_log, "             +
       "tvt_score, "              +
       "tvt_score_log, "          +
+      "pvp_death_date, "         +
+      "pvp_zombie, "             +
       "trading_point "           +
       "FROM character_customs "  +
       "WHERE charId=?";
@@ -508,9 +520,9 @@ public final class L2PcInstance extends L2Playable
 	public long getBattleScoreBest(){ return _battle_score_best; }
 	public void setBattleScoreBest(long value){ _battle_score_best = value;}
 	// 戦闘スコアベスト時刻
-	private String _battle_score_best_date;
-	public String getBattleScoreBestDate(){ return _battle_score_best_date; }
-	public void setBattleScoreBestDate(String value){ _battle_score_best_date = value;}
+	private long _battle_score_best_date;
+	public long getBattleScoreBestDate(){ return _battle_score_best_date; }
+	public void setBattleScoreBestDate(long value){ _battle_score_best_date = value;}
 	// 戦闘記録 /* TODO: 他の引数を持つアクセサも増やす */
 	private String _battle_log;
 	public String getBattleLog(){ return _battle_log; }
@@ -527,6 +539,14 @@ public final class L2PcInstance extends L2Playable
 	private long _trading_point;
 	public long getTradingPoint(){ return _trading_point; }
 	public void setTradingPoint(long value){ _trading_point = value;}
+	// PvP死亡時刻
+	private long _pvpDeathDate;
+	public long getPvPDeathDate(){ return _pvpDeathDate; }
+	public void setPvPDeathDate(long value){ _pvpDeathDate = value;}
+	// ゾンビ
+	private boolean _pvpZombie;
+	public boolean getPvPZombie(){ return _pvpZombie; }
+	public boolean isPvPZombie(){ return _pvpZombie; }
 
 	private final String _accountName;
 	private long _deleteTimer;
@@ -1047,7 +1067,7 @@ public final class L2PcInstance extends L2Playable
 		// 戦闘スコアベスト
 		player.setBattleScoreBest(0);
 		// 戦闘スコアベスト時刻
-		player.setBattleScoreBestDate("");
+		player.setBattleScoreBestDate(0);
 		// 戦闘記録
 		player.setBattleLog("");
 		// TvTスコア
@@ -1056,6 +1076,10 @@ public final class L2PcInstance extends L2Playable
 		player.setTvTScoreLog("");
 		// 交換用ポイント
 		player.setTradingPoint(0);
+		// PvP死亡時刻
+		player.setPvPDeathDate(0);
+		// ゾンビ
+		player.setPvpZombie(false);
 
 		// Add the player in the characters table of the database
 		return player.createDb() ? player : null;
@@ -5645,6 +5669,7 @@ public final class L2PcInstance extends L2Playable
 					long drainBattleScore = getBattleScore();
 					// 死者のバトルスコアを０に
 					setBattleScore(0);
+					setPvPDeathDate(Calendar.getInstance().getTimeInMillis());
 
 					// ラストアタックを行った人に報酬を付与
 					doLastAttackerReward(pk, lastAttackReward);
@@ -5661,7 +5686,6 @@ public final class L2PcInstance extends L2Playable
 			broadcastStatusUpdate();
 			// Clear resurrect xp calculation
 			setExpBeforeDeath(0);
-			
 			// Issues drop of Cursed Weapon.
 			if (isCursedWeaponEquipped())
 			{
@@ -7311,11 +7335,13 @@ public final class L2PcInstance extends L2Playable
 				statement2.setInt(1, charId);
 				statement2.setLong(2, getBattleScore()); // 戦闘スコア
 				statement2.setLong(3, getBattleScoreBest()); //戦闘スコアベスト
-				statement2.setString(4, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
+				statement2.setLong(4, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
 				statement2.setString(5, getBattleLog()); // 戦闘記録
 				statement2.setLong(6, getTvTScore()); // TvTスコア
 				statement2.setString(7, getTvTScoreLog()); // TvTスコア記録
-				statement2.setLong(8, getTradingPoint()); // 交換用ポイント
+				statement2.setLong(8, getPvPDeathDate()); // PvP死亡時刻
+				statement2.setBoolean(9, getPvPZombie()); // ゾンビ
+				statement2.setLong(10, getTradingPoint()); // 交換用ポイント
 				statement2.executeUpdate();
 			}
 			catch (Exception e)
@@ -7600,13 +7626,17 @@ public final class L2PcInstance extends L2Playable
 						// 戦闘スコアベスト
 						player.setBattleScoreBest(rset.getLong("battle_score_best"));
 						// 戦闘スコアベスト時刻
-						player.setBattleScoreBestDate(rset.getString("battle_score_best_date"));
+						player.setBattleScoreBestDate(rset.getLong("battle_score_best_date"));
 						// 戦闘記録
 						player.setBattleLog(rset.getString("battle_log"));
 						// TvTスコア
 						player.setTvTScore(rset.getLong("tvt_score"));
 						// TvTスコア記録
 						player.setTvTScoreLog(rset.getString("tvt_score_log"));
+						// PvP死亡時刻
+						player.setPvPDeathDate(rset.getLong("pvp_death_date"));
+						// ゾンビ
+						player.setPvpZombie(rset.getBoolean("pvp_zombie"));
 						// 交換用ポイント
 						player.setTradingPoint(rset.getLong("trading_point"));
 					}
@@ -7983,12 +8013,14 @@ public final class L2PcInstance extends L2Playable
 			PreparedStatement statement2 = con.prepareStatement(UPDATE_CHARACTER_CUSTOM);
 			statement2.setLong(1, getBattleScore()); // 戦闘スコア
 			statement2.setLong(2, getBattleScoreBest()); //戦闘スコアベスト
-			statement2.setString(3, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
+			statement2.setLong(3, getBattleScoreBestDate()); // 戦闘スコアベスト時刻
 			statement2.setString(4, getBattleLog()); // 戦闘記録
 			statement2.setLong(5, getTvTScore()); // TvTスコア
 			statement2.setString(6, getTvTScoreLog()); // TvTスコア記録
-			statement2.setLong(7, getTradingPoint()); // 交換用ポイント
-			statement2.setInt(8, getObjectId());
+			statement2.setLong(7, getPvPDeathDate()); // PvP死亡時刻
+			statement2.setBoolean(8, getPvPZombie()); // ゾンビ
+			statement2.setLong(9, getTradingPoint()); // 交換用ポイント
+			statement2.setInt(10, getObjectId());
 			statement2.executeUpdate();
 		}
 		catch (Exception e)
@@ -10197,7 +10229,7 @@ public final class L2PcInstance extends L2Playable
 		_observerMode = false;
 		setTarget(null);
 		sendPacket(new ExOlympiadMode(0));
-		setInstanceId(0);
+		setInstantWorldId(0);
 		teleToLocation(_lastLoc, true);
 		if (!isGM())
 		{
@@ -11011,7 +11043,7 @@ public final class L2PcInstance extends L2Playable
 		if (_taskWarnUserTakeBreak == null)
 		{
 			/* Update by rocknow
-			_taskWarnUserTakeBreak = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new WarnUserTakeBreakTask(this), 7200000, 7200000);
+			_taskWarnUserTakeBreak = ThreadPoolManager.getInstantWorld().scheduleGeneralAtFixedRate(new WarnUserTakeBreakTask(this), 7200000, 7200000);
 			 */
 			_taskWarnUserTakeBreak = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new WarnUserTakeBreakTask(this), 3600000, 3600000);
 		}
@@ -11206,9 +11238,9 @@ public final class L2PcInstance extends L2Playable
 				getParty().getDimensionalRift().memberRessurected(this);
 			}
 		}
-		if (getInstanceId() > 0)
+		if (getInstantWorldId() > 0)
 		{
-			final Instance instance = InstanceManager.getInstance().getInstance(getInstanceId());
+			final InstantWorld instance = InstantWorldManager.getInstance().getInstantWorld(getInstantWorldId());
 			if (instance != null)
 			{
 				instance.cancelEjectDeadPlayer(this);
@@ -11386,7 +11418,7 @@ public final class L2PcInstance extends L2Playable
 		
 		if (isFlyingMounted() && (loc.getZ() < -1005))
 		{
-			super.teleToLocation(loc.getX(), loc.getY(), -1005, loc.getHeading(), loc.getInstanceId());
+			super.teleToLocation(loc.getX(), loc.getY(), -1005, loc.getHeading(), loc.getInstantWorldId());
 		}
 		
 		super.teleToLocation(loc, allowRandomOffset);
@@ -12080,10 +12112,10 @@ public final class L2PcInstance extends L2Playable
 		// remove player from instance and set spawn location if any
 		try
 		{
-			final int instanceId = getInstanceId();
+			final int instanceId = getInstantWorldId();
 			if ((instanceId != 0) && !Config.RESTORE_PLAYER_INSTANCE)
 			{
-				final Instance inst = InstanceManager.getInstance().getInstance(instanceId);
+				final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 				if (inst != null)
 				{
 					inst.removePlayer(getObjectId());
@@ -12096,7 +12128,7 @@ public final class L2PcInstance extends L2Playable
 						if (hasSummon()) // dead pet
 						{
 							getSummon().teleToLocation(loc, true);
-							getSummon().setInstanceId(0);
+							getSummon().setInstantWorldId(0);
 						}
 					}
 				}
@@ -12184,7 +12216,7 @@ public final class L2PcInstance extends L2Playable
 		if (getClanId() > 0)
 		{
 			getClan().broadcastToOtherOnlineMembers(new PledgeShowMemberListUpdate(this), this);
-			// ClanTable.getInstance().getClan(getClanId()).broadcastToOnlineMembers(new PledgeShowMemberListAdd(this));
+			// ClanTable.getInstantWorld().getClan(getClanId()).broadcastToOnlineMembers(new PledgeShowMemberListAdd(this));
 		}
 		
 		for (L2PcInstance player : _snoopedPlayer)
@@ -15012,7 +15044,7 @@ public final class L2PcInstance extends L2Playable
 	private boolean isPvP(L2PcInstance killer){
 		if(
 				getPvpFlag() != 0 || (isInsideZone(ZoneId.PVP) && killer.isInsideZone(ZoneId.PVP)) // PvPフラグまたはPvPフィールド
-				&& (killer.getClient().getConnection().getInetAddress().getHostAddress() != getClient().getConnection().getInetAddress().getHostAddress()) // 同一IPではない
+				&& (getClient().getConnection().getInetAddress().getHostAddress() != killer.getClient().getConnection().getInetAddress().getHostAddress()) // 同一IPではない
 				){
 			return true;
 		}
@@ -15021,7 +15053,7 @@ public final class L2PcInstance extends L2Playable
 	
 	/**
 	 * PvPのラストアタッカーへの報酬付与
-	 * @param lastAttacker 
+	 * @param lastAttacker s
 	 * @param reward
 	 */
 	private void doLastAttackerReward(L2PcInstance lastAttacker,long reward){
@@ -15035,22 +15067,25 @@ public final class L2PcInstance extends L2Playable
 	 * @param dropDistance
 	 */
 	private void doPkPartyReward(L2Party party,long partyAllReward,long dropDistance){
-		long x1 = this.getX();
-		long x2 = this.getX();
-		long y1 = this.getY();
-		long y2 = this.getY();
+		long x = this.getX();
+		long y = this.getY();
 		long partyReward = (long)(partyAllReward / party.getMemberCount()) ;
 		for (L2PcInstance pkPartyMember : party.getMembers())
 		{
-			x2 = pkPartyMember.getX();
-			y2 = pkPartyMember.getY();
-			if(Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) <= dropDistance ){
+			long pkPartyMemberX = pkPartyMember.getX();
+			long pkPartyMemberY = pkPartyMember.getY();
+			if(Math.sqrt((pkPartyMemberX - x) * (pkPartyMemberX - x) + (pkPartyMemberY - y) * (pkPartyMemberY - y)) <= dropDistance ){
 				// 報酬付与
 				pkPartyMember.addBattleScore(partyReward);
 			}
 		}
 	}
 	
+	/**
+	 * バトルスコアを追加付与
+	 * @param battleScore
+	 * @return
+	 */
 	public long addBattleScore(long battleScore){
 		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
 		sm.addString("バトルスコア取得：" + battleScore);
@@ -15063,11 +15098,17 @@ public final class L2PcInstance extends L2Playable
 			sm2.addString("最高バトルスコアを更新：" + getBattleScoreBest() + " → " + getBattleScore());
 			// 最高バトルスコアを更新
 			setBattleScoreBest(getBattleScore());
+			setBattleScoreBestDate(Calendar.getInstance().getTimeInMillis());
 			sendPacket(sm2);
 		}
 		return getBattleScore();
 	}	
 
+	/**
+	 * トレーディングポイントを加算
+	 * @param tradingPoint
+	 * @return
+	 */
 	public long addTradingPoint(long tradingPoint){
 		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
 		sm.addString("トレーディングポイントを取得：" + tradingPoint);
@@ -15077,6 +15118,11 @@ public final class L2PcInstance extends L2Playable
 		return getTradingPoint();
 	}
 
+	/**
+	 * トレーディングポイントを減算
+	 * @param tradingPoint
+	 * @return
+	 */
 	public long subtractTradingPoint(long tradingPoint){
 		SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1);
 		sm.addString("トレーディングポイントを消費：" + tradingPoint);
@@ -15086,4 +15132,40 @@ public final class L2PcInstance extends L2Playable
 		return getTradingPoint();
 	}
 
+	/**
+	 * PvPゾンビ状態を設定する
+	 * @param zombieFlag
+	 */
+	public void setPvpZombie(boolean zombieFlag){ 
+		// ゾンビフラグを設定
+		_pvpZombie = zombieFlag;
+		if(zombieFlag == true){
+//			Logger.getLogger(L2GameClientPacket.class.getName()).warning("ゾンビエフェクトを付与");
+			// ゾンビエフェクトを付与
+			pollutionPvpZombie();
+			// ゾンビ解除のためのスケジュールをセット
+			new PvPZombieOperator(this, MODE_purificationPvpZombie);
+		} else{
+			// ゾンビエフェクトを解除
+			purificationPvpZombie();
+		}
+	}
+
+	/**
+	 * PvPゾンビ状態のエフェクトを付与
+	 */
+	private void pollutionPvpZombie(){
+		startAbnormalVisualEffect(false, AbnormalVisualEffect.VP_UP);
+		startAbnormalVisualEffect(false, AbnormalVisualEffect.DEATH_MARK);
+		updateAbnormalEffect();
+	}
+	
+	/**
+	 * PvPゾンビのエフェクトを削除
+	 */
+	private void purificationPvpZombie(){
+		stopAbnormalVisualEffect(false, AbnormalVisualEffect.VP_UP);
+		stopAbnormalVisualEffect(false, AbnormalVisualEffect.DEATH_MARK);
+		updateAbnormalEffect();
+	}
 }

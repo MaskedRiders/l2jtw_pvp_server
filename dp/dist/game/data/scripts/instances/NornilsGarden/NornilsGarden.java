@@ -21,15 +21,15 @@ package instances.NornilsGarden;
 import quests.Q00179_IntoTheLargeCavern.Q00179_IntoTheLargeCavern;
 
 import com.l2jserver.gameserver.datatables.SkillData;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -46,7 +46,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public final class NornilsGarden extends Quest
 {
-	protected class NornilsWorld extends InstanceWorld
+	protected class NornilsWorld extends InstantZone
 	{
 		public L2Npc first_npc = null;
 		public boolean spawned_1 = false;
@@ -255,7 +255,7 @@ public final class NornilsGarden extends Quest
 	
 	private void exitInstance(L2PcInstance player)
 	{
-		InstanceWorld inst = InstanceManager.getInstance().getWorld(player.getInstanceId());
+		InstantZone inst = InstantWorldManager.getInstance().getWorld(player.getInstantWorldId());
 		if (inst instanceof NornilsWorld)
 		{
 			NornilsWorld world = ((NornilsWorld) inst);
@@ -266,7 +266,7 @@ public final class NornilsGarden extends Quest
 	
 	private final synchronized String enterInstance(L2Npc npc, L2PcInstance player)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (world != null)
 		{
 			if (!(world instanceof NornilsWorld) || (world.getTemplateId() != TEMPLATE_ID))
@@ -283,7 +283,7 @@ public final class NornilsGarden extends Quest
 				return null;
 			}
 			// check what instance still exist
-			Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+			InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 			if (inst != null)
 			{
 				teleportPlayer(player, SPAWN_PPL, world.getInstanceId());
@@ -297,10 +297,10 @@ public final class NornilsGarden extends Quest
 			return result;
 		}
 		
-		final int instanceId = InstanceManager.getInstance().createDynamicInstance("NornilsGarden.xml");
-		final Instance inst = InstanceManager.getInstance().getInstance(instanceId);
+		final int instanceId = InstantWorldManager.getInstance().createInstantWorld("NornilsGarden.xml");
+		final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 		
-		inst.setName(InstanceManager.getInstance().getInstanceIdName(TEMPLATE_ID));
+		inst.setName(InstantWorldManager.getInstance().getInstantWorldIdName(TEMPLATE_ID));
 		inst.setSpawnLoc(new Location(player));
 		inst.setAllowSummon(false);
 		inst.setDuration(DURATION_TIME * 60000);
@@ -308,7 +308,7 @@ public final class NornilsGarden extends Quest
 		world = new NornilsWorld();
 		world.setInstanceId(instanceId);
 		world.setTemplateId(TEMPLATE_ID);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Nornils Garden: started, Instance: " + instanceId + " created by player: " + player.getName());
 		
 		prepareInstance((NornilsWorld) world);
@@ -340,7 +340,7 @@ public final class NornilsGarden extends Quest
 	
 	private void spawn1(L2Npc npc)
 	{
-		InstanceWorld inst = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone inst = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (inst instanceof NornilsWorld)
 		{
 			NornilsWorld world = ((NornilsWorld) inst);
@@ -358,7 +358,7 @@ public final class NornilsGarden extends Quest
 	
 	private void spawn2(L2Npc npc)
 	{
-		InstanceWorld inst = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone inst = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (inst instanceof NornilsWorld)
 		{
 			NornilsWorld world = ((NornilsWorld) inst);
@@ -376,7 +376,7 @@ public final class NornilsGarden extends Quest
 	
 	private void spawn3(L2Character cha)
 	{
-		InstanceWorld inst = InstanceManager.getInstance().getWorld(cha.getInstanceId());
+		InstantZone inst = InstantWorldManager.getInstance().getWorld(cha.getInstantWorldId());
 		if (inst instanceof NornilsWorld)
 		{
 			NornilsWorld world = ((NornilsWorld) inst);
@@ -394,7 +394,7 @@ public final class NornilsGarden extends Quest
 	
 	private void spawn4(L2Character cha)
 	{
-		InstanceWorld inst = InstanceManager.getInstance().getWorld(cha.getInstanceId());
+		InstantZone inst = InstantWorldManager.getInstance().getWorld(cha.getInstantWorldId());
 		if (inst instanceof NornilsWorld)
 		{
 			NornilsWorld world = ((NornilsWorld) inst);
@@ -413,7 +413,7 @@ public final class NornilsGarden extends Quest
 	public void openDoor(QuestState st, L2PcInstance player, int doorId)
 	{
 		st.unset("correct");
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(player.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(player.getInstantWorldId());
 		if (tmpworld instanceof NornilsWorld)
 		{
 			openDoor(doorId, tmpworld.getInstanceId());
@@ -497,7 +497,7 @@ public final class NornilsGarden extends Quest
 	{
 		if ((character instanceof L2PcInstance) && !character.isDead() && !character.isTeleporting() && ((L2PcInstance) character).isOnline())
 		{
-			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(character.getInstanceId());
+			InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(character.getInstantWorldId());
 			if (tmpworld instanceof NornilsWorld)
 			{
 				for (int _auto[] : _auto_gates)
@@ -626,7 +626,7 @@ public final class NornilsGarden extends Quest
 			dropHerb(npc, attacker, MP_HERBS_DROPLIST);
 			npc.doDie(attacker);
 		}
-		else if ((npc.getId() == 18362) && (npc.getInstanceId() > 0))
+		else if ((npc.getId() == 18362) && (npc.getInstantWorldId() > 0))
 		{
 			spawn1(npc);
 		}
@@ -652,7 +652,7 @@ public final class NornilsGarden extends Quest
 				// Check if gatekeeper should open bridge, and open it
 				if (_gk[2] > 0)
 				{
-					InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(player.getInstanceId());
+					InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(player.getInstantWorldId());
 					if (tmpworld instanceof NornilsWorld)
 					{
 						openDoor(_gk[2], tmpworld.getInstanceId());

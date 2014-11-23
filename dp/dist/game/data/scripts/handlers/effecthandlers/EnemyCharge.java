@@ -96,7 +96,7 @@ public final class EnemyCharge extends AbstractEffect
 		
 		if (Config.GEODATA > 0)
 		{
-			Location destiny = GeoData.getInstance().moveCheck(info.getEffector().getX(), info.getEffector().getY(), info.getEffector().getZ(), x, y, z, info.getEffector().getInstanceId());
+			Location destiny = GeoData.getInstance().moveCheck(info.getEffector().getX(), info.getEffector().getY(), info.getEffector().getZ(), x, y, z, info.getEffector().getInstantWorldId());
 			x = destiny.getX();
 			y = destiny.getY();
 		}

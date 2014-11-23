@@ -340,7 +340,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		}
 		
 		player.teleToLocation(MapRegionManager.getInstance().getMapRegionByName(regionName).getSpawnLoc(), true);
-		player.setInstanceId(0);
+		player.setInstantWorldId(0);
 		player.setIsIn7sDungeon(false);
 	}
 	
@@ -455,9 +455,9 @@ public class AdminTeleport implements IAdminCommandHandler
 			else
 			{
 				// Set player to same instance as GM teleporting.
-				if ((activeChar != null) && (activeChar.getInstanceId() >= 0))
+				if ((activeChar != null) && (activeChar.getInstantWorldId() >= 0))
 				{
-					player.setInstanceId(activeChar.getInstanceId());
+					player.setInstantWorldId(activeChar.getInstantWorldId());
 					/* MessageTable
 					activeChar.sendMessage("You have recalled " + player.getName());
 					 */
@@ -465,7 +465,7 @@ public class AdminTeleport implements IAdminCommandHandler
 				}
 				else
 				{
-					player.setInstanceId(0);
+					player.setInstantWorldId(0);
 				}
 				/* MessageTable.Messages[1888]
 				player.sendMessage("Admin is teleporting you.");
@@ -503,7 +503,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		else
 		{
 			// move to targets instance
-			activeChar.setInstanceId(target.getInstanceId());
+			activeChar.setInstantWorldId(target.getInstantWorldId());
 			
 			int x = player.getX();
 			int y = player.getY();
@@ -605,13 +605,13 @@ public class AdminTeleport implements IAdminCommandHandler
 				spawn.setAmount(1);
 				spawn.setHeading(activeChar.getHeading());
 				spawn.setRespawnDelay(respawnTime);
-				if (activeChar.getInstanceId() >= 0)
+				if (activeChar.getInstantWorldId() >= 0)
 				{
-					spawn.setInstanceId(activeChar.getInstanceId());
+					spawn.setInstantWorldId(activeChar.getInstantWorldId());
 				}
 				else
 				{
-					spawn.setInstanceId(0);
+					spawn.setInstantWorldId(0);
 				}
 				SpawnTable.getInstance().addNewSpawn(spawn, true);
 				spawn.init();

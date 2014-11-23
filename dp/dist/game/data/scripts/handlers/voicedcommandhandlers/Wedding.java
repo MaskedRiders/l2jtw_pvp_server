@@ -446,7 +446,7 @@ public class Wedding implements IVoicedCommandHandler
 			return false;
 		}
 		
-		if (activeChar.getInstanceId() != partner.getInstanceId())
+		if (activeChar.getInstantWorldId() != partner.getInstantWorldId())
 		{
 			/* MessageTable.Messages[1234]
 			activeChar.sendMessage("Your partner is in another World!");

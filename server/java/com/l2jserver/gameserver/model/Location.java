@@ -46,7 +46,7 @@ public class Location implements IPositionable
 	
 	public Location(L2Object obj)
 	{
-		this(obj.getX(), obj.getY(), obj.getZ(), obj.getHeading(), obj.getInstanceId());
+		this(obj.getX(), obj.getY(), obj.getZ(), obj.getHeading(), obj.getInstantWorldId());
 	}
 	
 	public Location(int x, int y, int z, int heading, int instanceId)
@@ -167,7 +167,7 @@ public class Location implements IPositionable
 	 * @return the instance Id
 	 */
 	@Override
-	public int getInstanceId()
+	public int getInstantWorldId()
 	{
 		return _instanceId;
 	}
@@ -177,7 +177,7 @@ public class Location implements IPositionable
 	 * @param instanceId the instance Id to set
 	 */
 	@Override
-	public void setInstanceId(int instanceId)
+	public void setInstantWorldId(int instanceId)
 	{
 		_instanceId = instanceId;
 	}
@@ -195,7 +195,7 @@ public class Location implements IPositionable
 		_y = loc.getY();
 		_z = loc.getZ();
 		_heading = loc.getHeading();
-		_instanceId = loc.getInstanceId();
+		_instanceId = loc.getInstantWorldId();
 	}
 	
 	@Override
@@ -204,7 +204,7 @@ public class Location implements IPositionable
 		if ((obj != null) && (obj instanceof Location))
 		{
 			final Location loc = (Location) obj;
-			return (getX() == loc.getX()) && (getY() == loc.getY()) && (getZ() == loc.getZ()) && (getHeading() == loc.getHeading()) && (getInstanceId() == loc.getInstanceId());
+			return (getX() == loc.getX()) && (getY() == loc.getY()) && (getZ() == loc.getZ()) && (getHeading() == loc.getHeading()) && (getInstantWorldId() == loc.getInstantWorldId());
 		}
 		return false;
 	}

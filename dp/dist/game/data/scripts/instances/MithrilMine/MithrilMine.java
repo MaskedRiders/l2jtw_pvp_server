@@ -22,14 +22,14 @@ import quests.Q10284_AcquisitionOfDivineSword.Q10284_AcquisitionOfDivineSword;
 import ai.npc.AbstractNpcAI;
 
 import com.l2jserver.gameserver.ai.CtrlIntention;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -41,7 +41,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  */
 public final class MithrilMine extends AbstractNpcAI
 {
-	protected class MMWorld extends InstanceWorld
+	protected class MMWorld extends InstantZone
 	{
 		long storeTime = 0;
 		int _count = 0;
@@ -81,7 +81,7 @@ public final class MithrilMine extends AbstractNpcAI
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		final InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone world = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		switch (event)
 		{
@@ -124,7 +124,7 @@ public final class MithrilMine extends AbstractNpcAI
 						broadcastNpcSay(kegor, Say2.NPC_ALL, NpcStringId.I_CAN_FINALLY_TAKE_A_BREATHER_BY_THE_WAY_WHO_ARE_YOU_HMM_I_THINK_I_KNOW_WHO_SENT_YOU);
 					}
 				}
-				InstanceManager.getInstance().getInstance(world.getInstanceId()).setDuration(3000);
+				InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId()).setDuration(3000);
 				break;
 			}
 		}
@@ -143,9 +143,9 @@ public final class MithrilMine extends AbstractNpcAI
 			}
 			else if (qs.isMemoState(3))
 			{
-				final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+				final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 				world.removeAllowed(player.getObjectId());
-				player.setInstanceId(0);
+				player.setInstantWorldId(0);
 				player.teleToLocation(EXIT_LOC, 0);
 				qs.giveAdena(296425, true);
 				qs.addExpAndSp(921805, 82230);
@@ -159,13 +159,13 @@ public final class MithrilMine extends AbstractNpcAI
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		final InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone world = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		final MMWorld _world = ((MMWorld) world);
 		
 		if (npc.getId() == KEGOR)
 		{
 			broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.HOW_COULD_I_FALL_IN_A_PLACE_LIKE_THIS);
-			InstanceManager.getInstance().getInstance(world.getInstanceId()).setDuration(1000);
+			InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId()).setDuration(1000);
 		}
 		else
 		{
@@ -230,7 +230,7 @@ public final class MithrilMine extends AbstractNpcAI
 	protected int enterInstance(L2PcInstance player, String template, Location loc)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -244,11 +244,11 @@ public final class MithrilMine extends AbstractNpcAI
 		}
 		// New instance
 		world = new MMWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
 		world.setStatus(0);
 		((MMWorld) world).storeTime = System.currentTimeMillis();
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Mithril Mine started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 		// teleport players
 		teleportPlayer(player, loc, world.getInstanceId(), false);

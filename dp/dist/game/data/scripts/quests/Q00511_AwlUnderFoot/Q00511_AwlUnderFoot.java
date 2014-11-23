@@ -23,7 +23,7 @@ import java.util.Map;
 
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.enums.QuestSound;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -31,9 +31,9 @@ import com.l2jserver.gameserver.model.actor.L2Playable;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2RaidBossInstance;
 import com.l2jserver.gameserver.model.entity.Fort;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -46,7 +46,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public final class Q00511_AwlUnderFoot extends Quest
 {
-	protected class FAUWorld extends InstanceWorld
+	protected class FAUWorld extends InstantZone
 	{
 		
 	}
@@ -265,7 +265,7 @@ public final class Q00511_AwlUnderFoot extends Quest
 	protected String enterInstance(L2PcInstance player, String template, int[] coords, FortDungeon dungeon, String ret)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -288,15 +288,15 @@ public final class Q00511_AwlUnderFoot extends Quest
 			return ret;
 		}
 		L2Party party = player.getParty();
-		int instanceId = InstanceManager.getInstance().createDynamicInstance(template);
-		Instance ins = InstanceManager.getInstance().getInstance(instanceId);
+		int instanceId = InstantWorldManager.getInstance().createInstantWorld(template);
+		InstantWorld ins = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 		ins.setSpawnLoc(new Location(player));
 		world = new FAUWorld();
 		world.setInstanceId(instanceId);
 		world.setTemplateId(dungeon.getInstanceId());
 		world.setStatus(0);
 		dungeon.setReEnterTime(System.currentTimeMillis() + REENTERTIME);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Fortress AwlUnderFoot started " + template + " Instance: " + instanceId + " created by player: " + player.getName());
 		ThreadPoolManager.getInstance().scheduleGeneral(new spawnRaid((FAUWorld) world), RAID_SPAWN_DELAY);
 		
@@ -382,7 +382,7 @@ public final class Q00511_AwlUnderFoot extends Quest
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		if (tmpworld instanceof FAUWorld)
 		{
 			FAUWorld world = (FAUWorld) tmpworld;
@@ -400,7 +400,7 @@ public final class Q00511_AwlUnderFoot extends Quest
 					rewardPlayer(player);
 				}
 				
-				Instance instanceObj = InstanceManager.getInstance().getInstance(world.getInstanceId());
+				InstantWorld instanceObj = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 				instanceObj.setDuration(360000);
 				instanceObj.removeNpcs();
 			}
@@ -477,7 +477,7 @@ public final class Q00511_AwlUnderFoot extends Quest
 	
 	private void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
 	{
-		player.setInstanceId(instanceId);
+		player.setInstantWorldId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2]);
 	}
 }

@@ -83,7 +83,7 @@ public final class TradeRequest extends L2GameClientPacket
 		// If there is no target, target is far away or
 		// they are in different instances (except multiverse)
 		// trade request is ignored and there is no system message.
-		if ((target == null) || !player.getKnownList().knowsObject(target) || ((target.getInstanceId() != player.getInstanceId()) && (player.getInstanceId() != -1)))
+		if ((target == null) || !player.getKnownList().knowsObject(target) || ((target.getInstantWorldId() != player.getInstantWorldId()) && (player.getInstantWorldId() != -1)))
 		{
 			return;
 		}

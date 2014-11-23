@@ -45,7 +45,7 @@ import com.l2jserver.gameserver.enums.QuestSound;
 import com.l2jserver.gameserver.idfactory.IdFactory;
 import com.l2jserver.gameserver.instancemanager.CastleManager;
 import com.l2jserver.gameserver.instancemanager.FortManager;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.instancemanager.ZoneManager;
 import com.l2jserver.gameserver.model.L2Spawn;
 import com.l2jserver.gameserver.model.Location;
@@ -59,7 +59,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2TrapInstance;
 import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
 import com.l2jserver.gameserver.model.entity.Castle;
 import com.l2jserver.gameserver.model.entity.Fort;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.events.annotations.Id;
 import com.l2jserver.gameserver.model.events.annotations.Ids;
 import com.l2jserver.gameserver.model.events.annotations.NpcLevelRange;
@@ -1682,7 +1682,7 @@ public abstract class AbstractScript extends ManagedScript
 					y += offset;
 				}
 				L2Spawn spawn = new L2Spawn(template);
-				spawn.setInstanceId(instanceId);
+				spawn.setInstantWorldId(instanceId);
 				spawn.setHeading(heading);
 				spawn.setX(x);
 				spawn.setY(y);
@@ -2521,7 +2521,7 @@ public abstract class AbstractScript extends ManagedScript
 		}
 		else
 		{
-			final Instance inst = InstanceManager.getInstance().getInstance(instanceId);
+			final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(instanceId);
 			if (inst != null)
 			{
 				door = inst.getDoor(doorId);
@@ -2550,7 +2550,7 @@ public abstract class AbstractScript extends ManagedScript
 	 */
 	public void teleportPlayer(L2PcInstance player, Location loc, int instanceId, boolean allowRandomOffset)
 	{
-		loc.setInstanceId(instanceId);
+		loc.setInstantWorldId(instanceId);
 		player.teleToLocation(loc, allowRandomOffset);
 	}
 	

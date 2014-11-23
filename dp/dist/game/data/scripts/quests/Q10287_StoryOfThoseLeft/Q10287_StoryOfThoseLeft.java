@@ -20,11 +20,11 @@ package quests.Q10287_StoryOfThoseLeft;
 
 import quests.Q10286_ReunionWithSirra.Q10286_ReunionWithSirra;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -203,9 +203,9 @@ public final class Q10287_StoryOfThoseLeft extends Quest
 								st.setMemoState(2);
 								st.unset("ex1");
 								st.unset("ex2");
-								final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+								final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 								world.removeAllowed(player.getObjectId());
-								player.setInstanceId(0);
+								player.setInstantWorldId(0);
 								htmltext = "32760-05.html";
 							}
 						}

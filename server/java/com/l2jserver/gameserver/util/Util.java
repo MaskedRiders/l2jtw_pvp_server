@@ -231,7 +231,7 @@ public final class Util
 		{
 			return false;
 		}
-		if (obj1.getInstanceId() != obj2.getInstanceId())
+		if (obj1.getInstantWorldId() != obj2.getInstantWorldId())
 		{
 			return false;
 		}

@@ -115,7 +115,7 @@ public final class Attack extends L2GameClientPacket
 		
 		// Players can't attack objects in the other instances
 		// except from multiverse
-		else if ((target.getInstanceId() != activeChar.getInstanceId()) && (activeChar.getInstanceId() != -1))
+		else if ((target.getInstantWorldId() != activeChar.getInstantWorldId()) && (activeChar.getInstantWorldId() != -1))
 		{
 			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 			return;

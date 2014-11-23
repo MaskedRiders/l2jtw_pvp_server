@@ -26,14 +26,14 @@ import java.util.Map.Entry;
 import quests.Q00195_SevenSignsSecretRitualOfThePriests.Q00195_SevenSignsSecretRitualOfThePriests;
 import ai.npc.AbstractNpcAI;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -46,7 +46,7 @@ import com.l2jserver.gameserver.network.serverpackets.NpcSay;
  */
 public final class SanctumOftheLordsOfDawn extends AbstractNpcAI
 {
-	protected static final class HSWorld extends InstanceWorld
+	protected static final class HSWorld extends InstantZone
 	{
 		protected long storeTime = 0;
 		protected int doorst = 0;
@@ -104,11 +104,11 @@ public final class SanctumOftheLordsOfDawn extends AbstractNpcAI
 		{
 			case "spawn":
 			{
-				InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
+				InstantZone tmpworld = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 				if (tmpworld instanceof HSWorld)
 				{
 					HSWorld world = (HSWorld) tmpworld;
-					Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+					InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 					inst.spawnGroup("high_priest_of_dawn");
 					player.sendPacket(SystemMessageId.SNEAK_INTO_DAWNS_DOCUMENT_STORAGE);
 				}
@@ -154,7 +154,7 @@ public final class SanctumOftheLordsOfDawn extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template, Location loc)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (world != null)
 		{
 			if (!(world instanceof HSWorld))
@@ -170,17 +170,17 @@ public final class SanctumOftheLordsOfDawn extends AbstractNpcAI
 		{
 			// New instance,
 			world = new HSWorld();
-			world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+			world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 			world.setTemplateId(TEMPLATE_ID);
 			world.setStatus(0);
 			((HSWorld) world).storeTime = System.currentTimeMillis();
-			InstanceManager.getInstance().addWorld(world);
+			InstantWorldManager.getInstance().addWorld(world);
 			_log.info("Sanctum of the Lords of Dawn started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 			// Teleport players.
 			teleportPlayer(player, loc, world.getInstanceId());
 			world.addAllowed(player.getObjectId());
 			final Map<Integer, List<L2Npc>> save_point = HSWorld.getMonsters();
-			final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+			final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 			save_point.put(0, inst.spawnGroup("save_point1"));
 			save_point.put(1, inst.spawnGroup("save_point2"));
 			save_point.put(2, inst.spawnGroup("save_point3"));
@@ -205,7 +205,7 @@ public final class SanctumOftheLordsOfDawn extends AbstractNpcAI
 			}
 			case IDENTITY_CONFIRM_DEVICE:
 			{
-				InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+				InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 				if (tmpworld instanceof HSWorld)
 				{
 					if (hasQuestItems(talker, IDENTITY_CARD) && (talker.getTransformationId() == 113))
@@ -243,7 +243,7 @@ public final class SanctumOftheLordsOfDawn extends AbstractNpcAI
 			}
 			case PASSWORD_ENTRY_DEVICE:
 			{
-				InstanceWorld tmworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+				InstantZone tmworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 				if (tmworld instanceof HSWorld)
 				{
 					HSWorld world = (HSWorld) tmworld;
@@ -254,15 +254,15 @@ public final class SanctumOftheLordsOfDawn extends AbstractNpcAI
 			}
 			case DARKNESS_OF_DAWN:
 			{
-				final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(talker);
+				final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(talker);
 				world.removeAllowed(talker.getObjectId());
 				talker.teleToLocation(EXIT, 0);
 				return "32579-01.html";
 			}
 			case SHELF:
 			{
-				InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-				InstanceManager.getInstance().getInstance(world.getInstanceId()).setDuration(300000);
+				InstantZone world = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
+				InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId()).setDuration(300000);
 				talker.teleToLocation(-75925, 213399, -7128);
 				return "32580-01.html";
 			}

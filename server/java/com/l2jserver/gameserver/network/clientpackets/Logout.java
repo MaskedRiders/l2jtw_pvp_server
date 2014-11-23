@@ -85,7 +85,7 @@ public final class Logout extends L2GameClientPacket
 			{
 				_log.fine("Player " + player.getName() + " tried to logout while fighting.");
 			}
-			
+			_log.warning("AttackStanceTaskManager.getInstance().hasAttackStanceTask(player)============TRUE===========");
 			player.sendPacket(SystemMessageId.CANT_LOGOUT_WHILE_FIGHTING);
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return;

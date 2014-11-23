@@ -25,16 +25,16 @@ import java.util.logging.Level;
 import com.l2jserver.Config;
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.ai.CtrlIntention;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -52,7 +52,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public abstract class Chamber extends Quest
 {
-	protected class CDWorld extends InstanceWorld
+	protected class CDWorld extends InstantZone
 	{
 		protected int currentRoom;
 		protected final L2Party partyInside;
@@ -73,7 +73,7 @@ public abstract class Chamber extends Quest
 		
 		protected void scheduleRoomChange(boolean bossRoom)
 		{
-			final Instance inst = InstanceManager.getInstance().getInstance(getInstanceId());
+			final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(getInstanceId());
 			final long nextInterval = bossRoom ? 60000L : (ROOM_CHANGE_INTERVAL + getRandom(ROOM_CHANGE_RANDOM_TIME)) * 1000L;
 			
 			// Schedule next room change only if remaining time is enough
@@ -98,7 +98,7 @@ public abstract class Chamber extends Quest
 			@Override
 			public void run()
 			{
-				final Instance inst = InstanceManager.getInstance().getInstance(getInstanceId());
+				final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(getInstanceId());
 				
 				if ((inst == null) || ((inst.getInstanceEndTime() - System.currentTimeMillis()) < 60000))
 				{
@@ -241,7 +241,7 @@ public abstract class Chamber extends Quest
 			
 			if (isBigChamber())
 			{
-				final long reentertime = InstanceManager.getInstance().getInstanceTime(partyMember.getObjectId(), INSTANCEID);
+				final long reentertime = InstantWorldManager.getInstance().getPlayerInstantWorldTime(partyMember.getObjectId(), INSTANCEID);
 				
 				if (System.currentTimeMillis() < reentertime)
 				{
@@ -256,7 +256,7 @@ public abstract class Chamber extends Quest
 		return true;
 	}
 	
-	private void markRestriction(InstanceWorld world)
+	private void markRestriction(InstantZone world)
 	{
 		if (world instanceof CDWorld)
 		{
@@ -269,14 +269,14 @@ public abstract class Chamber extends Quest
 				reenter.add(Calendar.DAY_OF_WEEK, 1);
 			}
 			final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.INSTANT_ZONE_S1_RESTRICTED);
-			sm.addString(InstanceManager.getInstance().getInstanceIdName(world.getTemplateId()));
+			sm.addString(InstantWorldManager.getInstance().getInstantWorldIdName(world.getTemplateId()));
 			// set instance reenter time for all allowed players
 			for (int objectId : world.getAllowed())
 			{
 				final L2PcInstance player = L2World.getInstance().getPlayer(objectId);
 				if ((player != null) && player.isOnline())
 				{
-					InstanceManager.getInstance().setInstanceTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
+					InstantWorldManager.getInstance().getPlayerInstantWorldTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
 					player.sendPacket(sm);
 				}
 			}
@@ -286,7 +286,7 @@ public abstract class Chamber extends Quest
 	protected void changeRoom(CDWorld world)
 	{
 		final L2Party party = world.getPartyInside();
-		final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+		final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 		
 		if ((party == null) || (inst == null))
 		{
@@ -323,7 +323,7 @@ public abstract class Chamber extends Quest
 		
 		for (L2PcInstance partyMember : party.getMembers())
 		{
-			if (world.getInstanceId() == partyMember.getInstanceId())
+			if (world.getInstanceId() == partyMember.getInstantWorldId())
 			{
 				partyMember.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 				partyMember.teleToLocation(ROOM_ENTER_POINTS[newRoom], true);
@@ -381,7 +381,7 @@ public abstract class Chamber extends Quest
 			// Save location for teleport back into main hall
 			st.set("return_point", Integer.toString(partyMember.getX()) + ";" + Integer.toString(partyMember.getY()) + ";" + Integer.toString(partyMember.getZ()));
 			
-			partyMember.setInstanceId(world.getInstanceId());
+			partyMember.setInstantWorldId(world.getInstanceId());
 			world.addAllowed(partyMember.getObjectId());
 		}
 		
@@ -399,7 +399,7 @@ public abstract class Chamber extends Quest
 		
 		for (L2PcInstance partyMember : party.getMembers())
 		{
-			if (world.getInstanceId() == partyMember.getInstanceId())
+			if (world.getInstanceId() == partyMember.getInstantWorldId())
 			{
 				partyMember.sendPacket(new Earthquake(partyMember.getX(), partyMember.getY(), partyMember.getZ(), 20, 10));
 			}
@@ -410,7 +410,7 @@ public abstract class Chamber extends Quest
 	{
 		int instanceId = 0;
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -430,12 +430,12 @@ public abstract class Chamber extends Quest
 			return 0;
 		}
 		final L2Party party = player.getParty();
-		instanceId = InstanceManager.getInstance().createDynamicInstance(INSTANCE_TEMPLATE);
+		instanceId = InstantWorldManager.getInstance().createInstantWorld(INSTANCE_TEMPLATE);
 		world = new CDWorld(party);
 		world.setInstanceId(instanceId);
 		world.setTemplateId(INSTANCEID);
 		world.setStatus(0);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Chamber Of Delusion started " + INSTANCE_TEMPLATE + " Instance: " + instanceId + " created by player: " + player.getName());
 		enter((CDWorld) world);
 		return instanceId;
@@ -443,11 +443,11 @@ public abstract class Chamber extends Quest
 	
 	protected void exitInstance(L2PcInstance player)
 	{
-		if ((player == null) || !player.isOnline() || (player.getInstanceId() == 0))
+		if ((player == null) || !player.isOnline() || (player.getInstantWorldId() == 0))
 		{
 			return;
 		}
-		final Instance inst = InstanceManager.getInstance().getInstance(player.getInstanceId());
+		final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(player.getInstantWorldId());
 		Location ret = inst.getSpawnLoc();
 		final QuestState st = player.getQuestState(getName());
 		
@@ -474,7 +474,7 @@ public abstract class Chamber extends Quest
 		}
 		
 		teleportPlayer(player, ret, 0);
-		final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (world != null)
 		{
 			world.removeAllowed((player.getObjectId()));
@@ -485,7 +485,7 @@ public abstract class Chamber extends Quest
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
 		String htmltext = "";
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 		
 		if ((player != null) && (tmpworld != null) && (tmpworld instanceof CDWorld) && (npc.getId() >= ROOM_GATEKEEPER_FIRST) && (npc.getId() <= ROOM_GATEKEEPER_LAST))
 		{
@@ -536,7 +536,7 @@ public abstract class Chamber extends Quest
 				}
 				else
 				{
-					final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+					final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 					
 					world.stopRoomChangeTask();
 					world.stopBanishTask();
@@ -620,11 +620,11 @@ public abstract class Chamber extends Quest
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
 	{
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
+		final InstantZone tmpworld = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if ((tmpworld != null) && (tmpworld instanceof CDWorld))
 		{
 			final CDWorld world = (CDWorld) tmpworld;
-			final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+			final InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(world.getInstanceId());
 			
 			if (isBigChamber())
 			{

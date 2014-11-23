@@ -369,7 +369,7 @@ public class MinionList
 		minion.setLeader(master);
 		
 		// move monster to masters instance
-		minion.setInstanceId(master.getInstanceId());
+		minion.setInstantWorldId(master.getInstantWorldId());
 		
 		// Init the position of the Minion and add it in the world as a visible object
 		final int offset = 200;

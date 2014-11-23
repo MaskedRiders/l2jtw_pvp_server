@@ -47,7 +47,7 @@ public class ObjectKnownList
 		}
 		
 		// Instance -1 is for GMs that can see everything on all instances
-		if ((getActiveObject().getInstanceId() != -1) && (object.getInstanceId() != getActiveObject().getInstanceId()))
+		if ((getActiveObject().getInstantWorldId() != -1) && (object.getInstantWorldId() != getActiveObject().getInstantWorldId()))
 		{
 			return false;
 		}

@@ -18,12 +18,12 @@
  */
 package instances.HideoutOfTheDawn;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.network.SystemMessageId;
 
@@ -33,7 +33,7 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  */
 public final class HideoutOfTheDawn extends Quest
 {
-	protected class HotDWorld extends InstanceWorld
+	protected class HotDWorld extends InstantZone
 	{
 		long storeTime = 0;
 	}
@@ -65,9 +65,9 @@ public final class HideoutOfTheDawn extends Quest
 			}
 			case JAINA:
 			{
-				final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(talker);
+				final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(talker);
 				world.removeAllowed(talker.getObjectId());
-				talker.setInstanceId(0);
+				talker.setInstantWorldId(0);
 				talker.teleToLocation(JAINA_LOC);
 				return "32617-01.htm";
 			}
@@ -78,7 +78,7 @@ public final class HideoutOfTheDawn extends Quest
 	protected int enterInstance(L2PcInstance player, String template, Location loc)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -93,11 +93,11 @@ public final class HideoutOfTheDawn extends Quest
 		}
 		// New instance
 		world = new HotDWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
 		world.setStatus(0);
 		((HotDWorld) world).storeTime = System.currentTimeMillis();
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Hideout of the Dawn started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 		// teleport players
 		teleportPlayer(player, loc, world.getInstanceId(), false);

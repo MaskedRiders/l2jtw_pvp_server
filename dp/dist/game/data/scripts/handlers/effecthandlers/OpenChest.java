@@ -53,7 +53,7 @@ public final class OpenChest extends AbstractEffect
 		
 		final L2PcInstance player = info.getEffector().getActingPlayer();
 		final L2ChestInstance chest = (L2ChestInstance) info.getEffected();
-		if (chest.isDead() || (player.getInstanceId() != chest.getInstanceId()))
+		if (chest.isDead() || (player.getInstantWorldId() != chest.getInstantWorldId()))
 		{
 			return;
 		}

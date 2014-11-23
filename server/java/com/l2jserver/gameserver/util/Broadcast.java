@@ -212,7 +212,7 @@ public final class Broadcast
 	{
 		for (L2PcInstance player : L2World.getInstance().getPlayers())
 		{
-			if (player.isOnline() && (player.getInstanceId() == instanceId))
+			if (player.isOnline() && (player.getInstantWorldId() == instanceId))
 			{
 				player.sendPacket(packet);
 			}

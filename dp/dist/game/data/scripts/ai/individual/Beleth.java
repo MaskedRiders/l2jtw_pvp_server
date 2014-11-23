@@ -120,7 +120,7 @@ public final class Beleth extends AbstractNpcAI
 			if (template != null)
 			{
 				L2Spawn spawn = new L2Spawn(template);
-				spawn.setInstanceId(loc.getInstanceId());
+				spawn.setInstantWorldId(loc.getInstantWorldId());
 				spawn.setLocation(loc);
 				spawn.setAmount(spawn.getAmount() + 1);
 				return spawn.doSpawn();
@@ -251,7 +251,7 @@ public final class Beleth extends AbstractNpcAI
 						{
 							int x = (int) ((150 * Math.cos(i * 1.046666667)) + 16323);
 							int y = (int) ((150 * Math.sin(i * 1.046666667)) + 213059);
-							L2Npc minion = spawn(29119, new Location(x, y, -9357, 49152, BELETH.getInstanceId()));
+							L2Npc minion = spawn(29119, new Location(x, y, -9357, 49152, BELETH.getInstantWorldId()));
 							minion.setShowSummonAnimation(true);
 							minion.decayMe();
 							MINIONS.add(minion);

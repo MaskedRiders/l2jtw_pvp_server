@@ -92,7 +92,7 @@ public final class TradeDone extends L2GameClientPacket
 				return;
 			}
 			
-			if ((player.getInstanceId() != trade.getPartner().getInstanceId()) && (player.getInstanceId() != -1))
+			if ((player.getInstantWorldId() != trade.getPartner().getInstantWorldId()) && (player.getInstantWorldId() != -1))
 			{
 				player.cancelActiveTrade();
 				return;

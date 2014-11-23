@@ -164,9 +164,9 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest
 				if (st.isCond(5))
 				{
 					isBusy = true;
-					final L2Npc creature1 = addSpawn(CREATURE_OF_THE_DUSK1, 89440, -238016, -9632, 335, false, 0, false, player.getInstanceId());
+					final L2Npc creature1 = addSpawn(CREATURE_OF_THE_DUSK1, 89440, -238016, -9632, 335, false, 0, false, player.getInstantWorldId());
 					creature1.setIsNoRndWalk(true);
-					final L2Npc creature2 = addSpawn(CREATURE_OF_THE_DUSK2, 89524, -238131, -9632, 56, false, 0, false, player.getInstanceId());
+					final L2Npc creature2 = addSpawn(CREATURE_OF_THE_DUSK2, 89524, -238131, -9632, 56, false, 0, false, player.getInstantWorldId());
 					creature2.setIsNoRndWalk(true);
 					ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
 					{

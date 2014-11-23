@@ -24,13 +24,13 @@ import java.util.Map;
 import javolution.util.FastList;
 import quests.Q00196_SevenSignsSealOfTheEmperor.Q00196_SevenSignsSealOfTheEmperor;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -45,7 +45,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public final class DisciplesNecropolisPast extends Quest
 {
-	protected class DNPWorld extends InstanceWorld
+	protected class DNPWorld extends InstantZone
 	{
 		protected final FastList<L2Npc> anakimGroup = new FastList<>();
 		protected final FastList<L2Npc> lilithGroup = new FastList<>();
@@ -180,7 +180,7 @@ public final class DisciplesNecropolisPast extends Quest
 	protected int enterInstance(L2PcInstance player, String template, Location loc)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -195,11 +195,11 @@ public final class DisciplesNecropolisPast extends Quest
 		}
 		// New instance
 		world = new DNPWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
 		world.setStatus(0);
 		((DNPWorld) world).storeTime = System.currentTimeMillis();
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Disciple's Necropolis Past started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 		// teleport players
 		teleportPlayer(player, loc, world.getInstanceId());
@@ -220,7 +220,7 @@ public final class DisciplesNecropolisPast extends Quest
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone tmpworld = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (tmpworld instanceof DNPWorld)
 		{
 			DNPWorld world = (DNPWorld) tmpworld;
@@ -372,7 +372,7 @@ public final class DisciplesNecropolisPast extends Quest
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone tmpworld = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (tmpworld instanceof DNPWorld)
 		{
 			if (npc.isScriptValue(0))
@@ -418,7 +418,7 @@ public final class DisciplesNecropolisPast extends Quest
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon)
 	{
-		InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone tmpworld = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (tmpworld instanceof DNPWorld)
 		{
 			DNPWorld world = (DNPWorld) tmpworld;
@@ -483,7 +483,7 @@ public final class DisciplesNecropolisPast extends Quest
 				if (qs.getCond() >= 3)
 				{
 					takeItems(talker, SACRED_SWORD_OF_EINHASAD, -1);
-					InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(talker);
+					InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(talker);
 					world.removeAllowed(talker.getObjectId());
 					talker.teleToLocation(EXIT, 0);
 					htmltext = "32587-01.html";
@@ -494,7 +494,7 @@ public final class DisciplesNecropolisPast extends Quest
 			{
 				if (qs.getCond() >= 3)
 				{
-					InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+					InstantZone tmpworld = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 					if (tmpworld instanceof DNPWorld)
 					{
 						DNPWorld world = (DNPWorld) tmpworld;

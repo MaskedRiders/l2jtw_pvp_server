@@ -38,7 +38,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import com.l2jserver.gameserver.model.entity.Castle;
 import com.l2jserver.gameserver.model.entity.ClanHall;
 import com.l2jserver.gameserver.model.entity.Fort;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.model.entity.clanhall.SiegableHall;
 import com.l2jserver.gameserver.model.zone.type.L2ClanHallZone;
 import com.l2jserver.gameserver.model.zone.type.L2RespawnZone;
@@ -542,9 +542,9 @@ public final class MapRegionManager extends DocumentParser
 			}
 			
 			// Checking if in an instance
-			if (player.getInstanceId() > 0)
+			if (player.getInstantWorldId() > 0)
 			{
-				Instance inst = InstanceManager.getInstance().getInstance(player.getInstanceId());
+				InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(player.getInstantWorldId());
 				if (inst != null)
 				{
 					loc = inst.getSpawnLoc();

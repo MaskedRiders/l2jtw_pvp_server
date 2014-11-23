@@ -113,7 +113,7 @@ public final class DemonPrince extends AbstractNpcAI
 	{
 		if ((master != null) && !master.isDead())
 		{
-			final int instanceId = master.getInstanceId();
+			final int instanceId = master.getInstantWorldId();
 			final int x = master.getX();
 			final int y = master.getY();
 			final int z = master.getZ();

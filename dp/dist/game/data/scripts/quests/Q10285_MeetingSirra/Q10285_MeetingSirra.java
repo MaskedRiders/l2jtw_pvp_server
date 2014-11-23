@@ -20,11 +20,11 @@ package quests.Q10285_MeetingSirra;
 
 import quests.Q10284_AcquisitionOfDivineSword.Q10284_AcquisitionOfDivineSword;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -104,7 +104,7 @@ public final class Q10285_MeetingSirra extends Quest
 			{
 				if (st.isMemoState(1) && (st.getInt("ex") == 2))
 				{
-					final L2Npc sirra = addSpawn(SIRRA, -23905, -8790, -5384, 56238, false, 0, false, npc.getInstanceId());
+					final L2Npc sirra = addSpawn(SIRRA, -23905, -8790, -5384, 56238, false, 0, false, npc.getInstantWorldId());
 					sirra.broadcastPacket(new NpcSay(sirra.getObjectId(), Say2.NPC_ALL, sirra.getId(), NpcStringId.THERES_NOTHING_YOU_CANT_SAY_I_CANT_LISTEN_TO_YOU_ANYMORE));
 					st.set("ex", 3);
 					st.setCond(5, true);
@@ -138,9 +138,9 @@ public final class Q10285_MeetingSirra extends Quest
 				{
 					st.unset("ex");
 					st.setMemoState(2);
-					final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+					final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 					world.removeAllowed(player.getObjectId());
-					player.setInstanceId(0);
+					player.setInstantWorldId(0);
 					htmltext = event;
 				}
 				break;

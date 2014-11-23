@@ -23,11 +23,11 @@ import quests.Q10293_SevenSignsForbiddenBookOfTheElmoreAdenKingdom.Q10293_SevenS
 import quests.Q10294_SevenSignsToTheMonasteryOfSilence.Q10294_SevenSignsToTheMonasteryOfSilence;
 import ai.npc.AbstractNpcAI;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.SystemMessageId;
 
@@ -37,7 +37,7 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  */
 public final class ElcadiasTent extends AbstractNpcAI
 {
-	protected class ETWorld extends InstanceWorld
+	protected class ETWorld extends InstantZone
 	{
 		
 	}
@@ -80,9 +80,9 @@ public final class ElcadiasTent extends AbstractNpcAI
 		}
 		else
 		{
-			final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(talker);
+			final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(talker);
 			world.removeAllowed(talker.getObjectId());
-			talker.setInstanceId(0);
+			talker.setInstantWorldId(0);
 			talker.teleToLocation(EXIT_LOC);
 		}
 		return super.onTalk(npc, talker);
@@ -90,7 +90,7 @@ public final class ElcadiasTent extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template, Location loc)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		if (world != null)
 		{
 			if (!(world instanceof ETWorld))
@@ -106,10 +106,10 @@ public final class ElcadiasTent extends AbstractNpcAI
 		{
 			// New instance.
 			world = new ETWorld();
-			world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+			world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 			world.setTemplateId(TEMPLATE_ID);
 			world.setStatus(0);
-			InstanceManager.getInstance().addWorld(world);
+			InstantWorldManager.getInstance().addWorld(world);
 			_log.info("Elcadia's Tent started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 			// Teleport players.
 			teleportPlayer(player, loc, world.getInstanceId(), false);

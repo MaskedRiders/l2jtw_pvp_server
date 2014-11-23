@@ -749,7 +749,7 @@ public class L2Npc extends L2Character
 		{
 			return false;
 		}
-		if ((player.getInstanceId() != getInstanceId()) && (player.getInstanceId() != -1))
+		if ((player.getInstantWorldId() != getInstantWorldId()) && (player.getInstantWorldId() != -1))
 		{
 			return false;
 		}

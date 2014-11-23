@@ -432,7 +432,10 @@ public class L2VillageMasterInstance extends L2NpcInstance
 						final StringBuilder content2 = StringUtil.startAppend(200);
 						if (checkVillageMaster(player.getBaseClass()))
 						{
-							StringUtil.append(content2, "<a action=\"bypass -h npc_%objectId%_Subclass 5 0\">", ClassListData.getInstance().getClass(player.getBaseClass()).getClientCode(), "</a><br>");
+							StringUtil.append(content2,
+									"<a action=\"bypass -h npc_%objectId%_Subclass 5 0\">",
+									ClassListData.getInstance().getJPClassNameById(player.getBaseClass()),
+									"</a><br>");
 						}
 						
 						for (Iterator<SubClass> subList = iterSubClasses(player); subList.hasNext();)
@@ -476,7 +479,14 @@ public class L2VillageMasterInstance extends L2NpcInstance
 							/* MessageTable
 							StringUtil.append(content3, "Sub-class ", String.valueOf(classIndex++), "<br>", "<a action=\"bypass -h npc_%objectId%_Subclass 6 ", String.valueOf(subClass.getClassIndex()), "\">", ClassListData.getInstance().getClass(subClass.getClassId()).getClientCode(), "</a><br>");
 							 */
-							StringUtil.append(content3, MessageTable.Messages[759].getMessage(), String.valueOf(classIndex++), "<br>", "<a action=\"bypass -h npc_%objectId%_Subclass 6 ", String.valueOf(subClass.getClassIndex()), "\">", ClassListData.getInstance().getClass(subClass.getClassId()).getClientCode(), "</a><br>");
+							StringUtil.append(content3,
+									MessageTable.Messages[759].getMessage(),
+									String.valueOf(classIndex++),
+									"<br>",
+									"<a action=\"bypass -h npc_%objectId%_Subclass 6 ",
+									String.valueOf(subClass.getClassIndex()), "\">",
+									ClassListData.getInstance().getJPClassNameById(subClass.getClassId()),
+									"</a><br>");
 						}
 						html.replace("%list%", content3.toString());
 					}

@@ -20,11 +20,11 @@ package instances.JiniaGuildHideout1;
 
 import quests.Q10284_AcquisitionOfDivineSword.Q10284_AcquisitionOfDivineSword;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -35,7 +35,7 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  */
 public final class JiniaGuildHideout1 extends Quest
 {
-	protected class JGH1World extends InstanceWorld
+	protected class JGH1World extends InstantZone
 	{
 		long storeTime = 0;
 	}
@@ -68,7 +68,7 @@ public final class JiniaGuildHideout1 extends Quest
 	protected void enterInstance(L2PcInstance player, String template)
 	{
 		// check for existing instances for this player
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		// existing instance
 		if (world != null)
 		{
@@ -82,11 +82,11 @@ public final class JiniaGuildHideout1 extends Quest
 		}
 		// New instance
 		world = new JGH1World();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(INSTANCEID);
 		world.setStatus(0);
 		((JGH1World) world).storeTime = System.currentTimeMillis();
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		_log.info("Jinia Guild Hideout started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
 		// teleport players
 		teleportPlayer(player, START_LOC, world.getInstanceId(), false);

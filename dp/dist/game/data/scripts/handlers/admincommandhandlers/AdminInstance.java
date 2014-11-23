@@ -21,11 +21,11 @@ package handlers.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import com.l2jserver.gameserver.handler.IAdminCommandHandler;
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Summon;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
 import com.l2jserver.gameserver.datatables.MessageTable;
 
 /**
@@ -62,7 +62,7 @@ public class AdminInstance implements IAdminCommandHandler
 				try
 				{
 					final int id = Integer.parseInt(parts[1]);
-					if ((id < 300000) && InstanceManager.getInstance().createInstanceFromTemplate(id, parts[2]))
+					if ((id < 300000) && InstantWorldManager.getInstance().createInstantWorldFromTemplate(id, parts[2]))
 					{
 						/* MessageTable.Messages[1691]
 						activeChar.sendMessage("Instance created.");
@@ -87,7 +87,7 @@ public class AdminInstance implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_listinstances"))
 		{
-			for (Instance temp : InstanceManager.getInstance().getInstances().values())
+			for (InstantWorld temp : InstantWorldManager.getInstance().getInstantWorlds().values())
 			{
 				/* MessageTable
 				activeChar.sendMessage("Id: " + temp.getId() + " Name: " + temp.getName());
@@ -100,7 +100,7 @@ public class AdminInstance implements IAdminCommandHandler
 			try
 			{
 				int val = Integer.parseInt(st.nextToken());
-				if (InstanceManager.getInstance().getInstance(val) == null)
+				if (InstantWorldManager.getInstance().getInstantWorld(val) == null)
 				{
 					/* MessageTable
 					activeChar.sendMessage("Instance " + val + " doesnt exist.");
@@ -118,7 +118,7 @@ public class AdminInstance implements IAdminCommandHandler
 					activeChar.sendMessage(1695);
 					return false;
 				}
-				target.setInstanceId(val);
+				target.setInstantWorldId(val);
 				if (target instanceof L2PcInstance)
 				{
 					L2PcInstance player = (L2PcInstance) target;
@@ -129,9 +129,9 @@ public class AdminInstance implements IAdminCommandHandler
 					player.teleToLocation(player.getLocation());
 				}
 				/* MessageTable
-				activeChar.sendMessage("Moved " + target.getName() + " to instance " + target.getInstanceId() + ".");
+				activeChar.sendMessage("Moved " + target.getName() + " to instance " + target.getInstantWorldId() + ".");
 				 */
-				activeChar.sendMessage(MessageTable.Messages[1698].getExtra(1) + target.getName() + MessageTable.Messages[1698].getExtra(2) + target.getInstanceId() + MessageTable.Messages[1698].getExtra(3));
+				activeChar.sendMessage(MessageTable.Messages[1698].getExtra(1) + target.getName() + MessageTable.Messages[1698].getExtra(2) + target.getInstantWorldId() + MessageTable.Messages[1698].getExtra(3));
 				return true;
 			}
 			catch (Exception e)
@@ -144,7 +144,7 @@ public class AdminInstance implements IAdminCommandHandler
 			try
 			{
 				int val = Integer.parseInt(st.nextToken());
-				InstanceManager.getInstance().destroyInstance(val);
+				InstantWorldManager.getInstance().destroyInstantWorld(val);
 				/* MessageTable.Messages[1699]
 				activeChar.sendMessage("Instance destroyed");
 				 */

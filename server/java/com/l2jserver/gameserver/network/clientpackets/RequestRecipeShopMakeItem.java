@@ -64,7 +64,7 @@ public final class RequestRecipeShopMakeItem extends L2GameClientPacket
 			return;
 		}
 		
-		if ((manufacturer.getInstanceId() != activeChar.getInstanceId()) && (activeChar.getInstanceId() != -1))
+		if ((manufacturer.getInstantWorldId() != activeChar.getInstantWorldId()) && (activeChar.getInstantWorldId() != -1))
 		{
 			return;
 		}

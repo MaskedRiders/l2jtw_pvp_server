@@ -22,14 +22,14 @@ import java.util.Calendar;
 
 import ai.npc.AbstractNpcAI;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Instance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.entity.InstantWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Util;
@@ -40,7 +40,7 @@ import com.l2jserver.gameserver.util.Util;
  */
 public final class RankuFloor extends AbstractNpcAI
 {
-	protected class RFWorld extends InstanceWorld
+	protected class RFWorld extends InstantZone
 	{
 		
 	}
@@ -84,7 +84,7 @@ public final class RankuFloor extends AbstractNpcAI
 		}
 		else if (npc.getId() == CUBE)
 		{
-			final InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+			final InstantZone world = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 			if (world instanceof RFWorld)
 			{
 				world.removeAllowed(player.getObjectId());
@@ -97,11 +97,11 @@ public final class RankuFloor extends AbstractNpcAI
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon)
 	{
-		int instanceId = npc.getInstanceId();
+		int instanceId = npc.getInstantWorldId();
 		if (instanceId > 0)
 		{
-			Instance inst = InstanceManager.getInstance().getInstance(instanceId);
-			InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+			InstantWorld inst = InstantWorldManager.getInstance().getInstantWorld(instanceId);
+			InstantZone world = InstantWorldManager.getInstance().getWorld(npc.getInstantWorldId());
 			inst.setSpawnLoc(EXIT_POINT);
 			
 			// Terminate instance in 10 min
@@ -169,7 +169,7 @@ public final class RankuFloor extends AbstractNpcAI
 				return false;
 			}
 			
-			if (InstanceManager.getInstance().getPlayerWorld(player) != null)
+			if (InstantWorldManager.getInstance().getPlayerInstantWorld(player) != null)
 			{
 				final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.ALREADY_ENTERED_ANOTHER_INSTANCE_CANT_ENTER);
 				sm.addPcName(partyMember);
@@ -177,7 +177,7 @@ public final class RankuFloor extends AbstractNpcAI
 				return false;
 			}
 			
-			final Long reenterTime = InstanceManager.getInstance().getInstanceTime(partyMember.getObjectId(), TEMPLATE_ID);
+			final Long reenterTime = InstantWorldManager.getInstance().getPlayerInstantWorldTime(partyMember.getObjectId(), TEMPLATE_ID);
 			if (System.currentTimeMillis() < reenterTime)
 			{
 				final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.C1_MAY_NOT_REENTER_YET);
@@ -199,7 +199,7 @@ public final class RankuFloor extends AbstractNpcAI
 	
 	private void enterInstance(L2PcInstance player, String template)
 	{
-		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+		InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 		
 		if (world != null)
 		{
@@ -218,11 +218,11 @@ public final class RankuFloor extends AbstractNpcAI
 		}
 		
 		world = new RFWorld();
-		world.setInstanceId(InstanceManager.getInstance().createDynamicInstance(template));
+		world.setInstanceId(InstantWorldManager.getInstance().createInstantWorld(template));
 		world.setTemplateId(TEMPLATE_ID);
 		world.addAllowed(player.getObjectId());
 		world.setStatus(0);
-		InstanceManager.getInstance().addWorld(world);
+		InstantWorldManager.getInstance().addWorld(world);
 		teleportPlayer(player, ENTRY_POINT, world.getInstanceId());
 		
 		_log.info("Tower of Infinitum - Ranku floor started " + template + " Instance: " + world.getInstanceId() + " created by player: " + player.getName());
@@ -235,7 +235,7 @@ public final class RankuFloor extends AbstractNpcAI
 		}
 	}
 	
-	public void setReenterTime(InstanceWorld world)
+	public void setReenterTime(InstantZone world)
 	{
 		if (world instanceof RFWorld)
 		{
@@ -268,7 +268,7 @@ public final class RankuFloor extends AbstractNpcAI
 				L2PcInstance player = L2World.getInstance().getPlayer(objectId);
 				if ((player != null) && player.isOnline())
 				{
-					InstanceManager.getInstance().setInstanceTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
+					InstantWorldManager.getInstance().getPlayerInstantWorldTime(objectId, world.getTemplateId(), reenter.getTimeInMillis());
 					player.sendPacket(sm);
 				}
 			}

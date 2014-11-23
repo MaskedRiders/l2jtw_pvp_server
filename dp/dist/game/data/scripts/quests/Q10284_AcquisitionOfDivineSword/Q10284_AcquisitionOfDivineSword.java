@@ -20,11 +20,11 @@ package quests.Q10284_AcquisitionOfDivineSword;
 
 import quests.Q10283_RequestOfIceMerchant.Q10283_RequestOfIceMerchant;
 
-import com.l2jserver.gameserver.instancemanager.InstanceManager;
+import com.l2jserver.gameserver.instancemanager.InstantWorldManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
+import com.l2jserver.gameserver.model.instantzone.InstantZone;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -167,9 +167,9 @@ public final class Q10284_AcquisitionOfDivineSword extends Quest
 					st.unset("ex3");
 					st.setCond(3, true);
 					st.setMemoState(2);
-					final InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
+					final InstantZone world = InstantWorldManager.getInstance().getPlayerInstantWorld(player);
 					world.removeAllowed(player.getObjectId());
-					player.setInstanceId(0);
+					player.setInstantWorldId(0);
 					htmltext = event;
 				}
 				break;

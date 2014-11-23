@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="pattern" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+              <xs:element name="tvtEvent" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TvTEventInstanceFile" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventParticipationNpcId" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventParticipationFee" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventParticipationNpcCoordinates" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventReward" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTDoorsToOpen" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTDoorsToClose" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token"/></xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tvtEventTeam" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TvTEventTeam1Name" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventTeam1Coordinates" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventTeam2Name" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventTeam2Coordinates" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tvtManager" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TvTEventParticipationTime" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventMeetingTime" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                    <xs:element name="TvTEventRunningTime" minOccurs="1" maxOccurs="1">
+                      <xs:complexType><xs:attribute name="value" type="xs:token" use="required"/></xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+            <xs:attribute name="value" type="xs:token" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
