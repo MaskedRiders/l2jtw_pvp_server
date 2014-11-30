@@ -3,7 +3,7 @@
 	<xs:element name="pcSafeFallHeight">
 		<xs:complexType>
 			<xs:sequence minOccurs="1" maxOccurs="1">
-				<xs:element name="safeFallHeight" minOccurs="1" maxOccurs="20">
+				<xs:element name="safeFallHeight" minOccurs="1" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -19,6 +19,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>

@@ -3,7 +3,7 @@
 	<xs:element name="pcBaseStats">
 		<xs:complexType>
 			<xs:sequence minOccurs="1" maxOccurs="1">
-				<xs:element name="basePatk" minOccurs="20" maxOccurs="20">
+				<xs:element name="basePatk" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -19,6 +19,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -33,7 +35,7 @@
 						<xs:attribute name="val" type="xs:positiveInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseRcrit" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseRcrit" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -49,6 +51,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -63,7 +67,7 @@
 						<xs:attribute name="val" type="xs:positiveInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseAtkType" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseAtkType" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -79,6 +83,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -99,7 +105,7 @@
 						</xs:attribute>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseAtkSpd" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseAtkSpd" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -115,6 +121,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -129,7 +137,7 @@
 						<xs:attribute name="val" type="xs:positiveInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="basePdef" minOccurs="20" maxOccurs="20">
+				<xs:element name="basePdef" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="chest" type="xs:positiveInteger" use="required" />
 						<xs:attribute name="classId" use="required">
@@ -146,6 +154,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -165,7 +175,7 @@
 						<xs:attribute name="underwear" type="xs:positiveInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseMatk" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseMatk" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -181,6 +191,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -195,7 +207,7 @@
 						<xs:attribute name="val" type="xs:positiveInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseMdef" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseMdef" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -211,6 +223,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -229,7 +243,7 @@
 						</xs:attribute>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseCanPenetrate" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseCanPenetrate" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -245,6 +259,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -259,7 +275,7 @@
 						<xs:attribute name="val" type="xs:nonNegativeInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseAtkRange" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseAtkRange" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -275,6 +291,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -289,7 +307,7 @@
 						<xs:attribute name="val" type="xs:positiveInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseDamRange" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseDamRange" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -305,6 +323,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
@@ -336,7 +356,7 @@
 						<xs:attribute name="width" type="xs:positiveInteger" use="required" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="baseRndDam" minOccurs="20" maxOccurs="20">
+				<xs:element name="baseRndDam" minOccurs="20" maxOccurs="26">
 					<xs:complexType>
 						<xs:attribute name="classId" use="required">
 							<xs:simpleType>
@@ -352,6 +372,8 @@
 									<xs:enumeration value="53" />
 									<xs:enumeration value="123" />
 									<xs:enumeration value="124" />
+									<xs:enumeration value="182" />
+									<xs:enumeration value="183" />
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>

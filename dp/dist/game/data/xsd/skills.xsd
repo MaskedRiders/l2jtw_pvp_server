@@ -198,7 +198,7 @@
 																	<xs:complexType>
 																		<xs:simpleContent>
 																			<xs:extension base="xs:string">
-																				<xs:attribute type="xs:short" name="active_effect_id" />
+																				<xs:attribute type="xs:short" name="active_effect_id" use="optional" />
 																			</xs:extension>
 																		</xs:simpleContent>
 																	</xs:complexType>
@@ -229,6 +229,7 @@
 																	<xs:attribute type="xs:byte" name="souls" use="optional" />
 																	<xs:attribute type="xs:string" name="insideZoneId" use="optional" />
 																	<xs:attribute type="xs:byte" name="transformationId" use="optional" />
+																	<xs:attribute type="xs:short" name="active_effect_id" use="optional" />
 																</xs:extension>
 															</xs:simpleContent>
 														</xs:complexType>

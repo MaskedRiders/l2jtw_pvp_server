@@ -18,12 +18,12 @@
 	<safeFallHeight classId="49" sex="male" val="250" /> <!-- Male Orc Mystic -->
 	<safeFallHeight classId="53" sex="female" val="200" /> <!-- Female Dwarven Fighter -->
 	<safeFallHeight classId="53" sex="male" val="180" /> <!-- Male Dwarven Fighter -->
-	<safeFallHeight classId="124" sex="female" val="500" /> <!-- Female Soldier -->
-	<safeFallHeight classId="124" sex="male" val="500" /> <!-- Female Soldier --> <!-- l2jtw : 603 -->
-	<safeFallHeight classId="123" sex="female" val="500" /> <!-- Male Male Soldier --> <!-- l2jtw : 603 -->
+	<safeFallHeight classId="123" sex="female" val="500" /> <!-- female Male Soldier --> <!-- l2jtw : 603 -->
 	<safeFallHeight classId="123" sex="male" val="500" /> <!-- Male Male Soldier -->
+	<safeFallHeight classId="124" sex="female" val="500" /> <!-- Female Soldier -->
+	<safeFallHeight classId="124" sex="male" val="500" /> <!-- Male Soldier --> <!-- l2jtw : 603 -->
 	<safeFallHeight classId="182" sex="female" val="700" /> <!-- Female Ertheia --> <!-- l2jtw : 603 -->
-	<safeFallHeight classId="182" sex="female" val="700" /> <!-- Male Ertheia --> <!-- l2jtw : 603 -->
+	<safeFallHeight classId="182" sex="male" val="700" /> <!-- Male Ertheia --> <!-- l2jtw : 603 -->
 	<safeFallHeight classId="183" sex="female" val="700" /> <!-- Female Ertheia --> <!-- l2jtw : 603 -->
-	<safeFallHeight classId="183" sex="female" val="700" /> <!-- Male Ertheia --> <!-- l2jtw : 603 -->
+	<safeFallHeight classId="183" sex="male" val="700" /> <!-- Male Ertheia --> <!-- l2jtw : 603 -->
 </pcSafeFallHeight>

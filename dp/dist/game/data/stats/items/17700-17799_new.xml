@@ -175,7 +175,6 @@
 		<set name="material" val="WOOD" />
 		<set name="weight" val="10" />
 		<cond msgId="1518">
-			<player sex="1" />
 			<and>
 				<player races="ELF" />
 				<player sex="1" />
