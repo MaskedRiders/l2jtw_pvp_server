@@ -76,117 +76,158 @@ public final class Skill implements IChanceSkillTrigger, IIdentifiable
 	
 	private static final L2Object[] EMPTY_TARGET_LIST = new L2Object[0];
 	
-	/** Skill ID. */
+	
+	/** スキルID */
 	private final int _id;
-	/** Skill level. */
+	/** スキルレベル */
 	private final int _level;
-	/** Custom skill ID displayed by the client. */
+	/** カスタムスキルID（クライアント表示上のスキルID） */
 	private final int _displayId;
-	/** Custom skill level displayed by the client. */
+	/** カスタムレベル（クライアント表示上のスキルレベル） */
 	private final int _displayLevel;
-	/** Skill client's name. */
-	/* By ShanSoft
-	private final String _name;
-	 */
+	/** スキル名 */
 	private String _name;
-	/** Operative type: passive, active, toggle. */
+	/** 動作タイプ（Operative type）: パッシブ（passive）, アクティブ（active）, トグル（toggle）*/
 	private final SkillOperateType _operateType;
 	private final int _magic;
 	private final TraitType _traitType;
 	private final boolean _staticReuse;
-	/** MP consumption. */
+	/** MP 消費 */
 	private final int _mpConsume;
-	/** Initial MP consumption. */
+	/** 発動時MP消費 */
 	private final int _mpInitialConsume;
-	/** MP consumption per channeling. */
+	/** 発動中MP消費 */
 	private final int _mpPerChanneling;
-	/** HP consumption. */
+	/** HP 消費 */
 	private final int _hpConsume;
-	/** Amount of items consumed by this skill from caster. */
+	/** アイテム消費数 */
 	private final int _itemConsumeCount;
-	/** Id of item consumed by this skill from caster. */
+	/** アイテム消費アイテムID */
 	private final int _itemConsumeId;
-	/** Cast range: how far can be the target. */
+	/** ターゲット範囲 */
 	private final int _castRange;
-	/** Effect range: how far the skill affect the target. */
+	/** 効果の発現する範囲 */
 	private final int _effectRange;
-	/** Abnormal instant, used for herbs mostly. */
+	/** ハーブのデバフ */
 	private final boolean _isAbnormalInstant;
-	/** Abnormal level, global effect level. */
+	/** デバフレベル */
 	private final int _abnormalLvl;
-	/** Abnormal type: global effect "group". */
+	/** デバフ タイプ */
 	private final AbnormalType _abnormalType;
-	/** Abnormal time: global effect duration time. */
+	/** デバフ 顕在時間 */
 	private final int _abnormalTime;
-	/** Abnormal visual effect: the visual effect displayed ingame. */
+	/** デバフ表示エフェクト */
 	private AbnormalVisualEffect[] _abnormalVisualEffects = null;
-	/** Abnormal visual effect special: the visual effect displayed ingame. */
+	/** デバフ表示スペシャルエフェクト*/
 	private AbnormalVisualEffect[] _abnormalVisualEffectsSpecial = null;
-	/** Abnormal visual effect event: the visual effect displayed ingame. */
+	/** デバフ表示イベントエフェクト */
 	private AbnormalVisualEffect[] _abnormalVisualEffectsEvent = null;
-	/** If {@code true} this skill's effect should stay after death. */
+	/** 死後に発動するスキルフラグ */
 	private final boolean _stayAfterDeath;
-	/** If {@code true} this skill's effect should stay after class-subclass change. */
+	/** サブクラス変更後に発動するスキルフラグ */
 	private final boolean _stayOnSubclassChange;
-	/** If {@code true} this skill's effect recovery HP/MP or CP from herb. */
+	/** ハーブでのＨＰ・ＭＰ・ＣＰの回復フラグ */
 	private final boolean _isRecoveryHerb;
 	
+	// 今のところ使用されているスキル無し
 	private final int _refId;
-	// all times in milliseconds
+	// Hitタイムミリ秒
 	private final int _hitTime;
-	// private final int _skillInterruptTime;
+	// クールタイムミリ秒
 	private final int _coolTime;
+	
+	// 再利用ハッシュリストキー（スキルIDとスキルレベルを利用して生成されるキー。ハッシュにてスキルスタックのハッシュリストとかを高速で動作させる為に用いたりしている）
 	private final int _reuseHashCode;
+	// 再利用ディレイミリ秒
 	private final int _reuseDelay;
 	
 	/** Target type of the skill : SELF, PARTY, CLAN, PET... */
+	// ターゲットタイプ
 	private final L2TargetType _targetType;
+	// 腹持ち（ウルフのえさとか）
 	private final int _feed;
 	// base success chance
+	// パワー、スキルによって使われ方は色々
 	private final double _power;
+	// PvP時のパワー、スキルによって使われ方は色々_pvePowerと対になる。
 	private final double _pvpPower;
+	// MOB戦闘時のパワー、スキルによって使われ方は色々_pvpPowerと対になる。
 	private final double _pvePower;
+	// 魔法レベル
 	private final int _magicLevel;
+	// レベルボーナスレート１で*=１％の上昇（おそらくFormulasクラスを直したほうがいいレベルで変な使われ方をしている
 	private final int _lvlBonusRate;
+	// 成功確立
 	private final int _activateRate;
+	// 最終的な最低成功確立 特に記載が無い場合はConfig.MIN_ABNORMAL_STATE_SUCCESS_RATEが設定され、すべての成功レート計算が終わった後、当項目を下回る時は、当項目を成功レートに置き換える
 	private final int _minChance;
+	// 最終的な最高成功確立 特に記載が無い場合はConfig.MAX_ABNORMAL_STATE_SUCCESS_RATEが設定され、すべての成功レート計算が終わった後、当項目を上回る時は、当項目を成功レートに置き換える
 	private final int _maxChance;
+	// 短剣スキルの成功確立
 	private final int _blowChance;
 	
 	// Effecting area of the skill, in radius.
 	// The radius center varies according to the _targetType:
 	// "caster" if targetType = AURA/PARTY/CLAN or "target" if targetType = AREA
+	// 影響範囲（槍とかパアグリオ系とか）
 	private final int _affectRange;
+	// 影響数
 	private final int[] _affectLimit = new int[2];
-	
+	// スキル後に攻撃するフラグ
 	private final boolean _nextActionIsAttack;
-	
+	// 移動以外の行動をすると解除されるフラグ
 	private final boolean _removedOnAnyActionExceptMove;
+	// ダメージを受けると解除
 	private final boolean _removedOnDamage;
-	
+	// オリンピアードで使用不可フラグ
 	private final boolean _blockedInOlympiad;
 	
+	// 属性 
+	/*
+		0 Fire 
+		1 Water
+		2 Wind 
+		3 Earth
+		5 Dark 
+		4 Holy 
+	*/
 	private final byte _element;
+	// 属性値
 	private final int _elementPower;
-	
+	// 影響する基礎ステータスCONかMENかみたいな
 	private final BaseStats _basicProperty;
-	
+	// オーバーヒットするフラグ
 	private final boolean _overhit;
-	
+
+	// サーバー内での格（ノーブレスとか英雄とか。例えばアカマナフやザリチェを持ったときに２が付与され、５：ノーブレス、８：英雄のスキルが使えなくなる。
 	private final int _minPledgeClass;
+	// 消費する気（フォース メディテーション等
 	private final int _chargeConsume;
+
+	// トリガー発動スキルのスキルID
 	private final int _triggeredId;
+	// トリガー発動スキルのスキルレベル
 	private final int _triggeredLevel;
+	// トリガー発動スキルのトリガータイプ
 	private final String _chanceType;
+
+	//消費する魂（カマエルスキル等
 	private final int _soulMaxConsume;
 	
+	// ヒーロースキルフラグ
 	private final boolean _isHeroSkill; // If true the skill is a Hero Skill
+	// ＧＭスキルフラグ
 	private final boolean _isGMSkill; // True if skill is GM skill
+	// セブンサインフラグ
 	private final boolean _isSevenSigns;
 	
+	// クリティカル発生確率
 	private final int _baseCritRate; // percent of success for skill critical hit (especially for PhysicalAttack & Blow - they're not affected by rCrit values or buffs).
+	// ダイレクトHPダメージフラグ
 	private final boolean _directHpDmg; // If true then damage is being make directly
+	// トリガー枠使用フラグ
 	private final boolean _isTriggeredSkill; // If true the skill will take activation buff slot instead of a normal buff slot
+	// スキル使用によるヘイト発生値
 	private final int _effectPoint;
 	// Condition lists
 	private List<Condition> _preCondition;
@@ -194,30 +235,44 @@ public final class Skill implements IChanceSkillTrigger, IIdentifiable
 	// Function lists
 	private List<FuncTemplate> _funcTemplates;
 	
+	// エフェクトリスト
 	private final Map<EffectScope, List<AbstractEffect>> _effectLists = new EnumMap<>(EffectScope.class);
 	
 	protected ChanceCondition _chanceCondition = null;
 	
 	// Flying support
+	// フィールドでの移動状態（スローとか突進とか）
 	private final FlyType _flyType;
+	// フィールドでの移動状態変更スキルの影響範囲
 	private final int _flyRadius;
+	// フィールドでの移動後の移動距離（突進が当たった後、さらに先に進む時に入力）
 	private final float _flyCourse;
 	
+	// デバフフラグ
 	private final boolean _isDebuff;
 	
+	// ほぼ使われていない
 	private final String _attribute;
 	
+	// シールド無効フラグ
 	private final boolean _ignoreShield;
 	
+	// 自殺スキルフラグ
 	private final boolean _isSuicideAttack;
+	// 解除可能フラグ（デフォルトはTrueなので注意）
 	private final boolean _canBeDispeled;
 	
+	// クランスキルフラグ
 	private final boolean _isClanSkill;
+	// 実施できるかチェックフラグ？
 	private final boolean _excludedFromCheck;
+	// 同時キャストフラグ？
 	private final boolean _simultaneousCast;
 	
+	// カプセル化アイテムスキル？
 	private L2ExtractableSkill _extractableItems = null;
 	
+	// アイコン
 	private final String _icon;
 	
 	private volatile Byte[] _effectTypes;
